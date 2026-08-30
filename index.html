@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ctrl+Z al Phishing</title>
+<meta name="description" content="Cuatro simuladores interactivos de phishing, smishing, vishing y exposicion de datos para la comunidad universitaria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Ctrl+Z al Phishing</a>
+    <div class="nav-links">
+      <a href="#jugar" class="active">Jugar</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#ayuda">Ayuda real</a>
+    </div>
+    <a href="#jugar" class="nav-cta">Jugar →</a>
+  </div>
+</nav>
+<div id="top"></div>
+<div class="hero grid-floor">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow-chip">🎓 UNAM · Diplomado en Ciberseguridad</div>
+      <h1 class="title">Antes de dar clic,<br><span class="hl">presiona pausa.</span></h1>
+      <p class="tagline">Cuatro simuladores con casos reales de la vida universitaria y laboral. Elige uno, juégalo, y descubre qué tan expuesta está tu información — antes de que el clic ya no tenga vuelta atrás.</p>
+      <div class="keys-row"><div class="keycap">Ctrl</div><div class="plus">+</div><div class="keycap">Z</div></div>
+      <a href="#jugar" class="btn">Empezar el simulador →</a>
+      <div class="stat-row">
+        <div class="stat"><b>4</b><span>simuladores</span></div>
+        <div class="stat"><b>~2 min</b><span>cada uno</span></div>
+        <div class="stat"><b>100%</b><span>casos reales</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 300 300" width="100%" height="100%">
+        <path d="M175 10 V165 A48 48 0 1 1 96 152" fill="none" stroke="#2A363B" stroke-width="9" stroke-linecap="round"/>
+        <line x1="175" y1="70" x2="175" y2="205" stroke="#2A363B" stroke-width="3" stroke-dasharray="2 6"/>
+        <rect x="140" y="200" width="70" height="48" rx="7" fill="#FFF8F3" stroke="#2A363B" stroke-width="4"/>
+        <path d="M140 205 L175 232 L210 205" fill="none" stroke="#2A363B" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="205" cy="196" r="13" fill="#E89A8A" stroke="#2A363B" stroke-width="3"/>
+        <text x="205" y="201" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="15" fill="#2A363B">!</text>
+      </svg>
+      <div class="chip c1"><span>🔒</span></div><div class="chip-label l1">contraseña</div>
+      <div class="chip c2"><span>✉️</span></div><div class="chip-label l2">correo</div>
+      <div class="chip c3"><span>💳</span></div><div class="chip-label l3">tarjeta</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="por-que">
+    <div class="section-label">Por qué importa</div>
+    <h2 class="h2">El eslabón más débil de la ciberseguridad no es la tecnología, eres tú (y está bien, nos pasa a todos).</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="ic">🎣</div><h3>Phishing</h3><p>Correos o mensajes que imitan a alguien confiable para robar tus datos o dinero.</p></div>
+      <div class="why-card"><div class="ic">📱</div><h3>Smishing / Vishing</h3><p>La misma trampa, pero por SMS o llamada/nota de voz, jugando con la urgencia.</p></div>
+      <div class="why-card"><div class="ic">🧠</div><h3>Factor humano</h3><p>La presión, la prisa y la confianza automática son las verdaderas puertas de entrada.</p></div>
+    </div>
+  </section>
+
+  <!-- ========== SELECTOR: UN JUEGO A LA VEZ ========== -->
+  <section id="jugar">
+    <div class="section-label">Elige tu simulador</div>
+    <h2 class="h2">Juega uno a la vez. Al terminar, puedes repetirlo o probar otro.</h2>
+    <p class="h2-sub">Tú decides el orden. Los materiales, comentarios y contactos de ayuda están siempre disponibles más abajo, sin importar qué juegues.</p>
+    <div class="game-menu" id="gameMenu">
+      <button type="button" class="game-card teal" data-game="1">
+        <div class="g-num">01</div>
+        <div class="g-title">Desliza y decide</div>
+        <div class="g-desc">Diez mensajes reales. Desliza o usa el teclado: ¿confías o sospechas?</div>
+        <div class="g-go">Jugar →</div>
+      </button>
+      <button type="button" class="game-card coral" data-game="2">
+        <div class="g-num">02</div>
+        <div class="g-title">Detecta las señales</div>
+        <div class="g-desc">Da clic en cada parte sospechosa de un correo de phishing real.</div>
+        <div class="g-go">Jugar →</div>
+      </button>
+      <button type="button" class="game-card dark" data-game="3">
+        <div class="g-num">03</div>
+        <div class="g-title">Chat de presión</div>
+        <div class="g-desc">Tu director te escribe algo "urgente" un viernes a las 3pm. ¿Qué haces?</div>
+        <div class="g-go">Jugar →</div>
+      </button>
+      <button type="button" class="game-card cream" data-game="4">
+        <div class="g-num">04</div>
+        <div class="g-title">Escáner de huella digital</div>
+        <div class="g-desc">Marca lo que compartes en redes y mira tu índice de exposición.</div>
+        <div class="g-go">Jugar →</div>
+      </button>
+    </div>
+
+    <div id="gameStage">
+      <div class="game-empty" id="gameEmpty">
+        <b>👆 Elige un juego arriba para comenzar</b>
+        Puedes jugarlos en cualquier orden, y repetir el que quieras cuantas veces quieras.
+      </div>
+
+      <!-- ===== JUEGO 1: DESLIZA Y DECIDE ===== -->
+      <div class="game-panel" id="panel1" hidden>
+        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="panel-head">
+          <div class="section-label">01 · Desliza y decide</div>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Diez mensajes reales. ¿Confías o sospechas?</h2>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Desliza la tarjeta, toca los botones, o usa tu teclado — ESC para sospechoso, Enter para confiar.</p>
+        </div>
+        <div class="instructions">
+          <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
+          <div class="hint">usa el teclado ← / → o desliza con el dedo</div>
+          <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
+        </div>
+        <div class="progress" id="progress1">CASO 1 / 10</div>
+        <div class="deck" id="deck"></div>
+        <div class="controls" id="controls1">
+          <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
+          <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
+        </div>
+        <div class="inline-result" id="result1" hidden>
+          <div class="score-label">Tu resultado</div>
+          <div class="score-badge" id="scoreBadge1">0/10</div>
+          <p id="endMsg1"></p>
+          <div class="next-choices">
+            <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+            <button class="menu-btn" data-back>Elegir otro juego →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== JUEGO 2: DETECTA LAS SEÑALES ===== -->
+      <div class="game-panel" id="panel2" hidden>
+        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="panel-head">
+          <div class="section-label">02 · Detecta las señales</div>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Da clic en cada parte del correo que te parezca sospechosa.</h2>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Hay señales reales de phishing escondidas en el mensaje. Márcalas todas — pero cuidado, no todo lo que suena alarmante es una señal real.</p>
+        </div>
+        <div class="detect-center">
+          <div class="email-mock">
+            <div class="e-head">
+              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1">PayPal Seguridad &lt;soporte@paypal-mx-verificacion.com&gt;</span></div>
+              <div><b>Asunto:</b> Tu cuenta ha sido limitada</div>
+            </div>
+            <div class="e-body">
+              <p><span class="hotspot" data-flag="true" data-id="d2">Estimado usuario,</span></p>
+              <p><span class="hotspot" data-flag="false" data-id="d5">Hemos detectado actividad inusual en tu cuenta.</span> Debes verificar tu identidad <span class="hotspot" data-flag="true" data-id="d3">en las próximas 24 horas o tu cuenta será suspendida de forma permanente.</span></p>
+              <p><span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;">Verificar mi cuenta ahora →</span></p>
+              <p>Gracias por tu comprensión,<br>Equipo de Seguridad</p>
+            </div>
+          </div>
+          <button class="btn" id="btnReview">Revisar mis respuestas</button>
+          <div class="inline-result" id="result2" hidden style="text-align:left; max-width:560px;">
+            <div class="score-label" style="text-align:center;">Tu resultado</div>
+            <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
+            <ul class="flag-list" id="flagList"></ul>
+            <div class="next-choices">
+              <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+              <button class="menu-btn" data-back>Elegir otro juego →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== JUEGO 3: CHAT DE PRESION (estilo Teams/Slack) ===== -->
+      <div class="game-panel" id="panel3" hidden>
+        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="panel-head">
+          <div class="section-label">03 · Viernes a las 3:00 p.m.</div>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Eres nueva/o en el equipo. Tu director te escribe con algo "urgente".</h2>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Aplica el principio de Zero Trust: toda solicitud sensible se verifica por otro canal, sin excepción.</p>
+        </div>
+        <div class="chat-app">
+          <div class="chat-toolbar">
+            <div class="chat-avatar">DC</div>
+            <div class="chat-who">
+              <div class="chat-name">David Contreras <span class="chat-status">en línea</span></div>
+              <div class="chat-role">Dirección General</div>
+            </div>
+            <div class="chat-icons" aria-hidden="true">📞 🎥</div>
+          </div>
+          <div class="chat-log" id="chatLog">
+            <div class="msg-row boss">
+              <div class="chat-avatar msg-avatar">DC</div>
+              <div class="msg-content">
+                <div class="msg-meta"><span class="msg-name">David Contreras</span><span class="msg-time">15:03</span></div>
+                <div class="msg-text">¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-start-wrap" id="chatStartWrap">
+            <button class="btn sm chat-start-btn" id="chatStartBtn">Ver el siguiente mensaje →</button>
+          </div>
+          <div class="quick-replies" id="chatOptions" hidden></div>
+        </div>
+        <div class="inline-result" id="result3" hidden>
+          <div class="score-label">Decisiones Zero Trust</div>
+          <div class="score-badge" id="scoreBadge3">0/3</div>
+          <p id="endMsg3"></p>
+          <div class="next-choices">
+            <button class="redo-btn" id="restartBtn3"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+            <button class="menu-btn" data-back>Elegir otro juego →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== JUEGO 4: ESCANER DE HUELLA DIGITAL (radar) ===== -->
+      <div class="game-panel" id="panel4" hidden>
+        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="panel-head">
+          <div class="section-label">04 · Escáner de huella digital</div>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado.</p>
+        </div>
+        <div class="foot-form" id="footForm">
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":40}'> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30,"contacto":10}'> Mi perfil muestra el nombre completo de mi escuela o trabajo actual</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":30,"financiero":20}'> He publicado fotos donde se ve mi dirección, mi placa o el interior de mi casa</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":40}'> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"contacto":50,"identidad":10}'> Mi número de teléfono aparece visible en mi bio o en comentarios</label>
+        </div>
+        <div style="text-align:center; margin-top:18px;">
+          <button class="btn coral" id="btnScan">Escanear mi huella 🔍</button>
+        </div>
+        <div class="scan-loading" id="scanLoading" hidden></div>
+        <div class="dash" id="dash" hidden style="margin-top:18px;">
+          <div class="radar-wrap">
+            <svg class="radar-svg" viewBox="0 0 240 240" id="radarSvg">
+              <circle class="radar-ring" cx="120" cy="120" r="22.5"/>
+              <circle class="radar-ring" cx="120" cy="120" r="45"/>
+              <circle class="radar-ring" cx="120" cy="120" r="67.5"/>
+              <circle class="radar-ring" cx="120" cy="120" r="90"/>
+              <line class="radar-axis" x1="120" y1="30" x2="120" y2="210"/>
+              <line class="radar-axis" x1="30" y1="120" x2="210" y2="120"/>
+              <line class="radar-sweep" id="radarSweep" x1="120" y1="120" x2="120" y2="30"/>
+              <polygon class="radar-poly" id="radarPoly" points="120,120 120,120 120,120 120,120"/>
+              <circle class="radar-dot" id="dotN" r="4"/>
+              <circle class="radar-dot" id="dotE" r="4"/>
+              <circle class="radar-dot" id="dotS" r="4"/>
+              <circle class="radar-dot" id="dotW" r="4"/>
+            </svg>
+            <div class="radar-score"><b id="expScore">0%</b><span>Índice de exposición</span></div>
+            <div class="radar-labels">
+              <div class="n">Identidad<span class="rl-val" id="valIdentidad">0%</span></div>
+              <div class="e">Ubicación<span class="rl-val" id="valUbicacion">0%</span></div>
+              <div class="s">Contacto<span class="rl-val" id="valContacto">0%</span></div>
+              <div class="w">Financiero<span class="rl-val" id="valFinanciero">0%</span></div>
+            </div>
+          </div>
+          <p class="msg" id="dashMsg"></p>
+          <div class="next-choices">
+            <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
+            <button class="menu-btn" data-back>Elegir otro juego →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIEMPRE VISIBLE: MATERIALES ========== -->
+  <section id="materiales">
+    <div class="section-label">Más materiales de la campaña</div>
+    <div class="materials">
+      <div class="material-card teal">
+        <div class="m-icon">🖼️</div><div class="m-title">Banner e infografía</div>
+        <div class="m-desc">Señales de alerta para identificar phishing, smishing y vishing de un vistazo.</div>
+        <a class="m-link" href="#" id="linkInfografia">Ver infografía →</a>
+      </div>
+      <div class="material-card coral">
+        <div class="m-icon">🎬</div><div class="m-title">Video de campaña</div>
+        <div class="m-desc">Un caso real explicado en menos de un minuto para compartir en redes.</div>
+        <a class="m-link" href="#" id="linkVideo">Ver video →</a>
+      </div>
+      <div class="material-card dark">
+        <div class="m-icon">🧠</div><div class="m-title">Test de impulsividad</div>
+        <div class="m-desc">Descubre qué tan susceptible eres a caer en mensajes con presión emocional.</div>
+        <a class="m-link" href="#" id="linkTest">Hacer el test →</a>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:36px;">Cuéntanos qué te pareció</div>
+    <div class="feedback-form">
+      <!-- NOTA: reemplaza el src con el link de "insertar" (&lt;&gt;) de tu Google Form real -->
+      <iframe src="about:blank" title="Formulario de comentarios" id="formFrame">Cargando formulario…</iframe>
+      <div class="form-note">↳ Reemplaza este formulario con tu Google Form real (opción "insertar" al compartirlo).</div>
+    </div>
+  </section>
+
+  <!-- ========== SIEMPRE VISIBLE: AYUDA REAL ========== -->
+  <section id="ayuda">
+    <div class="section-label">Si ya te pasó, no estás sola/o</div>
+    <div class="help-intro">
+      <p>Si diste clic, compartiste tus datos o te suplantaron, no eres la única persona a la que le pasa — estos ataques están diseñados justo para eso. Actuar rápido ayuda: cambia contraseñas, avisa a tu banco si aplica, y apóyate en estos canales oficiales en la Ciudad de México. <b>Todos son gratuitos.</b></p>
+    </div>
+    <div class="help-grid">
+      <div class="org-card">
+        <div class="o-icon">👮</div>
+        <div class="o-title">Policía Cibernética CDMX</div>
+        <div class="o-desc">Recibe reportes de fraudes, robo de identidad y cuentas hackeadas, 24/7.</div>
+        <div class="o-contact">
+          <a href="tel:+525552425100">☎ 55 5242 5100 ext. 5086</a>
+          <a href="mailto:policia.cibernetica@ssc.cdmx.gob.mx">✉ policia.cibernetica@ssc.cdmx.gob.mx</a>
+        </div>
+      </div>
+      <div class="org-card">
+        <div class="o-icon">🛰️</div>
+        <div class="o-title">Guardia Nacional · CERT-MX</div>
+        <div class="o-desc">Línea nacional para phishing, smishing, vishing, extorsión y robo de identidad.</div>
+        <div class="o-contact">
+          <a href="tel:088">☎ 088 (24 horas, todo México)</a>
+          <a href="mailto:cert-mx@gn.cert.gob.mx">✉ cert-mx@gn.cert.gob.mx</a>
+        </div>
+      </div>
+      <div class="org-card">
+        <div class="o-icon">🏦</div>
+        <div class="o-title">CONDUSEF</div>
+        <div class="o-desc">Si te robaron datos bancarios o hubo un cargo/transferencia fraudulenta.</div>
+        <div class="o-contact">
+          <a href="tel:+525553400999">☎ 55 5340 0999</a>
+          <a href="tel:8009998080">☎ 800 999 8080 (lada sin costo)</a>
+        </div>
+      </div>
+      <div class="org-card">
+        <div class="o-icon">🗂️</div>
+        <div class="o-title">Secretaría Anticorrupción y Buen Gobierno</div>
+        <div class="o-desc">A cargo de la protección de datos personales a nivel federal (funciones que antes tenía el INAI). Útil para tus derechos ARCO.</div>
+        <div class="o-contact">
+          <a href="tel:+525520003000">☎ 55 2000 3000</a>
+          <span>Insurgentes Sur 3211, Coyoacán, CDMX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arco" style="margin-top:22px;">
+      <div class="section-label" style="margin-bottom:16px;">Tus derechos ARCO</div>
+      <p>Si diste tus datos a un sitio falso o te suplantaron, puedes ejercer tus <b>Derechos ARCO</b> (Acceso, Rectificación, Cancelación y Oposición) ante quien tenga tus datos personales.</p>
+      <ul>
+        <li><b>Acceso:</b> pide saber qué datos tuyos tienen y para qué los usan.</li>
+        <li><b>Rectificación:</b> corrige datos que estén desactualizados o sean inexactos.</li>
+        <li><b>Cancelación:</b> solicita eliminar tus datos cuando ya no haya motivo legítimo para conservarlos.</li>
+        <li><b>Oposición:</b> pide que dejen de usar tus datos para un fin específico.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Ctrl+Z al Phishing · Lee Obando Ileana Verónica · Tejeda Uh Gladys Victoria · UNAM Facultad de Ingeniería · Números de ayuda verificados en agosto 2026, confírmalos en los sitios oficiales antes de publicar</footer>
+</div>
+
+<div class="feedback" id="feedback">
+  <div class="feedback-inner">
+    <div class="fb-top"><span class="fb-result" id="fbResult">✅ Correcto</span><span class="fb-tag" id="fbTag">Phishing</span></div>
+    <p class="fb-text" id="fbText"></p>
+    <p class="fb-tip" id="fbTip"></p>
+    <button class="continue-btn" id="continueBtn">Continuar <span class="k">Espacio ␣</span></button>
+  </div>
+</div>
+<script>
+/* ============================================================
+   SELECTOR: un juego a la vez
+   ============================================================ */
+const gameMenu=document.getElementById('gameMenu');
+const gameEmpty=document.getElementById('gameEmpty');
+const gameStage=document.getElementById('gameStage');
+const panels={1:document.getElementById('panel1'),2:document.getElementById('panel2'),3:document.getElementById('panel3'),4:document.getElementById('panel4')};
+
+function selectGame(n){
+  gameEmpty.hidden=true;
+  Object.values(panels).forEach(p=>p.hidden=true);
+  panels[n].hidden=false;
+  gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
+  gameStage.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function backToMenu(){
+  Object.values(panels).forEach(p=>p.hidden=true);
+  gameEmpty.hidden=false;
+  gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.remove('active'));
+  document.getElementById('jugar').scrollIntoView({behavior:'smooth', block:'start'});
+}
+gameMenu.querySelectorAll('.game-card').forEach(c=>{
+  c.addEventListener('click', ()=> selectGame(c.dataset.game));
+});
+document.querySelectorAll('[data-back]').forEach(b=> b.addEventListener('click', backToMenu));
+
+/* ============================================================
+   JUEGO 1 · Desliza y decide
+   ============================================================ */
+const CASES = [
+  { kind:'SMS', icon:'📦', iconClass:'i-sms', name:'Estafeta MX', meta:'+52 1 55 0198 2231', subject:null,
+    msg:'Tu paquete no pudo entregarse. Paga $19 MXN de reenvío antes de 24h o será devuelto:',
+    link:'estafeta-mx.paquete-tracking.info/pago', isPhishing:true, attack:'Smishing',
+    explain:'El dominio "paquete-tracking.info" no es de Estafeta. Las paqueterías reales nunca cobran "reenvíos" por SMS con links acortados o dominios raros.',
+    tip:'Verifica siempre el número de guía directo en la página oficial de la paquetería, nunca desde un link de un mensaje.' },
+  { kind:'EMAIL', icon:'🎓', iconClass:'i-email', name:'Becas UNAM', meta:'becas.excelencia@unam-becas2026.com',
+    subject:'¡Felicidades! Fuiste seleccionado — Beca de Excelencia 2026',
+    msg:'Para asignar tu beca del 100%, envía tus datos bancarios (CLABE y tarjeta) en las próximas 2 horas o perderás tu lugar.',
+    link:null, isPhishing:true, attack:'Phishing',
+    explain:'Ninguna beca real pide tu tarjeta o CLABE por correo, y mucho menos con un plazo de 2 horas. La urgencia es la trampa.',
+    tip:'Las becas oficiales se gestionan desde tu portal escolar (DGAE / tu facultad), nunca por correo con presión de tiempo.' },
+  { kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@logistica-norte-mx.com',
+    subject:'URGENTE — confidencial',
+    msg:'Necesito que hagas una transferencia de $45,000 antes de las 5pm. Estoy en junta, no puedo hablar por teléfono. Te mando los datos bancarios en un momento, confío en tu discreción.',
+    link:null, isPhishing:true, attack:'Fraude del CEO (BEC)',
+    explain:'Presión emocional + urgencia + petición de secrecía + un canal donde no puedes verificar la identidad real: los tres ingredientes clásicos del fraude del "jefe".',
+    tip:'Regla de Zero Trust: toda solicitud de dinero o datos sensibles se confirma por un segundo canal, nunca solo por el mismo hilo del mensaje.' },
+  { kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Mamá 📱 (número nuevo)', meta:'hoy · nota de voz', subject:null,
+    msg:'"Hijo, perdí mi cel, este es mi número nuevo. Necesito que me deposites $2,000 urgente, ahorita no puedo explicarte bien, luego te cuento."',
+    link:null, isPhishing:true, attack:'Vishing / estafa familiar',
+    explain:'Un número desconocido + una emergencia repentina + petición de dinero inmediata es un patrón clásico de suplantación de un familiar.',
+    tip:'Cuelga y marca al número que ya tenías guardado, o pregunta algo que solo esa persona sabría, antes de enviar cualquier dinero.' },
+  { kind:'EMAIL', icon:'📚', iconClass:'i-email', name:'Biblioteca Central UNAM', meta:'biblioteca@dgb.unam.mx',
+    subject:'Recordatorio de vencimiento de préstamo',
+    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir directamente al mostrador.',
+    link:'biblioteca.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Dominio oficial (.unam.mx), sin presión de tiempo extrema, sin solicitud de datos sensibles ni pagos. Es un recordatorio administrativo normal.',
+    tip:'Aun así, siempre es buena práctica escribir tú misma la dirección en el navegador en vez de dar clic directo.' },
+  { kind:'LINKEDIN', icon:'💼', iconClass:'i-social', name:'RH Global Solutions', meta:'mensaje directo', subject:null,
+    msg:'¡Trabaja desde casa! Gana $8,000 semanales sin experiencia. Solo paga $500 de "kit de inicio" para comenzar mañana mismo.',
+    link:null, isPhishing:true, attack:'Fraude laboral',
+    explain:'Ninguna empresa real te pide pagar para empezar a trabajar. Un sueldo altísimo sin experiencia y un pago inicial son banderas rojas clásicas.',
+    tip:'Investiga a la empresa, busca reseñas y desconfía de cualquier oferta que te pida dinero antes de contratarte.' },
+  { kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA Alertas', meta:'+52 1 33 5510 9987', subject:null,
+    msg:'Detectamos un cargo no reconocido de $3,499. Si no lo reconoces, cancélalo aquí de inmediato:',
+    link:'bbva-clientes-seguridad.com/cancelar', isPhishing:true, attack:'Phishing bancario',
+    explain:'El banco jamás usa dominios distintos al oficial. "bbva-clientes-seguridad.com" no pertenece a BBVA.',
+    tip:'Ante cualquier alerta bancaria, entra a la app oficial o llama al número que está en el reverso de tu tarjeta, nunca uses el link del mensaje.' },
+  { kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
+    subject:'Apertura de inscripciones — Módulo 1.2',
+    msg:'Te recordamos que el periodo de inscripción al Módulo 1.2 abre el 3 de septiembre. Consulta el calendario oficial en el portal de la Facultad de Ingeniería.',
+    link:'ingenieria.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Remitente institucional coherente, sin urgencia artificial ni solicitud de datos o pagos. Es información administrativa normal.',
+    tip:'Cuando dudes, compara el dominio del remitente con el de la página oficial de tu facultad.' },
+  { kind:'EMAIL', icon:'🛡️', iconClass:'i-email', name:'Soporte TI · Facultad', meta:'soporte@unam-verificacion.net',
+    subject:'Actividad inusual detectada en tu cuenta',
+    msg:'Detectamos actividad inusual en tu cuenta @comunidad.unam.mx. Verifica tu identidad en las próximas 24 horas o tu cuenta será suspendida.',
+    link:'unam-verificacion.net/alumnos', isPhishing:true, attack:'Phishing institucional',
+    explain:'El dominio real de la UNAM es unam.mx — "unam-verificacion.net" es un dominio externo diseñado para parecerse al oficial.',
+    tip:'El verdadero soporte técnico jamás pide "verificar tu identidad" dando clic en un link con amenaza de suspensión inmediata.' },
+  { kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Grupo Cálculo Diferencial', meta:'grupo de clase · oficial', subject:null,
+    msg:'Recuerden que mañana no hay clase, el profe avisó por el Classroom oficial del grupo. Cualquier duda, revisen el foro del curso.',
+    link:null, isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Viene de un grupo conocido, sin links externos ni petición de datos o dinero, y remite a un canal oficial (Classroom) para confirmar.',
+    tip:'Un mensaje "seguro" no significa bajar la guardia: siempre confirma en la plataforma oficial si algo suena importante.' }
+];
+
+let idx=0, score1=0, dragging=false, startX=0, startY=0, currentX=0, awaitingContinue=false, pointerId=null;
+const deckEl=document.getElementById('deck'), progressEl=document.getElementById('progress1');
+const controls1=document.getElementById('controls1'), result1=document.getElementById('result1');
+const instructions1=document.querySelector('#panel1 .instructions'), feedbackEl=document.getElementById('feedback');
+
+function renderDeck(){
+  deckEl.innerHTML='';
+  CASES.slice(idx, idx+3).forEach((c,i)=>{
+    const el=document.createElement('div');
+    el.className='card'+(i===0?' top':'');
+    el.style.zIndex=10-i;
+    el.style.transform=`translateY(${i*14}px) scale(${1-i*0.045})`;
+    el.style.opacity=i===2?0.6:1;
+    el.innerHTML=`
+      <div class="card-head"><div class="icon ${c.iconClass}">${c.icon}</div>
+        <div class="who"><div class="name">${c.name}</div><div class="meta">${c.meta}</div></div>
+        <div class="kind">${c.kind}</div></div>
+      <div class="card-body">${c.subject?`<div class="subject">${c.subject}</div>`:''}<div class="msg">${c.msg}</div>${c.link?`<div class="link">🔗 ${c.link}</div>`:''}</div>
+      ${i===0?`<div class="stamp left" id="stampLeft">SOSPECHO</div><div class="stamp right" id="stampRight">CONFÍO</div>`:''}
+    `;
+    deckEl.appendChild(el);
+  });
+  progressEl.textContent=`CASO ${Math.min(idx+1,CASES.length)} / ${CASES.length}`;
+  const top=deckEl.querySelector('.card.top');
+  if(top) top.addEventListener('pointerdown', onDown);
+}
+function onDown(e){
+  if(awaitingContinue) return;
+  const top=deckEl.querySelector('.card.top');
+  dragging=true; startX=e.clientX; startY=e.clientY; currentX=0; pointerId=e.pointerId;
+  top.classList.add('dragging'); top.setPointerCapture(e.pointerId);
+  top.addEventListener('pointermove', onMove); top.addEventListener('pointerup', onUp); top.addEventListener('pointercancel', onUp);
+}
+function onMove(e){
+  if(!dragging) return;
+  e.preventDefault();
+  const top=deckEl.querySelector('.card.top');
+  currentX=e.clientX-startX;
+  const dy=(e.clientY-startY)*0.15;
+  top.style.transform=`translateX(${currentX}px) translateY(${dy}px) rotate(${currentX/18}deg)`;
+  const sl=document.getElementById('stampLeft'), sr=document.getElementById('stampRight');
+  const t=Math.min(Math.abs(currentX)/90,1);
+  if(currentX<0){ sl.style.opacity=t; sr.style.opacity=0; } else { sr.style.opacity=t; sl.style.opacity=0; }
+}
+function onUp(){
+  if(!dragging) return;
+  dragging=false;
+  const top=deckEl.querySelector('.card.top');
+  top.classList.remove('dragging');
+  top.removeEventListener('pointermove', onMove); top.removeEventListener('pointerup', onUp);
+  if(currentX>90) commitSwipe(true);
+  else if(currentX<-90) commitSwipe(false);
+  else top.style.transform='';
+}
+function commitSwipe(saidSafe){
+  if(awaitingContinue||idx>=CASES.length) return;
+  awaitingContinue=true;
+  const top=deckEl.querySelector('.card.top'), c=CASES[idx];
+  top.style.transition='transform .4s ease';
+  top.style.transform=`translateX(${saidSafe?700:-700}px) rotate(${saidSafe?24:-24}deg)`;
+  const userCorrect=(saidSafe&&!c.isPhishing)||(!saidSafe&&c.isPhishing);
+  if(userCorrect) score1++;
+  top.classList.add(userCorrect?'flash-safe':'flash-danger');
+  document.getElementById('fbResult').textContent=userCorrect?'✅ Correcto':'❌ Cuidado';
+  document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
+  document.getElementById('fbTag').textContent=c.attack;
+  document.getElementById('fbText').textContent=c.explain;
+  document.getElementById('fbTip').innerHTML='<b>Tip:</b> '+c.tip;
+  setTimeout(()=>feedbackEl.classList.add('show'),200);
+}
+function nextCase(){
+  feedbackEl.classList.remove('show'); awaitingContinue=false; idx++;
+  if(idx>=CASES.length) showEnd1(); else renderDeck();
+}
+function showEnd1(){
+  deckEl.style.visibility='hidden'; controls1.hidden=true; instructions1.hidden=true;
+  result1.hidden=false;
+  document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
+  let m;
+  if(score1>=8) m='Excelente ojo crítico. Sigues bien el principio de "confianza cero".';
+  else if(score1>=5) m='Vas bien, pero aún se te escapan señales. Vale la pena repasar.';
+  else m='Estos mensajes están diseñados para presionarte. Repasa los casos y vuelve a intentarlo.';
+  document.getElementById('endMsg1').textContent=m;
+}
+function restart1(){
+  idx=0; score1=0; awaitingContinue=false;
+  deckEl.style.visibility='visible'; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
+  renderDeck();
+}
+document.getElementById('btnEsc').addEventListener('click', ()=>commitSwipe(false));
+document.getElementById('btnEnter').addEventListener('click', ()=>commitSwipe(true));
+document.getElementById('continueBtn').addEventListener('click', nextCase);
+document.getElementById('restartBtn1').addEventListener('click', restart1);
+renderDeck();
+
+window.addEventListener('keydown', (e)=>{
+  if(panels[1].hidden) return;
+  if(result1.hidden===false){
+    if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='z'){ e.preventDefault(); restart1(); }
+    return;
+  }
+  if(awaitingContinue){ if(e.key===' '){ e.preventDefault(); nextCase(); } return; }
+  if(e.key==='Escape'||e.key==='ArrowLeft') commitSwipe(false);
+  if(e.key==='Enter'||e.key==='ArrowRight') commitSwipe(true);
+});
+
+
+/* ============================================================
+   JUEGO 2 · Detecta las señales
+   ============================================================ */
+const flagExplain = {
+  d1: 'El dominio "paypal-mx-verificacion.com" no pertenece a PayPal. Suplanta el nombre pero no el dominio real.',
+  d2: '"Estimado usuario" es un saludo genérico: las empresas que ya tienen tus datos suelen usar tu nombre real.',
+  d3: 'Amenaza de suspensión + plazo de 24 horas: presión de urgencia clásica para que no pienses dos veces.',
+  d4: 'Link de "verificación" que en realidad lleva a un sitio falso diseñado para robar tu contraseña.',
+  d5: 'Esta frase suena alarmante, pero por sí sola no es una señal técnica real — muchos avisos legítimos también la usan.'
+};
+document.querySelectorAll('.hotspot').forEach(el=>{
+  el.addEventListener('click', ()=> el.classList.toggle('selected'));
+});
+document.getElementById('btnReview').addEventListener('click', ()=>{
+  let correctCount=0;
+  const list=document.getElementById('flagList');
+  list.innerHTML='';
+  document.querySelectorAll('.hotspot').forEach(el=>{
+    const isFlag = el.dataset.flag==='true';
+    const selected = el.classList.contains('selected');
+    el.classList.remove('selected');
+    let ok;
+    if(isFlag && selected){ el.classList.add('correct'); ok=true; }
+    else if(isFlag && !selected){ el.classList.add('missed'); ok=false; }
+    else if(!isFlag && selected){ el.classList.add('wrong'); ok=false; }
+    else { ok=null; }
+    if(isFlag && selected) correctCount++;
+    if(ok!==null){
+      const li=document.createElement('li');
+      li.className= ok? 'ok':'no';
+      li.innerHTML = `<b>${isFlag?'Señal real':'No era una señal'}:</b> ${flagExplain[el.dataset.id]}`;
+      list.appendChild(li);
+    }
+  });
+  document.getElementById('scoreBadge2').textContent = `${correctCount}/4`;
+  document.getElementById('result2').hidden=false;
+  document.getElementById('btnReview').hidden=true;
+});
+document.getElementById('restartBtn2').addEventListener('click', ()=>{
+  document.querySelectorAll('.hotspot').forEach(el=>el.classList.remove('correct','missed','wrong','selected'));
+  document.getElementById('result2').hidden=true;
+  document.getElementById('btnReview').hidden=false;
+});
+
+
+/* ============================================================
+   JUEGO 3 · Chat de presión "Viernes a las 3pm" (estilo Teams/Slack)
+   ============================================================ */
+const CHAT_STEPS = [
+  { boss:'Necesito que hagas una transferencia de $45,000 a esta cuenta antes de las 5pm. Es para cerrar un trato, no puedo hablar ahora, estoy en junta.',
+    options:[ {text:'Claro, la hago ahora mismo.', zeroTrust:false}, {text:'Antes de transferir, te marco para confirmarlo por teléfono.', zeroTrust:true} ] },
+  { boss:'No puedo contestar llamadas ahorita. Ya te dije que es urgente y confidencial, no le comentes a nadie más.',
+    options:[ {text:'Entendido, no le digo a nadie y lo hago.', zeroTrust:false}, {text:'Voy a validarlo con el área de finanzas antes de proceder, por protocolo.', zeroTrust:true} ] },
+  { boss:'Además, mándame tu contraseña del sistema de nómina, la mía no funciona y necesito revisar algo rápido.',
+    options:[ {text:'Claro, aquí está mi contraseña.', zeroTrust:false}, {text:'No puedo compartir mi contraseña, mejor pido que IT restablezca la tuya.', zeroTrust:true} ] }
+];
+let chatStep=0, chatScore=0;
+const chatLog=document.getElementById('chatLog'), chatOptions=document.getElementById('chatOptions'), chatStartWrap=document.getElementById('chatStartWrap');
+
+function chatTime(){
+  const d=new Date(); return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
+}
+function appendRow(who, text, risky){
+  const row=document.createElement('div');
+  row.className='msg-row '+(who==='boss'?'boss':'me'+(risky?' risky':''));
+  row.innerHTML=`
+    <div class="chat-avatar msg-avatar">${who==='boss'?'DC':'Tú'}</div>
+    <div class="msg-content">
+      <div class="msg-meta"><span class="msg-name">${who==='boss'?'David Contreras':'Tú'}</span><span class="msg-time">${chatTime()}</span></div>
+      <div class="msg-text">${text}</div>
+    </div>`;
+  chatLog.appendChild(row); chatLog.scrollTop=chatLog.scrollHeight;
+}
+function appendTyping(){
+  const row=document.createElement('div');
+  row.className='msg-row boss'; row.id='typingRow';
+  row.innerHTML=`<div class="chat-avatar msg-avatar">DC</div><div class="msg-content"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  chatLog.appendChild(row); chatLog.scrollTop=chatLog.scrollHeight;
+}
+function showChatStep(i){
+  appendTyping();
+  setTimeout(()=>{
+    const t=document.getElementById('typingRow'); if(t) t.remove();
+    appendRow('boss', CHAT_STEPS[i].boss);
+    chatOptions.innerHTML='';
+    CHAT_STEPS[i].options.forEach(opt=>{
+      const btn=document.createElement('button');
+      btn.className='qr-btn'; btn.textContent=opt.text;
+      btn.addEventListener('click', ()=>{
+        appendRow('me', opt.text, !opt.zeroTrust);
+        if(opt.zeroTrust) chatScore++;
+        chatOptions.innerHTML=''; chatOptions.hidden=true;
+        chatStep++;
+        setTimeout(()=>{
+          if(chatStep < CHAT_STEPS.length) showChatStep(chatStep);
+          else showChatEnd();
+        }, 500);
+      });
+      chatOptions.appendChild(btn);
+    });
+    chatOptions.hidden=false;
+  }, 900);
+}
+function showChatEnd(){
+  document.getElementById('scoreBadge3').textContent = `${chatScore}/3`;
+  let m;
+  if(chatScore===3) m='Aplicaste "confianza cero" en los 3 momentos clave: verificaste el canal, no cediste a la secrecía, y no compartiste tu contraseña. Así se protege a toda una empresa de un fraude de suplantación de directivos.';
+  else if(chatScore===2) m='Te fue bien en 2 de 3, pero un solo momento de presión es suficiente para que un ataque de este tipo funcione. Repasa en qué punto cediste.';
+  else m='Acabas de comprometer dinero y/o datos siguiendo instrucciones que nunca verificaste. Así funcionan los fraudes de suplantación de directivos (BEC), de los más costosos para las organizaciones.';
+  document.getElementById('endMsg3').textContent=m;
+  document.getElementById('result3').hidden=false;
+}
+document.getElementById('chatStartBtn').addEventListener('click', function(){
+  chatStartWrap.hidden=true;
+  showChatStep(0);
+});
+document.getElementById('restartBtn3').addEventListener('click', ()=>{
+  chatStep=0; chatScore=0;
+  chatLog.innerHTML=`<div class="msg-row boss"><div class="chat-avatar msg-avatar">DC</div><div class="msg-content"><div class="msg-meta"><span class="msg-name">David Contreras</span><span class="msg-time">${chatTime()}</span></div><div class="msg-text">¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.</div></div></div>`;
+  chatOptions.innerHTML=''; chatOptions.hidden=true;
+  document.getElementById('result3').hidden=true;
+  chatStartWrap.hidden=false;
+});
+
+
+/* ============================================================
+   JUEGO 4 · Escáner de huella digital (radar animado)
+   ============================================================ */
+const footForm=document.getElementById('footForm');
+const RADAR_CENTER=120, RADAR_MAX=90, RADAR_MIN=8;
+function radarPoint(angleDeg, val){
+  const r = RADAR_MIN + (val/100)*(RADAR_MAX-RADAR_MIN);
+  const rad = (angleDeg-90) * Math.PI/180;
+  return { x: RADAR_CENTER + r*Math.cos(rad), y: RADAR_CENTER + r*Math.sin(rad) };
+}
+document.getElementById('btnScan').addEventListener('click', ()=>{
+  const cats={identidad:10, ubicacion:10, contacto:10, financiero:10};
+  let anyChecked=false;
+  footForm.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    if(cb.checked){
+      anyChecked=true;
+      const w=JSON.parse(cb.dataset.w);
+      Object.keys(w).forEach(k=> cats[k]=Math.min(100, cats[k]+w[k]));
+    }
+  });
+  footForm.hidden=true;
+  document.getElementById('btnScan').hidden=true;
+  const loading=document.getElementById('scanLoading');
+  loading.hidden=false; loading.innerHTML='';
+  const sweep=document.getElementById('radarSweep');
+  const dash=document.getElementById('dash');
+  dash.hidden=false; dash.style.opacity='0';
+  document.getElementById('radarPoly').classList.remove('show');
+  ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
+  sweep.classList.add('spin');
+  const lines=['Analizando lo que compartes en tus redes...','Cruzando categorías de exposición...','Generando tu reporte...'];
+  lines.forEach((t,i)=>{
+    setTimeout(()=>{
+      const d=document.createElement('div'); d.className='line'; d.style.animationDelay=(i*0.05)+'s'; d.textContent='> '+t;
+      loading.appendChild(d);
+    }, i*450);
+  });
+  setTimeout(()=>{
+    loading.hidden=true;
+    dash.style.opacity='1';
+    sweep.classList.remove('spin');
+    const overall=Math.round((cats.identidad+cats.ubicacion+cats.contacto+cats.financiero)/4);
+    document.getElementById('expScore').textContent=overall+'%';
+    ['identidad','ubicacion','contacto','financiero'].forEach(k=>{
+      document.getElementById('val'+k.charAt(0).toUpperCase()+k.slice(1)).textContent=cats[k]+'%';
+    });
+    const pN=radarPoint(0, cats.identidad), pE=radarPoint(90, cats.ubicacion), pS=radarPoint(180, cats.contacto), pW=radarPoint(270, cats.financiero);
+    document.getElementById('radarPoly').setAttribute('points', `${pN.x},${pN.y} ${pE.x},${pE.y} ${pS.x},${pS.y} ${pW.x},${pW.y}`);
+    document.getElementById('dotN').setAttribute('cx',pN.x); document.getElementById('dotN').setAttribute('cy',pN.y);
+    document.getElementById('dotE').setAttribute('cx',pE.x); document.getElementById('dotE').setAttribute('cy',pE.y);
+    document.getElementById('dotS').setAttribute('cx',pS.x); document.getElementById('dotS').setAttribute('cy',pS.y);
+    document.getElementById('dotW').setAttribute('cx',pW.x); document.getElementById('dotW').setAttribute('cy',pW.y);
+    requestAnimationFrame(()=>{
+      document.getElementById('radarPoly').classList.add('show');
+      ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.add('show'));
+    });
+    let msg;
+    if(!anyChecked) msg='No marcaste nada — o cuidas muy bien tu privacidad, o vale la pena revisar de verdad qué es visible en tus redes.';
+    else if(overall<35) msg='Tu huella expuesta es baja. Aun así, revisa cada tanto la configuración de privacidad de tus redes.';
+    else if(overall<65) msg='Con esta combinación de datos, alguien podría ubicarte o hacerse pasar por ti sin mucho esfuerzo.';
+    else msg='Con esta información, cualquiera podría perfilarte por completo: ubicarte, suplantarte o incluso usarla para responder tus preguntas de seguridad bancaria. Vale la pena reducir lo que compartes públicamente.';
+    document.getElementById('dashMsg').textContent=msg;
+  }, lines.length*450 + 350);
+});
+document.getElementById('restartBtn4').addEventListener('click', ()=>{
+  footForm.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.checked=false);
+  footForm.hidden=false;
+  document.getElementById('btnScan').hidden=false;
+  document.getElementById('dash').hidden=true;
+  document.getElementById('radarPoly').classList.remove('show');
+  document.getElementById('radarPoly').setAttribute('points', '120,120 120,120 120,120 120,120');
+  ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
+});
+</script>
+</body>
+</html>
