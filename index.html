@@ -361,6 +361,22 @@
 </div>
 <script>
 /* ============================================================
+   RECOLECCIÓN DE DATOS: envía resultados a Google Sheets
+   ============================================================ */
+// Pega aquí la URL que te da Apps Script al publicar como "Aplicación web"
+const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwBMemLNhrx9V-ylPS5dYpHjAz9NK3aBKLZ4CtNssXygSVXgyy4QdHLsnR8J-mHIrD1Ig/exec';
+
+function sendToSheet(juego, resultado, detalle){
+  if(!SHEET_ENDPOINT || SHEET_ENDPOINT.includes('PEGA_AQUI')) return; // aún no configurado, no hace nada
+  fetch(SHEET_ENDPOINT, {
+    method:'POST',
+    mode:'no-cors', // evita el preflight de CORS; no podemos leer la respuesta pero no la necesitamos
+    headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+    body: JSON.stringify({ juego, resultado, detalle: detalle||'' })
+  }).catch(()=>{ /* si falla el envío, no interrumpe la experiencia del juego */ });
+}
+
+/* ============================================================
    SELECTOR: un juego a la vez
    ============================================================ */
 const gameMenu=document.getElementById('gameMenu');
@@ -530,6 +546,7 @@ function showEnd1(){
   else if(score1>=5) m='Vas bien, pero aún se te escapan señales. Vale la pena repasar.';
   else m='Estos mensajes están diseñados para presionarte. Repasa los casos y vuelve a intentarlo.';
   document.getElementById('endMsg1').textContent=m;
+  sendToSheet('Juego 1 - Desliza y decide', `${score1}/${CASES.length}`);
 }
 function restart1(){
   idx=0; score1=0; awaitingContinue=false;
@@ -591,6 +608,7 @@ document.getElementById('btnReview').addEventListener('click', ()=>{
   document.getElementById('scoreBadge2').textContent = `${correctCount}/4`;
   document.getElementById('result2').hidden=false;
   document.getElementById('btnReview').hidden=true;
+  sendToSheet('Juego 2 - Detecta las señales', `${correctCount}/4`);
 });
 document.getElementById('restartBtn2').addEventListener('click', ()=>{
   document.querySelectorAll('.hotspot').forEach(el=>el.classList.remove('correct','missed','wrong','selected'));
@@ -665,6 +683,7 @@ function showChatEnd(){
   else m='Acabas de comprometer dinero y/o datos siguiendo instrucciones que nunca verificaste. Así funcionan los fraudes de suplantación de directivos (BEC), de los más costosos para las organizaciones.';
   document.getElementById('endMsg3').textContent=m;
   document.getElementById('result3').hidden=false;
+  sendToSheet('Juego 3 - Chat de presión', `${chatScore}/3`);
 }
 document.getElementById('chatStartBtn').addEventListener('click', function(){
   chatStartWrap.hidden=true;
@@ -741,6 +760,7 @@ document.getElementById('btnScan').addEventListener('click', ()=>{
     else if(overall<65) msg='Con esta combinación de datos, alguien podría ubicarte o hacerse pasar por ti sin mucho esfuerzo.';
     else msg='Con esta información, cualquiera podría perfilarte por completo: ubicarte, suplantarte o incluso usarla para responder tus preguntas de seguridad bancaria. Vale la pena reducir lo que compartes públicamente.';
     document.getElementById('dashMsg').textContent=msg;
+    sendToSheet('Juego 4 - Huella digital', `${overall}%`, JSON.stringify(cats));
   }, lines.length*450 + 350);
 });
 document.getElementById('restartBtn4').addEventListener('click', ()=>{
