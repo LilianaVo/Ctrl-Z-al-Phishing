@@ -101,7 +101,24 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .pill.esc{ background:var(--coral); } .pill.enter{ background:var(--teal); }
 .instructions .hint{ font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); text-align:center; flex:1; min-width:180px; }
 .progress{ font-family:var(--font-mono); font-size:12px; font-weight:700; text-align:center; margin-bottom:16px; letter-spacing:.05em; color:var(--ink-soft); }
-.deck{ position:relative; height:440px; margin:0 auto 22px; max-width:420px; touch-action:pan-y; }
+.timer-bar-wrap{ width:100%; max-width:420px; margin:0 auto 16px; height:10px; background:var(--white); border:2.5px solid var(--ink); border-radius:100px; overflow:hidden; position:relative; }
+.timer-bar{ height:100%; width:100%; background:var(--teal); transition:width .12s linear, background .3s ease; }
+.timer-bar.warn{ background:#f0b429; }
+.timer-bar.danger{ background:var(--coral-deep); }
+.time-penalty{ position:absolute; top:-24px; right:0; font-family:var(--font-mono); font-weight:800; font-size:12px; color:var(--coral-deep); animation:floatUp .7s ease forwards; pointer-events:none; }
+@keyframes floatUp{ 0%{ opacity:1; transform:translateY(0); } 100%{ opacity:0; transform:translateY(-16px); } }
+.deck-wrap{ position:relative; max-width:420px; margin:0 auto 22px; }
+.deck{ position:relative; height:440px; touch-action:pan-y; }
+.distraction-layer{ position:absolute; inset:0; pointer-events:none; z-index:25; }
+.distraction-toast{ position:absolute; top:8px; max-width:190px; background:var(--white); border:2.5px solid var(--ink); border-radius:14px; padding:8px 10px; display:flex; gap:8px; align-items:flex-start; box-shadow:4px 4px 0 var(--ink); pointer-events:auto; opacity:0; transform:translateY(-16px) scale(.9); transition:opacity .25s ease, transform .25s ease; cursor:pointer; }
+.distraction-toast.show{ opacity:1; transform:translateY(0) scale(1); }
+.distraction-toast.left{ left:8px; } .distraction-toast.right{ right:8px; }
+.dt-icon{ font-size:18px; flex:none; line-height:1; }
+.dt-body{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.dt-body b{ font-size:11px; }
+.dt-body span{ font-size:10px; color:var(--ink-soft); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.card.top.time-critical{ animation:criticalPulse .6s ease infinite; }
+@keyframes criticalPulse{ 0%,100%{ box-shadow:7px 7px 0 var(--ink); } 50%{ box-shadow:7px 7px 0 var(--coral-deep); } }
 .card{ position:absolute; inset:0; background:var(--white); color:var(--ink); border:3px solid var(--ink); border-radius:var(--radius-lg); overflow:hidden; box-shadow:7px 7px 0 var(--ink); display:flex; flex-direction:column; transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s ease; user-select:none; -webkit-user-select:none; }
 .card.top{ cursor:grab; touch-action:none; } .card.top.dragging{ cursor:grabbing; transition:none; }
 .card.flash-danger{ border-color:var(--coral-deep); background:#fff0ec; } .card.flash-safe{ border-color:var(--teal-deep); background:#eefaf7; }
@@ -218,6 +235,14 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .radar-labels .w{ top:50%; left:-58px; transform:translateY(-50%); text-align:right; }
 @media (max-width:480px){ .radar-labels .e, .radar-labels .w{ position:static; display:inline-block; width:48%; transform:none; text-align:center; margin-top:8px; } }
 .dash p.msg{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin:18px 0 0; text-align:center; }
+.dossier{ margin-top:22px; text-align:left; background:var(--ink); color:var(--peach); border-radius:var(--radius-md); padding:20px 22px; box-shadow:3px 3px 0 var(--coral); position:relative; overflow:hidden; }
+.dossier::before{ content:"CONFIDENCIAL"; position:absolute; top:10px; right:-38px; background:var(--coral); color:var(--ink); font-family:var(--font-mono); font-size:10px; font-weight:800; letter-spacing:.08em; padding:3px 42px; transform:rotate(35deg); pointer-events:none; }
+.dossier-head{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:12px; padding-right:50px; }
+.dossier-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.dossier-list li{ font-family:var(--font-mono); font-size:12.5px; line-height:1.6; padding-left:22px; position:relative; color:#f1e9e4; }
+.dossier-list li::before{ content:"▸"; position:absolute; left:0; color:var(--coral); font-weight:700; }
+.dossier-list li.dossier-empty{ padding-left:0; color:#c9c1bd; font-style:italic; }
+.dossier-list li.dossier-empty::before{ content:none; }
 
 /* MATERIALES / COMENTARIOS (siempre visibles) */
 .materials{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:10px; }
@@ -253,3 +278,15 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 
 footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:var(--font-mono); padding:30px 0 10px; border-top:3px solid var(--ink); margin-top:20px; }
 [hidden]{ display:none !important; }
+/* CAJA "CÓMO JUGAR" -- instrucciones claras por juego */
+.how-to-play{ background:var(--cream); border:3px dashed var(--ink); border-radius:var(--radius-md); padding:14px 18px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--ink-soft); max-width:640px; margin-left:auto; margin-right:auto; }
+.how-to-play b{ color:var(--ink); }
+
+/* SELECTOR DE ESCENARIOS -- juego 3 */
+.scenario-picker{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:560px; margin:0 auto 26px; }
+@media (max-width:560px){ .scenario-picker{ grid-template-columns:1fr; } }
+.scenario-btn{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; box-shadow:var(--shadow-sm); transition:transform .12s ease, background .12s ease; }
+.scenario-btn:hover{ transform:translate(-2px,-2px); background:var(--teal); }
+.scenario-btn .sc-icon{ font-size:22px; margin-bottom:8px; }
+.scenario-btn .sc-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:4px; }
+.scenario-btn .sc-desc{ font-size:12px; color:var(--ink-soft); line-height:1.5; }

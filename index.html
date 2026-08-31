@@ -74,7 +74,7 @@
       <button type="button" class="game-card teal" data-game="1">
         <div class="g-num">01</div>
         <div class="g-title">Desliza y decide</div>
-        <div class="g-desc">Diez mensajes reales. Desliza o usa el teclado: ¿confías o sospechas?</div>
+        <div class="g-desc">Casos reales de 2026, algunos muy difíciles de detectar. Desliza o usa el teclado: ¿confías o sospechas?</div>
         <div class="g-go">Jugar →</div>
       </button>
       <button type="button" class="game-card coral" data-game="2">
@@ -108,16 +108,23 @@
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
         <div class="panel-head">
           <div class="section-label">01 · Desliza y decide</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Diez mensajes reales. ¿Confías o sospechas?</h2>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Mensajes reales de 2026. ¿Confías o sospechas?</h2>
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Desliza la tarjeta, toca los botones, o usa tu teclado — ESC para sospechoso, Enter para confiar.</p>
+        </div>
+        <div class="how-to-play">
+          <b>Cómo jugar:</b> lee el mensaje como si te acabara de llegar a ti. Tienes <b>10 segundos</b> por caso — si el tiempo se acaba, el juego "decide por ti" (así de fácil es caer en automático). Después de cada decisión verás la explicación antes de pasar al siguiente. Ojo: no todos son phishing — algunos son mensajes legítimos, y confiar en esos también cuenta como acierto.
         </div>
         <div class="instructions">
           <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
-          <div class="hint">usa el teclado ← / → o desliza con el dedo</div>
+          <div class="hint">usa el teclado ← / → o desliza con el dedo · ⏱ tiempo limitado por caso</div>
           <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
         </div>
-        <div class="progress" id="progress1">CASO 1 / 10</div>
-        <div class="deck" id="deck"></div>
+        <div class="progress" id="progress1">CASO 1 / 13</div>
+        <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
+        <div class="deck-wrap">
+          <div class="deck" id="deck"></div>
+          <div class="distraction-layer" id="distractionLayer"></div>
+        </div>
         <div class="controls" id="controls1">
           <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
           <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
@@ -139,19 +146,23 @@
         <div class="panel-head">
           <div class="section-label">02 · Detecta las señales</div>
           <h2 class="h2" style="margin-left:auto;margin-right:auto;">Da clic en cada parte del correo que te parezca sospechosa.</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Hay señales reales de phishing escondidas en el mensaje. Márcalas todas — pero cuidado, no todo lo que suena alarmante es una señal real.</p>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este no es de los que gritan "¡URGENTE!" en mayúsculas — es del tipo que sí engaña hoy en día. Léelo con calma antes de decidir.</p>
+        </div>
+        <div class="how-to-play">
+          <b>Cómo jugar:</b> da clic sobre cada frase o dato que te parezca una señal real de phishing (pueden ser una, varias, o ninguna). Cuando termines, pulsa "Revisar mis respuestas" y verás cuáles acertaste, cuáles se te pasaron y cuáles marcaste de más.
         </div>
         <div class="detect-center">
           <div class="email-mock">
             <div class="e-head">
-              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1">PayPal Seguridad &lt;soporte@paypal-mx-verificacion.com&gt;</span></div>
-              <div><b>Asunto:</b> Tu cuenta ha sido limitada</div>
+              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
+              <div><b>Asunto:</b> Confirmación requerida: movimiento de $12,450.00</div>
             </div>
             <div class="e-body">
-              <p><span class="hotspot" data-flag="true" data-id="d2">Estimado usuario,</span></p>
-              <p><span class="hotspot" data-flag="false" data-id="d5">Hemos detectado actividad inusual en tu cuenta.</span> Debes verificar tu identidad <span class="hotspot" data-flag="true" data-id="d3">en las próximas 24 horas o tu cuenta será suspendida de forma permanente.</span></p>
-              <p><span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;">Verificar mi cuenta ahora →</span></p>
-              <p>Gracias por tu comprensión,<br>Equipo de Seguridad</p>
+              <p><span class="hotspot" data-flag="false" data-id="d2">Hola Andrea,</span></p>
+              <p><span class="hotspot" data-flag="false" data-id="d5">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
+              <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;">Verificar movimiento y bloquear tarjeta →</span></p>
+              <p><span class="hotspot" data-flag="true" data-id="d3">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
+              <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
             </div>
           </div>
           <button class="btn" id="btnReview">Revisar mis respuestas</button>
@@ -171,28 +182,26 @@
       <div class="game-panel" id="panel3" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
         <div class="panel-head">
-          <div class="section-label">03 · Viernes a las 3:00 p.m.</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Eres nueva/o en el equipo. Tu director te escribe con algo "urgente".</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Aplica el principio de Zero Trust: toda solicitud sensible se verifica por otro canal, sin excepción.</p>
+          <div class="section-label">03 · Chat de presión</div>
+          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Elige un escenario. Alguien te va a escribir con algo "urgente".</h2>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Aplica el principio de Zero Trust: toda solicitud sensible se verifica por otro canal, sin excepción — incluso si "suena" o "se escucha" exactamente como esa persona.</p>
         </div>
-        <div class="chat-app">
+        <div class="how-to-play">
+          <b>Cómo jugar:</b> elige un escenario, lee cada mensaje del chat y responde. Son 5 momentos de decisión seguidos, sin pausa — así se siente la presión real. No hay truco de "la opción larga siempre es la correcta": lee cada una con cuidado.
+        </div>
+
+        <div class="scenario-picker" id="scenarioPicker"></div>
+
+        <div class="chat-app" id="chatApp" hidden>
           <div class="chat-toolbar">
-            <div class="chat-avatar">DC</div>
+            <div class="chat-avatar" id="chatAvatarInit">DC</div>
             <div class="chat-who">
-              <div class="chat-name">David Contreras <span class="chat-status">en línea</span></div>
-              <div class="chat-role">Dirección General</div>
+              <div class="chat-name" id="chatNameEl">David Contreras <span class="chat-status">en línea</span></div>
+              <div class="chat-role" id="chatRoleEl">Dirección General</div>
             </div>
             <div class="chat-icons" aria-hidden="true">📞 🎥</div>
           </div>
-          <div class="chat-log" id="chatLog">
-            <div class="msg-row boss">
-              <div class="chat-avatar msg-avatar">DC</div>
-              <div class="msg-content">
-                <div class="msg-meta"><span class="msg-name">David Contreras</span><span class="msg-time">15:03</span></div>
-                <div class="msg-text">¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.</div>
-              </div>
-            </div>
-          </div>
+          <div class="chat-log" id="chatLog"></div>
           <div class="chat-start-wrap" id="chatStartWrap">
             <button class="btn sm chat-start-btn" id="chatStartBtn">Ver el siguiente mensaje →</button>
           </div>
@@ -200,10 +209,11 @@
         </div>
         <div class="inline-result" id="result3" hidden>
           <div class="score-label">Decisiones Zero Trust</div>
-          <div class="score-badge" id="scoreBadge3">0/3</div>
+          <div class="score-badge" id="scoreBadge3">0/5</div>
           <p id="endMsg3"></p>
           <div class="next-choices">
             <button class="redo-btn" id="restartBtn3"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+            <button class="menu-btn" id="changeScenarioBtn">Probar otro escenario →</button>
             <button class="menu-btn" data-back>Elegir otro juego →</button>
           </div>
         </div>
@@ -217,12 +227,18 @@
           <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado.</p>
         </div>
+        <div class="how-to-play">
+          <b>Cómo jugar:</b> marca todas las casillas que describan lo que hoy es visible públicamente en tus redes (no lo que compartes en privado). Al terminar, pulsa "Escanear mi huella" para ver tu índice de exposición por categoría y qué podría deducir alguien con esa información.
+        </div>
         <div class="foot-form" id="footForm">
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":40}'> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30,"contacto":10}'> Mi perfil muestra el nombre completo de mi escuela o trabajo actual</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":30,"financiero":20}'> He publicado fotos donde se ve mi dirección, mi placa o el interior de mi casa</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":40}'> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"contacto":50,"identidad":10}'> Mi número de teléfono aparece visible en mi bio o en comentarios</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Sabrían en qué colonia vives y a qué hora sueles salir de tu casa, escuela o trabajo."> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":20,"contacto":10}' data-tip="Podrían hacerse pasar por &quot;RH&quot; o &quot;Servicios Escolares&quot; de ese lugar exacto, usando nombres reales de gente que trabaja ahí."> Mi perfil muestra el nombre completo de mi escuela o trabajo actual</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":25,"financiero":15}' data-tip="Tendrían tu dirección exacta o los datos de tu vehículo sin tener que preguntártelo."> He publicado fotos donde se ve mi dirección, mi placa o el interior de mi casa</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30}' data-tip="Fecha y lugar de nacimiento son de las preguntas de seguridad más comunes en bancos — con eso bastaría para intentar recuperar una de tus cuentas."> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"contacto":35}' data-tip="Podrían mandarte un SMS o WhatsApp falso (smishing) dirigido, usando tu nombre real para que suene creíble."> Mi número de teléfono aparece visible en mi bio o en comentarios</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15}' data-tip="El nombre de tu primera mascota es una de las respuestas de seguridad más usadas en el mundo — y muchas veces está en una foto o en un post viejo."> He publicado el nombre de mi mascota</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":20}' data-tip="Sabrían exactamente a qué hora no estás en casa, o el momento del día en que estás más distraída/o para contactarte."> Publico mi rutina (horarios de entrada/salida de clases, trabajo, gimnasio)</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15,"contacto":15}' data-tip="Podrían hacerse pasar por un familiar en apuros —la clásica estafa del &quot;pariente que necesita dinero urgente&quot;— usando nombres reales que tú sí conoces."> Mis publicaciones muestran el nombre completo de familiares cercanos (mamá, pareja, hijos)</label>
         </div>
         <div style="text-align:center; margin-top:18px;">
           <button class="btn coral" id="btnScan">Escanear mi huella 🔍</button>
@@ -251,6 +267,10 @@
               <div class="s">Contacto<span class="rl-val" id="valContacto">0%</span></div>
               <div class="w">Financiero<span class="rl-val" id="valFinanciero">0%</span></div>
             </div>
+          </div>
+          <div class="dossier" id="dossier">
+            <div class="dossier-head">🕵️ Esto es lo que alguien podría armar con esto</div>
+            <ul class="dossier-list" id="dossierList"></ul>
           </div>
           <p class="msg" id="dashMsg"></p>
           <div class="next-choices">
@@ -388,6 +408,7 @@ function selectGame(n){
   gameEmpty.hidden=true;
   Object.values(panels).forEach(p=>p.hidden=true);
   panels[n].hidden=false;
+  if(n==='3' && typeof resetChatToPicker==='function') resetChatToPicker();
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
   gameStage.scrollIntoView({behavior:'smooth', block:'start'});
 }
@@ -460,13 +481,107 @@ const CASES = [
     msg:'Recuerden que mañana no hay clase, el profe avisó por el Classroom oficial del grupo. Cualquier duda, revisen el foro del curso.',
     link:null, isPhishing:false, attack:'Mensaje legítimo',
     explain:'Viene de un grupo conocido, sin links externos ni petición de datos o dinero, y remite a un canal oficial (Classroom) para confirmar.',
-    tip:'Un mensaje "seguro" no significa bajar la guardia: siempre confirma en la plataforma oficial si algo suena importante.' }
+    tip:'Un mensaje "seguro" no significa bajar la guardia: siempre confirma en la plataforma oficial si algo suena importante.' },
+  { kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía (compañera, número de siempre)', meta:'contacto guardado', subject:null,
+    msg:'Oye, ¿me puedes reenviar el código de 6 dígitos que te acaba de llegar? Me equivoqué de número al recuperar mi cuenta y necesito verificarla urgente 🙏',
+    link:null, isPhishing:true, attack:'Secuestro de cuenta vía código de verificación',
+    explain:'Que venga de un contacto guardado no lo hace seguro: su cuenta pudo ser hackeada antes. Ese código de 6 dígitos sirve para activar TU cuenta en un dispositivo nuevo — si lo compartes, le das acceso a tu propio WhatsApp a otra persona, sin importar quién lo pida.',
+    tip:'Nunca compartas un código de verificación con nadie, así sea alguien conocido: ese código es la prueba de que el dispositivo nuevo eres tú.' },
+  { kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'SAT México', meta:'devoluciones@sat-mx-tramites.com',
+    subject:'Tienes un saldo a favor pendiente de $3,842.00',
+    msg:'Para procesar tu devolución de impuestos, confirma tu RFC y tu contraseña del portal del SAT en el siguiente enlace antes de que cierre el periodo fiscal.',
+    link:'sat-mx-tramites.com/devolucion', isPhishing:true, attack:'Phishing gubernamental',
+    explain:'El dominio real del SAT es sat.gob.mx. Ningún trámite de devolución se hace fuera del portal oficial, y el SAT nunca pide tu contraseña por correo — este tipo de correo se vuelve común cada temporada de declaración anual.',
+    tip:'Verifica cualquier trámite fiscal escribiendo tú misma/o sat.gob.mx en el navegador, nunca desde un link recibido por correo.' },
+  { kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 (número corto oficial)', subject:null,
+    msg:'Tu código de un solo uso para iniciar sesión en la app es 482913. No lo compartas con nadie, ni con personal de BBVA.',
+    link:null, isPhishing:false, attack:'Mensaje legítimo (2FA)',
+    explain:'Es un código estándar de doble factor que tú mismo generaste al intentar iniciar sesión, y el mensaje advierte explícitamente no compartirlo con nadie — así se ve un código de verificación legítimo.',
+    tip:'La diferencia clave: tú provocaste el intento de inicio de sesión. Si te llega un código sin que tú hayas hecho nada, ahí sí sospecha y no lo compartas con quien te lo pida.' }
 ];
 
 let idx=0, score1=0, dragging=false, startX=0, startY=0, currentX=0, awaitingContinue=false, pointerId=null;
 const deckEl=document.getElementById('deck'), progressEl=document.getElementById('progress1');
 const controls1=document.getElementById('controls1'), result1=document.getElementById('result1');
 const instructions1=document.querySelector('#panel1 .instructions'), feedbackEl=document.getElementById('feedback');
+
+/* --- timer + distracciones (ciberpereza / ceguera por inatención) --- */
+const TIME_LIMIT=10; // segundos por caso
+let timeLeft=TIME_LIMIT, timerInterval=null, distractionTimer=null, distractionHideTimer=null;
+const NOTIFS=[
+  {icon:'📸', app:'Instagram', text:'A alguien le gustó tu foto'},
+  {icon:'💬', app:'WhatsApp', text:'3 mensajes nuevos en "Compas"'},
+  {icon:'🎵', app:'TikTok', text:'Tu video ya va en 1.2k vistas'},
+  {icon:'🎧', app:'Spotify', text:'Nueva playlist hecha para ti'},
+  {icon:'👍', app:'Facebook', text:'Comentaron tu publicación'},
+  {icon:'🔥', app:'Snapchat', text:'¡No pierdas tu racha!'},
+  {icon:'📅', app:'Calendario', text:'Recordatorio en 10 min'}
+];
+function timerBarEl(){ return document.getElementById('timerBar'); }
+function clearTimer(){
+  if(timerInterval) clearInterval(timerInterval); timerInterval=null;
+  if(distractionTimer) clearTimeout(distractionTimer); distractionTimer=null;
+  if(distractionHideTimer) clearTimeout(distractionHideTimer); distractionHideTimer=null;
+  const layer=document.getElementById('distractionLayer'); if(layer) layer.innerHTML='';
+}
+function updateTimerBar(){
+  const bar=timerBarEl(); if(!bar) return;
+  const pct=Math.max(0,(timeLeft/TIME_LIMIT)*100);
+  bar.style.width=pct+'%';
+  bar.classList.toggle('warn', pct<55 && pct>=22);
+  bar.classList.toggle('danger', pct<22);
+  const top=deckEl.querySelector('.card.top');
+  if(top) top.classList.toggle('time-critical', timeLeft<2.5 && timeLeft>0);
+}
+function startTimer(){
+  clearTimer();
+  timeLeft=TIME_LIMIT;
+  updateTimerBar();
+  timerInterval=setInterval(()=>{
+    if(panels[1].hidden){ clearTimer(); return; }
+    timeLeft=Math.max(0, timeLeft-0.1);
+    updateTimerBar();
+    if(timeLeft<=0){ clearTimer(); onTimeout(); }
+  }, 100);
+  scheduleDistraction();
+}
+function scheduleDistraction(){
+  if(Math.random()>0.6) return; // no todos los casos traen distracción
+  const delay=1200+Math.random()*3500;
+  distractionTimer=setTimeout(spawnDistraction, delay);
+}
+function spawnDistraction(){
+  if(awaitingContinue||panels[1].hidden) return;
+  const layer=document.getElementById('distractionLayer'); if(!layer) return;
+  const pick=NOTIFS[Math.floor(Math.random()*NOTIFS.length)];
+  const el=document.createElement('div');
+  const corner=Math.random()<0.5?'left':'right';
+  el.className='distraction-toast '+corner;
+  el.innerHTML=`<div class="dt-icon">${pick.icon}</div><div class="dt-body"><b>${pick.app}</b><span>${pick.text}</span></div>`;
+  el.addEventListener('click', ()=>{
+    el.remove();
+    timeLeft=Math.max(0, timeLeft-3);
+    updateTimerBar();
+    flashTimePenalty();
+  });
+  layer.appendChild(el);
+  requestAnimationFrame(()=> el.classList.add('show'));
+  distractionHideTimer=setTimeout(()=>{
+    el.classList.remove('show');
+    setTimeout(()=> el.remove(), 300);
+  }, 3200);
+}
+function flashTimePenalty(){
+  const wrap=document.getElementById('timerBarWrap'); if(!wrap) return;
+  const flash=document.createElement('div');
+  flash.className='time-penalty'; flash.textContent='−3s ¡distracción!';
+  wrap.appendChild(flash);
+  setTimeout(()=> flash.remove(), 700);
+}
+function onTimeout(){
+  if(awaitingContinue||idx>=CASES.length) return;
+  commitSwipe(true, true); // sin decidir a tiempo, el "piloto automático" confía por ti
+}
 
 function renderDeck(){
   deckEl.innerHTML='';
@@ -488,6 +603,7 @@ function renderDeck(){
   progressEl.textContent=`CASO ${Math.min(idx+1,CASES.length)} / ${CASES.length}`;
   const top=deckEl.querySelector('.card.top');
   if(top) top.addEventListener('pointerdown', onDown);
+  startTimer();
 }
 function onDown(e){
   if(awaitingContinue) return;
@@ -517,8 +633,9 @@ function onUp(){
   else if(currentX<-90) commitSwipe(false);
   else top.style.transform='';
 }
-function commitSwipe(saidSafe){
+function commitSwipe(saidSafe, wasTimeout){
   if(awaitingContinue||idx>=CASES.length) return;
+  clearTimer();
   awaitingContinue=true;
   const top=deckEl.querySelector('.card.top'), c=CASES[idx];
   top.style.transition='transform .4s ease';
@@ -529,7 +646,7 @@ function commitSwipe(saidSafe){
   document.getElementById('fbResult').textContent=userCorrect?'✅ Correcto':'❌ Cuidado';
   document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
   document.getElementById('fbTag').textContent=c.attack;
-  document.getElementById('fbText').textContent=c.explain;
+  document.getElementById('fbText').textContent=(wasTimeout?'⏱️ Se acabó el tiempo y decidiste sin darte cuenta (así de fácil es caer "en automático"). ':'')+c.explain;
   document.getElementById('fbTip').innerHTML='<b>Tip:</b> '+c.tip;
   setTimeout(()=>feedbackEl.classList.add('show'),200);
 }
@@ -538,17 +655,19 @@ function nextCase(){
   if(idx>=CASES.length) showEnd1(); else renderDeck();
 }
 function showEnd1(){
+  clearTimer();
   deckEl.style.visibility='hidden'; controls1.hidden=true; instructions1.hidden=true;
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   let m;
-  if(score1>=8) m='Excelente ojo crítico. Sigues bien el principio de "confianza cero".';
-  else if(score1>=5) m='Vas bien, pero aún se te escapan señales. Vale la pena repasar.';
-  else m='Estos mensajes están diseñados para presionarte. Repasa los casos y vuelve a intentarlo.';
+  if(score1>=11) m='Excelente ojo crítico. Sigues bien el principio de "confianza cero", incluso con el tiempo encima, las notificaciones distrayéndote y casos diseñados para parecer legítimos.';
+  else if(score1>=7) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
+  else m='Entre el tiempo limitado y las distracciones, caíste en "piloto automático" varias veces — justo así operan estos ataques en la vida real. Repasa los casos y vuelve a intentarlo.';
   document.getElementById('endMsg1').textContent=m;
   sendToSheet('Juego 1 - Desliza y decide', `${score1}/${CASES.length}`);
 }
 function restart1(){
+  clearTimer();
   idx=0; score1=0; awaitingContinue=false;
   deckEl.style.visibility='visible'; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
   renderDeck();
@@ -575,11 +694,12 @@ window.addEventListener('keydown', (e)=>{
    JUEGO 2 · Detecta las señales
    ============================================================ */
 const flagExplain = {
-  d1: 'El dominio "paypal-mx-verificacion.com" no pertenece a PayPal. Suplanta el nombre pero no el dominio real.',
-  d2: '"Estimado usuario" es un saludo genérico: las empresas que ya tienen tus datos suelen usar tu nombre real.',
-  d3: 'Amenaza de suspensión + plazo de 24 horas: presión de urgencia clásica para que no pienses dos veces.',
-  d4: 'Link de "verificación" que en realidad lleva a un sitio falso diseñado para robar tu contraseña.',
-  d5: 'Esta frase suena alarmante, pero por sí sola no es una señal técnica real — muchos avisos legítimos también la usan.'
+  d1: 'El dominio real de Nu es nu.com.mx. "nu-mexico-app.com" es un dominio distinto, registrado para parecerse al oficial — hoy en día los atacantes ya no usan dominios obviamente falsos, sino variaciones casi idénticas al real.',
+  d2: 'Que el correo use tu nombre real (Andrea) NO es garantía de que sea legítimo: los atacantes obtienen nombres reales de bases de datos filtradas o de tus propias redes sociales. La personalización ya no es señal de confianza por sí sola.',
+  d3: 'La urgencia ya no siempre grita "¡tu cuenta será suspendida!" — aquí se disfraza de algo burocrático y tranquilo ("políticas internas de seguridad"), pero sigue siendo un plazo artificial diseñado para que actúes sin verificar.',
+  d4: 'El link de "verificar y bloquear tarjeta" lleva a una página falsa diseñada para robar tu usuario, contraseña y datos de tu tarjeta, aunque el diseño y el dominio parezcan consistentes con el resto del correo.',
+  d5: 'Este párrafo suena razonable y hasta tranquilizador ("si tú lo hiciste, ignóralo") — así es como se ve un aviso de fraude legítimo. Por sí solo no es una señal técnica de que el correo sea falso.',
+  d6: 'Este número no aparece en los canales oficiales publicados por el banco en su app o sitio web: es un número de contacto falso, pensado para captarte también por teléfono (vishing) si decides "verificar" por esa vía en vez de por el link.'
 };
 document.querySelectorAll('.hotspot').forEach(el=>{
   el.addEventListener('click', ()=> el.classList.toggle('selected'));
@@ -618,46 +738,161 @@ document.getElementById('restartBtn2').addEventListener('click', ()=>{
 
 
 /* ============================================================
-   JUEGO 3 · Chat de presión "Viernes a las 3pm" (estilo Teams/Slack)
+   JUEGO 3 · Chat de presión — varios escenarios
    ============================================================ */
-const CHAT_STEPS = [
-  { boss:'Necesito que hagas una transferencia de $45,000 a esta cuenta antes de las 5pm. Es para cerrar un trato, no puedo hablar ahora, estoy en junta.',
-    options:[ {text:'Claro, la hago ahora mismo.', zeroTrust:false}, {text:'Antes de transferir, te marco para confirmarlo por teléfono.', zeroTrust:true} ] },
-  { boss:'No puedo contestar llamadas ahorita. Ya te dije que es urgente y confidencial, no le comentes a nadie más.',
-    options:[ {text:'Entendido, no le digo a nadie y lo hago.', zeroTrust:false}, {text:'Voy a validarlo con el área de finanzas antes de proceder, por protocolo.', zeroTrust:true} ] },
-  { boss:'Además, mándame tu contraseña del sistema de nómina, la mía no funciona y necesito revisar algo rápido.',
-    options:[ {text:'Claro, aquí está mi contraseña.', zeroTrust:false}, {text:'No puedo compartir mi contraseña, mejor pido que IT restablezca la tuya.', zeroTrust:true} ] }
-];
-let chatStep=0, chatScore=0;
+const CHAT_SCENARIOS = {
+  trabajo: {
+    icon:'💼', title:'Escenario de trabajo', desc:'Tu director te escribe "urgente" un viernes a las 3pm.',
+    avatarInit:'DC', name:'David Contreras', role:'Dirección General',
+    intro:'¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.',
+    steps:[
+      { boss:'Necesito que hagas una transferencia de $45,000 a esta cuenta antes de las 5pm. Es para cerrar un trato, no puedo hablar ahora, estoy en junta.',
+        options:[ {text:'Claro, la hago ahora mismo.', zeroTrust:false}, {text:'Antes de transferir, te marco para confirmarlo por teléfono.', zeroTrust:true} ] },
+      { boss:'No puedo contestar llamadas ahorita. Ya te dije que es urgente y confidencial, no le comentes a nadie más.',
+        options:[ {text:'Entendido, no le digo a nadie y lo hago.', zeroTrust:false}, {text:'Voy a validarlo con el área de finanzas antes de proceder, por protocolo.', zeroTrust:true} ] },
+      { boss:'🎙️ Nota de voz (0:11): "Oye, soy yo, ando batallando con el celular, por favor haz lo que te pedí, confío en ti, gracias."',
+        options:[ {text:'Con la nota de voz ya sé que eres tú, la hago.', zeroTrust:false}, {text:'Una nota de voz también se puede generar con IA hoy en día; sigo verificando por el canal oficial de RH.', zeroTrust:true} ] },
+      { boss:'Por cierto, te va a llegar un código de 6 dígitos a tu WhatsApp de parte del banco, es por un tema de seguridad del trato. Solo reenviámelo aquí en cuanto te llegue para agilizar todo.',
+        options:[ {text:'Va, en cuanto me llegue te lo reenvío.', zeroTrust:false}, {text:'Un código de verificación nunca se comparte con nadie, ni contigo. No te lo voy a reenviar.', zeroTrust:true} ] },
+      { boss:'Si no lo resolvemos ahora, voy a tener que reportar que no colaboraste en algo urgente para la empresa. Es tu última oportunidad de ayudarme con esto.',
+        options:[ {text:'Está bien, aquí tienes todo lo que necesitas.', zeroTrust:false}, {text:'Prefiero hablarlo directamente contigo o con RH en persona el lunes; no voy a saltarme el protocolo por presión.', zeroTrust:true} ] }
+    ],
+    endMsgs:{
+      full:'Aplicaste "confianza cero" en los 5 momentos clave: verificaste el canal, no cediste a la secrecía, no te confió una nota de voz (que hoy se puede clonar con IA en segundos), no reenviaste tu código de verificación y no cediste ante la presión final. Así se protege a toda una empresa —y a ti mismo/a— de un fraude de suplantación de directivos.',
+      partial:(s)=>`Te fue bien en ${s} de 5, pero un solo momento de presión es suficiente para que un ataque de este tipo funcione por completo. Repasa en qué puntos exactos cediste.`,
+      low:'Acabas de comprometer dinero, tu contraseña o tu propia cuenta de WhatsApp siguiendo instrucciones que nunca verificaste. Así funcionan hoy los fraudes de suplantación de directivos (BEC): combinan presión, "pruebas" que parecen reales (como una nota de voz) y el secuestro del código de verificación de tus propias cuentas.'
+    }
+  },
+  familia: {
+    icon:'👪', title:'Escenario familiar', desc:'Tu hermana te escribe de un número nuevo tras "un accidente".',
+    avatarInit:'MR', name:'Mariana (tu hermana)', role:'Número nuevo · hoy',
+    intro:'Hermana, perdón que te escriba de este número, se me cayó el cel al escusado 😭 tuve un accidente en el coche y necesito que me ayudes con un depósito para el deducible del seguro, es urgente.',
+    steps:[
+      { boss:'¿Me ayudas? Es en lo que llega el ajustador, no traigo efectivo y aquí no aceptan tarjeta.',
+        options:[ {text:'Claro, te transfiero ahorita mismo.', zeroTrust:false}, {text:'Antes de nada, le marco a tu número de siempre para confirmar que sí eres tú.', zeroTrust:true} ] },
+      { boss:'No puedo contestar, sigo en la aseguradora. Por favor no le digas nada a mis papás, no quiero preocuparlos por esto.',
+        options:[ {text:'Ok, no le digo a nadie y te ayudo.', zeroTrust:false}, {text:'Aunque me lo pidas, le voy a avisar a alguien más de la familia antes de mandar dinero.', zeroTrust:true} ] },
+      { boss:'🎙️ Nota de voz (0:09): "Oye ayúdame porfa, ando súper mal, no puedo hablar bien, cualquier cosa mi amiga Caro te puede confirmar, ella también iba en el coche."',
+        options:[ {text:'Con la nota de voz ya le creo, es su voz.', zeroTrust:false}, {text:'Las notas de voz también se clonan hoy con IA; pido una videollamada rápida para verificar.', zeroTrust:true} ] },
+      { boss:'Ya casi está todo resuelto, solo necesito que me confirmes el código que te llega por SMS, es para que el banco valide que el depósito es tuyo.',
+        options:[ {text:'Claro, en cuanto me llegue te lo mando.', zeroTrust:false}, {text:'Un código de mi banco no se lo doy a nadie, ni a ti, así sea urgente.', zeroTrust:true} ] },
+      { boss:'Porfa apúrate, si no pago ahorita se cancela el trámite y perdemos todo lo que ya avanzamos. Confía en mí, soy yo.',
+        options:[ {text:'Ya, aquí está todo lo que necesitas.', zeroTrust:false}, {text:'Prefiero perder el supuesto trámite a arriesgar mi cuenta sin verificar bien quién eres.', zeroTrust:true} ] }
+    ],
+    endMsgs:{
+      full:'Verificaste por otro canal, avisaste a más familia a pesar del secreto pedido, desconfiaste de la nota de voz, protegiste tu código bancario y no cediste ante la urgencia final. Así se frena una estafa de "familiar en apuros", una de las más comunes y efectivas en México.',
+      partial:(s)=>`Cediste en ${5-s} de 5 momentos. Este tipo de estafa funciona precisamente combinando varios de estos trucos a la vez — un solo "sí" ya puede ser suficiente para perder dinero o tu cuenta.`,
+      low:'Habrías transferido dinero y compartido un código bancario con alguien que nunca verificaste que fuera tu hermana. Así operan las estafas de "familiar en apuros": un número nuevo, una emergencia creíble, y presión para que no lo consultes con nadie más.'
+    }
+  },
+  banco: {
+    icon:'🏦', title:'Escenario bancario', desc:'Te "llama" el banco por un cargo que no reconoces.',
+    avatarInit:'SB', name:'Seguridad Bancaria', role:'Llamada entrante · no guardado',
+    intro:'Buenas tardes, hablamos del área de Prevención de Fraude de su banco. Detectamos un intento de compra por $8,700 en una tienda en línea que no reconocemos. ¿Usted realizó este cargo?',
+    steps:[
+      { boss:'¿Me confirma si reconoce ese cargo? Si no lo reconoce, puedo ayudarle a cancelarlo en este momento.',
+        options:[ {text:'No lo reconozco, ayúdeme a cancelarlo ahora.', zeroTrust:false}, {text:'Voy a colgar y marcar yo mismo/a al número que tengo guardado del banco.', zeroTrust:true} ] },
+      { boss:'Entiendo. Para cancelarlo necesito verificar su identidad: ¿me confirma los últimos 4 dígitos de su tarjeta y su nombre completo?',
+        options:[ {text:'Claro, se los doy.', zeroTrust:false}, {text:'No voy a confirmar datos en una llamada que no inicié yo; prefiero llamar directamente.', zeroTrust:true} ] },
+      { boss:'Sin esa verificación no puedo protegerlo y el cargo se hará válido en unos minutos. ¿Seguro que no quiere que lo ayude ahora mismo?',
+        options:[ {text:'Está bien, se los doy para que me ayude ya.', zeroTrust:false}, {text:'Prefiero el riesgo del cargo a dar mis datos en esta llamada.', zeroTrust:true} ] },
+      { boss:'Le voy a enviar un código a su celular para anular el cargo. Deme ese código en cuanto le llegue, por favor.',
+        options:[ {text:'Ok, en cuanto llegue se lo doy.', zeroTrust:false}, {text:'Un código que me manda mi banco no se lo doy a nadie por teléfono, ni al "banco".', zeroTrust:true} ] },
+      { boss:'Última oportunidad antes de que el cargo se procese de forma automática. ¿Me permite ayudarlo o no?',
+        options:[ {text:'Sí, aquí tiene todo lo que necesita.', zeroTrust:false}, {text:'Voy a colgar y verificar directamente desde la app oficial de mi banco.', zeroTrust:true} ] }
+    ],
+    endMsgs:{
+      full:'Colgaste y verificaste por tu cuenta en los 5 momentos clave, sin importar la urgencia ni la "ayuda" ofrecida. Así se identifica el vishing: ningún banco real te pide datos completos o códigos de un solo uso por una llamada que tú no iniciaste.',
+      partial:(s)=>`Respondiste bien en ${s} de 5, pero compartir aunque sea un dato (los últimos dígitos, tu nombre completo o un código) ya le da a un atacante lo que necesita para tomar tu cuenta.`,
+      low:'Le diste tus datos y tu código de un solo uso a alguien que te llamó diciendo ser "tu banco". Así funciona el vishing: usan urgencia, un motivo creíble (un cargo no reconocido) y el miedo a perder dinero para que bajes la guardia justo con quien dice que te va a "proteger".'
+    }
+  },
+  compraventa: {
+    icon:'🛒', title:'Escenario de compra-venta', desc:'Un "comprador" de Marketplace insiste en confirmar un pago raro.',
+    avatarInit:'CP', name:'Comprador interesado', role:'Chat de Marketplace',
+    intro:'¡Hola! Me interesa tu artículo, ya hice el pago por la app de envíos. Aquí tienes el comprobante: [ver comprobante]. Solo dale clic para confirmar la recepción y programar la recolección.',
+    steps:[
+      { boss:'¿Ya viste el comprobante? Solo confírmalo ahí mismo y en cuanto lo hagas te libero el pago.',
+        options:[ {text:'Doy clic para confirmar de una vez.', zeroTrust:false}, {text:'No voy a dar clic en un link fuera de la plataforma oficial de venta.', zeroTrust:true} ] },
+      { boss:'Es que si no confirmas antes de 1 hora, el sistema cancela el pago automáticamente y pierdo mi dinero. Por favor apúrate.',
+        options:[ {text:'Ok ya voy, dame un momento y lo confirmo.', zeroTrust:false}, {text:'Ese plazo de una hora es una presión típica de estafa; sigo sin dar clic.', zeroTrust:true} ] },
+      { boss:'Bueno, para no perder el pago, mejor mándame el código que te llegó por SMS de la app de envíos, yo lo ingreso desde acá.',
+        options:[ {text:'Va, en cuanto me llegue te lo paso.', zeroTrust:false}, {text:'No comparto códigos de verificación con compradores; eso protege mi propia cuenta.', zeroTrust:true} ] },
+      { boss:'¿Entonces cómo quieres que te pague? Ya perdí tiempo con esto, otros vendedores sí colaboran rápido.',
+        options:[ {text:'Ok ok, hagámoslo como tú dices.', zeroTrust:false}, {text:'Solo acepto pago y confirmación dentro de la misma plataforma de venta, sin links externos.', zeroTrust:true} ] },
+      { boss:'Última oportunidad, o cancelo la compra ahora mismo.',
+        options:[ {text:'Está bien, acepto tus condiciones.', zeroTrust:false}, {text:'Prefiero perder esta venta a arriesgar mi cuenta o mis datos.', zeroTrust:true} ] }
+    ],
+    endMsgs:{
+      full:'No diste clic en el link externo, ignoraste la presión de tiempo, protegiste tu código de verificación y no cediste ni ante la queja ni ante la amenaza de cancelar. Así se identifica una estafa de "comprador con comprobante falso" en plataformas de segunda mano.',
+      partial:(s)=>`Te fue bien en ${s} de 5, pero un solo clic en el link falso o un código compartido ya es suficiente para que te roben la cuenta o tus datos de pago.`,
+      low:'Diste clic en el link, compartiste tu código de verificación, o aceptaste "sus condiciones" de pago fuera de la plataforma. Así operan las estafas de compra-venta: un comprobante falso, presión de tiempo y una excusa técnica para pedirte tu código de un solo uso.'
+    }
+  }
+};
+
+let currentScenarioKey=null, chatStep=0, chatScore=0;
 const chatLog=document.getElementById('chatLog'), chatOptions=document.getElementById('chatOptions'), chatStartWrap=document.getElementById('chatStartWrap');
+const chatApp=document.getElementById('chatApp'), scenarioPicker=document.getElementById('scenarioPicker');
 
 function chatTime(){
   const d=new Date(); return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
 }
+function currentScenario(){ return CHAT_SCENARIOS[currentScenarioKey]; }
 function appendRow(who, text, risky){
+  const sc=currentScenario();
   const row=document.createElement('div');
   row.className='msg-row '+(who==='boss'?'boss':'me'+(risky?' risky':''));
   row.innerHTML=`
-    <div class="chat-avatar msg-avatar">${who==='boss'?'DC':'Tú'}</div>
+    <div class="chat-avatar msg-avatar">${who==='boss'?sc.avatarInit:'Tú'}</div>
     <div class="msg-content">
-      <div class="msg-meta"><span class="msg-name">${who==='boss'?'David Contreras':'Tú'}</span><span class="msg-time">${chatTime()}</span></div>
+      <div class="msg-meta"><span class="msg-name">${who==='boss'?sc.name:'Tú'}</span><span class="msg-time">${chatTime()}</span></div>
       <div class="msg-text">${text}</div>
     </div>`;
   chatLog.appendChild(row); chatLog.scrollTop=chatLog.scrollHeight;
 }
 function appendTyping(){
+  const sc=currentScenario();
   const row=document.createElement('div');
   row.className='msg-row boss'; row.id='typingRow';
-  row.innerHTML=`<div class="chat-avatar msg-avatar">DC</div><div class="msg-content"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  row.innerHTML=`<div class="chat-avatar msg-avatar">${sc.avatarInit}</div><div class="msg-content"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
   chatLog.appendChild(row); chatLog.scrollTop=chatLog.scrollHeight;
 }
+function buildScenarioPicker(){
+  scenarioPicker.innerHTML='';
+  Object.keys(CHAT_SCENARIOS).forEach(key=>{
+    const sc=CHAT_SCENARIOS[key];
+    const btn=document.createElement('button');
+    btn.type='button'; btn.className='scenario-btn';
+    btn.innerHTML=`<div class="sc-icon">${sc.icon}</div><div class="sc-title">${sc.title}</div><div class="sc-desc">${sc.desc}</div>`;
+    btn.addEventListener('click', ()=> startScenario(key));
+    scenarioPicker.appendChild(btn);
+  });
+}
+function startScenario(key){
+  currentScenarioKey=key;
+  const sc=CHAT_SCENARIOS[key];
+  chatStep=0; chatScore=0;
+  document.getElementById('chatAvatarInit').textContent=sc.avatarInit;
+  document.getElementById('chatNameEl').innerHTML=`${sc.name} <span class="chat-status">en línea</span>`;
+  document.getElementById('chatRoleEl').textContent=sc.role;
+  chatLog.innerHTML='';
+  appendRow('boss', sc.intro);
+  chatOptions.innerHTML=''; chatOptions.hidden=true;
+  document.getElementById('result3').hidden=true;
+  chatStartWrap.hidden=false;
+  scenarioPicker.hidden=true;
+  chatApp.hidden=false;
+  chatApp.scrollIntoView({behavior:'smooth', block:'start'});
+}
 function showChatStep(i){
+  const sc=currentScenario();
   appendTyping();
   setTimeout(()=>{
     const t=document.getElementById('typingRow'); if(t) t.remove();
-    appendRow('boss', CHAT_STEPS[i].boss);
+    appendRow('boss', sc.steps[i].boss);
     chatOptions.innerHTML='';
-    CHAT_STEPS[i].options.forEach(opt=>{
+    sc.steps[i].options.forEach(opt=>{
       const btn=document.createElement('button');
       btn.className='qr-btn'; btn.textContent=opt.text;
       btn.addEventListener('click', ()=>{
@@ -666,7 +901,7 @@ function showChatStep(i){
         chatOptions.innerHTML=''; chatOptions.hidden=true;
         chatStep++;
         setTimeout(()=>{
-          if(chatStep < CHAT_STEPS.length) showChatStep(chatStep);
+          if(chatStep < sc.steps.length) showChatStep(chatStep);
           else showChatEnd();
         }, 500);
       });
@@ -676,26 +911,39 @@ function showChatStep(i){
   }, 900);
 }
 function showChatEnd(){
-  document.getElementById('scoreBadge3').textContent = `${chatScore}/3`;
+  const sc=currentScenario();
+  const total=sc.steps.length;
+  document.getElementById('scoreBadge3').textContent = `${chatScore}/${total}`;
   let m;
-  if(chatScore===3) m='Aplicaste "confianza cero" en los 3 momentos clave: verificaste el canal, no cediste a la secrecía, y no compartiste tu contraseña. Así se protege a toda una empresa de un fraude de suplantación de directivos.';
-  else if(chatScore===2) m='Te fue bien en 2 de 3, pero un solo momento de presión es suficiente para que un ataque de este tipo funcione. Repasa en qué punto cediste.';
-  else m='Acabas de comprometer dinero y/o datos siguiendo instrucciones que nunca verificaste. Así funcionan los fraudes de suplantación de directivos (BEC), de los más costosos para las organizaciones.';
+  if(chatScore===total) m=sc.endMsgs.full;
+  else if(chatScore>=Math.ceil(total*0.5)) m=sc.endMsgs.partial(chatScore);
+  else m=sc.endMsgs.low;
   document.getElementById('endMsg3').textContent=m;
   document.getElementById('result3').hidden=false;
-  sendToSheet('Juego 3 - Chat de presión', `${chatScore}/3`);
+  sendToSheet(`Juego 3 - Chat de presión (${sc.title})`, `${chatScore}/${total}`);
 }
 document.getElementById('chatStartBtn').addEventListener('click', function(){
   chatStartWrap.hidden=true;
   showChatStep(0);
 });
 document.getElementById('restartBtn3').addEventListener('click', ()=>{
-  chatStep=0; chatScore=0;
-  chatLog.innerHTML=`<div class="msg-row boss"><div class="chat-avatar msg-avatar">DC</div><div class="msg-content"><div class="msg-meta"><span class="msg-name">David Contreras</span><span class="msg-time">${chatTime()}</span></div><div class="msg-text">¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.</div></div></div>`;
-  chatOptions.innerHTML=''; chatOptions.hidden=true;
-  document.getElementById('result3').hidden=true;
-  chatStartWrap.hidden=false;
+  startScenario(currentScenarioKey);
+  scenarioPicker.hidden=true;
+  chatApp.hidden=false;
 });
+document.getElementById('changeScenarioBtn').addEventListener('click', ()=>{
+  document.getElementById('result3').hidden=true;
+  chatApp.hidden=true;
+  scenarioPicker.hidden=false;
+});
+function resetChatToPicker(){
+  document.getElementById('result3').hidden=true;
+  chatApp.hidden=true;
+  scenarioPicker.hidden=false;
+}
+buildScenarioPicker();
+
+
 
 
 /* ============================================================
@@ -711,11 +959,13 @@ function radarPoint(angleDeg, val){
 document.getElementById('btnScan').addEventListener('click', ()=>{
   const cats={identidad:10, ubicacion:10, contacto:10, financiero:10};
   let anyChecked=false;
+  const tips=[];
   footForm.querySelectorAll('input[type=checkbox]').forEach(cb=>{
     if(cb.checked){
       anyChecked=true;
       const w=JSON.parse(cb.dataset.w);
       Object.keys(w).forEach(k=> cats[k]=Math.min(100, cats[k]+w[k]));
+      if(cb.dataset.tip) tips.push(cb.dataset.tip);
     }
   });
   footForm.hidden=true;
@@ -760,6 +1010,22 @@ document.getElementById('btnScan').addEventListener('click', ()=>{
     else if(overall<65) msg='Con esta combinación de datos, alguien podría ubicarte o hacerse pasar por ti sin mucho esfuerzo.';
     else msg='Con esta información, cualquiera podría perfilarte por completo: ubicarte, suplantarte o incluso usarla para responder tus preguntas de seguridad bancaria. Vale la pena reducir lo que compartes públicamente.';
     document.getElementById('dashMsg').textContent=msg;
+
+    const dossierList=document.getElementById('dossierList');
+    dossierList.innerHTML='';
+    if(tips.length===0){
+      const li=document.createElement('li');
+      li.className='dossier-empty';
+      li.textContent='No hay suficiente información pública para armar un perfil con lo que marcaste. Sigue cuidando tu privacidad así.';
+      dossierList.appendChild(li);
+    } else {
+      tips.forEach(t=>{
+        const li=document.createElement('li');
+        li.textContent=t;
+        dossierList.appendChild(li);
+      });
+    }
+
     sendToSheet('Juego 4 - Huella digital', `${overall}%`, JSON.stringify(cats));
   }, lines.length*450 + 350);
 });
@@ -768,6 +1034,7 @@ document.getElementById('restartBtn4').addEventListener('click', ()=>{
   footForm.hidden=false;
   document.getElementById('btnScan').hidden=false;
   document.getElementById('dash').hidden=true;
+  document.getElementById('dossierList').innerHTML='';
   document.getElementById('radarPoly').classList.remove('show');
   document.getElementById('radarPoly').setAttribute('points', '120,120 120,120 120,120 120,120');
   ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
