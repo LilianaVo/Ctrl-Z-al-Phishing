@@ -59,6 +59,7 @@
         <div class="stat"><b>100%</b><span>casos reales</span></div>
       </div>
     </div>
+    <a href="#por-que" class="scroll-next"><span class="chev">↓</span>Ver más</a>
   </div>
 </div>
 
@@ -155,7 +156,7 @@
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empiezas en fácil y vas subiendo a intermedio y difícil. Los casos difíciles son más largos y tienes más tiempo para leerlos.</p>
         </div>
         <div class="how-to-play">
-          <b>Cómo jugar:</b> lee el mensaje como si te acabara de llegar a ti. Tienes un tiempo límite por caso (más tiempo entre más difícil) — si se acaba, el juego "decide por ti" (así de fácil es caer en automático). No todos son phishing: algunos son mensajes legítimos, y confiar en esos también cuenta como acierto.
+          <b>Cómo jugar:</b> lee el mensaje y desliza: sospecho o confío.
         </div>
         <div class="instructions">
           <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
@@ -197,7 +198,7 @@
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este no es de los que gritan "¡URGENTE!" en mayúsculas — es del tipo que sí engaña hoy en día. Léelo con calma antes de decidir.</p>
         </div>
         <div class="how-to-play">
-          <b>Cómo jugar:</b> da clic sobre cada frase o dato que te parezca una señal real de phishing (pueden ser una, varias, o ninguna). Cuando termines, pulsa "Revisar mis respuestas" y verás cuáles acertaste, cuáles se te pasaron y cuáles marcaste de más.
+          <b>Cómo jugar:</b> toca cada señal sospechosa que veas.
         </div>
         <div class="detect-center">
           <div class="email-mock">
@@ -235,7 +236,7 @@
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No importa quién te lo pida: si la solicitud es inusual o urgente, verifica por otro canal antes de actuar. A esto algunos le llaman "Zero Trust" — en realidad es solo sentido común aplicado con disciplina, incluso si "suena" exactamente como esa persona.</p>
         </div>
         <div class="how-to-play">
-          <b>Cómo jugar:</b> elige un escenario, lee cada mensaje del chat y responde. Son 5 momentos de decisión seguidos, sin pausa — así se siente la presión real. No hay truco de "la opción larga siempre es la correcta": lee cada una con cuidado.
+          <b>Cómo jugar:</b> lee cada mensaje y responde rápido.
         </div>
 
         <div class="scenario-picker" id="scenarioPicker"></div>
@@ -276,7 +277,7 @@
           <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado. Esto es un indicador educativo, no una medición real de riesgo.</p>
         </div>
         <div class="how-to-play">
-          <b>Cómo jugar:</b> marca todas las casillas que describan lo que hoy es visible públicamente en tus redes (no lo que compartes en privado). Al terminar, pulsa "Escanear mi huella" para ver tu índice de exposición por categoría y qué podría deducir alguien con esa información.
+          <b>Cómo jugar:</b> marca lo que hoy es público en tus redes.
         </div>
         <div class="foot-form" id="footForm">
           <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Sabrían en qué colonia vives y a qué hora sueles salir de tu casa, escuela o trabajo."> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
@@ -806,47 +807,64 @@ function renderDeck(){
 function onDown(e){
   if(awaitingContinue) return;
   const top=deckEl.querySelector('.card.top');
+  if(!top) return;
+  e.preventDefault();
   dragging=true; startX=e.clientX; startY=e.clientY; currentX=0; pointerId=e.pointerId;
-  top.classList.add('dragging'); top.setPointerCapture(e.pointerId);
+  top.classList.add('dragging');
+  try{ top.setPointerCapture(e.pointerId); }catch(err){}
   top.addEventListener('pointermove', onMove); top.addEventListener('pointerup', onUp); top.addEventListener('pointercancel', onUp);
 }
 function onMove(e){
-  if(!dragging) return;
+  if(!dragging || e.pointerId!==pointerId) return;
   e.preventDefault();
   const top=deckEl.querySelector('.card.top');
+  if(!top) return;
   currentX=e.clientX-startX;
   const dy=(e.clientY-startY)*0.15;
   top.style.transform=`translateX(${currentX}px) translateY(${dy}px) rotate(${currentX/18}deg)`;
   const sl=document.getElementById('stampLeft'), sr=document.getElementById('stampRight');
   const t=Math.min(Math.abs(currentX)/90,1);
-  if(currentX<0){ sl.style.opacity=t; sr.style.opacity=0; } else { sr.style.opacity=t; sl.style.opacity=0; }
+  if(sl && sr){
+    if(currentX<0){ sl.style.opacity=t; sr.style.opacity=0; } else { sr.style.opacity=t; sl.style.opacity=0; }
+  }
 }
-function onUp(){
-  if(!dragging) return;
+function onUp(e){
+  if(!dragging || (e && e.pointerId!==pointerId)) return;
   dragging=false;
   const top=deckEl.querySelector('.card.top');
-  top.classList.remove('dragging');
-  top.removeEventListener('pointermove', onMove); top.removeEventListener('pointerup', onUp);
-  if(currentX>90) commitSwipe(true);
-  else if(currentX<-90) commitSwipe(false);
-  else top.style.transform='';
+  if(top){
+    top.classList.remove('dragging');
+    top.removeEventListener('pointermove', onMove); top.removeEventListener('pointerup', onUp); top.removeEventListener('pointercancel', onUp);
+    if(currentX>90) commitSwipe(true);
+    else if(currentX<-90) commitSwipe(false);
+    else top.style.transform='';
+  }
 }
 function commitSwipe(saidSafe, wasTimeout){
   if(awaitingContinue||idx>=CASES.length) return;
   clearTimer();
   awaitingContinue=true;
   const top=deckEl.querySelector('.card.top'), c=CASES[idx];
-  top.style.transition='transform .4s ease';
-  top.style.transform=`translateX(${saidSafe?700:-700}px) rotate(${saidSafe?24:-24}deg)`;
   const userCorrect=(saidSafe&&!c.isPhishing)||(!saidSafe&&c.isPhishing);
   if(userCorrect) score1++; else wrongByLevel[c.level]++;
-  top.classList.add(userCorrect?'flash-safe':'flash-danger');
   document.getElementById('fbResult').textContent=userCorrect?'✅ Correcto':'❌ Cuidado';
   document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
   document.getElementById('fbTag').textContent=c.attack;
   document.getElementById('fbText').textContent=(wasTimeout?'⏱️ Se acabó el tiempo y decidiste sin darte cuenta (así de fácil es caer "en automático"). ':'')+c.explain;
   document.getElementById('fbTip').innerHTML='<b>Tip:</b> '+c.tip;
-  setTimeout(()=>feedbackEl.classList.add('show'),200);
+  // Muestra la retroalimentación de forma robusta: no depende de que la animación de la
+  // tarjeta se complete (en móvil un pointercancel del sistema puede saltarse la transición).
+  let shown=false;
+  const doShow=()=>{ if(shown) return; shown=true; feedbackEl.classList.add('show'); feedbackEl.scrollTop=0; };
+  if(top){
+    top.classList.add(userCorrect?'flash-safe':'flash-danger');
+    top.style.transition='transform .4s ease';
+    requestAnimationFrame(()=>{
+      top.style.transform=`translateX(${saidSafe?700:-700}px) rotate(${saidSafe?24:-24}deg)`;
+    });
+    top.addEventListener('transitionend', doShow, {once:true});
+  }
+  setTimeout(doShow, 450); // red de seguridad: garantiza que el mensaje siempre aparezca
 }
 function nextCase(){
   feedbackEl.classList.remove('show'); awaitingContinue=false; idx++;
