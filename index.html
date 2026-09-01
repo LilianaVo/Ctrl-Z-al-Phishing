@@ -124,6 +124,7 @@
 
   <!-- ========== SELECTOR: UN JUEGO A LA VEZ ========== -->
   <section id="jugar">
+    <div id="gameSelectorIntro">
     <div class="section-label">Elige tu simulador</div>
     <h2 class="h2">Elige un reto. Pon a prueba tu criterio.</h2>
 
@@ -159,6 +160,8 @@
         <div class="g-desc">Descubre cuánto de tu información queda expuesta en redes.</div>
         <div class="g-go">Jugar →</div>
       </button>
+    </div>
+
     </div>
 
     <div id="gameStage">
@@ -664,14 +667,18 @@ function selectGame(n){
   if(n==='1' && typeof clearTimer==='function') clearTimer(); // pausa el cronómetro mientras se leen las instrucciones
   if(n==='3' && typeof resetChatToPicker==='function') resetChatToPicker();
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
-  // primero se ve solo el encabezado + instrucciones (contenido liviano y de altura estable),
-  // así el scroll no compite con un re-render del juego a medio animar (evita el salto en móvil)
-  gameStage.scrollIntoView({behavior:'smooth', block:'start'});
+  // el juego pasa a ocupar toda la pantalla, como una app, tapando el resto del sitio
+  document.body.classList.add('playing');
+  panels[n].scrollTop=0;
+  const introEl=gate && document.getElementById(gate.intro);
+  if(introEl) introEl.scrollTop=0;
 }
 function backToMenu(){
   Object.values(panels).forEach(p=>p.hidden=true);
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.remove('active'));
-  document.getElementById('jugar').scrollIntoView({behavior:'smooth', block:'start'});
+  document.body.classList.remove('playing');
+  if(typeof clearTimer==='function') clearTimer();
+  document.getElementById('jugar').scrollIntoView({behavior:'auto', block:'start'});
 }
 gameMenu.querySelectorAll('.game-card').forEach(c=>{
   c.addEventListener('click', ()=> selectGame(c.dataset.game));
