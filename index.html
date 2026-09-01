@@ -7,7 +7,7 @@
 <meta name="description" content="Cuatro simuladores interactivos de phishing, smishing, vishing y exposicion de datos para la comunidad universitaria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -171,11 +171,11 @@
         <div class="game-intro" id="game1Intro">
           <div class="panel-head">
             <div class="section-label">01 · Desliza y decide</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Mensajes reales de 2026. ¿Confías o sospechas?</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empiezas en fácil y vas subiendo a intermedio y difícil. Los casos difíciles son más largos y tienes más tiempo para leerlos.</p>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Confías o sospechas?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empieza con casos sencillos y avanza hasta mensajes más difíciles de detectar.</p>
           </div>
           <div class="how-to-play">
-            <b>Cómo jugar:</b> lee el mensaje y desliza: sospecho o confío.
+            <b>Cómo jugar:</b> lee el mensaje y decide: ¿sospechoso o legítimo?
           </div>
           <div class="game-start" id="game1Start">
             <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar ▶</button>
@@ -188,7 +188,7 @@
             <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
           </div>
           <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
-          <div class="progress" id="progress1">CASO 1 / 15</div>
+          <div class="progress" id="progress1">CASO 1 / 10</div>
           <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
           <div class="deck-wrap">
             <div class="deck" id="deck"></div>
@@ -216,8 +216,8 @@
         <div class="game-intro" id="game2Intro">
           <div class="panel-head">
             <div class="section-label">02 · Detecta las señales</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Da clic en cada parte del correo que te parezca sospechosa.</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este no es de los que gritan "¡URGENTE!" en mayúsculas — es del tipo que sí engaña hoy en día. Léelo con calma antes de decidir.</p>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué partes de este correo te hacen sospechar?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No todo phishing se ve sospechoso a primera vista. Lee con calma y busca las señales.</p>
           </div>
           <div class="how-to-play">
             <b>Cómo jugar:</b> toca cada señal sospechosa que veas.
@@ -228,17 +228,40 @@
         </div>
         <div class="game-content" id="game2Content" hidden>
           <div class="detect-center">
-            <div class="email-mock">
-              <div class="e-head">
-                <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
-                <div><b>Asunto:</b> Confirmación requerida: movimiento de $12,450.00</div>
+            <div class="email-mock gmail-mock">
+              <div class="gmail-toolbar" aria-hidden="true">
+                <span class="gmail-icon-btn" title="Archivar"><svg viewBox="0 0 24 24"><path d="M20.55 5.22l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.15.55L3.46 5.22C3.17 5.57 3 6.01 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.49-.17-.93-.45-1.28zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.14l.81 1H5.12z"/></svg></span>
+                <span class="gmail-icon-btn" title="Eliminar"><svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
+                <span class="gmail-icon-btn" title="Marcar como no leído"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                <span class="gmail-icon-btn" title="Posponer"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></span>
+                <div class="gmail-toolbar-spacer"></div>
+                <span class="gmail-icon-btn" title="Más opciones"><svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
               </div>
-              <div class="e-body">
+              <h1 class="gmail-subject">Confirmación de movimiento con tarjeta</h1>
+              <div class="gmail-sender-row">
+                <div class="gmail-avatar" aria-hidden="true">N</div>
+                <div class="gmail-sender-info">
+                  <div class="gmail-sender-line">
+                    <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa"><b>Nu México</b> <span class="gmail-addr">&lt;notificaciones@nu-mexico.com&gt;</span></span>
+                  </div>
+                  <div class="gmail-sender-meta">para mí</div>
+                </div>
+                <div class="gmail-msg-actions" aria-hidden="true">
+                  <span class="gmail-time">10:42</span>
+                  <span class="gmail-icon-btn sm" title="Destacar">☆</span>
+                  <span class="gmail-icon-btn sm" title="Responder"><svg viewBox="0 0 24 24"><path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/></svg></span>
+                </div>
+              </div>
+              <div class="e-body gmail-body">
                 <p><span class="hotspot" data-flag="false" data-id="d2" tabindex="0" role="button" aria-pressed="false" aria-label="Saludo. Marca esta parte si te parece sospechosa">Hola Andrea,</span></p>
-                <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
-                <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Verificar movimiento y bloquear tarjeta →</span></p>
-                <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
-                <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
+                <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Detectamos un movimiento reciente que podría requerir tu atención. Si reconoces la operación, no necesitas hacer nada.</span></p>
+                <p>Si no reconoces este movimiento, puedes revisar los detalles de la operación y administrar tu tarjeta desde el siguiente enlace: <span class="hotspot gmail-link" data-flag="true" data-id="d4" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Revisar movimiento →</span></p>
+                <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Por seguridad, el acceso a esta opción estará disponible durante las próximas 3 horas.</span></p>
+                <p>Si necesitas ayuda, puedes comunicarte con nuestro equipo de Prevención de Fraude: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
+              </div>
+              <div class="gmail-reply-row" aria-hidden="true">
+                <span class="gmail-pill-btn">↩ Responder</span>
+                <span class="gmail-pill-btn">↪ Reenviar</span>
               </div>
             </div>
             <button class="btn" id="btnReview">Revisar mis respuestas</button>
@@ -255,52 +278,97 @@
         </div>
       </div>
 
-      <!-- ===== JUEGO 3: CHAT DE PRESION (estilo Teams/Slack) ===== -->
-      <div class="game-panel" id="panel3" hidden>
-        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
-        <div class="game-intro" id="game3Intro">
-          <div class="panel-head">
-            <div class="section-label">03 · Chat de presión</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Elige un escenario. Alguien te va a escribir con algo "urgente".</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No importa quién te lo pida: si la solicitud es inusual o urgente, verifica por otro canal antes de actuar. A esto algunos le llaman "Zero Trust" — en realidad es solo sentido común aplicado con disciplina, incluso si "suena" exactamente como esa persona.</p>
+      <!-- ===== JUEGO 3: CHAT DE PRESIÓN (estilo Teams/Slack) ===== -->
+<div class="game-panel" id="panel3" hidden>
+  <button type="button" class="back-to-menu" data-back>
+    ← Elegir otro juego
+  </button>
+
+  <div class="game-intro" id="game3Intro">
+    <div class="panel-head">
+      <div class="section-label">03 · Chat de presión</div>
+
+      <h2 class="h2" style="margin-left:auto;margin-right:auto;">
+        ¿Qué harías si te escriben con algo urgente?
+      </h2>
+
+      <p class="h2-sub" style="margin-left:auto;margin-right:auto;">
+        Lee la conversación y decide qué harías. Si algo no cuadra, verifica antes de actuar.
+      </p>
+    </div>
+
+    <div class="how-to-play">
+      <b>Cómo jugar:</b> lee cada mensaje y elige una respuesta.
+    </div>
+
+    <div class="game-start" id="game3Start">
+      <button type="button" class="btn start-btn" id="game3StartBtn">
+        Comenzar ▶
+      </button>
+    </div>
+  </div>
+
+  <div class="game-content" id="game3Content" hidden>
+    <div class="scenario-picker" id="scenarioPicker"></div>
+
+    <div class="chat-app" id="chatApp" hidden>
+      <div class="chat-toolbar">
+        <div class="chat-avatar" id="chatAvatarInit">DC</div>
+
+        <div class="chat-who">
+          <div class="chat-name" id="chatNameEl">
+            David Contreras
+            <span class="chat-status">en línea</span>
           </div>
-          <div class="how-to-play">
-            <b>Cómo jugar:</b> lee cada mensaje y responde rápido.
-          </div>
-          <div class="game-start" id="game3Start">
-            <button type="button" class="btn start-btn" id="game3StartBtn">Comenzar ▶</button>
+
+          <div class="chat-role" id="chatRoleEl">
+            Dirección General
           </div>
         </div>
-        <div class="game-content" id="game3Content" hidden>
-          <div class="scenario-picker" id="scenarioPicker"></div>
 
-          <div class="chat-app" id="chatApp" hidden>
-            <div class="chat-toolbar">
-              <div class="chat-avatar" id="chatAvatarInit">DC</div>
-              <div class="chat-who">
-                <div class="chat-name" id="chatNameEl">David Contreras <span class="chat-status">en línea</span></div>
-                <div class="chat-role" id="chatRoleEl">Dirección General</div>
-              </div>
-              <div class="chat-icons" aria-hidden="true">📞 🎥</div>
-            </div>
-            <div class="chat-log" id="chatLog"></div>
-            <div class="chat-start-wrap" id="chatStartWrap">
-              <button class="btn sm chat-start-btn" id="chatStartBtn">Ver el siguiente mensaje →</button>
-            </div>
-            <div class="quick-replies" id="chatOptions" hidden></div>
-          </div>
-          <div class="inline-result" id="result3" hidden>
-            <div class="score-label">Decisiones Zero Trust</div>
-            <div class="score-badge" id="scoreBadge3">0/5</div>
-            <p id="endMsg3"></p>
-            <div class="next-choices">
-              <button class="redo-btn" id="restartBtn3"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-              <button class="menu-btn" id="changeScenarioBtn">Probar otro escenario →</button>
-              <button class="menu-btn" data-back>Elegir otro juego →</button>
-            </div>
-          </div>
+        <div class="chat-icons" aria-hidden="true">
+          📞 🎥
         </div>
       </div>
+
+      <div class="chat-log" id="chatLog"></div>
+
+      <div class="chat-start-wrap" id="chatStartWrap">
+        <button class="btn sm chat-start-btn" id="chatStartBtn">
+          Ver el siguiente mensaje →
+        </button>
+      </div>
+
+      <div class="quick-replies" id="chatOptions" hidden></div>
+    </div>
+
+    <div class="inline-result" id="result3" hidden>
+      <div class="score-label">Tu resultado</div>
+
+      <div class="score-badge" id="scoreBadge3">
+        0/5
+      </div>
+
+      <p id="endMsg3"></p>
+
+      <div class="next-choices">
+        <button class="redo-btn" id="restartBtn3">
+          <span class="k2">Ctrl</span>
+          <span class="k2">Z</span>
+          Volver a intentar
+        </button>
+
+        <button class="menu-btn" id="changeScenarioBtn">
+          Probar otro escenario →
+        </button>
+
+        <button class="menu-btn" data-back>
+          Elegir otro juego →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!-- ===== JUEGO 4: ESCANER DE HUELLA DIGITAL (radar) ===== -->
       <div class="game-panel" id="panel4" hidden>
@@ -308,11 +376,11 @@
         <div class="game-intro" id="game4Intro">
           <div class="panel-head">
             <div class="section-label">04 · Escáner de huella digital</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado. Esto es un indicador educativo, no una medición real de riesgo.</p>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tanto de ti se puede deducir con lo que compartes?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que tienes público en tus redes. El resultado es anónimo y solo sirve como indicador educativo.</p>
           </div>
           <div class="how-to-play">
-            <b>Cómo jugar:</b> marca lo que hoy es público en tus redes.
+            <b>Cómo jugar:</b> marca lo que hoy es visible en tus redes.
           </div>
           <div class="game-start" id="game4Start">
             <button type="button" class="btn start-btn" id="game4StartBtn">Comenzar ▶</button>
@@ -320,14 +388,14 @@
         </div>
         <div class="game-content" id="game4Content" hidden>
         <div class="foot-form" id="footForm">
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Sabrían en qué colonia vives y a qué hora sueles salir de tu casa, escuela o trabajo."> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":20,"contacto":10}' data-tip="Podrían hacerse pasar por &quot;RH&quot; o &quot;Servicios Escolares&quot; de ese lugar exacto, usando nombres reales de gente que trabaja ahí."> Mi perfil muestra el nombre completo de mi escuela o trabajo actual</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":25,"financiero":15}' data-tip="Tendrían tu dirección exacta o los datos de tu vehículo sin tener que preguntártelo."> He publicado fotos donde se ve mi dirección, mi placa o el interior de mi casa</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30}' data-tip="Fecha y lugar de nacimiento son de las preguntas de seguridad más comunes en bancos — con eso bastaría para intentar recuperar una de tus cuentas."> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"contacto":35}' data-tip="Podrían mandarte un SMS o WhatsApp falso (smishing) dirigido, usando tu nombre real para que suene creíble."> Mi número de teléfono aparece visible en mi bio o en comentarios</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15}' data-tip="El nombre de tu primera mascota es una de las respuestas de seguridad más usadas en el mundo — y muchas veces está en una foto o en un post viejo."> He publicado el nombre de mi mascota</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":20}' data-tip="Sabrían exactamente a qué hora no estás en casa, o el momento del día en que estás más distraída/o para contactarte."> Publico mi rutina (horarios de entrada/salida de clases, trabajo, gimnasio)</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15,"contacto":15}' data-tip="Podrían hacerse pasar por un familiar en apuros —la clásica estafa del &quot;pariente que necesita dinero urgente&quot;— usando nombres reales que tú sí conoces."> Mis publicaciones muestran el nombre completo de familiares cercanos (mamá, pareja, hijos)</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Una publicación con ubicación puede revelar dónde estuviste o ayudar a relacionar distintos lugares con tu rutina."> Comparto mi ubicación en publicaciones o stories</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":20,"contacto":10}' data-tip="Indicar dónde estudias o trabajas facilita que alguien relacione tu perfil con una institución, empresa o personas de ese entorno."> Mi perfil muestra dónde estudio o trabajo actualmente</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":25,"financiero":15}' data-tip="Una foto puede revelar información que no pretendías compartir, como una dirección, una placa o detalles del lugar donde vives."> He publicado fotos donde se ve mi dirección, placa o interior de mi casa</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30}' data-tip="La fecha y el lugar de nacimiento pueden servir para relacionar tu identidad con otros datos disponibles públicamente."> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"contacto":35}' data-tip="Un número visible puede facilitar intentos de contacto dirigidos, como mensajes o llamadas que usen información real sobre ti para parecer más creíbles."> Mi número de teléfono aparece visible en mi perfil</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15}' data-tip="Los nombres de mascotas, lugares o personas cercanas pueden convertirse en pistas para alguien que está reuniendo información sobre ti."> He publicado el nombre de mi mascota</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":20}' data-tip="Compartir horarios frecuentes puede permitir que alguien infiera parte de tu rutina o los lugares que visitas habitualmente."> Publico con frecuencia mi rutina o mis horarios</label>
+          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15,"contacto":15}' data-tip="Mostrar nombres y relaciones familiares ayuda a construir un mapa de personas cercanas a ti y puede hacer más creíbles intentos de suplantación."> Mis publicaciones muestran los nombres de familiares cercanos</label>
         </div>
         <div style="text-align:center; margin-top:18px;">
           <button class="btn coral" id="btnScan">Escanear mi huella 🔍</button>
@@ -713,93 +781,65 @@ const LEVEL_TIME = { facil:12, intermedio:16, dificil:22 };
 const SEGMENT_TAG = { edu:'🎓 Uni', work:'💼 Trabajo' };
 
 const CASES = [
-  /* ---------- FÁCIL: señales bastante claras ---------- */
-  { level:'facil', segment:'general', kind:'SMS', icon:'📦', iconClass:'i-sms', name:'Estafeta MX', meta:'+52 1 55 0198 2231', subject:null,
-    msg:'Tu paquete no pudo entregarse. Paga $19 MXN de reenvío antes de 24h o será devuelto:',
-    link:'estafeta-mx.paquete-tracking.info/pago', isPhishing:true, attack:'Smishing',
-    explain:'El dominio "paquete-tracking.info" no es de Estafeta. Las paqueterías reales no cobran "reenvíos" por SMS con links de dominios raros.',
-    tip:'Verifica el número de guía directo en la página oficial de la paquetería, nunca desde un link de un mensaje.' },
-  { level:'facil', segment:'edu', kind:'EMAIL', icon:'🎓', iconClass:'i-email', name:'Becas UNAM', meta:'becas.excelencia@unam-becas2026.com',
-    subject:'¡Felicidades! Fuiste seleccionado — Beca de Excelencia 2026',
-    msg:'Para asignar tu beca del 100%, envía tus datos bancarios (CLABE y tarjeta) en las próximas 2 horas o perderás tu lugar.',
-    link:null, isPhishing:true, attack:'Phishing',
-    explain:'Ninguna beca real pide tu tarjeta o CLABE por correo, y mucho menos con un plazo de 2 horas. La urgencia es la trampa.',
-    tip:'Las becas oficiales se gestionan desde tu portal escolar (DGAE / tu facultad), nunca por correo con presión de tiempo.' },
-  { level:'facil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA Alertas', meta:'+52 1 33 5510 9987', subject:null,
-    msg:'Detectamos un cargo no reconocido de $3,499. Si no lo reconoces, cancélalo aquí de inmediato:',
-    link:'bbva-clientes-seguridad.com/cancelar', isPhishing:true, attack:'Phishing bancario',
-    explain:'El banco jamás usa dominios distintos al oficial. "bbva-clientes-seguridad.com" no pertenece a BBVA.',
-    tip:'Ante cualquier alerta bancaria, entra a la app oficial o llama al número que está en el reverso de tu tarjeta.' },
+  /* ---------- FÁCIL: calentamiento, señales todavía razonablemente claras ---------- */
+  { level:'facil', segment:'general', kind:'SMS', icon:'📦', iconClass:'i-sms', name:'DHL México', meta:'+52 1 55 0198 2231', subject:null,
+    msg:'Tu paquete no pudo entregarse por datos incompletos. Actualiza tu dirección antes de 24h o será devuelto al remitente:',
+    link:'dhl-mx.entregas-tracking.com/actualizar', isPhishing:true, attack:'Smishing',
+    explain:'El enlace no es de dhl.com — "dhl-mx" es solo el nombre de un subdominio dentro de otro sitio.',
+    tip:'Entra directamente a la app o página oficial de la paquetería, nunca desde el link del SMS.' },
   { level:'facil', segment:'edu', kind:'EMAIL', icon:'📚', iconClass:'i-email', name:'Biblioteca Central UNAM', meta:'biblioteca@dgb.unam.mx',
     subject:'Recordatorio de vencimiento de préstamo',
-    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir directamente al mostrador.',
+    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir al mostrador.',
     link:'biblioteca.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
-    explain:'Dominio oficial (.unam.mx), sin presión de tiempo ni solicitud de datos o pagos. Es un recordatorio administrativo normal.',
-    tip:'Aun así, es buena práctica escribir tú misma la dirección en el navegador en vez de dar clic directo.' },
-  { level:'facil', segment:'work', kind:'LINKEDIN', icon:'💼', iconClass:'i-social', name:'RH Global Solutions', meta:'mensaje directo', subject:null,
-    msg:'¡Trabaja desde casa! Gana $8,000 semanales sin experiencia. Solo paga $500 de "kit de inicio" para comenzar mañana mismo.',
-    link:null, isPhishing:true, attack:'Fraude laboral',
-    explain:'Ninguna empresa real te pide pagar para empezar a trabajar. Un sueldo altísimo sin experiencia y un pago inicial son banderas rojas clásicas.',
-    tip:'Investiga a la empresa, busca reseñas y desconfía de cualquier oferta que pida dinero antes de contratarte.' },
+    explain:'El remitente y el enlace corresponden al dominio institucional real y no hay presión ni solicitud de datos.',
+    tip:'Aun así, es buena costumbre escribir la dirección directamente en el navegador.' },
 
-  /* ---------- INTERMEDIO: varias señales mezcladas, textos más largos ---------- */
-  { level:'intermedio', segment:'edu', kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Grupo Cálculo Diferencial', meta:'grupo de clase · oficial', subject:null,
-    msg:'Recuerden que mañana no hay clase, el profe avisó por el Classroom oficial del grupo. Cualquier duda, revisen el foro del curso, ahí está el mismo aviso con la fecha de reposición.',
+  /* ---------- INTERMEDIO: hay que leer con cuidado, no basta con "se ve raro" ---------- */
+  { level:'intermedio', segment:'general', kind:'EMAIL', icon:'🏦', iconClass:'i-email', name:'BBVA México', meta:'alertas@bbva.mx.verificacion-segura.com',
+    subject:'Verifica un cargo reciente en tu cuenta',
+    msg:'Detectamos un cargo no reconocido de $3,499 en tu tarjeta. Verifica el movimiento desde el siguiente enlace antes de que se procese:',
+    link:'bbva.mx.verificacion-segura.com/cargo', isPhishing:true, attack:'Suplantación de dominio',
+    explain:'"bbva.mx" aparece al inicio, pero es solo una palabra dentro del dominio real, que es verificacion-segura.com. El dominio de BBVA siempre debe terminar en ".bbva.mx".',
+    tip:'En un correo, lee el dominio de derecha a izquierda: lo que importa es lo que va justo antes de la primera barra "/".' },
+  { level:'intermedio', segment:'edu', kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Diego · Cálculo Diferencial', meta:'contacto guardado, compañero de clase', subject:null,
+    msg:'Oye, cambiaron el salón de mañana, ahora es el B-204. Lo confirmaron también en el Classroom del grupo.',
     link:null, isPhishing:false, attack:'Mensaje legítimo',
-    explain:'Viene de un grupo conocido, sin links externos ni petición de datos o dinero, y remite a un canal oficial (Classroom) para confirmar.',
-    tip:'Un mensaje "seguro" no significa bajar la guardia: siempre confirma en la plataforma oficial si algo suena importante.' },
-  { level:'intermedio', segment:'edu', kind:'EMAIL', icon:'🛡️', iconClass:'i-email', name:'Soporte TI · Facultad', meta:'soporte@unam-verificacion.net',
-    subject:'Actividad inusual detectada en tu cuenta',
-    msg:'Hola, te escribimos del área de soporte porque detectamos actividad inusual en tu cuenta @comunidad.unam.mx desde un dispositivo no reconocido en Monterrey. Por tu seguridad, verifica tu identidad en las próximas 24 horas dando clic en el enlace de abajo, o la cuenta se suspenderá de forma preventiva mientras se revisa el caso.',
-    link:'unam-verificacion.net/alumnos', isPhishing:true, attack:'Phishing institucional',
-    explain:'El dominio real de la UNAM es unam.mx — "unam-verificacion.net" es un dominio externo diseñado para parecerse al oficial. El tono calmado y "profesional" no lo hace legítimo.',
-    tip:'El verdadero soporte técnico no pide "verificar tu identidad" dando clic en un link con amenaza de suspensión.' },
-  { level:'intermedio', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Mamá 📱 (número nuevo)', meta:'hoy · nota de voz', subject:null,
-    msg:'"Hijo, perdí mi cel en el camión, este es mi número nuevo, guárdalo. Necesito que me deposites $2,000 urgente para resolver algo, ahorita no puedo explicarte bien porque ando en la calle, al rato que llegue a la casa te cuento con calma, porfa."',
-    link:null, isPhishing:true, attack:'Vishing / estafa familiar',
-    explain:'Un número desconocido + una emergencia repentina + petición de dinero inmediata, sin dejarte confirmar detalles, es un patrón clásico de suplantación de un familiar.',
-    tip:'Cuelga y marca al número que ya tenías guardado, o pregunta algo que solo esa persona sabría, antes de enviar cualquier dinero.' },
-  { level:'intermedio', segment:'work', kind:'WHATSAPP', icon:'📄', iconClass:'i-chat', name:'Cliente · Distribuidora Alba', meta:'contacto guardado en el chat de ventas', subject:null,
-    msg:'Buen día, les escribo porque nuestro banco tuvo un problema con la cuenta a la que normalmente les pagamos. Adjunto la nueva ficha de depósito para la factura de este mes, ¿me confirman en cuanto reciban el pago para cerrar el trato antes de que cierre el corte administrativo de hoy?',
-    link:null, isPhishing:true, attack:'Fraude de cambio de cuenta bancaria',
-    explain:'Un "cambio de cuenta" de último momento por chat, con presión de horario de corte, es una de las estafas más comunes a proveedores: el atacante ya intervino el correo o WhatsApp real del cliente.',
-    tip:'Cualquier cambio de datos bancarios de un cliente o proveedor se confirma por teléfono al número que ya tenías registrado, nunca solo por el mismo chat.' },
-  { level:'intermedio', segment:'work', kind:'EMAIL', icon:'👥', iconClass:'i-email', name:'Recursos Humanos', meta:'rh@nomina-empresas-mx.net',
-    subject:'Actualiza tu método de pago de nómina antes del corte',
-    msg:'Estamos migrando el sistema de nómina a una nueva plataforma. Para que tu depósito no se retrase este mes, actualiza tu CLABE y verifica tu identidad en el portal antes del viernes. Si no lo haces a tiempo, tu pago se procesará hasta el siguiente periodo.',
-    link:'nomina-empresas-mx.net/actualizar', isPhishing:true, attack:'Phishing de nómina',
-    explain:'El dominio no corresponde a un sistema interno real de la empresa, y pedir "verificar identidad" con amenaza de retraso en el pago es presión clásica disfrazada de trámite administrativo.',
-    tip:'Cualquier cambio de nómina se hace desde el portal interno de RH que ya conoces, nunca desde un link recibido por correo.' },
+    explain:'No pide nada, no hay enlaces ni urgencia forzada, y el dato puede confirmarse en un canal oficial aparte.',
+    tip:'Cuando algo importante llega por un chat informal, confírmalo también en el canal oficial antes de actuar.' },
+  { level:'intermedio', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía', meta:'contacto guardado', subject:null,
+    msg:'Oye, ¿me reenvías el código de 6 dígitos que te acaba de llegar? Me equivoqué al recuperar mi cuenta y necesito verificarla antes de que expire.',
+    link:null, isPhishing:true, attack:'Secuestro de cuenta',
+    explain:'Que el mensaje venga de un contacto guardado no hace seguro compartir un código: probablemente su cuenta ya fue comprometida y el mensaje no lo escribió ella.',
+    tip:'Nunca compartas un código de verificación con nadie, ni siquiera con alguien conocido. Llámale para confirmar.' },
+  { level:'intermedio', segment:'work', kind:'EMAIL', icon:'👥', iconClass:'i-email', name:'Recursos Humanos', meta:'rh@tuempresa.com', subject:'Confirmación de dispersión de nómina',
+    msg:'Tu pago de este quincena ya fue depositado a la cuenta que tenemos registrada. Si tienes dudas sobre tu recibo, puedes consultarlo en el portal interno.',
+    link:null, isPhishing:false, attack:'Mensaje legítimo',
+    explain:'El dominio corresponde a la empresa, no pide actualizar ningún dato ni contiene un enlace externo.',
+    tip:'Un aviso legítimo de nómina nunca te pide "verificar tu identidad" ni actualizar tu CLABE por correo.' },
 
-  /* ---------- DIFÍCIL: mensajes creíbles, requieren contexto ---------- */
-  { level:'dificil', segment:'work', kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@logistica-norte-mx.com',
-    subject:'URGENTE — confidencial',
-    msg:'Necesito que hagas una transferencia de $45,000 antes de las 5pm para cerrar un trato con un proveedor nuevo. Estoy en junta con el cliente y no puedo hablar por teléfono ahorita, pero es hoy o se cae el trato. Te mando los datos bancarios en un momento, confío en tu discreción con esto, no lo comentes con nadie más del equipo todavía.',
+  /* ---------- DIFÍCIL: mensajes creíbles, casi nada "técnico" que los delate ---------- */
+  { level:'dificil', segment:'work', kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@tuempresa.com',
+    subject:'Solicitud de transferencia',
+    msg:'Necesito que hagas una transferencia de $45,000 a un proveedor nuevo antes de las 5pm. Estoy en junta y no puedo hablar ahora. Te mando los datos por aquí.',
     link:null, isPhishing:true, attack:'Fraude del CEO (BEC)',
-    explain:'Presión emocional + urgencia + petición de secrecía + un canal donde no puedes verificar la identidad real: los tres ingredientes clásicos del fraude del "jefe", disfrazados de una situación de negocio totalmente creíble.',
-    tip:'Regla práctica: toda solicitud de dinero o datos sensibles se confirma por un segundo canal, nunca solo por el mismo hilo del mensaje, sin importar quién parezca escribir.' },
-  { level:'dificil', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía (compañera, número de siempre)', meta:'contacto guardado', subject:null,
-    msg:'Oye, disculpa que te escriba así de la nada, ¿me puedes reenviar el código de 6 dígitos que te acaba de llegar? Es que me equivoqué de número al intentar recuperar mi cuenta y ahora no me deja entrar, tú fuiste el único contacto que me quedó guardado en el correo de respaldo 😅 necesito verificarla urgente antes de que expire.',
-    link:null, isPhishing:true, attack:'Secuestro de cuenta vía código de verificación',
-    explain:'Que venga de un contacto guardado no lo hace seguro: su cuenta pudo ser hackeada antes que la tuya. Ese código de 6 dígitos sirve para activar TU cuenta en un dispositivo nuevo — si lo compartes, le das acceso a tu propio WhatsApp a otra persona, sin importar quién lo pida ni qué tan creíble suene la historia.',
-    tip:'Nunca compartas un código de verificación con nadie, así sea alguien conocido: ese código es la prueba de que el dispositivo nuevo eres tú.' },
-  { level:'dificil', segment:'general', kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'SAT México', meta:'devoluciones@sat-mx-tramites.com',
-    subject:'Tienes un saldo a favor pendiente de $3,842.00',
-    msg:'De acuerdo con tu declaración anual, tienes un saldo a favor de $3,842.00 pendiente de devolución. Para procesar el depósito a tu cuenta, es necesario que confirmes tu RFC y tu contraseña del portal en el siguiente enlace antes de que cierre el periodo de devoluciones de esta temporada fiscal. Este trámite solo toma un par de minutos.',
-    link:'sat-mx-tramites.com/devolucion', isPhishing:true, attack:'Phishing gubernamental',
-    explain:'El dominio real del SAT es sat.gob.mx. Ningún trámite de devolución se hace fuera del portal oficial, y el SAT nunca pide tu contraseña por correo — este tipo de correo se vuelve común cada temporada de declaración anual, justo cuando de verdad esperas noticias de una devolución.',
-    tip:'Verifica cualquier trámite fiscal escribiendo tú misma/o sat.gob.mx en el navegador, nunca desde un link recibido por correo.' },
-  { level:'dificil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 (número corto oficial)', subject:null,
-    msg:'Tu código de un solo uso para iniciar sesión en la app es 482913. No lo compartas con nadie, ni con personal de BBVA.',
+    explain:'El dominio puede ser real y no hay ningún link sospechoso: el ataque es puramente de presión y autoridad — dinero urgente, proveedor nuevo y "no puedo hablar" para evitar que confirmes.',
+    tip:'Cualquier transferencia inusual, aunque venga del jefe, se confirma por otro canal antes de hacerla.' },
+  { level:'dificil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 · número corto', subject:null,
+    msg:'Tu código de un solo uso para iniciar sesión en la app es 482913. No lo compartas con nadie.',
     link:null, isPhishing:false, attack:'Mensaje legítimo (2FA)',
-    explain:'Es un código estándar de doble factor que tú mismo generaste al intentar iniciar sesión, y el mensaje advierte explícitamente no compartirlo con nadie — así se ve un código de verificación legítimo, aunque a primera vista un "código" pueda generar desconfianza por costumbre.',
-    tip:'La diferencia clave: tú provocaste el intento de inicio de sesión. Si te llega un código sin que tú hayas hecho nada, ahí sí sospecha y no lo compartas con quien te lo pida.' },
-  { level:'dificil', segment:'edu', kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
-    subject:'Apertura de inscripciones — Módulo 1.2',
-    msg:'Te recordamos que el periodo de inscripción al Módulo 1.2 abre el 3 de septiembre. Consulta el calendario oficial y los horarios disponibles en el portal de la Facultad de Ingeniería; si tienes adeudos pendientes con la biblioteca o control escolar, resuélvelos antes de esa fecha para evitar bloqueos en tu inscripción.',
-    link:'ingenieria.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
-    explain:'Remitente institucional coherente, sin urgencia artificial ni solicitud de datos o pagos, aunque el tema (inscripciones, adeudos, fechas límite) es justo el tipo de contexto que también usan los correos falsos.',
-    tip:'Cuando dudes, compara el dominio del remitente con el de la página oficial de tu facultad, incluso si el tema del correo parece rutinario.' }
+    explain:'El código corresponde a un inicio de sesión que tú realizaste hace un momento, y el mensaje mismo te recuerda no compartirlo.',
+    tip:'Si te llega un código de acceso que tú no solicitaste, no lo compartas y revisa tu cuenta de inmediato.' },
+  { level:'dificil', segment:'work', kind:'FLYER', icon:'🔲', iconClass:'i-qr', name:'Código QR', meta:'pegado en el elevador de la oficina', subject:null,
+    msg:'"Renueva tu credencial de acceso al edificio antes del viernes. Escanea el código QR y llena tus datos."',
+    link:'credenciales-acceso-corp.net/renovar', isPhishing:true, attack:'Quishing (phishing por QR)',
+    explain:'Un código QR físico salta el filtro visual de "revisar el link antes de dar clic", porque no ves la dirección hasta después de escanear — y en este caso lleva a un dominio ajeno a la empresa.',
+    tip:'Antes de escanear un QR desconocido, revisa a dónde apunta desde la vista previa del teléfono, y desconfía si pide datos personales o credenciales.' },
+  { level:'dificil', segment:'edu', kind:'EMAIL', icon:'📎', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
+    subject:'Constancia de inscripción — Módulo 1.2',
+    msg:'Adjunto encontrarás tu constancia de inscripción en formato PDF. Consérvala para trámites posteriores.',
+    link:'constancia_inscripcion.pdf.exe', isPhishing:true, attack:'Archivo adjunto malicioso',
+    explain:'El remitente es real, pero el archivo no es un PDF: la extensión ".exe" al final revela que en realidad es un programa ejecutable disfrazado de documento.',
+    tip:'Antes de abrir un adjunto, revisa la extensión completa del archivo, no solo el ícono o el nombre.' }
 ];
 
 let idx=0, score1=0, awaitingContinue=false;
@@ -964,8 +1004,8 @@ function showEnd1(){
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   let m;
-  if(score1>=13) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más largos y difíciles, con el tiempo encima y las distracciones apareciendo.';
-  else if(score1>=9) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
+  if(score1>=9) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más sutiles, con el tiempo encima y las distracciones apareciendo.';
+  else if(score1>=6) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
   else m='Entre el tiempo limitado y las distracciones, caíste en "piloto automático" varias veces — justo así operan estos ataques en la vida real. Repasa los casos y vuelve a intentarlo.';
   const levelNames={facil:'los casos fáciles', intermedio:'los casos intermedios', dificil:'los casos difíciles'};
   const worst=Object.keys(wrongByLevel).reduce((a,b)=> wrongByLevel[b]>wrongByLevel[a]?b:a, 'facil');
@@ -1005,10 +1045,10 @@ window.addEventListener('keydown', (e)=>{
    JUEGO 2 · Detecta las señales
    ============================================================ */
 const flagExplain = {
-  d1: 'El dominio real de Nu es nu.com.mx. "nu-mexico-app.com" es un dominio distinto, registrado para parecerse al oficial — hoy en día los atacantes ya no usan dominios obviamente falsos, sino variaciones casi idénticas al real.',
+  d1: 'El dominio real de Nu es nu.com.mx. "nu-mexico.com" es un dominio distinto, registrado para parecerse al oficial — hoy en día los atacantes ya no usan dominios obviamente falsos, sino variaciones casi idénticas al real.',
   d2: 'Que el correo use tu nombre real (Andrea) NO es garantía de que sea legítimo: los atacantes obtienen nombres reales de bases de datos filtradas o de tus propias redes sociales. La personalización ya no es señal de confianza por sí sola.',
   d3: 'La urgencia ya no siempre grita "¡tu cuenta será suspendida!" — aquí se disfraza de algo burocrático y tranquilo ("políticas internas de seguridad"), pero sigue siendo un plazo artificial diseñado para que actúes sin verificar.',
-  d4: 'El link de "verificar y bloquear tarjeta" lleva a una página falsa diseñada para robar tu usuario, contraseña y datos de tu tarjeta, aunque el diseño y el dominio parezcan consistentes con el resto del correo.',
+  d4: 'El link de "Revisar movimiento" lleva a una página falsa diseñada para robar tu usuario, contraseña y datos de tu tarjeta, aunque el diseño y el dominio parezcan consistentes con el resto del correo.',
   d5: 'Este párrafo suena razonable y hasta tranquilizador ("si tú lo hiciste, ignóralo") — así es como se ve un aviso de fraude legítimo. Por sí solo no es una señal técnica de que el correo sea falso.',
   d6: 'Este número no aparece en los canales oficiales publicados por el banco en su app o sitio web: es un número de contacto falso, pensado para captarte también por teléfono (vishing) si decides "verificar" por esa vía en vez de por el link.'
 };
@@ -1070,91 +1110,91 @@ document.getElementById('game2StartBtn').addEventListener('click', ()=>{
    ============================================================ */
 const CHAT_SCENARIOS = {
   trabajo: {
-    icon:'💼', title:'Escenario de trabajo', desc:'Tu director te escribe "urgente" un viernes a las 3pm.',
+    icon:'💼', title:'Escenario de trabajo', desc:'Tu director te escribe mientras está en una junta.',
     avatarInit:'DC', name:'David Contreras', role:'Dirección General',
-    intro:'¿Sigues en la oficina? Necesito que me ayudes con algo confidencial, es urgente.',
+    intro:'Hola, ¿sigues conectada? Necesito pedirte un favor con un tema de un proveedor.',
     steps:[
-      { boss:'Necesito que hagas una transferencia de $45,000 a esta cuenta antes de las 5pm. Es para cerrar un trato, no puedo hablar ahora, estoy en junta.',
-        options:[ {text:'Claro, la hago ahora mismo.', zeroTrust:false}, {text:'Antes de transferir, te marco para confirmarlo por teléfono.', zeroTrust:true} ] },
-      { boss:'No puedo contestar llamadas ahorita. Ya te dije que es urgente y confidencial, no le comentes a nadie más.',
-        options:[ {text:'Entendido, no le digo a nadie y lo hago.', zeroTrust:false}, {text:'Voy a validarlo con el área de finanzas antes de proceder, por protocolo.', zeroTrust:true} ] },
-      { boss:'🎙️ Nota de voz (0:11): "Oye, soy yo, ando batallando con el celular, por favor haz lo que te pedí, confío en ti, gracias."',
-        options:[ {text:'Con la nota de voz ya sé que eres tú, la hago.', zeroTrust:false}, {text:'Una nota de voz también se puede generar con IA hoy en día; sigo verificando por el canal oficial de RH.', zeroTrust:true} ] },
-      { boss:'Por cierto, te va a llegar un código de 6 dígitos a tu WhatsApp de parte del banco, es por un tema de seguridad del trato. Solo reenviámelo aquí en cuanto te llegue para agilizar todo.',
-        options:[ {text:'Va, en cuanto me llegue te lo reenvío.', zeroTrust:false}, {text:'Un código de verificación nunca se comparte con nadie, ni contigo. No te lo voy a reenviar.', zeroTrust:true} ] },
-      { boss:'Si no lo resolvemos ahora, voy a tener que reportar que no colaboraste en algo urgente para la empresa. Es tu última oportunidad de ayudarme con esto.',
-        options:[ {text:'Está bien, aquí tienes todo lo que necesitas.', zeroTrust:false}, {text:'Prefiero hablarlo directamente contigo o con RH en persona el lunes; no voy a saltarme el protocolo por presión.', zeroTrust:true} ] }
+      { boss:'Estoy en una junta y no puedo salir. ¿Me ayudas con una transferencia de $45,000? Finanzas ya está enterada.',
+        options:[ {text:'Sí, pásame los datos y la hago.', zeroTrust:false}, {text:'Antes de hacerla, prefiero confirmar la solicitud con Finanzas o contigo por otro medio.', zeroTrust:true} ] },
+      { boss:'Te mando los datos aquí. Es una cuenta nueva porque el proveedor cambió de banco esta semana.',
+        options:[ {text:'Va, con eso me basta.', zeroTrust:false}, {text:'Si la cuenta cambió, voy a verificar los datos con Finanzas antes de transferir.', zeroTrust:true} ] },
+      { boss:'Estoy viendo que no avanza. ¿Puedes hacerlo antes de las 5? Después ya no alcanzamos a procesarlo.',
+        options:[ {text:'Sí, lo hago antes de las 5.', zeroTrust:false}, {text:'No pasa nada si tengo que esperar. Primero voy a confirmar que la solicitud sea válida.', zeroTrust:true} ] },
+      { boss:'Te debería llegar un código al celular. Mándamelo para completar la operación desde aquí.',
+        options:[ {text:'Te lo envío cuando llegue.', zeroTrust:false}, {text:'No comparto códigos de verificación. Si hace falta, hago el proceso directamente desde el sistema oficial.', zeroTrust:true} ] },
+      { boss:'Entiendo. Entonces déjalo pendiente y lo revisamos después. Solo quería resolverlo rápido.',
+        options:[ {text:'Está bien, lo dejo pendiente hasta poder confirmarlo.', zeroTrust:true}, {text:'Bueno, para que no se retrase, lo hago de una vez.', zeroTrust:false} ] }
     ],
     endMsgs:{
-      full:'Aplicaste "confianza cero" en los 5 momentos clave: verificaste el canal, no cediste a la secrecía, no te confió una nota de voz (que hoy se puede clonar con IA en segundos), no reenviaste tu código de verificación y no cediste ante la presión final. Así se protege a toda una empresa —y a ti mismo/a— de un fraude de suplantación de directivos.',
-      partial:(s)=>`Te fue bien en ${s} de 5, pero un solo momento de presión es suficiente para que un ataque de este tipo funcione por completo. Repasa en qué puntos exactos cediste.`,
-      low:'Acabas de comprometer dinero, tu contraseña o tu propia cuenta de WhatsApp siguiendo instrucciones que nunca verificaste. Así funcionan hoy los fraudes de suplantación de directivos (BEC): combinan presión, "pruebas" que parecen reales (como una nota de voz) y el secuestro del código de verificación de tus propias cuentas.'
+      full:'No te dejaste llevar por la urgencia ni por la aparente autoridad de quien te escribía. Verificaste el cambio de cuenta, evitaste compartir códigos y buscaste confirmar la solicitud por un canal independiente.',
+      partial:(s)=>`Tomaste buenas decisiones en ${s} de 5 momentos. En este tipo de fraude, una solicitud puede parecer legítima y aun así necesitar una verificación adicional antes de mover dinero o compartir información.`,
+      low:'Seguiste una solicitud de transferencia sin confirmar quién la hizo ni si los datos eran correctos. Los fraudes de suplantación de directivos aprovechan precisamente eso: una persona conocida, una petición aparentemente normal y un poco de presión para que nadie se detenga a comprobarla.'
     }
   },
   familia: {
-    icon:'👪', title:'Escenario familiar', desc:'Tu hermana te escribe de un número nuevo tras "un accidente".',
+    icon:'👪', title:'Escenario familiar', desc:'Tu hermana te escribe desde un número que no tienes guardado.',
     avatarInit:'MR', name:'Mariana (tu hermana)', role:'Número nuevo · hoy',
-    intro:'Hermana, perdón que te escriba de este número, se me cayó el cel al escusado 😭 tuve un accidente en el coche y necesito que me ayudes con un depósito para el deducible del seguro, es urgente.',
+    intro:'Hola, soy yo. Este es mi número nuevo porque tuve que cambiar de celular. ¿Estás ocupada?',
     steps:[
-      { boss:'¿Me ayudas? Es en lo que llega el ajustador, no traigo efectivo y aquí no aceptan tarjeta.',
-        options:[ {text:'Claro, te transfiero ahorita mismo.', zeroTrust:false}, {text:'Antes de nada, le marco a tu número de siempre para confirmar que sí eres tú.', zeroTrust:true} ] },
-      { boss:'No puedo contestar, sigo en la aseguradora. Por favor no le digas nada a mis papás, no quiero preocuparlos por esto.',
-        options:[ {text:'Ok, no le digo a nadie y te ayudo.', zeroTrust:false}, {text:'Aunque me lo pidas, le voy a avisar a alguien más de la familia antes de mandar dinero.', zeroTrust:true} ] },
-      { boss:'🎙️ Nota de voz (0:09): "Oye ayúdame porfa, ando súper mal, no puedo hablar bien, cualquier cosa mi amiga Caro te puede confirmar, ella también iba en el coche."',
-        options:[ {text:'Con la nota de voz ya le creo, es su voz.', zeroTrust:false}, {text:'Las notas de voz también se clonan hoy con IA; pido una videollamada rápida para verificar.', zeroTrust:true} ] },
-      { boss:'Ya casi está todo resuelto, solo necesito que me confirmes el código que te llega por SMS, es para que el banco valide que el depósito es tuyo.',
-        options:[ {text:'Claro, en cuanto me llegue te lo mando.', zeroTrust:false}, {text:'Un código de mi banco no se lo doy a nadie, ni a ti, así sea urgente.', zeroTrust:true} ] },
-      { boss:'Porfa apúrate, si no pago ahorita se cancela el trámite y perdemos todo lo que ya avanzamos. Confía en mí, soy yo.',
-        options:[ {text:'Ya, aquí está todo lo que necesitas.', zeroTrust:false}, {text:'Prefiero perder el supuesto trámite a arriesgar mi cuenta sin verificar bien quién eres.', zeroTrust:true} ] }
+      { boss:'Se me complicó algo con el pago del seguro y necesito hacer un depósito hoy. ¿Me podrías ayudar y te lo regreso mañana?',
+        options:[ {text:'Sí, dime cuánto y a qué cuenta.', zeroTrust:false}, {text:'Sí puedo ayudarte, pero primero te marco a tu número de siempre para confirmar que eres tú.', zeroTrust:true} ] },
+      { boss:'No puedo usar el número anterior, ya no tengo acceso al celular. Si quieres te mando los datos de la cuenta por aquí.',
+        options:[ {text:'Va, mándamelos y te transfiero.', zeroTrust:false}, {text:'Prefiero confirmar contigo por otro medio antes de enviar dinero.', zeroTrust:true} ] },
+      { boss:'Es una cuenta de un familiar del seguro porque la mía está teniendo problemas. Me dijeron que así es más rápido.',
+        options:[ {text:'Está bien, si es por el seguro te lo transfiero.', zeroTrust:false}, {text:'Una cuenta distinta me parece raro. Voy a verificar primero con alguien de la familia o directamente con el seguro.', zeroTrust:true} ] },
+      { boss:'Perdón por insistir, pero necesito resolverlo hoy. Si no hago el pago, voy a tener que esperar varios días.',
+        options:[ {text:'Bueno, entonces te ayudo para que no tengas problemas.', zeroTrust:false}, {text:'Entiendo, pero la urgencia no cambia que necesito verificar antes de mandar dinero.', zeroTrust:true} ] },
+      { boss:'Ya vi que estás ocupada. Si quieres te mando una nota de voz para que veas que sí soy yo.',
+        options:[ {text:'Sí, con escucharte ya me quedo tranquila.', zeroTrust:false}, {text:'Una nota de voz no me permite confirmar por completo quién está usando el número. Prefiero verificar por otro canal.', zeroTrust:true} ] }
     ],
     endMsgs:{
-      full:'Verificaste por otro canal, avisaste a más familia a pesar del secreto pedido, desconfiaste de la nota de voz, protegiste tu código bancario y no cediste ante la urgencia final. Así se frena una estafa de "familiar en apuros", una de las más comunes y efectivas en México.',
-      partial:(s)=>`Cediste en ${5-s} de 5 momentos. Este tipo de estafa funciona precisamente combinando varios de estos trucos a la vez — un solo "sí" ya puede ser suficiente para perder dinero o tu cuenta.`,
-      low:'Habrías transferido dinero y compartido un código bancario con alguien que nunca verificaste que fuera tu hermana. Así operan las estafas de "familiar en apuros": un número nuevo, una emergencia creíble, y presión para que no lo consultes con nadie más.'
+      full:'No enviaste dinero solo porque alguien decía ser un familiar. Verificaste la identidad por otro canal, cuestionaste la cuenta de destino y no dejaste que la urgencia decidiera por ti.',
+      partial:(s)=>`Tomaste buenas decisiones en ${s} de 5 momentos. En una situación así, cambiar de número no demuestra por sí solo que sea una estafa, pero tampoco confirma quién está detrás. La clave es verificar antes de enviar dinero.`,
+      low:'Tomaste decisiones basándote en la identidad que la persona decía tener y en la urgencia de la situación. Cuando un familiar escribe desde un número nuevo y pide dinero, lo más seguro es confirmar por un canal que ya conoces antes de transferir.'
     }
   },
   banco: {
-    icon:'🏦', title:'Escenario bancario', desc:'Te "llama" el banco por un cargo que no reconoces.',
+    icon:'🏦', title:'Escenario bancario', desc:'Recibes una llamada sobre un cargo que no reconoces.',
     avatarInit:'SB', name:'Seguridad Bancaria', role:'Llamada entrante · no guardado',
-    intro:'Buenas tardes, hablamos del área de Prevención de Fraude de su banco. Detectamos un intento de compra por $8,700 en una tienda en línea que no reconocemos. ¿Usted realizó este cargo?',
+    intro:'Buenas tardes. Le hablamos del área de Prevención de Fraude de su banco. Detectamos un intento de compra por $8,700 que podría no haber sido autorizado. ¿Reconoce la operación?',
     steps:[
-      { boss:'¿Me confirma si reconoce ese cargo? Si no lo reconoce, puedo ayudarle a cancelarlo en este momento.',
-        options:[ {text:'No lo reconozco, ayúdeme a cancelarlo ahora.', zeroTrust:false}, {text:'Voy a colgar y marcar yo mismo/a al número que tengo guardado del banco.', zeroTrust:true} ] },
-      { boss:'Entiendo. Para cancelarlo necesito verificar su identidad: ¿me confirma los últimos 4 dígitos de su tarjeta y su nombre completo?',
-        options:[ {text:'Claro, se los doy.', zeroTrust:false}, {text:'No voy a confirmar datos en una llamada que no inicié yo; prefiero llamar directamente.', zeroTrust:true} ] },
-      { boss:'Sin esa verificación no puedo protegerlo y el cargo se hará válido en unos minutos. ¿Seguro que no quiere que lo ayude ahora mismo?',
-        options:[ {text:'Está bien, se los doy para que me ayude ya.', zeroTrust:false}, {text:'Prefiero el riesgo del cargo a dar mis datos en esta llamada.', zeroTrust:true} ] },
-      { boss:'Le voy a enviar un código a su celular para anular el cargo. Deme ese código en cuanto le llegue, por favor.',
-        options:[ {text:'Ok, en cuanto llegue se lo doy.', zeroTrust:false}, {text:'Un código que me manda mi banco no se lo doy a nadie por teléfono, ni al "banco".', zeroTrust:true} ] },
-      { boss:'Última oportunidad antes de que el cargo se procese de forma automática. ¿Me permite ayudarlo o no?',
-        options:[ {text:'Sí, aquí tiene todo lo que necesita.', zeroTrust:false}, {text:'Voy a colgar y verificar directamente desde la app oficial de mi banco.', zeroTrust:true} ] }
+      { boss:'Entiendo. Para ayudarle a revisar el movimiento, ¿me confirma su nombre completo y los últimos cuatro dígitos de su tarjeta?',
+        options:[ {text:'Sí, son datos básicos. Se los confirmo.', zeroTrust:false}, {text:'Prefiero no confirmar datos en una llamada que yo no inicié. Voy a contactar al banco directamente.', zeroTrust:true} ] },
+      { boss:'No hay problema. También puede revisar el movimiento desde su aplicación. Mientras tanto, ¿la tiene abierta?',
+        options:[ {text:'Sí. Dígame qué tengo que hacer.', zeroTrust:false}, {text:'Voy a revisar la operación directamente desde la app oficial, sin seguir instrucciones de esta llamada.', zeroTrust:true} ] },
+      { boss:'Veo que todavía no ha realizado ninguna acción. Si quiere, puedo enviarle un código para validar que usted es el titular y continuar con la cancelación.',
+        options:[ {text:'De acuerdo, mándeme el código.', zeroTrust:false}, {text:'No compartiré ningún código recibido en mi teléfono. Prefiero hacer la gestión directamente con el banco.', zeroTrust:true} ] },
+      { boss:'El cargo podría quedar pendiente mientras verifica. No se preocupe, todavía puede revisarlo desde la aplicación.',
+        options:[ {text:'Entonces sigo con el proceso que me está indicando por teléfono.', zeroTrust:false}, {text:'Voy a colgar y revisar el cargo desde la app o llamando al número oficial del banco.', zeroTrust:true} ] },
+      { boss:'Entiendo. Si encuentra algo que no reconoce, puede reportarlo directamente desde los canales oficiales del banco.',
+        options:[ {text:'Perfecto, entonces lo revisaré directamente por mi cuenta.', zeroTrust:true}, {text:'Mejor dígame aquí qué datos necesita para resolverlo ahora.', zeroTrust:false} ] }
     ],
     endMsgs:{
-      full:'Colgaste y verificaste por tu cuenta en los 5 momentos clave, sin importar la urgencia ni la "ayuda" ofrecida. Así se identifica el vishing: ningún banco real te pide datos completos o códigos de un solo uso por una llamada que tú no iniciaste.',
-      partial:(s)=>`Respondiste bien en ${s} de 5, pero compartir aunque sea un dato (los últimos dígitos, tu nombre completo o un código) ya le da a un atacante lo que necesita para tomar tu cuenta.`,
-      low:'Le diste tus datos y tu código de un solo uso a alguien que te llamó diciendo ser "tu banco". Así funciona el vishing: usan urgencia, un motivo creíble (un cargo no reconocido) y el miedo a perder dinero para que bajes la guardia justo con quien dice que te va a "proteger".'
+      full:'No intentaste resolver un supuesto fraude desde una llamada que tú no iniciaste. Evitaste confirmar información innecesaria, no compartiste códigos y verificaste el movimiento directamente desde un canal oficial.',
+      partial:(s)=>`Tomaste buenas decisiones en ${s} de 5 momentos. Una llamada sobre un cargo no reconocido puede sonar completamente legítima. La clave es recordar que puedes colgar y contactar al banco usando un número o canal que ya conozcas.`,
+      low:'Seguiste las instrucciones de una llamada entrante porque parecía provenir del área de fraude del banco. Los estafadores aprovechan precisamente esa situación: presentan un problema realista y se ofrecen a resolverlo, intentando que tú les entregues la información necesaria para hacerlo.'
     }
   },
   compraventa: {
-    icon:'🛒', title:'Escenario de compra-venta', desc:'Un "comprador" de Marketplace insiste en confirmar un pago raro.',
+    icon:'🛒', title:'Escenario de compra-venta', desc:'Un comprador quiere cerrar la compra rápidamente.',
     avatarInit:'CP', name:'Comprador interesado', role:'Chat de Marketplace',
-    intro:'¡Hola! Me interesa tu artículo, ya hice el pago por la app de envíos. Aquí tienes el comprobante: [ver comprobante]. Solo dale clic para confirmar la recepción y programar la recolección.',
+    intro:'Hola, me interesa tu artículo. ¿Todavía está disponible? Si todo está bien, puedo pagarte hoy mismo.',
     steps:[
-      { boss:'¿Ya viste el comprobante? Solo confírmalo ahí mismo y en cuanto lo hagas te libero el pago.',
-        options:[ {text:'Doy clic para confirmar de una vez.', zeroTrust:false}, {text:'No voy a dar clic en un link fuera de la plataforma oficial de venta.', zeroTrust:true} ] },
-      { boss:'Es que si no confirmas antes de 1 hora, el sistema cancela el pago automáticamente y pierdo mi dinero. Por favor apúrate.',
-        options:[ {text:'Ok ya voy, dame un momento y lo confirmo.', zeroTrust:false}, {text:'Ese plazo de una hora es una presión típica de estafa; sigo sin dar clic.', zeroTrust:true} ] },
-      { boss:'Bueno, para no perder el pago, mejor mándame el código que te llegó por SMS de la app de envíos, yo lo ingreso desde acá.',
-        options:[ {text:'Va, en cuanto me llegue te lo paso.', zeroTrust:false}, {text:'No comparto códigos de verificación con compradores; eso protege mi propia cuenta.', zeroTrust:true} ] },
-      { boss:'¿Entonces cómo quieres que te pague? Ya perdí tiempo con esto, otros vendedores sí colaboran rápido.',
-        options:[ {text:'Ok ok, hagámoslo como tú dices.', zeroTrust:false}, {text:'Solo acepto pago y confirmación dentro de la misma plataforma de venta, sin links externos.', zeroTrust:true} ] },
-      { boss:'Última oportunidad, o cancelo la compra ahora mismo.',
-        options:[ {text:'Está bien, acepto tus condiciones.', zeroTrust:false}, {text:'Prefiero perder esta venta a arriesgar mi cuenta o mis datos.', zeroTrust:true} ] }
+      { boss:'Perfecto. Ya hice el pago, pero la plataforma tarda un poco en reflejarlo. Te puedo mandar el comprobante.',
+        options:[ {text:'Sí, mándame el comprobante para confirmar el pago.', zeroTrust:false}, {text:'Prefiero esperar a que el pago aparezca directamente en la plataforma antes de entregar el artículo.', zeroTrust:true} ] },
+      { boss:'Te lo mando por aquí. También hay un enlace para confirmar que ya puedes preparar el envío.',
+        options:[ {text:'Abro el enlace para revisar el pago.', zeroTrust:false}, {text:'No necesito abrir un enlace. Revisaré el estado del pago directamente en la plataforma.', zeroTrust:true} ] },
+      { boss:'Me aparece que tienes que confirmar la operación antes de que el dinero pueda liberarse. Si no, el sistema la cancela.',
+        options:[ {text:'Entonces lo confirmo para que podamos terminar la venta.', zeroTrust:false}, {text:'Si el pago es real, debería poder comprobarlo desde la plataforma. No voy a confirmar algo desde un enlace externo.', zeroTrust:true} ] },
+      { boss:'La plataforma me pide que te mande un código para verificar que el vendedor eres tú. ¿Te llegó algún SMS?',
+        options:[ {text:'Sí, te lo puedo pasar para terminar la operación.', zeroTrust:false}, {text:'No comparto códigos de verificación. Si la plataforma necesita algo, lo haré directamente desde mi cuenta.', zeroTrust:true} ] },
+      { boss:'Entiendo. Si prefieres, podemos dejar la venta para después. Solo que otro comprador también está interesado.',
+        options:[ {text:'Entonces mejor hago la confirmación para no perder la venta.', zeroTrust:false}, {text:'No hay problema. Prefiero perder una venta antes que entregar datos o acceso a mi cuenta sin verificar.', zeroTrust:true} ] }
     ],
     endMsgs:{
-      full:'No diste clic en el link externo, ignoraste la presión de tiempo, protegiste tu código de verificación y no cediste ni ante la queja ni ante la amenaza de cancelar. Así se identifica una estafa de "comprador con comprobante falso" en plataformas de segunda mano.',
-      partial:(s)=>`Te fue bien en ${s} de 5, pero un solo clic en el link falso o un código compartido ya es suficiente para que te roben la cuenta o tus datos de pago.`,
-      low:'Diste clic en el link, compartiste tu código de verificación, o aceptaste "sus condiciones" de pago fuera de la plataforma. Así operan las estafas de compra-venta: un comprobante falso, presión de tiempo y una excusa técnica para pedirte tu código de un solo uso.'
+      full:'No confundiste un comprobante con un pago confirmado. Evitaste enlaces externos, no compartiste códigos y comprobaste todo desde la plataforma oficial antes de continuar con la venta.',
+      partial:(s)=>`Tomaste buenas decisiones en ${s} de 5 momentos. En una compra-venta, un comprobante, un mensaje o un enlace no sustituyen la confirmación del pago dentro de la plataforma oficial.`,
+      low:'Aceptaste información enviada por el comprador como prueba suficiente del pago y seguiste instrucciones fuera de la plataforma. En este tipo de fraude, el objetivo suele ser llevarte a un enlace falso o conseguir información que permita acceder a tu cuenta.'
     }
   }
 };
@@ -1337,10 +1377,10 @@ document.getElementById('btnScan').addEventListener('click', ()=>{
       ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.add('show'));
     });
     let msg;
-    if(!anyChecked) msg='No marcaste nada — o cuidas muy bien tu privacidad, o vale la pena revisar de verdad qué es visible en tus redes.';
-    else if(overall<35) msg='Tu huella expuesta es baja. Aun así, revisa cada tanto la configuración de privacidad de tus redes.';
-    else if(overall<65) msg='Con esta combinación de datos, alguien podría ubicarte o hacerse pasar por ti sin mucho esfuerzo.';
-    else msg='Con esta información, cualquiera podría perfilarte por completo: ubicarte, suplantarte o incluso usarla para responder tus preguntas de seguridad bancaria. Vale la pena reducir lo que compartes públicamente.';
+    if(!anyChecked) msg='No marcaste nada. Puede significar que compartes poca información públicamente o que tienes una configuración de privacidad bastante cuidada. Aun así, vale la pena revisar de vez en cuando qué puede ver alguien que no te conoce.';
+    else if(overall<35) msg='Tu huella pública es relativamente reducida. Aun así, revisa cada cierto tiempo qué información aparece en tus perfiles y publicaciones.';
+    else if(overall<65) msg='Has compartido varias pistas que, combinadas, pueden revelar información sobre tu identidad, tus contactos o tu rutina. No hace falta dejar de publicar, pero sí conviene pensar qué puede deducirse al juntar esos datos.';
+    else msg='Has reunido bastantes pistas públicas sobre ti. Combinadas, pueden facilitar que alguien conozca tu rutina, identifique personas cercanas o prepare un intento de engaño más personalizado. Reducir algunos datos visibles puede dificultar ese perfilado.';
     document.getElementById('dashMsg').textContent=msg;
 
     const dossierList=document.getElementById('dossierList');
