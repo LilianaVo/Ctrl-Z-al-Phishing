@@ -162,45 +162,47 @@
     </div>
 
     <div id="gameStage">
-      <div class="game-empty" id="gameEmpty">
-        <b>Elige un simulador arriba</b>
-        Selecciona uno de los cuatro casos para empezar a jugar.
-      </div>
-
       <!-- ===== JUEGO 1: DESLIZA Y DECIDE ===== -->
       <div class="game-panel" id="panel1" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
-        <div class="panel-head">
-          <div class="section-label">01 · Desliza y decide</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Mensajes reales de 2026. ¿Confías o sospechas?</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empiezas en fácil y vas subiendo a intermedio y difícil. Los casos difíciles son más largos y tienes más tiempo para leerlos.</p>
+        <div class="game-intro" id="game1Intro">
+          <div class="panel-head">
+            <div class="section-label">01 · Desliza y decide</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Mensajes reales de 2026. ¿Confías o sospechas?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empiezas en fácil y vas subiendo a intermedio y difícil. Los casos difíciles son más largos y tienes más tiempo para leerlos.</p>
+          </div>
+          <div class="how-to-play">
+            <b>Cómo jugar:</b> lee el mensaje y desliza: sospecho o confío.
+          </div>
+          <div class="game-start" id="game1Start">
+            <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar ▶</button>
+          </div>
         </div>
-        <div class="how-to-play">
-          <b>Cómo jugar:</b> lee el mensaje y desliza: sospecho o confío.
-        </div>
-        <div class="instructions">
-          <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
-          <div class="hint">usa el teclado ← / → o los botones · ⏱ tiempo limitado por caso</div>
-          <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
-        </div>
-        <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
-        <div class="progress" id="progress1">CASO 1 / 15</div>
-        <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
-        <div class="deck-wrap">
-          <div class="deck" id="deck"></div>
-          <div class="distraction-layer" id="distractionLayer"></div>
-        </div>
-        <div class="controls" id="controls1">
-          <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
-          <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
-        </div>
-        <div class="inline-result" id="result1" hidden>
-          <div class="score-label">Tu resultado</div>
-          <div class="score-badge" id="scoreBadge1">0/10</div>
-          <p id="endMsg1"></p>
-          <div class="next-choices">
-            <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-            <button class="menu-btn" data-back>Elegir otro juego →</button>
+        <div class="game-content" id="game1Content" hidden>
+          <div class="instructions">
+            <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
+            <div class="hint">usa el teclado ← / → o los botones · ⏱ tiempo limitado por caso</div>
+            <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
+          </div>
+          <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
+          <div class="progress" id="progress1">CASO 1 / 15</div>
+          <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
+          <div class="deck-wrap">
+            <div class="deck" id="deck"></div>
+            <div class="distraction-layer" id="distractionLayer"></div>
+          </div>
+          <div class="controls" id="controls1">
+            <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
+            <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
+          </div>
+          <div class="inline-result" id="result1" hidden>
+            <div class="score-label">Tu resultado</div>
+            <div class="score-badge" id="scoreBadge1">0/10</div>
+            <p id="endMsg1"></p>
+            <div class="next-choices">
+              <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+              <button class="menu-btn" data-back>Elegir otro juego →</button>
+            </div>
           </div>
         </div>
       </div>
@@ -208,36 +210,43 @@
       <!-- ===== JUEGO 2: DETECTA LAS SEÑALES ===== -->
       <div class="game-panel" id="panel2" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
-        <div class="panel-head">
-          <div class="section-label">02 · Detecta las señales</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Da clic en cada parte del correo que te parezca sospechosa.</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este no es de los que gritan "¡URGENTE!" en mayúsculas — es del tipo que sí engaña hoy en día. Léelo con calma antes de decidir.</p>
-        </div>
-        <div class="how-to-play">
-          <b>Cómo jugar:</b> toca cada señal sospechosa que veas.
-        </div>
-        <div class="detect-center">
-          <div class="email-mock">
-            <div class="e-head">
-              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
-              <div><b>Asunto:</b> Confirmación requerida: movimiento de $12,450.00</div>
-            </div>
-            <div class="e-body">
-              <p><span class="hotspot" data-flag="false" data-id="d2" tabindex="0" role="button" aria-pressed="false" aria-label="Saludo. Marca esta parte si te parece sospechosa">Hola Andrea,</span></p>
-              <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
-              <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Verificar movimiento y bloquear tarjeta →</span></p>
-              <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
-              <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
-            </div>
+        <div class="game-intro" id="game2Intro">
+          <div class="panel-head">
+            <div class="section-label">02 · Detecta las señales</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Da clic en cada parte del correo que te parezca sospechosa.</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este no es de los que gritan "¡URGENTE!" en mayúsculas — es del tipo que sí engaña hoy en día. Léelo con calma antes de decidir.</p>
           </div>
-          <button class="btn" id="btnReview">Revisar mis respuestas</button>
-          <div class="inline-result" id="result2" hidden style="text-align:left; max-width:560px;">
-            <div class="score-label" style="text-align:center;">Tu resultado</div>
-            <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
-            <ul class="flag-list" id="flagList"></ul>
-            <div class="next-choices">
-              <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-              <button class="menu-btn" data-back>Elegir otro juego →</button>
+          <div class="how-to-play">
+            <b>Cómo jugar:</b> toca cada señal sospechosa que veas.
+          </div>
+          <div class="game-start" id="game2Start">
+            <button type="button" class="btn start-btn" id="game2StartBtn">Comenzar ▶</button>
+          </div>
+        </div>
+        <div class="game-content" id="game2Content" hidden>
+          <div class="detect-center">
+            <div class="email-mock">
+              <div class="e-head">
+                <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
+                <div><b>Asunto:</b> Confirmación requerida: movimiento de $12,450.00</div>
+              </div>
+              <div class="e-body">
+                <p><span class="hotspot" data-flag="false" data-id="d2" tabindex="0" role="button" aria-pressed="false" aria-label="Saludo. Marca esta parte si te parece sospechosa">Hola Andrea,</span></p>
+                <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
+                <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Verificar movimiento y bloquear tarjeta →</span></p>
+                <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
+                <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
+              </div>
+            </div>
+            <button class="btn" id="btnReview">Revisar mis respuestas</button>
+            <div class="inline-result" id="result2" hidden style="text-align:left; max-width:560px;">
+              <div class="score-label" style="text-align:center;">Tu resultado</div>
+              <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
+              <ul class="flag-list" id="flagList"></ul>
+              <div class="next-choices">
+                <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+                <button class="menu-btn" data-back>Elegir otro juego →</button>
+              </div>
             </div>
           </div>
         </div>
@@ -246,40 +255,46 @@
       <!-- ===== JUEGO 3: CHAT DE PRESION (estilo Teams/Slack) ===== -->
       <div class="game-panel" id="panel3" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
-        <div class="panel-head">
-          <div class="section-label">03 · Chat de presión</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">Elige un escenario. Alguien te va a escribir con algo "urgente".</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No importa quién te lo pida: si la solicitud es inusual o urgente, verifica por otro canal antes de actuar. A esto algunos le llaman "Zero Trust" — en realidad es solo sentido común aplicado con disciplina, incluso si "suena" exactamente como esa persona.</p>
+        <div class="game-intro" id="game3Intro">
+          <div class="panel-head">
+            <div class="section-label">03 · Chat de presión</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Elige un escenario. Alguien te va a escribir con algo "urgente".</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No importa quién te lo pida: si la solicitud es inusual o urgente, verifica por otro canal antes de actuar. A esto algunos le llaman "Zero Trust" — en realidad es solo sentido común aplicado con disciplina, incluso si "suena" exactamente como esa persona.</p>
+          </div>
+          <div class="how-to-play">
+            <b>Cómo jugar:</b> lee cada mensaje y responde rápido.
+          </div>
+          <div class="game-start" id="game3Start">
+            <button type="button" class="btn start-btn" id="game3StartBtn">Comenzar ▶</button>
+          </div>
         </div>
-        <div class="how-to-play">
-          <b>Cómo jugar:</b> lee cada mensaje y responde rápido.
-        </div>
+        <div class="game-content" id="game3Content" hidden>
+          <div class="scenario-picker" id="scenarioPicker"></div>
 
-        <div class="scenario-picker" id="scenarioPicker"></div>
-
-        <div class="chat-app" id="chatApp" hidden>
-          <div class="chat-toolbar">
-            <div class="chat-avatar" id="chatAvatarInit">DC</div>
-            <div class="chat-who">
-              <div class="chat-name" id="chatNameEl">David Contreras <span class="chat-status">en línea</span></div>
-              <div class="chat-role" id="chatRoleEl">Dirección General</div>
+          <div class="chat-app" id="chatApp" hidden>
+            <div class="chat-toolbar">
+              <div class="chat-avatar" id="chatAvatarInit">DC</div>
+              <div class="chat-who">
+                <div class="chat-name" id="chatNameEl">David Contreras <span class="chat-status">en línea</span></div>
+                <div class="chat-role" id="chatRoleEl">Dirección General</div>
+              </div>
+              <div class="chat-icons" aria-hidden="true">📞 🎥</div>
             </div>
-            <div class="chat-icons" aria-hidden="true">📞 🎥</div>
+            <div class="chat-log" id="chatLog"></div>
+            <div class="chat-start-wrap" id="chatStartWrap">
+              <button class="btn sm chat-start-btn" id="chatStartBtn">Ver el siguiente mensaje →</button>
+            </div>
+            <div class="quick-replies" id="chatOptions" hidden></div>
           </div>
-          <div class="chat-log" id="chatLog"></div>
-          <div class="chat-start-wrap" id="chatStartWrap">
-            <button class="btn sm chat-start-btn" id="chatStartBtn">Ver el siguiente mensaje →</button>
-          </div>
-          <div class="quick-replies" id="chatOptions" hidden></div>
-        </div>
-        <div class="inline-result" id="result3" hidden>
-          <div class="score-label">Decisiones Zero Trust</div>
-          <div class="score-badge" id="scoreBadge3">0/5</div>
-          <p id="endMsg3"></p>
-          <div class="next-choices">
-            <button class="redo-btn" id="restartBtn3"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-            <button class="menu-btn" id="changeScenarioBtn">Probar otro escenario →</button>
-            <button class="menu-btn" data-back>Elegir otro juego →</button>
+          <div class="inline-result" id="result3" hidden>
+            <div class="score-label">Decisiones Zero Trust</div>
+            <div class="score-badge" id="scoreBadge3">0/5</div>
+            <p id="endMsg3"></p>
+            <div class="next-choices">
+              <button class="redo-btn" id="restartBtn3"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+              <button class="menu-btn" id="changeScenarioBtn">Probar otro escenario →</button>
+              <button class="menu-btn" data-back>Elegir otro juego →</button>
+            </div>
           </div>
         </div>
       </div>
@@ -287,14 +302,20 @@
       <!-- ===== JUEGO 4: ESCANER DE HUELLA DIGITAL (radar) ===== -->
       <div class="game-panel" id="panel4" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
-        <div class="panel-head">
-          <div class="section-label">04 · Escáner de huella digital</div>
-          <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado. Esto es un indicador educativo, no una medición real de riesgo.</p>
+        <div class="game-intro" id="game4Intro">
+          <div class="panel-head">
+            <div class="section-label">04 · Escáner de huella digital</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado. Esto es un indicador educativo, no una medición real de riesgo.</p>
+          </div>
+          <div class="how-to-play">
+            <b>Cómo jugar:</b> marca lo que hoy es público en tus redes.
+          </div>
+          <div class="game-start" id="game4Start">
+            <button type="button" class="btn start-btn" id="game4StartBtn">Comenzar ▶</button>
+          </div>
         </div>
-        <div class="how-to-play">
-          <b>Cómo jugar:</b> marca lo que hoy es público en tus redes.
-        </div>
+        <div class="game-content" id="game4Content" hidden>
         <div class="foot-form" id="footForm">
           <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Sabrían en qué colonia vives y a qué hora sueles salir de tu casa, escuela o trabajo."> Comparto mi ubicación en tiempo real (check-ins, stories con geolocalización)</label>
           <label class="foot-check"><input type="checkbox" data-w='{"identidad":20,"contacto":10}' data-tip="Podrían hacerse pasar por &quot;RH&quot; o &quot;Servicios Escolares&quot; de ese lugar exacto, usando nombres reales de gente que trabaja ahí."> Mi perfil muestra el nombre completo de mi escuela o trabajo actual</label>
@@ -343,6 +364,7 @@
             <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
             <button class="menu-btn" data-back>Elegir otro juego →</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -626,21 +648,28 @@ function sendToSheet(juego, resultado, detalle){
    SELECTOR: un juego a la vez
    ============================================================ */
 const gameMenu=document.getElementById('gameMenu');
-const gameEmpty=document.getElementById('gameEmpty');
 const gameStage=document.getElementById('gameStage');
 const panels={1:document.getElementById('panel1'),2:document.getElementById('panel2'),3:document.getElementById('panel3'),4:document.getElementById('panel4')};
 
+const GAME_GATES={1:{intro:'game1Intro',content:'game1Content'},2:{intro:'game2Intro',content:'game2Content'},3:{intro:'game3Intro',content:'game3Content'},4:{intro:'game4Intro',content:'game4Content'}};
+
 function selectGame(n){
-  gameEmpty.hidden=true;
   Object.values(panels).forEach(p=>p.hidden=true);
   panels[n].hidden=false;
+  const gate=GAME_GATES[n];
+  if(gate){
+    document.getElementById(gate.intro).hidden=false;
+    document.getElementById(gate.content).hidden=true;
+  }
+  if(n==='1' && typeof clearTimer==='function') clearTimer(); // pausa el cronómetro mientras se leen las instrucciones
   if(n==='3' && typeof resetChatToPicker==='function') resetChatToPicker();
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
+  // primero se ve solo el encabezado + instrucciones (contenido liviano y de altura estable),
+  // así el scroll no compite con un re-render del juego a medio animar (evita el salto en móvil)
   gameStage.scrollIntoView({behavior:'smooth', block:'start'});
 }
 function backToMenu(){
   Object.values(panels).forEach(p=>p.hidden=true);
-  gameEmpty.hidden=false;
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.remove('active'));
   document.getElementById('jugar').scrollIntoView({behavior:'smooth', block:'start'});
 }
@@ -947,7 +976,11 @@ document.getElementById('btnEsc').addEventListener('click', ()=>commitSwipe(fals
 document.getElementById('btnEnter').addEventListener('click', ()=>commitSwipe(true));
 document.getElementById('continueBtn').addEventListener('click', nextCase);
 document.getElementById('restartBtn1').addEventListener('click', restart1);
-renderDeck();
+document.getElementById('game1StartBtn').addEventListener('click', ()=>{
+  document.getElementById('game1Intro').hidden=true;
+  document.getElementById('game1Content').hidden=false;
+  if(result1.hidden) renderDeck(); // si ya había terminado, solo muestra el resultado sin reiniciar el mazo
+});
 
 window.addEventListener('keydown', (e)=>{
   if(panels[1].hidden) return;
@@ -1018,6 +1051,10 @@ document.getElementById('restartBtn2').addEventListener('click', ()=>{
   });
   document.getElementById('result2').hidden=true;
   document.getElementById('btnReview').hidden=false;
+});
+document.getElementById('game2StartBtn').addEventListener('click', ()=>{
+  document.getElementById('game2Intro').hidden=true;
+  document.getElementById('game2Content').hidden=false;
 });
 
 
@@ -1226,6 +1263,10 @@ function resetChatToPicker(){
   scenarioPicker.hidden=false;
 }
 buildScenarioPicker();
+document.getElementById('game3StartBtn').addEventListener('click', ()=>{
+  document.getElementById('game3Intro').hidden=true;
+  document.getElementById('game3Content').hidden=false;
+});
 
 
 
@@ -1322,6 +1363,10 @@ document.getElementById('restartBtn4').addEventListener('click', ()=>{
   document.getElementById('radarPoly').classList.remove('show');
   document.getElementById('radarPoly').setAttribute('points', '120,120 120,120 120,120 120,120');
   ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
+});
+document.getElementById('game4StartBtn').addEventListener('click', ()=>{
+  document.getElementById('game4Intro').hidden=true;
+  document.getElementById('game4Content').hidden=false;
 });
 </script>
 </body>

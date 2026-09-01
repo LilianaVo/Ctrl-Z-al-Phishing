@@ -102,8 +102,6 @@ p.h2-sub strong{ color:var(--ink); font-weight:800; }
 .game-card .g-go{ font-family:var(--font-mono); font-size:12px; font-weight:700; }
 
 #gameStage{ margin-top:30px; }
-.game-empty{ text-align:center; padding:40px 22px; border:3px dashed var(--peach-line); border-radius:var(--radius-lg); color:var(--ink-soft); font-size:14px; }
-.game-empty b{ display:block; font-family:var(--font-display); color:var(--ink); font-size:18px; margin-bottom:6px; }
 .game-panel[hidden]{ display:none !important; }
 .panel-head{ text-align:center; margin-bottom:22px; }
 .panel-head .section-label{ justify-content:center; }
@@ -356,6 +354,8 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* CAJA "CÓMO JUGAR" -- instrucciones claras por juego */
 .how-to-play{ background:var(--cream); border:3px dashed var(--ink); border-radius:var(--radius-md); padding:14px 18px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--ink-soft); max-width:640px; margin-left:auto; margin-right:auto; }
 .how-to-play b{ color:var(--ink); }
+.game-start{ text-align:center; margin:0 0 28px; }
+.start-btn{ font-size:16px; padding:16px 34px; }
 
 /* SELECTOR DE ESCENARIOS -- juego 3 */
 .scenario-picker{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:560px; margin:0 auto 26px; }
