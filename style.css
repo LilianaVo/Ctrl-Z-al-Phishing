@@ -70,6 +70,8 @@ section{ padding:44px 0; scroll-snap-align:start; scroll-snap-stop:normal; scrol
 .section-label::after{ content:""; flex:1; height:2px; background:var(--peach-line); }
 h2.h2{ font-family:var(--font-display); font-size:clamp(21px,3.2vw,28px); margin:0 0 10px; max-width:560px; }
 p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 28px; line-height:1.55; }
+p.h2-sub strong{ color:var(--ink); font-weight:800; }
+.text-coral{ color:var(--coral-deep); }
 
 /* POR QUÉ -- notificaciones reales, apiladas como en tu pantalla de bloqueo */
 .signal-stack{ max-width:420px; margin:0 auto; display:flex; flex-direction:column; gap:0; }
@@ -85,7 +87,7 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .signal-body .s-msg{ font-size:12.5px; color:var(--ink-soft); line-height:1.45; }
 .signal-tag{ display:inline-block; margin-top:8px; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:var(--coral-deep); background:var(--peach); border-radius:100px; padding:3px 10px; }
 .signal-close{ max-width:420px; margin:26px auto 0; text-align:center; font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
-.signal-close b{ color:var(--ink); }
+.signal-close strong{ display:block; font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--ink); line-height:1.2; }
 
 /* MENU DE JUEGOS -- un juego a la vez */
 .game-menu{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
@@ -116,8 +118,6 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .pill{ font-family:var(--font-mono); font-weight:700; font-size:11.5px; padding:5px 10px; border-radius:100px; border:2px solid var(--ink); }
 .pill.esc{ background:var(--coral); } .pill.enter{ background:var(--teal); }
 .instructions .hint{ font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); text-align:center; flex:1; min-width:180px; }
-.no-timer-toggle{ display:flex; align-items:flex-start; gap:10px; font-size:12.5px; color:var(--ink-soft); font-weight:600; margin:-10px 0 20px; cursor:pointer; line-height:1.4; }
-.no-timer-toggle input{ width:18px; height:18px; margin-top:1px; accent-color:var(--teal-deep); flex:none; }
 .level-banner{ display:flex; align-items:center; justify-content:center; gap:10px; max-width:420px; margin:0 auto 14px; padding:10px 16px; border-radius:100px; border:2.5px solid var(--ink); background:var(--cream); font-family:var(--font-mono); font-size:11.5px; font-weight:700; letter-spacing:.03em; text-align:center; transition:background .2s ease, border-color .2s ease; }
 .level-banner .lvl-dot{ width:9px; height:9px; border-radius:50%; flex:none; }
 .level-banner.lv-facil{ background:#EAF6F4; border-color:var(--teal-deep); } .level-banner.lv-facil .lvl-dot{ background:var(--teal); }
@@ -155,9 +155,6 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .card.top.time-critical{ animation:criticalPulse .6s ease infinite; }
 @keyframes criticalPulse{ 0%,100%{ box-shadow:0 1px 2px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.14); } 50%{ box-shadow:0 0 0 3px var(--coral-deep), 0 12px 28px rgba(0,0,0,.14); } }
 .card{ position:absolute; inset:0; background:#fff; color:#1c1c1e; border:1px solid rgba(0,0,0,.06); border-radius:22px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.04), 0 14px 30px rgba(0,0,0,.16); display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s ease; user-select:none; -webkit-user-select:none; }
-.card.top{ cursor:grab; touch-action:none; } .card.top.dragging{ cursor:grabbing; transition:none; }
-.card.top *{ touch-action:none; } /* evita que el navegador capture el toque como scroll interno en móvil */
-.card-body{ -webkit-user-select:none; }
 .card.flash-danger{ box-shadow:0 0 0 3px #ff3b30, 0 14px 30px rgba(0,0,0,.16); background:#fff6f5; } .card.flash-safe{ box-shadow:0 0 0 3px #30d158, 0 14px 30px rgba(0,0,0,.16); background:#f3fcf5; }
 .card-head{ padding:14px 16px; border-bottom:1px solid #efefef; display:flex; align-items:center; gap:12px; background:#fff; }
 .card-head .icon{ width:40px; height:40px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-size:18px; border:none; color:#fff; box-shadow:0 1px 3px rgba(0,0,0,.15); }
@@ -165,7 +162,7 @@ p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 2
 .card-head .who{ min-width:0; } .card-head .name{ font-weight:600; font-size:15px; color:#000; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .card-head .meta{ font-size:12.5px; color:#8e8e93; font-family:inherit; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .card-head .kind{ margin-left:auto; font-family:inherit; font-size:10.5px; font-weight:600; letter-spacing:.02em; border:none; padding:4px 10px; border-radius:100px; flex:none; background:#f0f0f2; color:#8e8e93; }
-.card-body{ padding:16px 16px 20px; flex:1; overflow:auto; } .card-body .subject{ font-weight:700; font-size:15.5px; margin-bottom:8px; color:#111; } .card-body .msg{ font-size:15px; line-height:1.5; color:#3c3c43; }
+.card-body{ padding:16px 16px 20px; flex:1; overflow:auto; user-select:none; -webkit-user-select:none; } .card-body .subject{ font-weight:700; font-size:15.5px; margin-bottom:8px; color:#111; } .card-body .msg{ font-size:15px; line-height:1.5; color:#3c3c43; }
 .card-body .link{ display:inline-block; margin-top:12px; font-family:inherit; font-size:13.5px; color:#0a66c2; text-decoration:underline; word-break:break-all; }
 .stamp{ position:absolute; top:22px; font-family:var(--font-mono); font-weight:800; font-size:20px; padding:7px 13px; border-radius:10px; border:3px solid; transform:rotate(-12deg); opacity:0; letter-spacing:.04em; pointer-events:none; background:var(--white); }
 .stamp.left{ left:16px; color:var(--coral-deep); border-color:var(--coral-deep); } .stamp.right{ right:16px; color:var(--teal-deep); border-color:var(--teal-deep); transform:rotate(12deg); }
@@ -368,3 +365,78 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .scenario-btn .sc-icon{ font-size:22px; margin-bottom:8px; }
 .scenario-btn .sc-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:4px; }
 .scenario-btn .sc-desc{ font-size:12px; color:var(--ink-soft); line-height:1.5; }
+
+/* AJUSTE DE LEGIBILIDAD EN MÓVIL */
+@media (max-width:640px){
+  .wrap{padding-left:18px;padding-right:18px}
+  section{padding:38px 0}
+
+  .section-label{font-size:12px}
+  h2.h2{font-size:clamp(24px,7vw,30px);line-height:1.12}
+  p.h2-sub{font-size:16px;line-height:1.6}
+
+  .signal-item{padding:16px}
+  .signal-body .s-app{font-size:11px}
+  .signal-body .s-title{font-size:17px;line-height:1.25}
+  .signal-body .s-msg{font-size:14px;line-height:1.5}
+  .signal-tag{font-size:11px}
+  .signal-close strong{font-size:24px}
+
+  .game-card{padding:20px}
+  .game-card .g-title{font-size:20px}
+  .game-card .g-desc{font-size:14px;line-height:1.55}
+  .game-card .g-go{font-size:13px}
+
+  .how-to-play{font-size:14.5px;line-height:1.65}
+
+  .instructions .side{font-size:14px}
+  .instructions .hint{font-size:12px}
+
+  .context-btn .cx-title{font-size:16px}
+  .context-btn .cx-desc{font-size:13px}
+  .context-note{font-size:13px}
+
+  .email-mock .e-head{font-size:13px}
+  .email-mock .e-body{font-size:16px;line-height:1.7}
+
+  .flag-list{font-size:14px}
+  .flag-list li{line-height:1.55}
+
+  .chat-name{font-size:16px}
+  .chat-status{font-size:13px}
+  .chat-role{font-size:12px}
+  .msg-name{font-size:13px}
+  .msg-time{font-size:11px}
+  .msg-text{font-size:15px;line-height:1.5}
+  .qr-btn{font-size:14px}
+
+  .foot-check{font-size:15px;line-height:1.5}
+  .dash p.msg{font-size:14.5px}
+
+  .dossier-head{font-size:17px}
+  .dossier-list li{font-size:13px}
+
+  .kit-body .k-title{font-size:17px}
+  .kit-body .k-desc{font-size:13.5px}
+  .kit-link{font-size:13px}
+
+  .form-note{font-size:12px}
+  .arco p{font-size:15px}
+  .arco ul{font-size:14px;line-height:1.8}
+
+  .help-intro p{font-size:15.5px;line-height:1.65}
+  .help-step .hs-title{font-size:17px}
+  .help-step .hs-desc{font-size:14px}
+
+  .help-grid-label{font-size:12px}
+  .org-card .o-title{font-size:17px}
+  .org-card .o-desc{font-size:14px}
+  .org-card .o-contact a,
+  .org-card .o-contact span{font-size:12.5px}
+
+  .arco-head p{font-size:15px}
+  .arco-item .ai-title{font-size:15px}
+  .arco-item .ai-desc{font-size:13px}
+
+  footer{font-size:12.5px}
+}
