@@ -25,30 +25,39 @@
 <div id="top"></div>
 <div class="hero grid-floor">
   <div class="hero-inner">
-    <div>
-      <div class="eyebrow-chip">🎓 UNAM · Diplomado en Ciberseguridad</div>
-      <h1 class="title">Antes de dar clic,<br><span class="hl">presiona pausa.</span></h1>
-      <p class="tagline">Cuatro simuladores con casos reales de la vida universitaria y laboral. Elige uno, juégalo, y descubre qué tan expuesta está tu información — antes de que el clic ya no tenga vuelta atrás.</p>
-      <div class="keys-row"><div class="keycap">Ctrl</div><div class="plus">+</div><div class="keycap">Z</div></div>
+    <div class="eyebrow-chip">🎓 UNAM · Diplomado en Ciberseguridad</div>
+    <h1 class="title">Antes de dar clic,<br><span class="hl">presiona pausa.</span></h1>
+    <p class="tagline">Casos reales de escuela y trabajo. Practica en 2 minutos.</p>
+    <div class="keys-row"><div class="keycap">Ctrl</div><div class="plus">+</div><div class="keycap">Z</div></div>
+
+    <div class="hero-scene" aria-hidden="true">
+      <svg viewBox="0 0 300 260" width="100%" height="100%">
+        <rect x="60" y="16" width="180" height="120" rx="14" fill="#FFF8F3" stroke="#2A363B" stroke-width="4"/>
+        <rect x="60" y="16" width="180" height="30" rx="14" fill="#E89A8A" stroke="#2A363B" stroke-width="4"/>
+        <circle cx="76" cy="31" r="4" fill="#2A363B"/><circle cx="90" cy="31" r="4" fill="#2A363B"/>
+        <line x1="78" y1="66" x2="180" y2="66" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+        <line x1="78" y1="80" x2="205" y2="80" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+        <line x1="78" y1="94" x2="150" y2="94" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+        <rect x="150" y="106" width="60" height="20" rx="10" fill="#81C8C0" stroke="#2A363B" stroke-width="3"/>
+        <text x="180" y="120" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="10" fill="#2A363B">Click aquí</text>
+        <g transform="translate(150,150)">
+          <path d="M50 6 V52 A34 34 0 1 1 -8 42" fill="none" stroke="#2A363B" stroke-width="10" stroke-linecap="round"/>
+          <path d="M-8 22 L-8 42 L12 42" fill="none" stroke="#2A363B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <circle cx="248" cy="180" r="26" fill="#FFF8F3" stroke="#2A363B" stroke-width="4"/>
+        <text x="248" y="187" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="800" font-size="20" fill="#2A363B">Z</text>
+      </svg>
+      <div class="float-tag ft1">🔒 contraseña</div>
+      <div class="float-tag ft2">💳 tarjeta</div>
+    </div>
+
+    <div class="hero-cta-row">
       <a href="#jugar" class="btn">Empezar el simulador →</a>
       <div class="stat-row">
         <div class="stat"><b>4</b><span>simuladores</span></div>
         <div class="stat"><b>~2 min</b><span>cada uno</span></div>
         <div class="stat"><b>100%</b><span>casos reales</span></div>
       </div>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 300 300" width="100%" height="100%">
-        <path d="M175 10 V165 A48 48 0 1 1 96 152" fill="none" stroke="#2A363B" stroke-width="9" stroke-linecap="round"/>
-        <line x1="175" y1="70" x2="175" y2="205" stroke="#2A363B" stroke-width="3" stroke-dasharray="2 6"/>
-        <rect x="140" y="200" width="70" height="48" rx="7" fill="#FFF8F3" stroke="#2A363B" stroke-width="4"/>
-        <path d="M140 205 L175 232 L210 205" fill="none" stroke="#2A363B" stroke-width="4" stroke-linejoin="round"/>
-        <circle cx="205" cy="196" r="13" fill="#E89A8A" stroke="#2A363B" stroke-width="3"/>
-        <text x="205" y="201" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="15" fill="#2A363B">!</text>
-      </svg>
-      <div class="chip c1"><span>🔒</span></div><div class="chip-label l1">contraseña</div>
-      <div class="chip c2"><span>✉️</span></div><div class="chip-label l2">correo</div>
-      <div class="chip c3"><span>💳</span></div><div class="chip-label l3">tarjeta</div>
     </div>
   </div>
 </div>
@@ -57,19 +66,53 @@
 
   <section id="por-que">
     <div class="section-label">Por qué importa</div>
-    <h2 class="h2">El eslabón más débil de la ciberseguridad no es la tecnología, eres tú (y está bien, nos pasa a todos).</h2>
-    <div class="why-grid">
-      <div class="why-card"><div class="ic">🎣</div><h3>Phishing</h3><p>Correos o mensajes que imitan a alguien confiable para robar tus datos o dinero.</p></div>
-      <div class="why-card"><div class="ic">📱</div><h3>Smishing / Vishing</h3><p>La misma trampa, pero por SMS o llamada/nota de voz, jugando con la urgencia.</p></div>
-      <div class="why-card"><div class="ic">🧠</div><h3>Factor humano</h3><p>La presión, la prisa y la confianza automática son las verdaderas puertas de entrada.</p></div>
+    <h2 class="h2">No caíste por ingenuo. Diseñaron el mensaje para que no pensaras.</h2>
+    <p class="h2-sub">Así se ven tres formas de llegar a ti. Reconocerlas es el primer paso.</p>
+    <div class="signal-stack">
+      <div class="signal-item">
+        <div class="signal-icon coral">✉️</div>
+        <div class="signal-body">
+          <div class="s-app">correo · phishing</div>
+          <div class="s-title">"Tu cuenta será suspendida hoy"</div>
+          <div class="s-msg">Se hace pasar por alguien confiable para sacarte datos o dinero.</div>
+          <span class="signal-tag">crea urgencia</span>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon teal">📱</div>
+        <div class="signal-body">
+          <div class="s-app">sms · smishing</div>
+          <div class="s-title">"Paquete detenido, paga aquí →"</div>
+          <div class="s-msg">Mismo truco por mensaje de texto. Menos espacio, más prisa.</div>
+          <span class="signal-tag">te apura</span>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-icon cream">📞</div>
+        <div class="signal-body">
+          <div class="s-app">llamada · vishing</div>
+          <div class="s-title">"Habla del banco, confirme sus datos"</div>
+          <div class="s-msg">Una voz "de autoridad" te pide algo sensible en el momento.</div>
+          <span class="signal-tag">explota confianza</span>
+        </div>
+      </div>
     </div>
+    <p class="signal-close">Los tres explotan lo mismo: <b>prisa, miedo o confianza</b>. No una falla técnica.</p>
   </section>
 
   <!-- ========== SELECTOR: UN JUEGO A LA VEZ ========== -->
   <section id="jugar">
     <div class="section-label">Elige tu simulador</div>
-    <h2 class="h2">Juega uno a la vez. Al terminar, puedes repetirlo o probar otro.</h2>
-    <p class="h2-sub">Tú decides el orden. Los materiales, comentarios y contactos de ayuda están siempre disponibles más abajo, sin importar qué juegues.</p>
+    <h2 class="h2">Juega uno a la vez, en el orden que quieras.</h2>
+    <p class="h2-sub">Materiales y ayuda real siguen abajo, siempre disponibles.</p>
+
+    <p class="help-grid-label" style="margin-bottom:10px;">¿En qué contexto te mueves más?</p>
+    <div class="context-picker" id="contextPicker">
+      <button type="button" class="context-btn" data-ctx="edu"><span class="cx-icon">🎓</span><span><span class="cx-title">Universidad</span><br><span class="cx-desc">Becas · trámites · cuentas institucionales</span></span></button>
+      <button type="button" class="context-btn" data-ctx="work"><span class="cx-icon">💼</span><span><span class="cx-title">Trabajo</span><br><span class="cx-desc">Jefes · RH · nómina · clientes</span></span></button>
+    </div>
+    <p class="context-note" id="contextNote">Elige uno y te marcamos con una etiqueta los casos más parecidos a tu día a día — igual verás de todo, para practicar ambos.</p>
+
     <div class="game-menu" id="gameMenu">
       <button type="button" class="game-card teal" data-game="1">
         <div class="g-num">01</div>
@@ -109,17 +152,22 @@
         <div class="panel-head">
           <div class="section-label">01 · Desliza y decide</div>
           <h2 class="h2" style="margin-left:auto;margin-right:auto;">Mensajes reales de 2026. ¿Confías o sospechas?</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Desliza la tarjeta, toca los botones, o usa tu teclado — ESC para sospechoso, Enter para confiar.</p>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empiezas en fácil y vas subiendo a intermedio y difícil. Los casos difíciles son más largos y tienes más tiempo para leerlos.</p>
         </div>
         <div class="how-to-play">
-          <b>Cómo jugar:</b> lee el mensaje como si te acabara de llegar a ti. Tienes <b>10 segundos</b> por caso — si el tiempo se acaba, el juego "decide por ti" (así de fácil es caer en automático). Después de cada decisión verás la explicación antes de pasar al siguiente. Ojo: no todos son phishing — algunos son mensajes legítimos, y confiar en esos también cuenta como acierto.
+          <b>Cómo jugar:</b> lee el mensaje como si te acabara de llegar a ti. Tienes un tiempo límite por caso (más tiempo entre más difícil) — si se acaba, el juego "decide por ti" (así de fácil es caer en automático). No todos son phishing: algunos son mensajes legítimos, y confiar en esos también cuenta como acierto.
         </div>
         <div class="instructions">
           <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
           <div class="hint">usa el teclado ← / → o desliza con el dedo · ⏱ tiempo limitado por caso</div>
           <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
         </div>
-        <div class="progress" id="progress1">CASO 1 / 13</div>
+        <label class="no-timer-toggle">
+          <input type="checkbox" id="noTimerToggle">
+          Modo sin límite de tiempo (desactiva el cronómetro y las distracciones)
+        </label>
+        <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
+        <div class="progress" id="progress1">CASO 1 / 15</div>
         <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
         <div class="deck-wrap">
           <div class="deck" id="deck"></div>
@@ -154,15 +202,15 @@
         <div class="detect-center">
           <div class="email-mock">
             <div class="e-head">
-              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
+              <div><b>De:</b> <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa">Nu México &lt;notificaciones@nu-mexico-app.com&gt;</span></div>
               <div><b>Asunto:</b> Confirmación requerida: movimiento de $12,450.00</div>
             </div>
             <div class="e-body">
-              <p><span class="hotspot" data-flag="false" data-id="d2">Hola Andrea,</span></p>
-              <p><span class="hotspot" data-flag="false" data-id="d5">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
-              <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;">Verificar movimiento y bloquear tarjeta →</span></p>
-              <p><span class="hotspot" data-flag="true" data-id="d3">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
-              <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
+              <p><span class="hotspot" data-flag="false" data-id="d2" tabindex="0" role="button" aria-pressed="false" aria-label="Saludo. Marca esta parte si te parece sospechosa">Hola Andrea,</span></p>
+              <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Hoy identificamos una transferencia por $12,450.00 a una cuenta que no reconocemos como tuya. Si tú realizaste este movimiento, puedes ignorar este correo.</span></p>
+              <p>Si no reconoces este movimiento, protege tu cuenta y bloquea tu tarjeta aquí: <span class="hotspot" data-flag="true" data-id="d4" style="color:#2457c9; font-weight:700;" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Verificar movimiento y bloquear tarjeta →</span></p>
+              <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Este enlace es válido por 3 horas por políticas internas de seguridad.</span></p>
+              <p>¿Dudas? Llámanos: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
             </div>
           </div>
           <button class="btn" id="btnReview">Revisar mis respuestas</button>
@@ -184,7 +232,7 @@
         <div class="panel-head">
           <div class="section-label">03 · Chat de presión</div>
           <h2 class="h2" style="margin-left:auto;margin-right:auto;">Elige un escenario. Alguien te va a escribir con algo "urgente".</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Aplica el principio de Zero Trust: toda solicitud sensible se verifica por otro canal, sin excepción — incluso si "suena" o "se escucha" exactamente como esa persona.</p>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No importa quién te lo pida: si la solicitud es inusual o urgente, verifica por otro canal antes de actuar. A esto algunos le llaman "Zero Trust" — en realidad es solo sentido común aplicado con disciplina, incluso si "suena" exactamente como esa persona.</p>
         </div>
         <div class="how-to-play">
           <b>Cómo jugar:</b> elige un escenario, lee cada mensaje del chat y responde. Son 5 momentos de decisión seguidos, sin pausa — así se siente la presión real. No hay truco de "la opción larga siempre es la correcta": lee cada una con cuidado.
@@ -225,7 +273,7 @@
         <div class="panel-head">
           <div class="section-label">04 · Escáner de huella digital</div>
           <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tan fácil sería perfilarte con lo que ya compartes?</h2>
-          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado.</p>
+          <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que aplica a tus redes sociales hoy mismo. Es anónimo — solo tú ves el resultado. Esto es un indicador educativo, no una medición real de riesgo.</p>
         </div>
         <div class="how-to-play">
           <b>Cómo jugar:</b> marca todas las casillas que describan lo que hoy es visible públicamente en tus redes (no lo que compartes en privado). Al terminar, pulsa "Escanear mi huella" para ver tu índice de exposición por categoría y qué podría deducir alguien con esa información.
@@ -260,7 +308,7 @@
               <circle class="radar-dot" id="dotS" r="4"/>
               <circle class="radar-dot" id="dotW" r="4"/>
             </svg>
-            <div class="radar-score"><b id="expScore">0%</b><span>Índice de exposición</span></div>
+            <div class="radar-score"><b id="expScore">0%</b><span>Indicador educativo</span></div>
             <div class="radar-labels">
               <div class="n">Identidad<span class="rl-val" id="valIdentidad">0%</span></div>
               <div class="e">Ubicación<span class="rl-val" id="valUbicacion">0%</span></div>
@@ -273,6 +321,7 @@
             <ul class="dossier-list" id="dossierList"></ul>
           </div>
           <p class="msg" id="dashMsg"></p>
+          <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Este resultado es una estimación educativa basada en tus respuestas. No representa una medición real de riesgo.</p>
           <div class="next-choices">
             <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
             <button class="menu-btn" data-back>Elegir otro juego →</button>
@@ -284,30 +333,46 @@
 
   <!-- ========== SIEMPRE VISIBLE: MATERIALES ========== -->
   <section id="materiales">
-    <div class="section-label">Más materiales de la campaña</div>
-    <div class="materials">
-      <div class="material-card teal">
-        <div class="m-icon">🖼️</div><div class="m-title">Banner e infografía</div>
-        <div class="m-desc">Señales de alerta para identificar phishing, smishing y vishing de un vistazo.</div>
-        <a class="m-link" href="#" id="linkInfografia">Ver infografía →</a>
+    <div class="section-label">Kit de la campaña</div>
+    <h2 class="h2">Todo lo que puedes descargar o compartir.</h2>
+    <div class="kit-list">
+      <div class="kit-row">
+        <div class="kit-ext teal">PNG</div>
+        <div class="kit-body">
+          <div class="k-title">Banner e infografía</div>
+          <div class="k-desc">Señales de alerta, de un vistazo.</div>
+        </div>
+        <!-- Cuando tengas el archivo real: <a class="kit-link" href="TU_LINK_AQUI" target="_blank" rel="noopener">Ver →</a> -->
+        <span class="kit-link k-soon" id="linkInfografia">Pronto</span>
       </div>
-      <div class="material-card coral">
-        <div class="m-icon">🎬</div><div class="m-title">Video de campaña</div>
-        <div class="m-desc">Un caso real explicado en menos de un minuto para compartir en redes.</div>
-        <a class="m-link" href="#" id="linkVideo">Ver video →</a>
+      <div class="kit-row">
+        <div class="kit-ext coral">MP4</div>
+        <div class="kit-body">
+          <div class="k-title">Video de campaña</div>
+          <div class="k-desc">Un caso real en menos de un minuto.</div>
+        </div>
+        <span class="kit-link k-soon" id="linkVideo">Pronto</span>
       </div>
-      <div class="material-card dark">
-        <div class="m-icon">🧠</div><div class="m-title">Test de impulsividad</div>
-        <div class="m-desc">Descubre qué tan susceptible eres a caer en mensajes con presión emocional.</div>
-        <a class="m-link" href="#" id="linkTest">Hacer el test →</a>
+      <div class="kit-row">
+        <div class="kit-ext cream">TEST</div>
+        <div class="kit-body">
+          <div class="k-title">Test de impulsividad</div>
+          <div class="k-desc">¿Qué tan fácil caes en la presión?</div>
+        </div>
+        <span class="kit-link k-soon" id="linkTest">Pronto</span>
       </div>
     </div>
 
     <div class="section-label" style="margin-top:36px;">Cuéntanos qué te pareció</div>
     <div class="feedback-form">
-      <!-- NOTA: reemplaza el src con el link de "insertar" (&lt;&gt;) de tu Google Form real -->
-      <iframe src="about:blank" title="Formulario de comentarios" id="formFrame">Cargando formulario…</iframe>
-      <div class="form-note">↳ Reemplaza este formulario con tu Google Form real (opción "insertar" al compartirlo).</div>
+      <!-- Cuando tengas tu Google Form real: reemplaza este div "form-placeholder" por
+           <iframe src="TU_LINK_DE_INSERTAR_AQUI" title="Formulario de comentarios" id="formFrame">Cargando formulario…</iframe>
+           (el link de "insertar" se obtiene en Google Forms: Enviar → símbolo "<>" → copiar el src del iframe) -->
+      <div class="form-placeholder" id="formPlaceholder" role="status">
+        <span class="fp-icon">📝</span>
+        <p>Formulario de comentarios: próximamente.</p>
+      </div>
+      <div class="form-note">↳ Reemplaza este bloque con tu Google Form real (opción "insertar" al compartirlo).</div>
     </div>
   </section>
 
@@ -315,40 +380,77 @@
   <section id="ayuda">
     <div class="section-label">Si ya te pasó, no estás sola/o</div>
     <div class="help-intro">
-      <p>Si diste clic, compartiste tus datos o te suplantaron, no eres la única persona a la que le pasa — estos ataques están diseñados justo para eso. Actuar rápido ayuda: cambia contraseñas, avisa a tu banco si aplica, y apóyate en estos canales oficiales en la Ciudad de México. <b>Todos son gratuitos.</b></p>
+      <p>Si diste clic o compartiste tus datos, no eres la única persona a la que le pasa. <b>Estos canales son gratuitos.</b> Actuar rápido ayuda.</p>
     </div>
+
+    <p class="help-grid-label">Qué hacer primero</p>
+    <div class="help-steps">
+      <div class="help-step">
+        <div class="hs-num">1</div>
+        <div class="hs-title">Corta el acceso</div>
+        <div class="hs-desc">Cambia la contraseña y cierra sesiones activas.</div>
+      </div>
+      <div class="help-step">
+        <div class="hs-num">2</div>
+        <div class="hs-title">Protege tu dinero</div>
+        <div class="hs-desc">Avisa a tu banco para bloquear tarjeta o transferencias.</div>
+      </div>
+      <div class="help-step">
+        <div class="hs-num">3</div>
+        <div class="hs-title">Repórtalo</div>
+        <div class="hs-desc">Usa los canales de abajo. Ayuda a que menos gente caiga.</div>
+      </div>
+    </div>
+
+    <p class="help-grid-label">Canales oficiales · Ciudad de México y nacional</p>
     <div class="help-grid">
-      <div class="org-card">
+      <div class="org-card acc-coral">
         <div class="o-icon">👮</div>
+        <div class="o-when">Fraude o cuenta hackeada</div>
         <div class="o-title">Policía Cibernética CDMX</div>
-        <div class="o-desc">Recibe reportes de fraudes, robo de identidad y cuentas hackeadas, 24/7.</div>
+        <div class="o-desc">Reportes de fraudes y robo de identidad, 24/7.</div>
         <div class="o-contact">
           <a href="tel:+525552425100">☎ 55 5242 5100 ext. 5086</a>
           <a href="mailto:policia.cibernetica@ssc.cdmx.gob.mx">✉ policia.cibernetica@ssc.cdmx.gob.mx</a>
         </div>
+        <div class="o-social">
+          <a href="https://x.com/UCS_GCDMX" target="_blank" rel="noopener"><span class="soc-ic">X</span>@UCS_GCDMX</a>
+          <a href="https://www.instagram.com/ciber_cdmx/" target="_blank" rel="noopener"><span class="soc-ic">IG</span>@ciber_cdmx</a>
+        </div>
       </div>
-      <div class="org-card">
+      <div class="org-card acc-teal">
+        <div class="o-when">Phishing, smishing o vishing</div>
         <div class="o-icon">🛰️</div>
         <div class="o-title">Guardia Nacional · CERT-MX</div>
-        <div class="o-desc">Línea nacional para phishing, smishing, vishing, extorsión y robo de identidad.</div>
+        <div class="o-desc">Línea nacional para fraude digital y extorsión.</div>
         <div class="o-contact">
           <a href="tel:088">☎ 088 (24 horas, todo México)</a>
-          <a href="mailto:cert-mx@gn.cert.gob.mx">✉ cert-mx@gn.cert.gob.mx</a>
+          <a href="mailto:cert-mx@sspc.gob.mx">✉ cert-mx@sspc.gob.mx</a>
+        </div>
+        <div class="o-social">
+          <a href="https://x.com/GN_MEXICO_" target="_blank" rel="noopener"><span class="soc-ic">X</span>@GN_MEXICO_</a>
+          <a href="https://www.gob.mx/gncertmx" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>gob.mx/gncertmx</a>
         </div>
       </div>
-      <div class="org-card">
+      <div class="org-card acc-cream">
+        <div class="o-when">Cargo o transferencia fraudulenta</div>
         <div class="o-icon">🏦</div>
         <div class="o-title">CONDUSEF</div>
-        <div class="o-desc">Si te robaron datos bancarios o hubo un cargo/transferencia fraudulenta.</div>
+        <div class="o-desc">Datos bancarios robados o cargos fraudulentos.</div>
         <div class="o-contact">
           <a href="tel:+525553400999">☎ 55 5340 0999</a>
-          <a href="tel:8009998080">☎ 800 999 8080 (lada sin costo)</a>
+          <a href="tel:8009998080">☎ 800 999 8080 (sin costo)</a>
+        </div>
+        <div class="o-social">
+          <a href="https://x.com/CondusefMX" target="_blank" rel="noopener"><span class="soc-ic">X</span>@CondusefMX</a>
+          <a href="https://www.instagram.com/condusefoficial/" target="_blank" rel="noopener"><span class="soc-ic">IG</span>@condusefoficial</a>
         </div>
       </div>
-      <div class="org-card">
+      <div class="org-card acc-dark">
+        <div class="o-when">Tus datos personales</div>
         <div class="o-icon">🗂️</div>
         <div class="o-title">Secretaría Anticorrupción y Buen Gobierno</div>
-        <div class="o-desc">A cargo de la protección de datos personales a nivel federal (funciones que antes tenía el INAI). Útil para tus derechos ARCO.</div>
+        <div class="o-desc">Protección de datos personales a nivel federal. Útil para tus derechos ARCO.</div>
         <div class="o-contact">
           <a href="tel:+525520003000">☎ 55 2000 3000</a>
           <span>Insurgentes Sur 3211, Coyoacán, CDMX</span>
@@ -356,15 +458,18 @@
       </div>
     </div>
 
-    <div class="arco" style="margin-top:22px;">
-      <div class="section-label" style="margin-bottom:16px;">Tus derechos ARCO</div>
-      <p>Si diste tus datos a un sitio falso o te suplantaron, puedes ejercer tus <b>Derechos ARCO</b> (Acceso, Rectificación, Cancelación y Oposición) ante quien tenga tus datos personales.</p>
-      <ul>
-        <li><b>Acceso:</b> pide saber qué datos tuyos tienen y para qué los usan.</li>
-        <li><b>Rectificación:</b> corrige datos que estén desactualizados o sean inexactos.</li>
-        <li><b>Cancelación:</b> solicita eliminar tus datos cuando ya no haya motivo legítimo para conservarlos.</li>
-        <li><b>Oposición:</b> pide que dejen de usar tus datos para un fin específico.</li>
-      </ul>
+    <p class="help-grid-label">Tus derechos ARCO</p>
+    <div class="arco-box">
+      <div class="arco-head">
+        <span class="ah-icon">📋</span>
+        <p>¿Diste tus datos a un sitio falso? Puedes ejercer tus <b>Derechos ARCO</b>.</p>
+      </div>
+      <div class="arco-items">
+        <div class="arco-item"><div class="ai-letter">A</div><div class="ai-title">Acceso</div><div class="ai-desc">Pide saber qué datos tuyos tienen y para qué los usan.</div></div>
+        <div class="arco-item"><div class="ai-letter">R</div><div class="ai-title">Rectificación</div><div class="ai-desc">Corrige datos desactualizados o inexactos.</div></div>
+        <div class="arco-item"><div class="ai-letter">C</div><div class="ai-title">Cancelación</div><div class="ai-desc">Pide eliminar tus datos cuando ya no haya motivo para conservarlos.</div></div>
+        <div class="arco-item"><div class="ai-letter">O</div><div class="ai-title">Oposición</div><div class="ai-desc">Pide que dejen de usar tus datos para un fin específico.</div></div>
+      </div>
     </div>
   </section>
 
@@ -386,13 +491,32 @@
 // Pega aquí la URL que te da Apps Script al publicar como "Aplicación web"
 const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwBMemLNhrx9V-ylPS5dYpHjAz9NK3aBKLZ4CtNssXygSVXgyy4QdHLsnR8J-mHIrD1Ig/exec';
 
+// Token compartido con el Apps Script (ver instrucciones que te dio Claude).
+// OJO: esto NO es un secreto real, porque cualquiera puede leerlo en el código fuente.
+// Su único propósito es filtrar bots genéricos que mandan peticiones al azar a
+// cualquier URL de Apps Script que encuentran escaneando internet — no detiene
+// a alguien que decida copiar este valor a propósito.
+const CAMPAIGN_TOKEN = 'ctrlz-2026-fi-unam';
+
+// Lista blanca: solo estos nombres de juego se consideran válidos.
+const JUEGOS_VALIDOS = [
+  'Juego 1 - Desliza y decide',
+  'Juego 2 - Detecta las señales',
+  'Juego 3 - Chat de presión',
+  'Juego 4 - Huella digital'
+];
+
 function sendToSheet(juego, resultado, detalle){
   if(!SHEET_ENDPOINT || SHEET_ENDPOINT.includes('PEGA_AQUI')) return; // aún no configurado, no hace nada
+  // Juego 3 manda un título dinámico según el escenario (p.ej. "Juego 3 - Chat de presión (trabajo)"),
+  // así que comparamos por prefijo en vez de igualdad exacta.
+  const juegoValido = JUEGOS_VALIDOS.some(v => juego.startsWith(v));
+  if(!juegoValido) return; // no envía nada que no reconozca
   fetch(SHEET_ENDPOINT, {
     method:'POST',
     mode:'no-cors', // evita el preflight de CORS; no podemos leer la respuesta pero no la necesitamos
     headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-    body: JSON.stringify({ juego, resultado, detalle: detalle||'' })
+    body: JSON.stringify({ token: CAMPAIGN_TOKEN, juego, resultado, detalle: detalle||'' })
   }).catch(()=>{ /* si falla el envío, no interrumpe la experiencia del juego */ });
 }
 
@@ -424,90 +548,133 @@ gameMenu.querySelectorAll('.game-card').forEach(c=>{
 document.querySelectorAll('[data-back]').forEach(b=> b.addEventListener('click', backToMenu));
 
 /* ============================================================
+   SELECTOR DE CONTEXTO -- universidad / trabajo
+   ============================================================ */
+let selectedContext=null;
+const contextPicker=document.getElementById('contextPicker'), contextNote=document.getElementById('contextNote');
+contextPicker.querySelectorAll('.context-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const ctx=btn.dataset.ctx;
+    selectedContext = (selectedContext===ctx) ? null : ctx;
+    contextPicker.querySelectorAll('.context-btn').forEach(b=> b.classList.toggle('active', b.dataset.ctx===selectedContext));
+    contextNote.textContent = selectedContext
+      ? `Listo — vas a ver marcados con 🏷️ los casos más parecidos a ${selectedContext==='edu'?'la universidad':'el trabajo'}. Igual practicarás los de ambos contextos.`
+      : 'Elige uno y te marcamos con una etiqueta los casos más parecidos a tu día a día — igual verás de todo, para practicar ambos.';
+    if(typeof deckEl!=='undefined' && deckEl && !panels[1].hidden) renderDeck();
+  });
+});
+
+/* ============================================================
    JUEGO 1 · Desliza y decide
    ============================================================ */
+const LEVEL_LABELS = { facil:'Nivel: Fácil', intermedio:'Nivel: Intermedio', dificil:'Nivel: Difícil' };
+const LEVEL_TIME = { facil:12, intermedio:16, dificil:22 };
+const SEGMENT_TAG = { edu:'🎓 Uni', work:'💼 Trabajo' };
+
 const CASES = [
-  { kind:'SMS', icon:'📦', iconClass:'i-sms', name:'Estafeta MX', meta:'+52 1 55 0198 2231', subject:null,
+  /* ---------- FÁCIL: señales bastante claras ---------- */
+  { level:'facil', segment:'general', kind:'SMS', icon:'📦', iconClass:'i-sms', name:'Estafeta MX', meta:'+52 1 55 0198 2231', subject:null,
     msg:'Tu paquete no pudo entregarse. Paga $19 MXN de reenvío antes de 24h o será devuelto:',
     link:'estafeta-mx.paquete-tracking.info/pago', isPhishing:true, attack:'Smishing',
-    explain:'El dominio "paquete-tracking.info" no es de Estafeta. Las paqueterías reales nunca cobran "reenvíos" por SMS con links acortados o dominios raros.',
-    tip:'Verifica siempre el número de guía directo en la página oficial de la paquetería, nunca desde un link de un mensaje.' },
-  { kind:'EMAIL', icon:'🎓', iconClass:'i-email', name:'Becas UNAM', meta:'becas.excelencia@unam-becas2026.com',
+    explain:'El dominio "paquete-tracking.info" no es de Estafeta. Las paqueterías reales no cobran "reenvíos" por SMS con links de dominios raros.',
+    tip:'Verifica el número de guía directo en la página oficial de la paquetería, nunca desde un link de un mensaje.' },
+  { level:'facil', segment:'edu', kind:'EMAIL', icon:'🎓', iconClass:'i-email', name:'Becas UNAM', meta:'becas.excelencia@unam-becas2026.com',
     subject:'¡Felicidades! Fuiste seleccionado — Beca de Excelencia 2026',
     msg:'Para asignar tu beca del 100%, envía tus datos bancarios (CLABE y tarjeta) en las próximas 2 horas o perderás tu lugar.',
     link:null, isPhishing:true, attack:'Phishing',
     explain:'Ninguna beca real pide tu tarjeta o CLABE por correo, y mucho menos con un plazo de 2 horas. La urgencia es la trampa.',
     tip:'Las becas oficiales se gestionan desde tu portal escolar (DGAE / tu facultad), nunca por correo con presión de tiempo.' },
-  { kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@logistica-norte-mx.com',
-    subject:'URGENTE — confidencial',
-    msg:'Necesito que hagas una transferencia de $45,000 antes de las 5pm. Estoy en junta, no puedo hablar por teléfono. Te mando los datos bancarios en un momento, confío en tu discreción.',
-    link:null, isPhishing:true, attack:'Fraude del CEO (BEC)',
-    explain:'Presión emocional + urgencia + petición de secrecía + un canal donde no puedes verificar la identidad real: los tres ingredientes clásicos del fraude del "jefe".',
-    tip:'Regla de Zero Trust: toda solicitud de dinero o datos sensibles se confirma por un segundo canal, nunca solo por el mismo hilo del mensaje.' },
-  { kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Mamá 📱 (número nuevo)', meta:'hoy · nota de voz', subject:null,
-    msg:'"Hijo, perdí mi cel, este es mi número nuevo. Necesito que me deposites $2,000 urgente, ahorita no puedo explicarte bien, luego te cuento."',
-    link:null, isPhishing:true, attack:'Vishing / estafa familiar',
-    explain:'Un número desconocido + una emergencia repentina + petición de dinero inmediata es un patrón clásico de suplantación de un familiar.',
-    tip:'Cuelga y marca al número que ya tenías guardado, o pregunta algo que solo esa persona sabría, antes de enviar cualquier dinero.' },
-  { kind:'EMAIL', icon:'📚', iconClass:'i-email', name:'Biblioteca Central UNAM', meta:'biblioteca@dgb.unam.mx',
-    subject:'Recordatorio de vencimiento de préstamo',
-    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir directamente al mostrador.',
-    link:'biblioteca.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
-    explain:'Dominio oficial (.unam.mx), sin presión de tiempo extrema, sin solicitud de datos sensibles ni pagos. Es un recordatorio administrativo normal.',
-    tip:'Aun así, siempre es buena práctica escribir tú misma la dirección en el navegador en vez de dar clic directo.' },
-  { kind:'LINKEDIN', icon:'💼', iconClass:'i-social', name:'RH Global Solutions', meta:'mensaje directo', subject:null,
-    msg:'¡Trabaja desde casa! Gana $8,000 semanales sin experiencia. Solo paga $500 de "kit de inicio" para comenzar mañana mismo.',
-    link:null, isPhishing:true, attack:'Fraude laboral',
-    explain:'Ninguna empresa real te pide pagar para empezar a trabajar. Un sueldo altísimo sin experiencia y un pago inicial son banderas rojas clásicas.',
-    tip:'Investiga a la empresa, busca reseñas y desconfía de cualquier oferta que te pida dinero antes de contratarte.' },
-  { kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA Alertas', meta:'+52 1 33 5510 9987', subject:null,
+  { level:'facil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA Alertas', meta:'+52 1 33 5510 9987', subject:null,
     msg:'Detectamos un cargo no reconocido de $3,499. Si no lo reconoces, cancélalo aquí de inmediato:',
     link:'bbva-clientes-seguridad.com/cancelar', isPhishing:true, attack:'Phishing bancario',
     explain:'El banco jamás usa dominios distintos al oficial. "bbva-clientes-seguridad.com" no pertenece a BBVA.',
-    tip:'Ante cualquier alerta bancaria, entra a la app oficial o llama al número que está en el reverso de tu tarjeta, nunca uses el link del mensaje.' },
-  { kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
-    subject:'Apertura de inscripciones — Módulo 1.2',
-    msg:'Te recordamos que el periodo de inscripción al Módulo 1.2 abre el 3 de septiembre. Consulta el calendario oficial en el portal de la Facultad de Ingeniería.',
-    link:'ingenieria.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
-    explain:'Remitente institucional coherente, sin urgencia artificial ni solicitud de datos o pagos. Es información administrativa normal.',
-    tip:'Cuando dudes, compara el dominio del remitente con el de la página oficial de tu facultad.' },
-  { kind:'EMAIL', icon:'🛡️', iconClass:'i-email', name:'Soporte TI · Facultad', meta:'soporte@unam-verificacion.net',
-    subject:'Actividad inusual detectada en tu cuenta',
-    msg:'Detectamos actividad inusual en tu cuenta @comunidad.unam.mx. Verifica tu identidad en las próximas 24 horas o tu cuenta será suspendida.',
-    link:'unam-verificacion.net/alumnos', isPhishing:true, attack:'Phishing institucional',
-    explain:'El dominio real de la UNAM es unam.mx — "unam-verificacion.net" es un dominio externo diseñado para parecerse al oficial.',
-    tip:'El verdadero soporte técnico jamás pide "verificar tu identidad" dando clic en un link con amenaza de suspensión inmediata.' },
-  { kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Grupo Cálculo Diferencial', meta:'grupo de clase · oficial', subject:null,
-    msg:'Recuerden que mañana no hay clase, el profe avisó por el Classroom oficial del grupo. Cualquier duda, revisen el foro del curso.',
+    tip:'Ante cualquier alerta bancaria, entra a la app oficial o llama al número que está en el reverso de tu tarjeta.' },
+  { level:'facil', segment:'edu', kind:'EMAIL', icon:'📚', iconClass:'i-email', name:'Biblioteca Central UNAM', meta:'biblioteca@dgb.unam.mx',
+    subject:'Recordatorio de vencimiento de préstamo',
+    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir directamente al mostrador.',
+    link:'biblioteca.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Dominio oficial (.unam.mx), sin presión de tiempo ni solicitud de datos o pagos. Es un recordatorio administrativo normal.',
+    tip:'Aun así, es buena práctica escribir tú misma la dirección en el navegador en vez de dar clic directo.' },
+  { level:'facil', segment:'work', kind:'LINKEDIN', icon:'💼', iconClass:'i-social', name:'RH Global Solutions', meta:'mensaje directo', subject:null,
+    msg:'¡Trabaja desde casa! Gana $8,000 semanales sin experiencia. Solo paga $500 de "kit de inicio" para comenzar mañana mismo.',
+    link:null, isPhishing:true, attack:'Fraude laboral',
+    explain:'Ninguna empresa real te pide pagar para empezar a trabajar. Un sueldo altísimo sin experiencia y un pago inicial son banderas rojas clásicas.',
+    tip:'Investiga a la empresa, busca reseñas y desconfía de cualquier oferta que pida dinero antes de contratarte.' },
+
+  /* ---------- INTERMEDIO: varias señales mezcladas, textos más largos ---------- */
+  { level:'intermedio', segment:'edu', kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Grupo Cálculo Diferencial', meta:'grupo de clase · oficial', subject:null,
+    msg:'Recuerden que mañana no hay clase, el profe avisó por el Classroom oficial del grupo. Cualquier duda, revisen el foro del curso, ahí está el mismo aviso con la fecha de reposición.',
     link:null, isPhishing:false, attack:'Mensaje legítimo',
     explain:'Viene de un grupo conocido, sin links externos ni petición de datos o dinero, y remite a un canal oficial (Classroom) para confirmar.',
     tip:'Un mensaje "seguro" no significa bajar la guardia: siempre confirma en la plataforma oficial si algo suena importante.' },
-  { kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía (compañera, número de siempre)', meta:'contacto guardado', subject:null,
-    msg:'Oye, ¿me puedes reenviar el código de 6 dígitos que te acaba de llegar? Me equivoqué de número al recuperar mi cuenta y necesito verificarla urgente 🙏',
+  { level:'intermedio', segment:'edu', kind:'EMAIL', icon:'🛡️', iconClass:'i-email', name:'Soporte TI · Facultad', meta:'soporte@unam-verificacion.net',
+    subject:'Actividad inusual detectada en tu cuenta',
+    msg:'Hola, te escribimos del área de soporte porque detectamos actividad inusual en tu cuenta @comunidad.unam.mx desde un dispositivo no reconocido en Monterrey. Por tu seguridad, verifica tu identidad en las próximas 24 horas dando clic en el enlace de abajo, o la cuenta se suspenderá de forma preventiva mientras se revisa el caso.',
+    link:'unam-verificacion.net/alumnos', isPhishing:true, attack:'Phishing institucional',
+    explain:'El dominio real de la UNAM es unam.mx — "unam-verificacion.net" es un dominio externo diseñado para parecerse al oficial. El tono calmado y "profesional" no lo hace legítimo.',
+    tip:'El verdadero soporte técnico no pide "verificar tu identidad" dando clic en un link con amenaza de suspensión.' },
+  { level:'intermedio', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Mamá 📱 (número nuevo)', meta:'hoy · nota de voz', subject:null,
+    msg:'"Hijo, perdí mi cel en el camión, este es mi número nuevo, guárdalo. Necesito que me deposites $2,000 urgente para resolver algo, ahorita no puedo explicarte bien porque ando en la calle, al rato que llegue a la casa te cuento con calma, porfa."',
+    link:null, isPhishing:true, attack:'Vishing / estafa familiar',
+    explain:'Un número desconocido + una emergencia repentina + petición de dinero inmediata, sin dejarte confirmar detalles, es un patrón clásico de suplantación de un familiar.',
+    tip:'Cuelga y marca al número que ya tenías guardado, o pregunta algo que solo esa persona sabría, antes de enviar cualquier dinero.' },
+  { level:'intermedio', segment:'work', kind:'WHATSAPP', icon:'📄', iconClass:'i-chat', name:'Cliente · Distribuidora Alba', meta:'contacto guardado en el chat de ventas', subject:null,
+    msg:'Buen día, les escribo porque nuestro banco tuvo un problema con la cuenta a la que normalmente les pagamos. Adjunto la nueva ficha de depósito para la factura de este mes, ¿me confirman en cuanto reciban el pago para cerrar el trato antes de que cierre el corte administrativo de hoy?',
+    link:null, isPhishing:true, attack:'Fraude de cambio de cuenta bancaria',
+    explain:'Un "cambio de cuenta" de último momento por chat, con presión de horario de corte, es una de las estafas más comunes a proveedores: el atacante ya intervino el correo o WhatsApp real del cliente.',
+    tip:'Cualquier cambio de datos bancarios de un cliente o proveedor se confirma por teléfono al número que ya tenías registrado, nunca solo por el mismo chat.' },
+  { level:'intermedio', segment:'work', kind:'EMAIL', icon:'👥', iconClass:'i-email', name:'Recursos Humanos', meta:'rh@nomina-empresas-mx.net',
+    subject:'Actualiza tu método de pago de nómina antes del corte',
+    msg:'Estamos migrando el sistema de nómina a una nueva plataforma. Para que tu depósito no se retrase este mes, actualiza tu CLABE y verifica tu identidad en el portal antes del viernes. Si no lo haces a tiempo, tu pago se procesará hasta el siguiente periodo.',
+    link:'nomina-empresas-mx.net/actualizar', isPhishing:true, attack:'Phishing de nómina',
+    explain:'El dominio no corresponde a un sistema interno real de la empresa, y pedir "verificar identidad" con amenaza de retraso en el pago es presión clásica disfrazada de trámite administrativo.',
+    tip:'Cualquier cambio de nómina se hace desde el portal interno de RH que ya conoces, nunca desde un link recibido por correo.' },
+
+  /* ---------- DIFÍCIL: mensajes creíbles, requieren contexto ---------- */
+  { level:'dificil', segment:'work', kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@logistica-norte-mx.com',
+    subject:'URGENTE — confidencial',
+    msg:'Necesito que hagas una transferencia de $45,000 antes de las 5pm para cerrar un trato con un proveedor nuevo. Estoy en junta con el cliente y no puedo hablar por teléfono ahorita, pero es hoy o se cae el trato. Te mando los datos bancarios en un momento, confío en tu discreción con esto, no lo comentes con nadie más del equipo todavía.',
+    link:null, isPhishing:true, attack:'Fraude del CEO (BEC)',
+    explain:'Presión emocional + urgencia + petición de secrecía + un canal donde no puedes verificar la identidad real: los tres ingredientes clásicos del fraude del "jefe", disfrazados de una situación de negocio totalmente creíble.',
+    tip:'Regla práctica: toda solicitud de dinero o datos sensibles se confirma por un segundo canal, nunca solo por el mismo hilo del mensaje, sin importar quién parezca escribir.' },
+  { level:'dificil', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía (compañera, número de siempre)', meta:'contacto guardado', subject:null,
+    msg:'Oye, disculpa que te escriba así de la nada, ¿me puedes reenviar el código de 6 dígitos que te acaba de llegar? Es que me equivoqué de número al intentar recuperar mi cuenta y ahora no me deja entrar, tú fuiste el único contacto que me quedó guardado en el correo de respaldo 😅 necesito verificarla urgente antes de que expire.',
     link:null, isPhishing:true, attack:'Secuestro de cuenta vía código de verificación',
-    explain:'Que venga de un contacto guardado no lo hace seguro: su cuenta pudo ser hackeada antes. Ese código de 6 dígitos sirve para activar TU cuenta en un dispositivo nuevo — si lo compartes, le das acceso a tu propio WhatsApp a otra persona, sin importar quién lo pida.',
+    explain:'Que venga de un contacto guardado no lo hace seguro: su cuenta pudo ser hackeada antes que la tuya. Ese código de 6 dígitos sirve para activar TU cuenta en un dispositivo nuevo — si lo compartes, le das acceso a tu propio WhatsApp a otra persona, sin importar quién lo pida ni qué tan creíble suene la historia.',
     tip:'Nunca compartas un código de verificación con nadie, así sea alguien conocido: ese código es la prueba de que el dispositivo nuevo eres tú.' },
-  { kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'SAT México', meta:'devoluciones@sat-mx-tramites.com',
+  { level:'dificil', segment:'general', kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'SAT México', meta:'devoluciones@sat-mx-tramites.com',
     subject:'Tienes un saldo a favor pendiente de $3,842.00',
-    msg:'Para procesar tu devolución de impuestos, confirma tu RFC y tu contraseña del portal del SAT en el siguiente enlace antes de que cierre el periodo fiscal.',
+    msg:'De acuerdo con tu declaración anual, tienes un saldo a favor de $3,842.00 pendiente de devolución. Para procesar el depósito a tu cuenta, es necesario que confirmes tu RFC y tu contraseña del portal en el siguiente enlace antes de que cierre el periodo de devoluciones de esta temporada fiscal. Este trámite solo toma un par de minutos.',
     link:'sat-mx-tramites.com/devolucion', isPhishing:true, attack:'Phishing gubernamental',
-    explain:'El dominio real del SAT es sat.gob.mx. Ningún trámite de devolución se hace fuera del portal oficial, y el SAT nunca pide tu contraseña por correo — este tipo de correo se vuelve común cada temporada de declaración anual.',
+    explain:'El dominio real del SAT es sat.gob.mx. Ningún trámite de devolución se hace fuera del portal oficial, y el SAT nunca pide tu contraseña por correo — este tipo de correo se vuelve común cada temporada de declaración anual, justo cuando de verdad esperas noticias de una devolución.',
     tip:'Verifica cualquier trámite fiscal escribiendo tú misma/o sat.gob.mx en el navegador, nunca desde un link recibido por correo.' },
-  { kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 (número corto oficial)', subject:null,
+  { level:'dificil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 (número corto oficial)', subject:null,
     msg:'Tu código de un solo uso para iniciar sesión en la app es 482913. No lo compartas con nadie, ni con personal de BBVA.',
     link:null, isPhishing:false, attack:'Mensaje legítimo (2FA)',
-    explain:'Es un código estándar de doble factor que tú mismo generaste al intentar iniciar sesión, y el mensaje advierte explícitamente no compartirlo con nadie — así se ve un código de verificación legítimo.',
-    tip:'La diferencia clave: tú provocaste el intento de inicio de sesión. Si te llega un código sin que tú hayas hecho nada, ahí sí sospecha y no lo compartas con quien te lo pida.' }
+    explain:'Es un código estándar de doble factor que tú mismo generaste al intentar iniciar sesión, y el mensaje advierte explícitamente no compartirlo con nadie — así se ve un código de verificación legítimo, aunque a primera vista un "código" pueda generar desconfianza por costumbre.',
+    tip:'La diferencia clave: tú provocaste el intento de inicio de sesión. Si te llega un código sin que tú hayas hecho nada, ahí sí sospecha y no lo compartas con quien te lo pida.' },
+  { level:'dificil', segment:'edu', kind:'EMAIL', icon:'🏛️', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
+    subject:'Apertura de inscripciones — Módulo 1.2',
+    msg:'Te recordamos que el periodo de inscripción al Módulo 1.2 abre el 3 de septiembre. Consulta el calendario oficial y los horarios disponibles en el portal de la Facultad de Ingeniería; si tienes adeudos pendientes con la biblioteca o control escolar, resuélvelos antes de esa fecha para evitar bloqueos en tu inscripción.',
+    link:'ingenieria.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Remitente institucional coherente, sin urgencia artificial ni solicitud de datos o pagos, aunque el tema (inscripciones, adeudos, fechas límite) es justo el tipo de contexto que también usan los correos falsos.',
+    tip:'Cuando dudes, compara el dominio del remitente con el de la página oficial de tu facultad, incluso si el tema del correo parece rutinario.' }
 ];
 
 let idx=0, score1=0, dragging=false, startX=0, startY=0, currentX=0, awaitingContinue=false, pointerId=null;
 const deckEl=document.getElementById('deck'), progressEl=document.getElementById('progress1');
 const controls1=document.getElementById('controls1'), result1=document.getElementById('result1');
 const instructions1=document.querySelector('#panel1 .instructions'), feedbackEl=document.getElementById('feedback');
+const noTimerToggle=document.getElementById('noTimerToggle');
+noTimerToggle.addEventListener('change', ()=>{
+  // si cambian el modo a medio juego, reinicia el cronómetro del caso actual con la nueva configuración
+  if(!panels[1].hidden && !awaitingContinue && result1.hidden) startTimer();
+});
 
 /* --- timer + distracciones (ciberpereza / ceguera por inatención) --- */
-const TIME_LIMIT=10; // segundos por caso
+let TIME_LIMIT=LEVEL_TIME.facil; // segundos por caso, varía según el nivel
 let timeLeft=TIME_LIMIT, timerInterval=null, distractionTimer=null, distractionHideTimer=null;
+let wrongByLevel={facil:0, intermedio:0, dificil:0};
 const NOTIFS=[
   {icon:'📸', app:'Instagram', text:'A alguien le gustó tu foto'},
   {icon:'💬', app:'WhatsApp', text:'3 mensajes nuevos en "Compas"'},
@@ -535,7 +702,17 @@ function updateTimerBar(){
 }
 function startTimer(){
   clearTimer();
+  const c=CASES[idx];
+  TIME_LIMIT = c ? LEVEL_TIME[c.level] : LEVEL_TIME.facil;
   timeLeft=TIME_LIMIT;
+  if(noTimerToggle.checked){
+    // modo accesible: barra llena, sin cronómetro corriendo y sin distracciones emergentes
+    const bar=timerBarEl();
+    if(bar){ bar.style.width='100%'; bar.classList.remove('warn','danger'); }
+    const top=deckEl.querySelector('.card.top');
+    if(top) top.classList.remove('time-critical');
+    return;
+  }
   updateTimerBar();
   timerInterval=setInterval(()=>{
     if(panels[1].hidden){ clearTimer(); return; }
@@ -583,6 +760,23 @@ function onTimeout(){
   commitSwipe(true, true); // sin decidir a tiempo, el "piloto automático" confía por ti
 }
 
+function sizeDeckToContent(){
+  const top=deckEl.querySelector('.card.top');
+  if(!top) return;
+  const clone=top.cloneNode(true);
+  clone.style.position='static'; clone.style.visibility='hidden'; clone.style.transform='none'; clone.style.pointerEvents='none';
+  clone.classList.remove('dragging');
+  deckEl.appendChild(clone);
+  const h=clone.getBoundingClientRect().height;
+  deckEl.removeChild(clone);
+  deckEl.style.height=Math.max(Math.ceil(h)+30, 210)+'px';
+}
+function updateLevelBanner(level){
+  const banner=document.getElementById('levelBanner'), text=document.getElementById('levelBannerText');
+  if(!banner||!text) return;
+  banner.className='level-banner lv-'+level;
+  text.textContent=LEVEL_LABELS[level];
+}
 function renderDeck(){
   deckEl.innerHTML='';
   CASES.slice(idx, idx+3).forEach((c,i)=>{
@@ -591,7 +785,9 @@ function renderDeck(){
     el.style.zIndex=10-i;
     el.style.transform=`translateY(${i*14}px) scale(${1-i*0.045})`;
     el.style.opacity=i===2?0.6:1;
+    const segTag = (i===0 && SEGMENT_TAG[c.segment]) ? `<div class="case-tag${selectedContext && c.segment===selectedContext ? ' case-tag-match':''}">${SEGMENT_TAG[c.segment]}</div>` : '';
     el.innerHTML=`
+      ${segTag}
       <div class="card-head"><div class="icon ${c.iconClass}">${c.icon}</div>
         <div class="who"><div class="name">${c.name}</div><div class="meta">${c.meta}</div></div>
         <div class="kind">${c.kind}</div></div>
@@ -603,6 +799,8 @@ function renderDeck(){
   progressEl.textContent=`CASO ${Math.min(idx+1,CASES.length)} / ${CASES.length}`;
   const top=deckEl.querySelector('.card.top');
   if(top) top.addEventListener('pointerdown', onDown);
+  if(CASES[idx]) updateLevelBanner(CASES[idx].level);
+  sizeDeckToContent();
   startTimer();
 }
 function onDown(e){
@@ -641,7 +839,7 @@ function commitSwipe(saidSafe, wasTimeout){
   top.style.transition='transform .4s ease';
   top.style.transform=`translateX(${saidSafe?700:-700}px) rotate(${saidSafe?24:-24}deg)`;
   const userCorrect=(saidSafe&&!c.isPhishing)||(!saidSafe&&c.isPhishing);
-  if(userCorrect) score1++;
+  if(userCorrect) score1++; else wrongByLevel[c.level]++;
   top.classList.add(userCorrect?'flash-safe':'flash-danger');
   document.getElementById('fbResult').textContent=userCorrect?'✅ Correcto':'❌ Cuidado';
   document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
@@ -660,15 +858,18 @@ function showEnd1(){
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   let m;
-  if(score1>=11) m='Excelente ojo crítico. Sigues bien el principio de "confianza cero", incluso con el tiempo encima, las notificaciones distrayéndote y casos diseñados para parecer legítimos.';
-  else if(score1>=7) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
+  if(score1>=13) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más largos y difíciles, con el tiempo encima y las distracciones apareciendo.';
+  else if(score1>=9) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
   else m='Entre el tiempo limitado y las distracciones, caíste en "piloto automático" varias veces — justo así operan estos ataques en la vida real. Repasa los casos y vuelve a intentarlo.';
+  const levelNames={facil:'los casos fáciles', intermedio:'los casos intermedios', dificil:'los casos difíciles'};
+  const worst=Object.keys(wrongByLevel).reduce((a,b)=> wrongByLevel[b]>wrongByLevel[a]?b:a, 'facil');
+  if(wrongByLevel[worst]>0) m += ` Te costó más trabajo en ${levelNames[worst]}: ahí es donde vale la pena poner más atención la próxima vez.`;
   document.getElementById('endMsg1').textContent=m;
   sendToSheet('Juego 1 - Desliza y decide', `${score1}/${CASES.length}`);
 }
 function restart1(){
   clearTimer();
-  idx=0; score1=0; awaitingContinue=false;
+  idx=0; score1=0; awaitingContinue=false; wrongByLevel={facil:0, intermedio:0, dificil:0};
   deckEl.style.visibility='visible'; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
   renderDeck();
 }
@@ -701,8 +902,18 @@ const flagExplain = {
   d5: 'Este párrafo suena razonable y hasta tranquilizador ("si tú lo hiciste, ignóralo") — así es como se ve un aviso de fraude legítimo. Por sí solo no es una señal técnica de que el correo sea falso.',
   d6: 'Este número no aparece en los canales oficiales publicados por el banco en su app o sitio web: es un número de contacto falso, pensado para captarte también por teléfono (vishing) si decides "verificar" por esa vía en vez de por el link.'
 };
+function toggleHotspot(el){
+  el.classList.toggle('selected');
+  el.setAttribute('aria-pressed', el.classList.contains('selected') ? 'true' : 'false');
+}
 document.querySelectorAll('.hotspot').forEach(el=>{
-  el.addEventListener('click', ()=> el.classList.toggle('selected'));
+  el.addEventListener('click', ()=> toggleHotspot(el));
+  el.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter' || e.key===' '){
+      e.preventDefault();
+      toggleHotspot(el);
+    }
+  });
 });
 document.getElementById('btnReview').addEventListener('click', ()=>{
   let correctCount=0;
@@ -731,7 +942,10 @@ document.getElementById('btnReview').addEventListener('click', ()=>{
   sendToSheet('Juego 2 - Detecta las señales', `${correctCount}/4`);
 });
 document.getElementById('restartBtn2').addEventListener('click', ()=>{
-  document.querySelectorAll('.hotspot').forEach(el=>el.classList.remove('correct','missed','wrong','selected'));
+  document.querySelectorAll('.hotspot').forEach(el=>{
+    el.classList.remove('correct','missed','wrong','selected');
+    el.setAttribute('aria-pressed','false');
+  });
   document.getElementById('result2').hidden=true;
   document.getElementById('btnReview').hidden=false;
 });
