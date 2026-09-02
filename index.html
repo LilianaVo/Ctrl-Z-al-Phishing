@@ -198,13 +198,21 @@
             <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
             <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
           </div>
-          <div class="inline-result" id="result1" hidden>
-            <div class="score-label">Tu resultado</div>
-            <div class="score-badge" id="scoreBadge1">0/10</div>
-            <p id="endMsg1"></p>
-            <div class="next-choices">
-              <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-              <button class="menu-btn" data-back>Elegir otro juego →</button>
+          <div class="inline-result retro-window" id="result1" hidden>
+            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">RESULTADO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+            <div class="retro-body">
+              <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span><span class="retro-sparkle s3">✦</span>
+              <div class="score-label">Tu resultado</div>
+              <div class="score-badge" id="scoreBadge1">0/10</div>
+              <div class="retro-loadbar"><div class="fill" id="loadbarFill1"></div></div>
+              <img class="result-character-frame" id="resultCharLow" src="images/pc_a.png" alt="El Piloto Automático" hidden>
+              <img class="result-character-frame" id="resultCharMid" src="images/pc_b.png" alt="El Aprendiz Vigilante" hidden>
+              <img class="result-character-frame" id="resultCharHigh" src="images/pc_c.png" alt="El Detective Crítico" hidden>
+              <p id="endMsg1"></p>
+              <div class="next-choices">
+                <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+                <button class="menu-btn" data-back>Elegir otro juego →</button>
+              </div>
             </div>
           </div>
         </div>
@@ -265,13 +273,18 @@
               </div>
             </div>
             <button class="btn" id="btnReview">Revisar mis respuestas</button>
-            <div class="inline-result" id="result2" hidden style="text-align:left; max-width:560px;">
-              <div class="score-label" style="text-align:center;">Tu resultado</div>
-              <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
-              <ul class="flag-list" id="flagList"></ul>
-              <div class="next-choices">
-                <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-                <button class="menu-btn" data-back>Elegir otro juego →</button>
+            <div class="inline-result retro-window" id="result2" hidden style="max-width:560px;">
+              <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">SENALES.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+              <div class="retro-body" style="text-align:left;">
+                <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
+                <div class="score-label" style="text-align:center;">Tu resultado</div>
+                <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
+                <div class="retro-loadbar"><div class="fill" id="loadbarFill2"></div></div>
+                <ul class="flag-list" id="flagList"></ul>
+                <div class="next-choices">
+                  <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+                  <button class="menu-btn" data-back>Elegir otro juego →</button>
+                </div>
               </div>
             </div>
           </div>
@@ -342,29 +355,34 @@
       <div class="quick-replies" id="chatOptions" hidden></div>
     </div>
 
-    <div class="inline-result" id="result3" hidden>
-      <div class="score-label">Tu resultado</div>
+    <div class="inline-result retro-window" id="result3" hidden>
+      <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">CHAT_RESULTADO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+      <div class="retro-body">
+        <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span><span class="retro-sparkle s3">✦</span>
+        <div class="score-label">Tu resultado</div>
 
-      <div class="score-badge" id="scoreBadge3">
-        0/5
-      </div>
+        <div class="score-badge" id="scoreBadge3">
+          0/5
+        </div>
+        <div class="retro-loadbar"><div class="fill" id="loadbarFill3"></div></div>
 
-      <p id="endMsg3"></p>
+        <p id="endMsg3"></p>
 
-      <div class="next-choices">
-        <button class="redo-btn" id="restartBtn3">
-          <span class="k2">Ctrl</span>
-          <span class="k2">Z</span>
-          Volver a intentar
-        </button>
+        <div class="next-choices">
+          <button class="redo-btn" id="restartBtn3">
+            <span class="k2">Ctrl</span>
+            <span class="k2">Z</span>
+            Volver a intentar
+          </button>
 
-        <button class="menu-btn" id="changeScenarioBtn">
-          Probar otro escenario →
-        </button>
+          <button class="menu-btn" id="changeScenarioBtn">
+            Probar otro escenario →
+          </button>
 
         <button class="menu-btn" data-back>
           Elegir otro juego →
         </button>
+      </div>
       </div>
     </div>
   </div>
@@ -425,19 +443,25 @@
               <div class="w">Financiero<span class="rl-val" id="valFinanciero">0%</span></div>
             </div>
           </div>
-          <div class="dossier" id="dossier">
-            <div class="dossier-head">🕵️ Esto es lo que alguien podría armar con esto</div>
-            <ul class="dossier-list" id="dossierList"></ul>
+          <div class="inline-result retro-window" style="margin-top:18px;">
+            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">REPORTE.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+            <div class="retro-body">
+              <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
+              <div class="dossier" id="dossier">
+                <div class="dossier-head">🕵️ Esto es lo que alguien podría armar con esto</div>
+                <ul class="dossier-list" id="dossierList"></ul>
+              </div>
+              <p class="msg" id="dashMsg"></p>
+              <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Este resultado es una estimación educativa basada en tus respuestas. No representa una medición real de riesgo.</p>
+              <div class="next-choices">
+                <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
+                <button class="menu-btn" data-back>Elegir otro juego →</button>
+              </div>
+            </div>
           </div>
-          <p class="msg" id="dashMsg"></p>
-          <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Este resultado es una estimación educativa basada en tus respuestas. No representa una medición real de riesgo.</p>
-          <div class="next-choices">
-            <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
-            <button class="menu-btn" data-back>Elegir otro juego →</button>
-          </div>
-        </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -498,27 +522,51 @@
 
   <div class="help-steps">
 
-    <div class="help-step">
-      <div class="hs-num">1</div>
-      <div class="hs-title">Protege tus cuentas</div>
-      <div class="hs-desc">
-        Cambia las contraseñas afectadas y cierra cualquier sesión que no reconozcas.
+    <div class="help-step retro-card" style="--bar:var(--pastel-mint);">
+      <div class="retro-card-bar">
+        <span class="rc-dots"><span></span><span></span><span></span></span>
+        <span class="rc-title">PASO_1.txt</span>
+        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+      </div>
+      <div class="retro-card-body">
+        <span class="hs-icon">🔒</span>
+        <div class="hs-num">1</div>
+        <div class="hs-title">Protege tus cuentas</div>
+        <div class="hs-desc">
+          Cambia las contraseñas afectadas y cierra cualquier sesión que no reconozcas.
+        </div>
       </div>
     </div>
 
-    <div class="help-step">
-      <div class="hs-num">2</div>
-      <div class="hs-title">Protege tu dinero</div>
-      <div class="hs-desc">
-        Si compartiste datos bancarios o hiciste una transferencia, contacta a tu banco de inmediato.
+    <div class="help-step retro-card" style="--bar:var(--pastel-lilac);">
+      <div class="retro-card-bar">
+        <span class="rc-dots"><span></span><span></span><span></span></span>
+        <span class="rc-title">PASO_2.txt</span>
+        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+      </div>
+      <div class="retro-card-body">
+        <span class="hs-icon">💳</span>
+        <div class="hs-num">2</div>
+        <div class="hs-title">Protege tu dinero</div>
+        <div class="hs-desc">
+          Si compartiste datos bancarios o hiciste una transferencia, contacta a tu banco de inmediato.
+        </div>
       </div>
     </div>
 
-    <div class="help-step">
-      <div class="hs-num">3</div>
-      <div class="hs-title">Guarda evidencia</div>
-      <div class="hs-desc">
-        Conserva capturas, mensajes, números y enlaces. Te servirán para realizar el reporte.
+    <div class="help-step retro-card" style="--bar:var(--pastel-peachy);">
+      <div class="retro-card-bar">
+        <span class="rc-dots"><span></span><span></span><span></span></span>
+        <span class="rc-title">PASO_3.txt</span>
+        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+      </div>
+      <div class="retro-card-body">
+        <span class="hs-icon">📎</span>
+        <div class="hs-num">3</div>
+        <div class="hs-title">Guarda evidencia</div>
+        <div class="hs-desc">
+          Conserva capturas, mensajes, números y enlaces. Te servirán para realizar el reporte.
+        </div>
       </div>
     </div>
 
@@ -529,125 +577,79 @@
 
   <p class="help-grid-label">Canales oficiales</p>
 
-  <div class="help-grid">
+  <div class="chat-card retro-card">
 
-    <!-- POLICÍA CIBERNÉTICA CDMX -->
-    <div class="org-card acc-coral">
+    <div class="chat-card-bar">
+      <span class="cc-back">←</span>
+      <span class="cc-title">Ctrl+Z al Phishing</span>
+      <span class="cc-face">🟢</span>
+    </div>
 
-      <div class="o-icon">👮</div>
+    <div class="chat-card-body">
 
-      <div class="o-when">
-        Fraude, engaños o cuentas comprometidas
+      <!-- POLICÍA CIBERNÉTICA CDMX -->
+      <div class="chat-msg chat-left" style="--bubble:var(--pastel-rose);">
+        <div class="chat-sender">POLICIA_CDMX ✔️✔️</div>
+        <div class="chat-bubble">
+          <div class="o-when">Fraude, engaños o cuentas comprometidas</div>
+          <div class="o-desc">
+            Para reportar incidentes relacionados con fraudes, engaños o delitos cometidos mediante medios digitales.
+          </div>
+          <div class="o-contact">
+            <a href="tel:+525552425100">☎ 55 5242 5100 ext. 5086</a>
+            <a href="mailto:policia.cibernetica@ssc.cdmx.gob.mx">✉ policia.cibernetica@ssc.cdmx.gob.mx</a>
+          </div>
+          <div class="o-social">
+            <a href="https://x.com/UCS_GCDMX" target="_blank" rel="noopener"><span class="soc-ic">X</span>@UCS_GCDMX</a>
+            <a href="https://www.instagram.com/ciber_cdmx/" target="_blank" rel="noopener"><span class="soc-ic">IG</span>@ciber_cdmx</a>
+          </div>
+        </div>
       </div>
 
-      <div class="o-title">
-        Policía Cibernética CDMX
+      <!-- GUARDIA NACIONAL · CERT-MX (responde) -->
+      <div class="chat-msg chat-right" style="--bubble:var(--pastel-sky);">
+        <div class="chat-sender">CERT_MX ✔️✔️<span class="chat-reply-tag">respondió</span></div>
+        <div class="chat-bubble">
+          <div class="o-when">Incidentes de ciberseguridad</div>
+          <div class="o-desc">
+            Canal nacional para reportar fraudes, abusos y otros incidentes relacionados con la seguridad digital.
+          </div>
+          <div class="o-contact">
+            <a href="tel:088">☎ 088</a>
+            <a href="mailto:cert-mx@sspc.gob.mx">✉ cert-mx@sspc.gob.mx</a>
+          </div>
+          <div class="o-social">
+            <a href="https://x.com/GN_MEXICO_" target="_blank" rel="noopener"><span class="soc-ic">X</span>@GN_MEXICO_</a>
+            <a href="https://www.gob.mx/gncertmx" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>gob.mx/gncertmx</a>
+          </div>
+        </div>
       </div>
 
-      <div class="o-desc">
-        Para reportar incidentes relacionados con fraudes, engaños o delitos cometidos mediante medios digitales.
-      </div>
-
-      <div class="o-contact">
-        <a href="tel:+525552425100">
-          ☎ 55 5242 5100 ext. 5086
-        </a>
-
-        <a href="mailto:policia.cibernetica@ssc.cdmx.gob.mx">
-          ✉ policia.cibernetica@ssc.cdmx.gob.mx
-        </a>
-      </div>
-
-      <div class="o-social">
-        <a href="https://x.com/UCS_GCDMX" target="_blank" rel="noopener">
-          <span class="soc-ic">X</span>@UCS_GCDMX
-        </a>
-
-        <a href="https://www.instagram.com/ciber_cdmx/" target="_blank" rel="noopener">
-          <span class="soc-ic">IG</span>@ciber_cdmx
-        </a>
+      <!-- CONDUSEF -->
+      <div class="chat-msg chat-left" style="--bubble:var(--pastel-butter);">
+        <div class="chat-sender">CONDUSEF ✔️✔️</div>
+        <div class="chat-bubble">
+          <div class="o-when">Cargos, transferencias o problemas financieros</div>
+          <div class="o-desc">
+            Orientación cuando el problema involucra una cuenta, tarjeta, cargo o servicio financiero.
+          </div>
+          <div class="o-contact">
+            <a href="tel:+525553400999">☎ 55 5340 0999</a>
+            <a href="tel:8009998080">☎ 800 999 8080</a>
+          </div>
+          <div class="o-social">
+            <a href="https://x.com/CondusefMX" target="_blank" rel="noopener"><span class="soc-ic">X</span>@CondusefMX</a>
+            <a href="https://www.condusef.gob.mx/" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>condusef.gob.mx</a>
+          </div>
+        </div>
       </div>
 
     </div>
 
-
-    <!-- GUARDIA NACIONAL -->
-    <div class="org-card acc-teal">
-
-      <div class="o-icon">🛰️</div>
-
-      <div class="o-when">
-        Incidentes de ciberseguridad
-      </div>
-
-      <div class="o-title">
-        Guardia Nacional · CERT-MX
-      </div>
-
-      <div class="o-desc">
-        Canal nacional para reportar fraudes, abusos y otros incidentes relacionados con la seguridad digital.
-      </div>
-
-      <div class="o-contact">
-        <a href="tel:088">
-          ☎ 088
-        </a>
-
-        <a href="mailto:cert-mx@sspc.gob.mx">
-          ✉ cert-mx@sspc.gob.mx
-        </a>
-      </div>
-
-      <div class="o-social">
-        <a href="https://x.com/GN_MEXICO_" target="_blank" rel="noopener">
-          <span class="soc-ic">X</span>@GN_MEXICO_
-        </a>
-
-        <a href="https://www.gob.mx/gncertmx" target="_blank" rel="noopener">
-          <span class="soc-ic">🌐</span>gob.mx/gncertmx
-        </a>
-      </div>
-
-    </div>
-
-
-    <!-- CONDUSEF -->
-    <div class="org-card acc-cream">
-
-      <div class="o-icon">🏦</div>
-
-      <div class="o-when">
-        Cargos, transferencias o problemas financieros
-      </div>
-
-      <div class="o-title">
-        CONDUSEF
-      </div>
-
-      <div class="o-desc">
-        Orientación cuando el problema involucra una cuenta, tarjeta, cargo o servicio financiero.
-      </div>
-
-      <div class="o-contact">
-        <a href="tel:+525553400999">
-          ☎ 55 5340 0999
-        </a>
-
-        <a href="tel:8009998080">
-          ☎ 800 999 8080
-        </a>
-      </div>
-
-      <div class="o-social">
-        <a href="https://x.com/CondusefMX" target="_blank" rel="noopener">
-          <span class="soc-ic">X</span>@CondusefMX
-        </a>
-
-        <a href="https://www.condusef.gob.mx/" target="_blank" rel="noopener">
-          <span class="soc-ic">🌐</span>condusef.gob.mx
-        </a>
-      </div>
-
+    <div class="chat-card-footer">
+      <span>📎</span>
+      <span class="chat-input-fake">Escribe un mensaje…</span>
+      <span>↑</span>
     </div>
 
   </div>
@@ -1003,6 +1005,11 @@ function showEnd1(){
   deckEl.style.visibility='hidden'; controls1.hidden=true; instructions1.hidden=true;
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
+  const lb1=document.getElementById('loadbarFill1'); if(lb1) lb1.style.width=`${(score1/CASES.length)*100}%`;
+  const charLow=document.getElementById('resultCharLow'), charMid=document.getElementById('resultCharMid'), charHigh=document.getElementById('resultCharHigh');
+  if(charLow) charLow.hidden = !(score1<=5);
+  if(charMid) charMid.hidden = !(score1>=6 && score1<=8);
+  if(charHigh) charHigh.hidden = !(score1>=9);
   let m;
   if(score1>=9) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más sutiles, con el tiempo encima y las distracciones apareciendo.';
   else if(score1>=6) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
@@ -1017,6 +1024,9 @@ function restart1(){
   clearTimer();
   idx=0; score1=0; awaitingContinue=false; wrongByLevel={facil:0, intermedio:0, dificil:0};
   deckEl.style.visibility='visible'; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
+  const charLow=document.getElementById('resultCharLow'); if(charLow) charLow.hidden=true;
+  const charMid=document.getElementById('resultCharMid'); if(charMid) charMid.hidden=true;
+  const charHigh=document.getElementById('resultCharHigh'); if(charHigh) charHigh.hidden=true;
   renderDeck();
 }
 document.getElementById('btnEsc').addEventListener('click', ()=>commitSwipe(false));
@@ -1087,6 +1097,7 @@ document.getElementById('btnReview').addEventListener('click', ()=>{
     }
   });
   document.getElementById('scoreBadge2').textContent = `${correctCount}/4`;
+  const lb2=document.getElementById('loadbarFill2'); if(lb2) lb2.style.width=`${(correctCount/4)*100}%`;
   document.getElementById('result2').hidden=false;
   document.getElementById('btnReview').hidden=true;
   sendToSheet('Juego 2 - Detecta las señales', `${correctCount}/4`);
@@ -1282,6 +1293,7 @@ function showChatEnd(){
   const sc=currentScenario();
   const total=sc.steps.length;
   document.getElementById('scoreBadge3').textContent = `${chatScore}/${total}`;
+  const lb3=document.getElementById('loadbarFill3'); if(lb3) lb3.style.width=`${(chatScore/total)*100}%`;
   let m;
   if(chatScore===total) m=sc.endMsgs.full;
   else if(chatScore>=Math.ceil(total*0.5)) m=sc.endMsgs.partial(chatScore);
