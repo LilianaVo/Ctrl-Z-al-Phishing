@@ -3,6 +3,7 @@
   --pastel-mint:#D2ECE2; --pastel-sky:#D3E4F3; --pastel-butter:#FBF0C6; --pastel-lilac:#E6DCF2; --pastel-rose:#F7DDE2; --pastel-peachy:#FCE4D3;
   --ink:#2A363B; --ink-soft:#5C6A6F; --teal:#81C8C0; --teal-deep:#4E9A92;
   --coral:#E89A8A; --coral-deep:#C97363;
+  --sun:#F5C34E; --sun-deep:#D9A126; --leaf:#93C77E; --leaf-deep:#5F9E4D;
   --radius-lg:26px; --radius-md:18px; --radius-sm:12px;
   --shadow:5px 5px 0 var(--ink); --shadow-sm:3px 3px 0 var(--ink);
   --font-display:'Baloo 2', system-ui, sans-serif;
@@ -72,6 +73,7 @@ section{ padding:44px 0; scroll-margin-top:62px; }
 h2.h2{ font-family:var(--font-display); font-size:clamp(21px,3.2vw,28px); margin:0 0 10px; max-width:560px; }
 p.h2-sub{ color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:0 0 28px; line-height:1.55; }
 p.h2-sub strong{ color:var(--ink); font-weight:800; }
+.close-gif{ display:block; max-width:320px; width:100%; height:auto; margin:0 auto 22px; border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); }
 .text-coral{ color:var(--coral-deep); }
 
 /* POR QUÉ -- notificaciones reales, apiladas como en tu pantalla de bloqueo */
@@ -93,10 +95,11 @@ p.h2-sub strong{ color:var(--ink); font-weight:800; }
 /* MENU DE JUEGOS -- un juego a la vez */
 .game-menu{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
 @media (max-width:640px){ .game-menu{ grid-template-columns:1fr; } }
-.game-card{ display:block; width:100%; text-align:left; border:3px solid var(--ink); border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); transition:transform .12s ease, box-shadow .12s ease; font-family:inherit; }
+.game-card{ display:block; width:100%; text-align:left; border:3px solid var(--ink); border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); transition:transform .12s ease, box-shadow .12s ease; font-family:inherit; position:relative; }
+.game-card::after{ content:""; position:absolute; left:34px; bottom:-13px; width:24px; height:24px; background-color:inherit; border-right:3px solid var(--ink); border-bottom:3px solid var(--ink); border-bottom-right-radius:5px; transform:rotate(45deg); }
 .game-card:hover{ transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--ink); }
 .game-card.active{ outline:3px solid var(--ink); outline-offset:3px; }
-.game-card.teal{ background:var(--teal); } .game-card.coral{ background:var(--coral); } .game-card.dark{ background:var(--ink); color:var(--peach); } .game-card.cream{ background:var(--cream); }
+.game-card.teal{ background:var(--teal); } .game-card.coral{ background:var(--coral); } .game-card.green{ background:var(--leaf); } .game-card.yellow{ background:var(--sun); }
 .game-card .g-num{ font-family:var(--font-mono); font-size:11px; opacity:.75; margin-bottom:10px; }
 .game-card .g-title{ font-family:var(--font-display); font-weight:700; font-size:19px; margin-bottom:8px; }
 .game-card .g-desc{ font-size:13px; line-height:1.55; opacity:.9; margin-bottom:14px; }
@@ -375,10 +378,14 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .arco p{ font-size:14px; line-height:1.6; margin:0 0 12px; } .arco ul{ margin:0; padding-left:20px; color:var(--ink-soft); font-size:13.5px; line-height:1.9; } .arco li b{ color:var(--ink); }
 
 /* AYUDA REAL -- si ya te pasó */
-.help-intro{ background:var(--ink); color:var(--peach); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:26px 26px; box-shadow:var(--shadow); margin-bottom:26px; position:relative; overflow:hidden; }
-.help-intro::before{ content:"🆘"; position:absolute; right:18px; top:14px; font-size:46px; opacity:.16; }
-.help-intro p{ font-size:14.5px; line-height:1.7; color:#f1ece7; margin:0; max-width:560px; position:relative; }
-.help-intro p b{ color:#fff; }
+.help-intro-chat{ display:flex; align-items:flex-end; gap:14px; margin-bottom:26px; }
+.help-intro-chat .hic-avatar{ width:120px; height:auto; flex:none; margin-bottom:6px; }
+.help-intro-chat .hic-bubble{ position:relative; flex:1; background:var(--ink); color:var(--peach); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:26px 26px; box-shadow:var(--shadow); }
+.help-intro-chat .hic-bubble::before{ content:""; position:absolute; left:-13px; bottom:28px; width:20px; height:20px; background-color:var(--ink); border-left:3px solid var(--ink); border-bottom:3px solid var(--ink); border-bottom-left-radius:4px; transform:rotate(45deg); }
+.help-intro-chat .hic-bubble .h2{ color:#fff; }
+.help-intro-chat .hic-bubble p{ font-size:14.5px; line-height:1.7; color:#f1ece7; margin:0; }
+.help-intro-chat .hic-bubble p b{ color:#fff; }
+@media (max-width:560px){ .help-intro-chat{ flex-direction:column; align-items:center; text-align:center; } .help-intro-chat .hic-bubble::before{ display:none; } .help-intro-chat .hic-avatar{ margin-bottom:-4px; } }
 
 .help-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
 @media (max-width:720px){ .help-steps{ grid-template-columns:1fr; } }
@@ -541,7 +548,7 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
   .arco p{font-size:15px}
   .arco ul{font-size:14px;line-height:1.8}
 
-  .help-intro p{font-size:15.5px;line-height:1.65}
+  .help-intro-chat .hic-bubble p{font-size:15.5px;line-height:1.65}
   .help-step .hs-title{font-size:17px}
   .help-step .hs-desc{font-size:14px}
 
