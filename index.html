@@ -500,6 +500,8 @@
       <span class="fp-icon">📝</span>
       <p>El formulario estará disponible próximamente.</p>
     </div>
+    <button type="button" class="btn coral form-cta-btn" id="formBtn" onclick="irAEncuesta()" hidden>Ir a la encuesta de opinión →</button>
+    <p class="form-cta-note" id="formCtaNote" hidden>Tu opinión es muy importante para nosotras — nos ayuda a mejorar la campaña.</p>
   </div>
 </section>
 
@@ -685,7 +687,19 @@
 <script>
 /* ============================================================
    RECOLECCIÓN DE DATOS: envía resultados a Google Sheets
-   ============================================================ */
+   ============================================================
+   Cada visita genera un CÓDIGO único (SESSION_CODE). Cada vez que
+   la persona termina un juego, se manda ese código junto con el
+   resultado; el Apps Script busca si ya existe una fila con ese
+   código: si existe, la ACTUALIZA (rellena la columna de ese juego);
+   si no existe, crea una fila nueva. Así, sin importar cuántos
+   juegos juegue una persona, todos sus resultados terminan en la
+   MISMA fila. Cuando toca el botón "Ir a la encuesta", se manda un
+   aviso extra marcando que esa fila "terminó", y se abre el
+   formulario de Google con ese mismo código precargado, para poder
+   cruzar después los resultados de juego con sus respuestas de
+   opinión. Ver el Apps Script nuevo (Code.gs) para el otro lado. */
+
 // Pega aquí la URL que te da Apps Script al publicar como "Aplicación web"
 const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwBMemLNhrx9V-ylPS5dYpHjAz9NK3aBKLZ4CtNssXygSVXgyy4QdHLsnR8J-mHIrD1Ig/exec';
 
@@ -704,18 +718,61 @@ const JUEGOS_VALIDOS = [
   'Juego 4 - Huella digital'
 ];
 
-function sendToSheet(juego, resultado, detalle){
+// --- Código único por visita, para juntar los 4 juegos en una sola fila ---
+// Se guarda en sessionStorage: si la persona recarga la página sigue siendo
+// el mismo código (y por lo tanto la misma fila); si cierra la pestaña y
+// entra otro día, genera uno nuevo (nueva fila).
+function getSessionCode(){
+  let code = sessionStorage.getItem('ctrlz_code');
+  if(!code){
+    code = Math.random().toString(36).slice(2,8).toUpperCase() + Date.now().toString(36).slice(-3).toUpperCase();
+    sessionStorage.setItem('ctrlz_code', code);
+  }
+  return code;
+}
+const SESSION_CODE = getSessionCode();
+
+function sendToSheet(juego, resultado, detalle, marcarTerminado){
   if(!SHEET_ENDPOINT || SHEET_ENDPOINT.includes('PEGA_AQUI')) return; // aún no configurado, no hace nada
   // Juego 3 manda un título dinámico según el escenario (p.ej. "Juego 3 - Chat de presión (trabajo)"),
   // así que comparamos por prefijo en vez de igualdad exacta.
-  const juegoValido = JUEGOS_VALIDOS.some(v => juego.startsWith(v));
-  if(!juegoValido) return; // no envía nada que no reconozca
+  if(juego && !JUEGOS_VALIDOS.some(v => juego.startsWith(v))) return; // no envía nada que no reconozca
   fetch(SHEET_ENDPOINT, {
     method:'POST',
     mode:'no-cors', // evita el preflight de CORS; no podemos leer la respuesta pero no la necesitamos
     headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-    body: JSON.stringify({ token: CAMPAIGN_TOKEN, juego, resultado, detalle: detalle||'' })
+    body: JSON.stringify({
+      token: CAMPAIGN_TOKEN,
+      code: SESSION_CODE,
+      contexto: (typeof selectedContext!=='undefined' ? selectedContext : '') || '',
+      juego: juego || '',
+      resultado: resultado || '',
+      detalle: detalle || '',
+      marcarTerminado: !!marcarTerminado
+    })
   }).catch(()=>{ /* si falla el envío, no interrumpe la experiencia del juego */ });
+}
+
+// --- Botón "Ir a la encuesta" ---
+// Pega aquí el link de "Obtener enlace precargado" de tu Google Form (ver instrucciones)
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSePheDMUYaRh6dmFniXDt0lil4EaQ20DiXkhBo4muIZcBDdyg/viewform'; // ej: 'https://docs.google.com/forms/d/e/1FAIpQ.../viewform'
+// Pega aquí el "entry.XXXXXXXXX" que corresponde a la pregunta "Código de sesión" del form
+const GOOGLE_FORM_CODE_ENTRY = 'entry.864574257'; // ej: 'entry.123456789'
+
+function irAEncuesta(){
+  sendToSheet(null, null, null, true); // marca en el sheet que esta persona terminó de jugar
+  if(GOOGLE_FORM_URL && GOOGLE_FORM_CODE_ENTRY){
+    const url = `${GOOGLE_FORM_URL}?${GOOGLE_FORM_CODE_ENTRY}=${encodeURIComponent(SESSION_CODE)}`;
+    window.open(url, '_blank');
+  }
+}
+
+// Muestra el botón real solo cuando ya configuraste el link del formulario arriba;
+// mientras tanto, deja el aviso de "próximamente".
+if(GOOGLE_FORM_URL && GOOGLE_FORM_CODE_ENTRY){
+  document.getElementById('formPlaceholder').hidden = true;
+  document.getElementById('formBtn').hidden = false;
+  document.getElementById('formCtaNote').hidden = false;
 }
 
 /* ============================================================
