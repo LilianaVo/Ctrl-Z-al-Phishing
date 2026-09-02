@@ -1005,7 +1005,10 @@ function nextCase(){
 }
 function showEnd1(){
   clearTimer();
-  deckEl.style.visibility='hidden'; controls1.hidden=true; instructions1.hidden=true;
+  deckEl.style.display='none'; controls1.hidden=true; instructions1.hidden=true;
+  const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=true;
+  if(progressEl) progressEl.hidden=true;
+  const timerWrap=document.getElementById('timerBarWrap'); if(timerWrap) timerWrap.hidden=true;
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   const lb1=document.getElementById('loadbarFill1'); if(lb1) lb1.style.width=`${(score1/CASES.length)*100}%`;
@@ -1026,7 +1029,10 @@ function showEnd1(){
 function restart1(){
   clearTimer();
   idx=0; score1=0; awaitingContinue=false; wrongByLevel={facil:0, intermedio:0, dificil:0};
-  deckEl.style.visibility='visible'; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
+  deckEl.style.display=''; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
+  const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=false;
+  if(progressEl) progressEl.hidden=false;
+  const timerWrap=document.getElementById('timerBarWrap'); if(timerWrap) timerWrap.hidden=false;
   const charLow=document.getElementById('resultCharLow'); if(charLow) charLow.hidden=true;
   const charMid=document.getElementById('resultCharMid'); if(charMid) charMid.hidden=true;
   const charHigh=document.getElementById('resultCharHigh'); if(charHigh) charHigh.hidden=true;
