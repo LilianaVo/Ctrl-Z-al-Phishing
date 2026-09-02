@@ -25,7 +25,7 @@
 <div id="top"></div>
 <div class="hero grid-floor">
   <div class="hero-inner">
-    <div class="eyebrow-chip">⚠️ ¿Sabrías reconocerlo?</div>
+    <div class="eyebrow-chip"><img src="images/icon-advertencia.png" class="emoji-icon" alt="Advertencia"> ¿Sabrías reconocerlo?</div>
     <h1 class="title">Antes de dar clic,<br><span class="hl">haz una pausa.</span></h1>
     <p class="tagline">Aprende a detectar el phishing antes de caer en él.</p>
     <div class="keys-row"><div class="keycap">Ctrl</div><div class="plus">+</div><div class="keycap">Z</div></div>
@@ -79,7 +79,7 @@
   <div class="signal-stack">
 
     <div class="signal-item">
-      <div class="signal-icon coral">✉️</div>
+      <div class="signal-icon coral"><img src="images/icon-correo.png" class="emoji-icon" alt="Correo"></div>
       <div class="signal-body">
         <div class="s-app">CORREO · PHISHING</div>
         <div class="s-title">"Tu cuenta será suspendida hoy"</div>
@@ -91,7 +91,7 @@
     </div>
 
     <div class="signal-item">
-      <div class="signal-icon teal">📱</div>
+      <div class="signal-icon teal"><img src="images/icon-sms.png" class="emoji-icon" alt="SMS"></div>
       <div class="signal-body">
         <div class="s-app">SMS · SMISHING</div>
         <div class="s-title">"Tu paquete está detenido"</div>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="signal-item">
-      <div class="signal-icon cream">📞</div>
+      <div class="signal-icon cream"><img src="images/icon-llamada.png" class="emoji-icon" alt="Llamada"></div>
       <div class="signal-body">
         <div class="s-app">LLAMADA · VISHING</div>
         <div class="s-title">"Hablamos de tu banco"</div>
@@ -130,8 +130,8 @@
 
     <p class="help-grid-label" style="margin-bottom:10px;">Primero, elige tu contexto</p>
     <div class="context-picker" id="contextPicker">
-      <button type="button" class="context-btn" data-ctx="edu"><span class="cx-icon">🎓</span><span><span class="cx-title">Universidad</span><br><span class="cx-desc">Becas · trámites · cuentas institucionales</span></span></button>
-        <button type="button" class="context-btn" data-ctx="work"><span class="cx-icon">💼</span><span><span class="cx-title">Trabajo</span><br><span class="cx-desc">Jefes · RH · nómina · clientes</span></span></button>
+      <button type="button" class="context-btn" data-ctx="edu"><span class="cx-icon"><img src="images/icon-universidad.png" class="emoji-icon" alt="Universidad"></span><span><span class="cx-title">Universidad</span><br><span class="cx-desc">Becas · trámites · cuentas institucionales</span></span></button>
+        <button type="button" class="context-btn" data-ctx="work"><span class="cx-icon"><img src="images/icon-trabajo.png" class="emoji-icon" alt="Trabajo"></span><span><span class="cx-title">Trabajo</span><br><span class="cx-desc">Jefes · RH · nómina · clientes</span></span></button>
     </div>
     <p class="context-note" id="contextNote">Selecciona un contexto para destacar los casos que podrían resultarte más familiares.</p>
 
@@ -340,7 +340,7 @@
         </div>
 
         <div class="chat-icons" aria-hidden="true">
-          📞 🎥
+          📞 <img src="images/icon-videollamada.png" class="emoji-icon" alt="Videollamada">
         </div>
       </div>
 
@@ -416,7 +416,7 @@
           <label class="foot-check"><input type="checkbox" data-w='{"identidad":15,"contacto":15}' data-tip="Mostrar nombres y relaciones familiares ayuda a construir un mapa de personas cercanas a ti y puede hacer más creíbles intentos de suplantación."> Mis publicaciones muestran los nombres de familiares cercanos</label>
         </div>
         <div style="text-align:center; margin-top:18px;">
-          <button class="btn coral" id="btnScan">Escanear mi huella 🔍</button>
+          <button class="btn coral" id="btnScan">Escanear mi huella <img src="images/icon-buscar.png" class="emoji-icon" alt="Buscar"></button>
         </div>
         <div class="scan-loading" id="scanLoading" hidden></div>
         <div class="dash" id="dash" hidden style="margin-top:18px;">
@@ -448,7 +448,7 @@
             <div class="retro-body">
               <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
               <div class="dossier" id="dossier">
-                <div class="dossier-head">🕵️ Esto es lo que alguien podría armar con esto</div>
+                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Esto es lo que alguien podría armar con esto</div>
                 <ul class="dossier-list" id="dossierList"></ul>
               </div>
               <p class="msg" id="dashMsg"></p>
@@ -532,9 +532,8 @@
         <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
       </div>
       <div class="retro-card-body">
-        <span class="hs-icon">🔒</span>
-        <div class="hs-num">1</div>
-        <div class="hs-title">Protege tus cuentas</div>
+        <span class="hs-icon"><img src="images/icon-candado.png" class="emoji-icon hs-icon-img" alt="Candado"></span>
+        <div class="hs-title"><span class="hs-num">1.</span> Protege tus cuentas</div>
         <div class="hs-desc">
           Cambia las contraseñas afectadas y cierra cualquier sesión que no reconozcas.
         </div>
@@ -548,9 +547,8 @@
         <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
       </div>
       <div class="retro-card-body">
-        <span class="hs-icon">💳</span>
-        <div class="hs-num">2</div>
-        <div class="hs-title">Protege tu dinero</div>
+        <span class="hs-icon"><img src="images/icon-tarjeta.png" class="emoji-icon hs-icon-img" alt="Tarjeta"></span>
+        <div class="hs-title"><span class="hs-num">2.</span> Protege tu dinero</div>
         <div class="hs-desc">
           Si compartiste datos bancarios o hiciste una transferencia, contacta a tu banco de inmediato.
         </div>
@@ -564,9 +562,8 @@
         <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
       </div>
       <div class="retro-card-body">
-        <span class="hs-icon">📎</span>
-        <div class="hs-num">3</div>
-        <div class="hs-title">Guarda evidencia</div>
+        <span class="hs-icon"><img src="images/icon-clip.png" class="emoji-icon hs-icon-img" alt="Clip"></span>
+        <div class="hs-title"><span class="hs-num">3.</span> Guarda evidencia</div>
         <div class="hs-desc">
           Conserva capturas, mensajes, números y enlaces. Te servirán para realizar el reporte.
         </div>
@@ -678,7 +675,7 @@
 
 <div class="feedback" id="feedback">
   <div class="feedback-inner">
-    <div class="fb-top"><span class="fb-result" id="fbResult">✅ Correcto</span><span class="fb-tag" id="fbTag">Phishing</span></div>
+    <div class="fb-top"><span class="fb-result" id="fbResult"><img src="images/icon-correcto.png" class="emoji-icon" alt="Correcto"> Correcto</span><span class="fb-tag" id="fbTag">Phishing</span></div>
     <p class="fb-text" id="fbText"></p>
     <p class="fb-tip" id="fbTip"></p>
     <p class="fb-hint">Toca en cualquier parte de la pantalla para continuar</p>
@@ -772,8 +769,8 @@ contextPicker.querySelectorAll('.context-btn').forEach(btn=>{
     contextPicker.querySelectorAll('.context-btn').forEach(b=> 
       b.classList.toggle('active', b.dataset.ctx===selectedContext)
     );
-    contextNote.textContent = selectedContext
-      ? `Listo — los casos relacionados con ${selectedContext==='edu'?'la universidad':'el trabajo'} aparecerán marcados con 🏷️.`
+    contextNote.innerHTML = selectedContext
+      ? `Listo — los casos relacionados con ${selectedContext==='edu'?'la universidad':'el trabajo'} aparecerán marcados con <img src="images/icon-etiqueta.png" class="emoji-icon" alt="Etiqueta">.`
       : 'Selecciona un contexto para destacar los casos que podrían resultarte más familiares.';
     if(typeof deckEl!=='undefined' && deckEl && !panels[1].hidden) renderDeck();
   });
@@ -981,7 +978,7 @@ function commitSwipe(saidSafe, wasTimeout){
   const top=deckEl.querySelector('.card.top'), c=CASES[idx];
   const userCorrect=(saidSafe&&!c.isPhishing)||(!saidSafe&&c.isPhishing);
   if(userCorrect) score1++; else wrongByLevel[c.level]++;
-  document.getElementById('fbResult').textContent=userCorrect?'✅ Correcto':'❌ Cuidado';
+  document.getElementById('fbResult').innerHTML=userCorrect?'<img src="images/icon-correcto.png" class="emoji-icon" alt="Correcto"> Correcto':'<img src="images/icon-cuidado.png" class="emoji-icon" alt="Cuidado"> Cuidado';
   document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
   document.getElementById('fbTag').textContent=c.attack;
   document.getElementById('fbText').textContent=(wasTimeout?'⏱️ Se acabó el tiempo y decidiste sin darte cuenta (así de fácil es caer "en automático"). ':'')+c.explain;
@@ -1150,7 +1147,7 @@ document.getElementById('game2StartBtn').addEventListener('click', ()=>{
    ============================================================ */
 const CHAT_SCENARIOS = {
   trabajo: {
-    icon:'💼', title:'Escenario de trabajo', desc:'Tu director te escribe mientras está en una junta.',
+    icon:'<img src="images/icon-trabajo.png" class="emoji-icon" alt="Trabajo">', title:'Escenario de trabajo', desc:'Tu director te escribe mientras está en una junta.',
     avatarInit:'DC', name:'David Contreras', role:'Dirección General',
     intro:'Hola, ¿sigues conectada? Necesito pedirte un favor con un tema de un proveedor.',
     steps:[
@@ -1172,7 +1169,7 @@ const CHAT_SCENARIOS = {
     }
   },
   familia: {
-    icon:'👪', title:'Escenario familiar', desc:'Tu hermana te escribe desde un número que no tienes guardado.',
+    icon:'<img src="images/icon-familia.png" class="emoji-icon" alt="Familia">', title:'Escenario familiar', desc:'Tu hermana te escribe desde un número que no tienes guardado.',
     avatarInit:'MR', name:'Mariana (tu hermana)', role:'Número nuevo · hoy',
     intro:'Hola, soy yo. Este es mi número nuevo porque tuve que cambiar de celular. ¿Estás ocupada?',
     steps:[
@@ -1194,7 +1191,7 @@ const CHAT_SCENARIOS = {
     }
   },
   banco: {
-    icon:'🏦', title:'Escenario bancario', desc:'Recibes una llamada sobre un cargo que no reconoces.',
+    icon:'<img src="images/icon-banco.png" class="emoji-icon" alt="Banco">', title:'Escenario bancario', desc:'Recibes una llamada sobre un cargo que no reconoces.',
     avatarInit:'SB', name:'Seguridad Bancaria', role:'Llamada entrante · no guardado',
     intro:'Buenas tardes. Le hablamos del área de Prevención de Fraude de su banco. Detectamos un intento de compra por $8,700 que podría no haber sido autorizado. ¿Reconoce la operación?',
     steps:[
@@ -1216,7 +1213,7 @@ const CHAT_SCENARIOS = {
     }
   },
   compraventa: {
-    icon:'🛒', title:'Escenario de compra-venta', desc:'Un comprador quiere cerrar la compra rápidamente.',
+    icon:'<img src="images/icon-compra.png" class="emoji-icon" alt="Compra-venta">', title:'Escenario de compra-venta', desc:'Un comprador quiere cerrar la compra rápidamente.',
     avatarInit:'CP', name:'Comprador interesado', role:'Chat de Marketplace',
     intro:'Hola, me interesa tu artículo. ¿Todavía está disponible? Si todo está bien, puedo pagarte hoy mismo.',
     steps:[

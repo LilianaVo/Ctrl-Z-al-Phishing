@@ -10,6 +10,10 @@
   --font-sans:'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono:'JetBrains Mono', ui-monospace, monospace;
 }
+
+/* Iconos personalizados (imagen) que reemplazan a los emojis de texto.
+   Cambia el width/height aquí para ajustar el tamaño de TODOS a la vez. */
+.emoji-icon{ display:inline-block; width:18px; height:18px; object-fit:contain; vertical-align:-4px; flex:none; }
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; overscroll-behavior-x:none; }
 body{ margin:0; padding:0; background:var(--peach); color:var(--ink); font-family:var(--font-sans); min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:hidden; overscroll-behavior-x:none; }
@@ -391,8 +395,8 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .help-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
 @media (max-width:720px){ .help-steps{ grid-template-columns:1fr; } }
 .help-step{ background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:18px 18px 20px; box-shadow:var(--shadow-sm); position:relative; }
-.help-step .hs-num{ font-family:var(--font-display); font-weight:800; font-size:26px; color:var(--coral-deep); line-height:1; margin-bottom:10px; }
-.help-step .hs-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:6px; }
+.help-step .hs-num{ font-family:var(--font-display); font-weight:800; color:var(--coral-deep); }
+.help-step .hs-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin:0 56px 6px 0; }
 .help-step .hs-desc{ font-size:12.5px; color:var(--ink); line-height:1.5; }
 
 .help-grid-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin:0 0 14px; }
@@ -409,8 +413,9 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .retro-card-bar .rc-title{ font-family:var(--font-mono); font-weight:700; font-size:10px; letter-spacing:.04em; color:var(--ink); text-transform:uppercase; opacity:.8; }
 .retro-card-bar .rc-controls{ display:flex; gap:4px; flex:none; }
 .retro-card-bar .rc-controls span{ width:15px; height:15px; display:flex; align-items:center; justify-content:center; font-size:8.5px; line-height:1; border:1.5px solid var(--ink); border-radius:3px; background:rgba(255,255,255,.8); color:var(--ink); font-family:var(--font-mono); }
-.retro-card-body{ padding:20px; background:var(--white); }
-.hs-icon{ font-size:20px; margin-bottom:4px; display:block; }
+.retro-card-body{ padding:20px; background:var(--white); position:relative; }
+.hs-icon{ position:absolute; top:18px; right:18px; font-size:17px; line-height:1; }
+.hs-icon .emoji-icon{ vertical-align:middle; width:20px; height:20px; }
 
 /* ---- Canales oficiales: tarjeta tipo chat ---- */
 .chat-card{ max-width:620px; margin:0 auto 26px; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--cream); }
