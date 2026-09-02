@@ -236,7 +236,7 @@
         </div>
         <div class="game-content" id="game2Content" hidden>
           <div class="detect-center">
-            <div class="email-mock gmail-mock">
+            <div class="email-mock gmail-mock" id="game2Email">
               <div class="gmail-toolbar" aria-hidden="true">
                 <span class="gmail-icon-btn" title="Archivar"><svg viewBox="0 0 24 24"><path d="M20.55 5.22l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.15.55L3.46 5.22C3.17 5.57 3 6.01 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.49-.17-.93-.45-1.28zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.14l.81 1H5.12z"/></svg></span>
                 <span class="gmail-icon-btn" title="Eliminar"><svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
@@ -681,6 +681,7 @@
     <div class="fb-top"><span class="fb-result" id="fbResult">✅ Correcto</span><span class="fb-tag" id="fbTag">Phishing</span></div>
     <p class="fb-text" id="fbText"></p>
     <p class="fb-tip" id="fbTip"></p>
+    <p class="fb-hint">Toca en cualquier parte de la pantalla para continuar</p>
     <button class="continue-btn" id="continueBtn">Continuar <span class="k">Espacio ␣</span></button>
   </div>
 </div>
@@ -988,7 +989,7 @@ function commitSwipe(saidSafe, wasTimeout){
   // Muestra la retroalimentación de forma robusta: no depende de que la animación de la
   // tarjeta se complete (en móvil un pointercancel del sistema puede saltarse la transición).
   let shown=false;
-  const doShow=()=>{ if(shown) return; shown=true; feedbackEl.classList.add('show'); feedbackEl.scrollTop=0; };
+  const doShow=()=>{ if(shown) return; shown=true; feedbackEl.classList.add('show'); feedbackEl.scrollTop=0; armTapAnywhereToContinue(); };
   if(top){
     top.classList.add(userCorrect?'flash-safe':'flash-danger');
     top.style.transition='transform .4s ease';
@@ -1000,8 +1001,23 @@ function commitSwipe(saidSafe, wasTimeout){
   setTimeout(doShow, 450); // red de seguridad: garantiza que el mensaje siempre aparezca
 }
 function nextCase(){
+  if(!awaitingContinue) return; // evita avanzar dos veces por el mismo toque
+  document.removeEventListener('click', onTapAnywhereContinue);
+  document.removeEventListener('touchend', onTapAnywhereContinue);
   feedbackEl.classList.remove('show'); awaitingContinue=false; idx++;
   if(idx>=CASES.length) showEnd1(); else renderDeck();
+}
+// Permite tocar en cualquier parte de la pantalla (no solo el botón) para continuar,
+// pensado para que sea cómodo de usar en celular. Se activa recién cuando la tarjeta
+// de resultado ya es visible, para que el mismo toque que abrió el aviso no lo cierre.
+function armTapAnywhereToContinue(){
+  document.addEventListener('click', onTapAnywhereContinue, {once:true});
+  document.addEventListener('touchend', onTapAnywhereContinue, {once:true});
+}
+function onTapAnywhereContinue(){
+  document.removeEventListener('click', onTapAnywhereContinue);
+  document.removeEventListener('touchend', onTapAnywhereContinue);
+  nextCase();
 }
 function showEnd1(){
   clearTimer();
@@ -1040,7 +1056,6 @@ function restart1(){
 }
 document.getElementById('btnEsc').addEventListener('click', ()=>commitSwipe(false));
 document.getElementById('btnEnter').addEventListener('click', ()=>commitSwipe(true));
-document.getElementById('continueBtn').addEventListener('click', nextCase);
 document.getElementById('restartBtn1').addEventListener('click', restart1);
 document.getElementById('game1StartBtn').addEventListener('click', ()=>{
   document.getElementById('game1Intro').hidden=true;
@@ -1107,6 +1122,7 @@ document.getElementById('btnReview').addEventListener('click', ()=>{
   });
   document.getElementById('scoreBadge2').textContent = `${correctCount}/4`;
   const lb2=document.getElementById('loadbarFill2'); if(lb2) lb2.style.width=`${(correctCount/4)*100}%`;
+  document.getElementById('game2Email').hidden=true; // el resultado pasa a ocupar su propia pantalla
   document.getElementById('result2').hidden=false;
   document.getElementById('btnReview').hidden=true;
   sendToSheet('Juego 2 - Detecta las señales', `${correctCount}/4`);
@@ -1117,11 +1133,15 @@ document.getElementById('restartBtn2').addEventListener('click', ()=>{
     el.setAttribute('aria-pressed','false');
   });
   document.getElementById('result2').hidden=true;
+  document.getElementById('game2Email').hidden=false;
   document.getElementById('btnReview').hidden=false;
 });
 document.getElementById('game2StartBtn').addEventListener('click', ()=>{
   document.getElementById('game2Intro').hidden=true;
   document.getElementById('game2Content').hidden=false;
+  if(!document.getElementById('result2').hidden) return; // ya había un resultado visible, no lo tocamos
+  document.getElementById('game2Email').hidden=false;
+  document.getElementById('btnReview').hidden=false;
 });
 
 
@@ -1308,6 +1328,7 @@ function showChatEnd(){
   else if(chatScore>=Math.ceil(total*0.5)) m=sc.endMsgs.partial(chatScore);
   else m=sc.endMsgs.low;
   document.getElementById('endMsg3').textContent=m;
+  chatApp.hidden=true; // el resultado pasa a ocupar su propia pantalla
   document.getElementById('result3').hidden=false;
   sendToSheet(`Juego 3 - Chat de presión (${sc.title})`, `${chatScore}/${total}`);
 }
