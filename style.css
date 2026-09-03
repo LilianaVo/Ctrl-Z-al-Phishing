@@ -374,15 +374,48 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .kit-link{ flex:none; font-family:var(--font-mono); font-size:12px; font-weight:700; border:2px solid var(--ink); border-radius:8px; padding:7px 12px; background:var(--cream); }
 .kit-link:hover{ background:var(--teal); }
 .kit-link.k-soon{ opacity:.55; border-style:dashed; background:none; cursor:default; }
-.feedback-form, .arco{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:24px; margin-top:22px; box-shadow:var(--shadow-sm); }
-.feedback-form iframe{ width:100%; border:2px solid var(--ink); border-radius:12px; background:#fff; min-height:520px; }
-.form-placeholder{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; width:100%; min-height:220px; border:2px dashed var(--ink-soft); border-radius:12px; background:var(--cream); color:var(--ink); padding:24px; }
+.arco{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:24px; margin-top:22px; box-shadow:var(--shadow-sm); }
+
+/* ---- Nota tipo post-it (sección "Tu opinión") ---- */
+.sticky-note-wrap{ position:relative; max-width:420px; margin:56px auto 0; }
+.note-clip{ position:absolute; top:-38px; left:50%; width:74px; height:auto; transform:translateX(-50%) rotate(-3deg); z-index:2; filter:drop-shadow(2px 3px 0 rgba(42,54,59,.18)); }
+
+.feedback-form, .sticky-note{
+  text-align:left;
+  position:relative;
+  background:var(--pastel-butter);
+  border:3px solid var(--ink);
+  border-radius:6px 6px 6px 0;
+  padding:34px 24px 22px;
+  margin-top:0;
+  transform:rotate(-1.6deg);
+  box-shadow:var(--shadow);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%);
+}
+.feedback-form::before{ /* textura sutil de líneas, como una hoja de nota */
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background-image:repeating-linear-gradient(var(--pastel-butter) 0 27px, rgba(42,54,59,.08) 27px 28px);
+  opacity:.55;
+}
+.feedback-form::after{ /* esquina doblada, como la ilustración de referencia */
+  content:""; position:absolute; right:0; bottom:0; width:30px; height:30px;
+  background:var(--cream);
+  border-left:3px solid var(--ink); border-top:3px solid var(--ink);
+  clip-path:polygon(0 0,100% 100%,0 100%);
+  box-shadow:-3px -3px 4px rgba(42,54,59,.18);
+}
+.feedback-form iframe{ position:relative; z-index:1; width:100%; border:2px solid var(--ink); border-radius:12px; background:#fff; min-height:520px; }
+.form-placeholder{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; width:100%; min-height:190px; border:2px dashed var(--ink-soft); border-radius:12px; background:rgba(255,255,255,.55); color:var(--ink); padding:24px; }
 .form-placeholder .fp-icon{ font-size:28px; }
 .form-placeholder p{ margin:0; font-weight:600; max-width:340px; }
-.btn.form-cta-btn{ display:flex; justify-content:center; width:100%; font-size:17px; padding:18px 28px; --depth:7px; background:var(--sun); animation:formPulse 2.4s ease-in-out infinite; }
+.btn.form-cta-btn{ position:relative; z-index:1; display:flex; justify-content:center; width:100%; font-size:17px; padding:18px 28px; --depth:7px; background:var(--sun); animation:formPulse 2.4s ease-in-out infinite; }
 .form-cta-btn:hover{ animation-play-state:paused; }
+.form-cta-note{ position:relative; z-index:1; }
 @keyframes formPulse{ 0%,100%{ box-shadow:0 var(--depth) 0 var(--ink); } 50%{ box-shadow:0 var(--depth) 0 var(--ink), 0 0 0 6px rgba(245,195,78,.35); } }
 .form-cta-note{ text-align:center; margin:14px 0 0; font-size:13px; font-weight:600; color:var(--coral-deep); }
+.survey-inline-cta{ margin-top:16px; padding-top:16px; border-top:2px dashed var(--peach-line); text-align:center; }
+.survey-inline-text{ margin:0 0 10px; font-size:12.5px; font-weight:600; color:var(--ink); }
+.survey-inline-cta .btn{ justify-content:center; }
 .form-note{ font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); margin-top:10px; }
 .arco p{ font-size:14px; line-height:1.6; margin:0 0 12px; } .arco ul{ margin:0; padding-left:20px; color:var(--ink-soft); font-size:13.5px; line-height:1.9; } .arco li b{ color:var(--ink); }
 

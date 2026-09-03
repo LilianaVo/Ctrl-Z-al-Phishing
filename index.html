@@ -213,6 +213,10 @@
                 <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
                 <button class="menu-btn" data-back>Elegir otro juego →</button>
               </div>
+              <div class="survey-inline-cta" hidden>
+                <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
+                <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+              </div>
             </div>
           </div>
         </div>
@@ -284,6 +288,10 @@
                 <div class="next-choices">
                   <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
                   <button class="menu-btn" data-back>Elegir otro juego →</button>
+                </div>
+                <div class="survey-inline-cta" hidden>
+                  <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
+                  <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
                 </div>
               </div>
             </div>
@@ -383,6 +391,10 @@
           Elegir otro juego →
         </button>
       </div>
+        <div class="survey-inline-cta" hidden>
+          <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
+          <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+        </div>
       </div>
     </div>
   </div>
@@ -457,6 +469,10 @@
                 <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
                 <button class="menu-btn" data-back>Elegir otro juego →</button>
               </div>
+              <div class="survey-inline-cta" hidden>
+                <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
+                <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+              </div>
             </div>
           </div>
         </div>
@@ -495,13 +511,24 @@
 
   <div class="section-label" style="margin-top:36px;">Tu opinión</div>
 
-  <div class="feedback-form">
-    <div class="form-placeholder" id="formPlaceholder" role="status">
-      <span class="fp-icon">📝</span>
-      <p>El formulario estará disponible próximamente.</p>
+  <div class="sticky-note-wrap">
+    <svg class="note-clip" viewBox="0 0 120 116" aria-hidden="true">
+      <rect x="6" y="46" width="108" height="46" rx="4" fill="var(--coral)" stroke="var(--ink)" stroke-width="5"/>
+      <line x1="6" y1="76" x2="114" y2="76" stroke="var(--ink)" stroke-width="3" opacity=".55"/>
+      <path d="M42 50 C42 26 78 26 78 50" fill="none" stroke="var(--ink)" stroke-width="7"/>
+      <path d="M42 50 C42 26 78 26 78 50" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
+      <line x1="50" y1="50" x2="42" y2="92" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="70" y1="50" x2="78" y2="92" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+
+    <div class="feedback-form sticky-note">
+      <div class="form-placeholder" id="formPlaceholder" role="status">
+        <span class="fp-icon">📝</span>
+        <p>El formulario estará disponible próximamente.</p>
+      </div>
+      <button type="button" class="btn coral form-cta-btn" id="formBtn" onclick="irAEncuesta()" hidden>Ir a la encuesta de opinión →</button>
+      <p class="form-cta-note" id="formCtaNote" hidden>Tu opinión es muy importante para nosotras — nos ayuda a mejorar la campaña.</p>
     </div>
-    <button type="button" class="btn coral form-cta-btn" id="formBtn" onclick="irAEncuesta()" hidden>Ir a la encuesta de opinión →</button>
-    <p class="form-cta-note" id="formCtaNote" hidden>Tu opinión es muy importante para nosotras — nos ayuda a mejorar la campaña.</p>
   </div>
 </section>
 
@@ -773,6 +800,7 @@ if(GOOGLE_FORM_URL && GOOGLE_FORM_CODE_ENTRY){
   document.getElementById('formPlaceholder').hidden = true;
   document.getElementById('formBtn').hidden = false;
   document.getElementById('formCtaNote').hidden = false;
+  document.querySelectorAll('.survey-inline-cta').forEach(el=> el.hidden=false);
 }
 
 /* ============================================================
