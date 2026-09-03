@@ -259,7 +259,7 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .gmail-icon-btn.sm{ width:28px; height:28px; font-size:15px; }
 .gmail-subject{ font-family:inherit; font-weight:400; font-size:22px; line-height:1.3; color:var(--gm-text); margin:18px 24px 14px; }
 .gmail-sender-row{ display:flex; align-items:flex-start; gap:14px; padding:0 24px 16px; border-bottom:1px solid var(--gm-line); margin-bottom:20px; }
-.gmail-avatar{ width:40px; height:40px; border-radius:50%; background:#d93025; color:#fff; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:500; flex:none; }
+.gmail-avatar{ width:40px; height:40px; border-radius:50%; background:#004481; color:#ffffff; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:500; flex:none; }
 .gmail-sender-info{ min-width:0; flex:1; }
 .gmail-sender-line{ font-size:14px; line-height:1.4; }
 .gmail-sender-line b{ font-weight:500; color:var(--gm-text); }
@@ -606,4 +606,94 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
   .arco-item .ai-desc{font-size:13px}
 
   footer{font-size:12.5px}
+}
+/* ===========================================================
+   JUEGO 2: Arma tu phishing
+   Solo clases nuevas para este juego; reusa variables de :root
+   y componentes existentes (.email-mock/.gmail-mock para el correo
+   en vivo y el correo final, .btn, .redo-btn,
+   .menu-btn, .next-choices, .how-to-play).
+   =========================================================== */
+.phish-builder{ max-width:520px; margin:0 auto; text-align:center; }
+.gmail-placeholder{ color:var(--ink-soft); font-style:italic; }
+.phish-spark{ color:var(--coral-deep); }
+
+/* vista previa del correo (Gmail), en vivo y como resultado final */
+.phish-preview-head{ display:flex; align-items:center; justify-content:space-between; margin:0 0 10px; text-align:left; }
+.phish-preview-title{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); }
+.phish-live-pill{ font-family:var(--font-mono); font-size:9.5px; font-weight:700; background:var(--white); border:2px solid var(--ink); border-radius:100px; padding:3px 9px; color:var(--ink-soft); flex:none; }
+
+/* paso a paso */
+.phish-step-label{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
+.phish-progress{ display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+.phish-step-dot{ width:26px; height:26px; border-radius:50%; border:2.5px solid var(--ink); background:var(--white); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:700; font-size:11.5px; flex:none; color:var(--ink); }
+.phish-step-dot.active{ background:var(--coral); }
+.phish-step-dot.done{ background:var(--teal); }
+.phish-step-line{ width:22px; height:2px; background-image:linear-gradient(to right, var(--ink) 50%, transparent 0%); background-size:8px 2px; margin:0 2px; }
+
+/* encabezado de categoría */
+.phish-cat-head{ display:flex; align-items:center; gap:12px; margin-bottom:16px; text-align:left; }
+.phish-cat-icon{ width:50px; height:50px; flex:none; border-radius:50%; border:3px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1; }
+.phish-cat-title{ font-family:var(--font-display); font-weight:800; font-size:17px; color:var(--ink); }
+.phish-cat-q{ font-size:13px; color:var(--ink-soft); margin-top:2px; }
+
+/* tarjetas de opción */
+.phish-choices{ display:flex; flex-direction:column; gap:10px; margin-bottom:6px; }
+.phish-card{ position:relative; text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px 14px; display:flex; align-items:center; gap:12px; font-family:inherit; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s cubic-bezier(.2,.8,.2,1), background .12s ease; }
+.phish-card:hover{ transform:translateY(-2px); background:var(--peach); }
+.phish-card:active{ transform:translateY(1px); }
+.phish-card.selected{ background:var(--pastel-rose); }
+.phish-card .pc-icon{ width:38px; height:38px; flex:none; border-radius:10px; border:2px solid var(--ink); background:var(--peach); display:flex; align-items:center; justify-content:center; }
+.phish-card .pc-icon svg{ width:20px; height:20px; display:block; }
+.phish-card .pc-body{ min-width:0; flex:1; display:flex; flex-direction:column; }
+.phish-card .pc-title{ font-weight:700; font-size:13.5px; line-height:1.3; color:var(--ink); }
+.phish-card .pc-sub{ margin-top:3px; font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft); overflow-wrap:anywhere; }
+.phish-card .pc-check{ position:absolute; top:-8px; right:-8px; width:24px; height:24px; border-radius:50%; background:var(--teal); border:2.5px solid var(--ink); display:none; align-items:center; justify-content:center; }
+.phish-card .pc-check svg{ width:13px; height:13px; }
+.phish-card.selected .pc-check{ display:flex; }
+
+/* "¿Por qué funciona?" — aparece justo después de elegir */
+.phish-reveal{ text-align:left; background:var(--cream); border:2.5px dashed var(--ink); border-radius:var(--radius-md); padding:14px 16px; margin:14px 0 6px; animation:phishRevealIn .25s ease; }
+@keyframes phishRevealIn{ from{ opacity:0; transform:translateY(-4px); } to{ opacity:1; transform:translateY(0); } }
+.phish-reveal-q{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--coral-deep); margin-bottom:6px; }
+.phish-reveal-text{ font-size:13px; line-height:1.6; color:var(--ink); margin:0 0 10px; }
+.phish-reveal-tag{ display:inline-block; font-family:var(--font-mono); font-size:11px; font-weight:700; background:var(--white); border:2px solid var(--ink); border-radius:100px; padding:5px 12px; color:var(--ink); }
+
+/* botón fijo abajo */
+.phish-cta-wrap{ position:sticky; bottom:0; left:0; right:0; padding:14px 0 4px; margin:0 -18px -8px; background:linear-gradient(to top, var(--peach) 55%, transparent); }
+.phish-cta{ width:100%; justify-content:center; }
+.phish-cta[disabled]{ opacity:.45; pointer-events:none; }
+
+/* resultado: nivel de engaño, análisis visual y recomendaciones */
+.phish-result{ text-align:center; }
+.phish-tier{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; font-family:var(--font-display); font-weight:800; font-size:16px; border:3px solid var(--ink); border-radius:var(--radius-md); padding:14px 16px; margin-bottom:8px; box-shadow:var(--shadow-sm); }
+.phish-tier.alto{ background:var(--coral); }
+.phish-tier.medio{ background:var(--sun); }
+.phish-tier.bajo{ background:var(--teal); }
+.phish-score{ font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink-soft); text-align:center; margin-bottom:14px; }
+.phish-result-msg{ font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 18px; }
+
+/* análisis visual: qué se eligió en cada parte del correo y por qué es una señal de alerta */
+.phish-analysis{ text-align:left; background:var(--cream); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; margin:0 0 18px; }
+.phish-analysis-head{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:12px; }
+.phish-analysis-list{ display:flex; flex-direction:column; gap:12px; }
+.phish-analysis-row{ display:flex; align-items:flex-start; gap:12px; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:10px 12px; }
+.par-icon{ width:34px; height:34px; flex:none; border-radius:9px; border:2px solid var(--ink); background:var(--peach); display:flex; align-items:center; justify-content:center; }
+.par-icon svg{ width:18px; height:18px; display:block; }
+.par-body{ min-width:0; flex:1; }
+.par-tech{ font-family:var(--font-mono); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--coral-deep); margin-bottom:3px; }
+.par-choice{ font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:4px; }
+.par-signal{ font-size:12.5px; line-height:1.5; color:var(--ink-soft); }
+
+/* recomendaciones concretas para prevenir el engaño */
+.phish-prevent{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; margin:0 0 18px; }
+.phish-prevent-head{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:10px; }
+.phish-prevent ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+.phish-prevent li{ font-size:13px; line-height:1.5; color:var(--ink); display:flex; gap:8px; }
+.phish-prevent li::before{ content:"☑"; flex:none; color:var(--teal-deep); font-weight:700; }
+
+@media (max-width:420px){
+  .phish-step-line{ width:16px; }
+  .phish-card{ padding:11px 12px; gap:10px; }
+  .phish-cat-icon{ width:44px; height:44px; font-size:19px; }
 }

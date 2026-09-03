@@ -222,79 +222,138 @@
         </div>
       </div>
 
-      <!-- ===== JUEGO 2: DETECTA LAS SEÑALES ===== -->
+      <!-- ===== JUEGO 2: ARMA TU PHISHING ===== -->
       <div class="game-panel" id="panel2" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
         <div class="game-intro" id="game2Intro">
           <div class="panel-head">
-            <div class="section-label">02 · Detecta las señales</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué partes de este correo te hacen sospechar?</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">No todo phishing se ve sospechoso a primera vista. Lee con calma y busca las señales.</p>
+            <div class="section-label">02 · Arma tu phishing</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Te la crees o no?</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Arma el correo pieza por pieza y descubre qué detalles pueden hacerlo parecer real.</p>
           </div>
           <div class="how-to-play">
-            <b>Cómo jugar:</b> toca cada señal sospechosa que veas.
+            <b>Cómo jugar:</b> Elige tus opciones y descubre qué tan fácil es que algo parezca normal.
           </div>
           <div class="game-start" id="game2Start">
             <button type="button" class="btn start-btn" id="game2StartBtn">Comenzar ▶</button>
           </div>
         </div>
         <div class="game-content" id="game2Content" hidden>
-          <div class="detect-center">
+          <div class="phish-builder" id="phishBuilder">
+
+            <div class="phish-preview-head">
+              <div class="phish-preview-title">✉ Así va quedando</div>
+              <div class="phish-live-pill">Se actualiza en vivo</div>
+            </div>
             <div class="email-mock gmail-mock" id="game2Email">
               <div class="gmail-toolbar" aria-hidden="true">
                 <span class="gmail-icon-btn" title="Archivar"><svg viewBox="0 0 24 24"><path d="M20.55 5.22l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.15.55L3.46 5.22C3.17 5.57 3 6.01 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.49-.17-.93-.45-1.28zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.14l.81 1H5.12z"/></svg></span>
                 <span class="gmail-icon-btn" title="Eliminar"><svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
                 <span class="gmail-icon-btn" title="Marcar como no leído"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-                <span class="gmail-icon-btn" title="Posponer"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></span>
                 <div class="gmail-toolbar-spacer"></div>
                 <span class="gmail-icon-btn" title="Más opciones"><svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
               </div>
               <h1 class="gmail-subject">Confirmación de movimiento con tarjeta</h1>
               <div class="gmail-sender-row">
-                <div class="gmail-avatar" aria-hidden="true">N</div>
+                <div class="gmail-avatar" id="pbAvatar" aria-hidden="true">?</div>
                 <div class="gmail-sender-info">
                   <div class="gmail-sender-line">
-                    <span class="hotspot" data-flag="true" data-id="d1" tabindex="0" role="button" aria-pressed="false" aria-label="Remitente. Marca esta parte si te parece sospechosa"><b>Nu México</b> <span class="gmail-addr">&lt;notificaciones@nu-mexico.com&gt;</span></span>
+                    <b id="pbSenderName" class="gmail-placeholder">Elige un remitente…</b> <span class="gmail-addr" id="pbSenderAddr"></span>
                   </div>
                   <div class="gmail-sender-meta">para mí</div>
                 </div>
                 <div class="gmail-msg-actions" aria-hidden="true">
                   <span class="gmail-time">10:42</span>
-                  <span class="gmail-icon-btn sm" title="Destacar">☆</span>
-                  <span class="gmail-icon-btn sm" title="Responder"><svg viewBox="0 0 24 24"><path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/></svg></span>
                 </div>
               </div>
               <div class="e-body gmail-body">
-                <p><span class="hotspot" data-flag="false" data-id="d2" tabindex="0" role="button" aria-pressed="false" aria-label="Saludo. Marca esta parte si te parece sospechosa">Hola Andrea,</span></p>
-                <p><span class="hotspot" data-flag="false" data-id="d5" tabindex="0" role="button" aria-pressed="false" aria-label="Párrafo del aviso. Marca esta parte si te parece sospechosa">Detectamos un movimiento reciente que podría requerir tu atención. Si reconoces la operación, no necesitas hacer nada.</span></p>
-                <p>Si no reconoces este movimiento, puedes revisar los detalles de la operación y administrar tu tarjeta desde el siguiente enlace: <span class="hotspot gmail-link" data-flag="true" data-id="d4" tabindex="0" role="button" aria-pressed="false" aria-label="Enlace de verificación. Marca esta parte si te parece sospechosa">Revisar movimiento →</span></p>
-                <p><span class="hotspot" data-flag="true" data-id="d3" tabindex="0" role="button" aria-pressed="false" aria-label="Plazo del enlace. Marca esta parte si te parece sospechosa">Por seguridad, el acceso a esta opción estará disponible durante las próximas 3 horas.</span></p>
-                <p>Si necesitas ayuda, puedes comunicarte con nuestro equipo de Prevención de Fraude: <span class="hotspot" data-flag="true" data-id="d6" tabindex="0" role="button" aria-pressed="false" aria-label="Número de teléfono. Marca esta parte si te parece sospechosa">55 8888 2020</span><br>Equipo de Prevención de Fraude · Nu México</p>
+                <p id="pbSaludo" class="gmail-placeholder">Elige la personalización para ver el saludo…</p>
+                <p>Recibimos una solicitud relacionada con tu cuenta. Te compartimos los detalles para que puedas revisarla.</p>
+                <b>DETALLES DE LA OPERACIÓN</b>
+                <div style="margin-bottom: 14px;">
+                  <span style="display:block; color:#777; margin-bottom:2px;">Fecha:</span>
+                  <strong style="display:block; color:#000;">11 de septiembre de 2026</strong>
+                </div>
+                <div style="margin-bottom: 14px;">
+                  <span style="display:block; color:#777; margin-bottom:2px;">Hora:</span>
+                  <strong style="display:block; color:#000;">16:24:01 hrs.</strong>
+                </div>
+                <div style="margin-bottom: 14px;">
+                  <span style="display:block; color:#777; margin-bottom:2px;">Folio:</span>
+                  <strong style="display:block; color:#000;">0813184020</strong>
+                </div>
+                <p id="pbUrgencia" class="gmail-placeholder">Elige un tono para ver el plazo…</p>
+                <p id="pbAccion" class="gmail-placeholder">Elige un llamado a la acción…</p>
+                <p>Saludos,</p>
+                <p>Equipo BBVA</p>
+                <div style="text-align:center;">
+                  <a href="#" style="color:#0079c8; text-decoration:none;">Usa la app BBVA</a>
+                  <span style="color:#9ac7e0; margin:0 10px;">|</span>
+                  <a href="#" style="color:#0079c8; text-decoration:none;">800 226 2663</a>
+                  <span style="color:#9ac7e0; margin:0 10px;">|</span>
+                  <a href="#" style="color:#0079c8; text-decoration:none;">Busca una sucursal</a></div>
               </div>
               <div class="gmail-reply-row" aria-hidden="true">
                 <span class="gmail-pill-btn">↩ Responder</span>
                 <span class="gmail-pill-btn">↪ Reenviar</span>
               </div>
             </div>
-            <button class="btn" id="btnReview">Revisar mis respuestas</button>
-            <div class="inline-result retro-window" id="result2" hidden style="max-width:560px;">
-              <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">SENALES.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
-              <div class="retro-body" style="text-align:left;">
-                <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
-                <div class="score-label" style="text-align:center;">Tu resultado</div>
-                <div class="score-badge" id="scoreBadge2" style="text-align:center;">0/4</div>
-                <div class="retro-loadbar"><div class="fill" id="loadbarFill2"></div></div>
-                <ul class="flag-list" id="flagList"></ul>
-                <div class="next-choices">
-                  <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-                  <button class="menu-btn" data-back>Elegir otro juego →</button>
-                </div>
-                <div class="survey-inline-cta" hidden>
-                  <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
-                  <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+
+            <div class="phish-step-wrap" id="phishStepWrap">
+              <div class="phish-step-label" id="phishStepLabel">Paso 1/4</div>
+              <div class="phish-progress" id="phishProgress"></div>
+
+              <div class="phish-cat-head">
+                <div class="phish-cat-icon" id="phishCatIcon"></div>
+                <div class="phish-cat-text">
+                  <div class="phish-cat-title" id="phishCatTitle"></div>
+                  <div class="phish-cat-q" id="phishCatQ"></div>
                 </div>
               </div>
+
+              <div class="phish-choices" id="phishChoices"></div>
+
+              <div class="phish-reveal" id="phishReveal" hidden>
+                <div class="phish-reveal-q">¿Por qué funciona?</div>
+                <p class="phish-reveal-text" id="phishRevealText"></p>
+                <span class="phish-reveal-tag" id="phishRevealTag"></span>
+              </div>
             </div>
+
+            <div class="phish-cta-wrap" id="phishCtaWrap">
+              <button type="button" class="btn coral phish-cta" id="phishCtaBtn" disabled>Siguiente paso →</button>
+            </div>
+
+            <div class="phish-result" id="result2" hidden>
+              <div class="phish-tier" id="phishTier">
+                <span id="phishTierText">⚠️ Nivel de engaño: ALTO</span>
+              </div>
+              <div class="phish-score" id="phishScore">72/100 puntos</div>
+
+              <p class="phish-result-msg" id="phishResultMsg"></p>
+
+              <div class="phish-analysis">
+                <div class="phish-analysis-head">🔍 Análisis del correo que armaste</div>
+                <div class="phish-analysis-list" id="phishAnalysisList"></div>
+              </div>
+
+              <div class="phish-prevent">
+                <div class="phish-prevent-head">✅ Cómo protegerte de un correo así</div>
+                <ul id="phishPreventList"></ul>
+              </div>
+
+              <p id="endMsg2"></p>
+
+              <div class="next-choices">
+                <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Intentar otro escenario</button>
+                <button class="menu-btn" data-back>Elegir otro juego →</button>
+              </div>
+              <div class="survey-inline-cta" hidden>
+                <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
+                <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -740,7 +799,7 @@ const CAMPAIGN_TOKEN = 'ctrlz-2026-fi-unam';
 // Lista blanca: solo estos nombres de juego se consideran válidos.
 const JUEGOS_VALIDOS = [
   'Juego 1 - Desliza y decide',
-  'Juego 2 - Detecta las señales',
+  'Juego 2 - Arma tu phishing',
   'Juego 3 - Chat de presión',
   'Juego 4 - Huella digital'
 ];
@@ -1158,72 +1217,307 @@ window.addEventListener('keydown', (e)=>{
 
 
 /* ============================================================
-   JUEGO 2 · Detecta las señales
+   JUEGO 2 · Arma tu phishing
    ============================================================ */
-const flagExplain = {
-  d1: 'El dominio real de Nu es nu.com.mx. "nu-mexico.com" es un dominio distinto, registrado para parecerse al oficial — hoy en día los atacantes ya no usan dominios obviamente falsos, sino variaciones casi idénticas al real.',
-  d2: 'Que el correo use tu nombre real (Andrea) NO es garantía de que sea legítimo: los atacantes obtienen nombres reales de bases de datos filtradas o de tus propias redes sociales. La personalización ya no es señal de confianza por sí sola.',
-  d3: 'La urgencia ya no siempre grita "¡tu cuenta será suspendida!" — aquí se disfraza de algo burocrático y tranquilo ("políticas internas de seguridad"), pero sigue siendo un plazo artificial diseñado para que actúes sin verificar.',
-  d4: 'El link de "Revisar movimiento" lleva a una página falsa diseñada para robar tu usuario, contraseña y datos de tu tarjeta, aunque el diseño y el dominio parezcan consistentes con el resto del correo.',
-  d5: 'Este párrafo suena razonable y hasta tranquilizador ("si tú lo hiciste, ignóralo") — así es como se ve un aviso de fraude legítimo. Por sí solo no es una señal técnica de que el correo sea falso.',
-  d6: 'Este número no aparece en los canales oficiales publicados por el banco en su app o sitio web: es un número de contacto falso, pensado para captarte también por teléfono (vishing) si decides "verificar" por esa vía en vez de por el link.'
+const PHISH_ICONS = {
+  skull:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="12" cy="10" r="7"/><path d="M9 21v-3M15 21v-3M9 10h.01M15 10h.01"/></svg>',
+  mask:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M3 10c2-4 6-6 9-6s7 2 9 6c-1 5-4 8-9 8s-8-3-9-8z"/><circle cx="8.5" cy="10" r="1.2" fill="var(--ink)"/><circle cx="15.5" cy="10" r="1.2" fill="var(--ink)"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>',
+  calm:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M8 13c1 1.2 2.4 2 4 2s3-.8 4-2"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M9 15l6-6M9 9h-2a3 3 0 000 6h2M15 15h2a3 3 0 000-6h-2"/></svg>',
+  phone:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M6 3h4l1.5 4.5L9 9.5a12 12 0 006 6l2-2.5L21.5 15V19a2 2 0 01-2 2C10.5 21 3 13.5 3 5a2 2 0 012-2z"/></svg>',
+  key:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="8" cy="15" r="3.5"/><path d="M10.5 12.5L19 4M16 7l2 2M13 10l2 2"/></svg>',
+  user:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-4 4-6 7-6s5.5 2 7 6"/></svg>',
+  users:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><circle cx="9" cy="9" r="3"/><path d="M3 19c1-3 3-4.5 6-4.5S14 16 15 19M16 8.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM17 13.2c1.8.5 3 1.9 4 4.8"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>'
 };
-function toggleHotspot(el){
-  el.classList.toggle('selected');
-  el.setAttribute('aria-pressed', el.classList.contains('selected') ? 'true' : 'false');
+
+// Orden pensado como una progresión narrativa: primero cómo se gana
+// confianza, luego cómo se vuelve personal, luego la presión de tiempo
+// y por último qué le piden hacer a la víctima.
+const PHISH_STEPS = [
+  { key:'remitente', emoji:'👤', bg:'var(--pastel-rose)', title:'Genera confianza',
+    q:'Antes de leer el mensaje, ¿qué haría que confiaras en quien te escribe?',
+    options:[
+      { id:'r1', icon:'skull', title:'Se ve bastante raro', sub:'bbva-notificaciones.com', points:5,
+        preview:{ name:'Soporte BBVA', addr:'<notificaciones@bbva-notificaciones.com>', avatar:'B' },
+        technique:'Dominio falso (Typosquatting)',
+        explain:'Este tipo de dirección llama la atención rápido. Algo no termina de cuadrar.',
+        signal:'No te fíes solo de las palabras que reconoces. Revisa la dirección completa.' },
+      { id:'r2', icon:'mask', title:'Se parece al de verdad', sub:'verificacion@bbva.mx.verificacion-segura.com', points:25,
+        preview:{ name:'BBVA México', addr:'<verificacion@bbva.mx.verificacion-segura.com>', avatar:'B' },
+        technique:'Dominio similar (Cousin domain)',
+        explain:'Una dirección que puede confundirte a primera vista',
+        signal:'No te quedes solo con lo que reconoces. Revisa la dirección completa.' },
+      { id:'r3', icon:'shield', title:'El nombre te da confianza', sub:'soporte@gmail.com', points:18,
+        preview:{ name:'BBVA México', addr:'<soporte@gmail.com>', avatar:'B' },
+        technique:'Suplantación del remitente (Display Name Spoofing)',
+        explain:'El nombre puede verse oficial, pero eso no significa que realmente venga de ahí.',
+        signal:'No confíes solo en el nombre. Mira también quién está detrás.' }
+    ] },
+  { key:'personalizacion', emoji:'🎯', bg:'var(--pastel-lilac)', title:'¿Esto parece ser para ti?',
+    q:'A veces un pequeño detalle puede hacer que un mensaje se sienta mucho más creíble.',
+    options:[
+      { id:'p1', icon:'user', title:'Saben tu nombre', sub:'"Hola Andrea,"', points:25,
+        preview:{ text:'Hola Andrea,' },
+        technique:'Phishing dirigido (Spear phishing)',
+        explain:'Ver tu nombre puede hacer que el mensaje se sienta más personal y confiable.',
+        signal:'Que sepan tu nombre no significa que realmente sean de confianza.' },
+      { id:'p2', icon:'users', title:'Un saludo para cualquiera', sub:'"Estimado cliente,"', points:8,
+        preview:{ text:'Estimado cliente,' },
+        technique:'Phishing masivo (Bulk phishing)',
+        explain:'Un saludo genérico puede hacer que el mensaje se vea como uno enviado a muchas personas.',
+        signal:'No confirma nada, pero vale la pena prestar atención.' }
+    ] },
+  { key:'tono', emoji:'⏰', bg:'var(--pastel-butter)', title:'Genera urgencia',
+    q:'Cuando algo parece urgente, es más fácil actuar sin pensarlo mucho.',
+    options:[
+      { id:'t1', icon:'clock', title:'Te presionan directamente', sub:'"Actúa ahora para evitar problemas"', points:7,
+        preview:{ text:'Tu cuenta podría verse afectada si no realizas esta acción de inmediato.' },
+        technique:'Urgencia extrema (presión psicológica)',
+        explain:'El mensaje intenta que reacciones rápido.',
+        signal:'Si te meten prisa, haz una pausa antes de actuar.' },
+      { id:'t2', icon:'shield', title:'Te dan un plazo', sub:'"Esta opción estará disponible por 3 horas"', points:25,
+        preview:{ text:'Por políticas de seguridad, esta opción estará disponible solo durante las próximas 3 horas.' },
+        technique:'Urgencia disfrazada de trámite (Pretexting)',
+        explain:'El plazo parece normal, pero sigue creando presión.',
+        signal:'Un límite de tiempo también puede hacerte actuar sin revisar.' },
+      { id:'t3', icon:'calm', title:'Sin urgencia', sub:'"Puedes revisarlo desde tu cuenta"', points:14,
+        preview:{ text:'Puedes revisar este movimiento desde tu cuenta cuando gustes.' },
+        technique:'Sin presión de tiempo',
+        explain:'No intenta que tomes una decisión inmediatamente.',
+        signal:'Aunque no haya urgencia, revisa siempre antes de actuar.' }
+    ] },
+  { key:'accion', emoji:'🖱️', bg:'var(--pastel-sky)', title:'¿Y ahora qué quieren de ti?',
+    q:'Porque al final, el mensaje siempre busca que hagas algo.',
+    options:[
+      { id:'a1', icon:'link', title:'Abrir una página', sub:'"Revisar operación →"', points:20,
+        preview:{ text:'Revisar operación →', link:true },
+        technique:'Phishing por enlace (link-based phishing)',
+        explain:'Al verse igual que un enlace oficial, cuesta más trabajo distinguirlo de uno real.',
+        signal:'Si aparece un enlace inesperado, verifica primero su destino antes de darle clic.' },
+      { id:'a2', icon:'phone', title:'Contactar a soporte', sub:'"Si necesitas ayuda, comunícate con nuestro equipo de soporte al 55 8888 2020."', points:25,
+        preview:{ text:'Si necesitas ayuda, comunícate con nuestro equipo de soporte al 55 8888 2020.' },
+        technique:'Vishing (phishing telefónico)',
+        explain:'Un mensaje también puede intentar llevarte a contactar por un canal no verificado.',
+        signal:'No uses el número del mensaje sin comprobar primero que sea oficial.' },
+      { id:'a3', icon:'key', title:'Que compartas información', sub:'"Ver detalles de la operación"', points:4,
+        preview:{ text:'[ Ver detalles de la operación ]' },
+        technique:'Solicitud directa de credenciales (Credential harvesting)',
+        explain:'Algunos mensajes intentan conseguir información directamente del usuario.',
+        signal:'No compartas datos sensibles solo porque un correo los solicita.' }
+    ] }
+];
+
+let phishAnswers = {};
+let phishStepIndex = 0;
+
+// Baraja el orden de las opciones de cada paso al iniciar o reiniciar el
+// juego, para que la opción más "efectiva" no quede siempre en la misma
+// posición y no se pueda adivinar el patrón sin leer.
+function shufflePhishOptions(){
+  PHISH_STEPS.forEach(step=>{
+    for(let i = step.options.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [step.options[i], step.options[j]] = [step.options[j], step.options[i]];
+    }
+  });
 }
-document.querySelectorAll('.hotspot').forEach(el=>{
-  el.addEventListener('click', ()=> toggleHotspot(el));
-  el.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter' || e.key===' '){
-      e.preventDefault();
-      toggleHotspot(el);
-    }
+
+function phishTotal(){
+  return Object.values(phishAnswers).reduce((sum,o)=> sum + o.points, 0);
+}
+
+function renderPhishProgress(){
+  const wrap = document.getElementById('phishProgress');
+  wrap.innerHTML = '';
+  PHISH_STEPS.forEach((step,i)=>{
+    if(i>0){ const line=document.createElement('div'); line.className='phish-step-line'; wrap.appendChild(line); }
+    const dot = document.createElement('div');
+    dot.className = 'phish-step-dot' + (phishAnswers[step.key] ? ' done' : (i===phishStepIndex ? ' active' : ''));
+    dot.textContent = i+1;
+    wrap.appendChild(dot);
   });
-});
-document.getElementById('btnReview').addEventListener('click', ()=>{
-  let correctCount=0;
-  const list=document.getElementById('flagList');
-  list.innerHTML='';
-  document.querySelectorAll('.hotspot').forEach(el=>{
-    const isFlag = el.dataset.flag==='true';
-    const selected = el.classList.contains('selected');
-    el.classList.remove('selected');
-    let ok;
-    if(isFlag && selected){ el.classList.add('correct'); ok=true; }
-    else if(isFlag && !selected){ el.classList.add('missed'); ok=false; }
-    else if(!isFlag && selected){ el.classList.add('wrong'); ok=false; }
-    else { ok=null; }
-    if(isFlag && selected) correctCount++;
-    if(ok!==null){
-      const li=document.createElement('li');
-      li.className= ok? 'ok':'no';
-      li.innerHTML = `<b>${isFlag?'Señal real':'No era una señal'}:</b> ${flagExplain[el.dataset.id]}`;
-      list.appendChild(li);
-    }
+}
+
+function updateEmailPreview(){
+  const r = phishAnswers.remitente, t = phishAnswers.tono, a = phishAnswers.accion, p = phishAnswers.personalizacion;
+
+  const nameEl = document.getElementById('pbSenderName');
+  const addrEl = document.getElementById('pbSenderAddr');
+  const avatarEl = document.getElementById('pbAvatar');
+  if(r){
+    nameEl.textContent = r.preview.name; nameEl.classList.remove('gmail-placeholder');
+    addrEl.textContent = r.preview.addr;
+    avatarEl.textContent = r.preview.avatar;
+  } else {
+    nameEl.textContent = 'Elige quién te escribe...'; nameEl.classList.add('gmail-placeholder');
+    addrEl.textContent = ''; avatarEl.textContent = '?';
+  }
+
+  const saludoEl = document.getElementById('pbSaludo');
+  if(p){ saludoEl.textContent = p.preview.text; saludoEl.classList.remove('gmail-placeholder'); }
+  else { saludoEl.textContent = 'Elige cómo empieza...'; saludoEl.classList.add('gmail-placeholder'); }
+
+  const urgEl = document.getElementById('pbUrgencia');
+  if(t){ urgEl.textContent = t.preview.text; urgEl.classList.remove('gmail-placeholder'); }
+  else { urgEl.textContent = 'Elige qué tan urgente es...'; urgEl.classList.add('gmail-placeholder'); }
+
+  const accEl = document.getElementById('pbAccion');
+  if(a){
+    accEl.innerHTML = a.preview.link
+      ? `<a href="#" style="color:#0079c8; text-decoration:none; font-weight:600;">${a.preview.text}</a>`
+      : a.preview.text;
+    accEl.classList.remove('gmail-placeholder');
+  } else { accEl.textContent = 'Elige qué quiere que hagas...'; accEl.classList.add('gmail-placeholder'); }
+}
+
+function renderPhishChoices(step){
+  const choicesWrap = document.getElementById('phishChoices');
+  choicesWrap.innerHTML = '';
+  step.options.forEach(opt=>{
+    const isSelected = phishAnswers[step.key] && phishAnswers[step.key].id === opt.id;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'phish-card' + (isSelected ? ' selected' : '');
+    btn.innerHTML = `<div class="pc-check">${PHISH_ICONS.check}</div>
+      <div class="pc-icon">${PHISH_ICONS[opt.icon]}</div>
+      <div class="pc-body"><span class="pc-title">${opt.title}</span><span class="pc-sub">${opt.sub}</span></div>`;
+    btn.addEventListener('click', ()=>{
+      phishAnswers[step.key] = opt;
+      updateEmailPreview();
+      renderPhishProgress();
+      renderPhishChoices(step);
+      revealPhishExplanation(step, opt);
+      document.getElementById('phishCtaBtn').disabled = false;
+    });
+    choicesWrap.appendChild(btn);
   });
-  document.getElementById('scoreBadge2').textContent = `${correctCount}/4`;
-  const lb2=document.getElementById('loadbarFill2'); if(lb2) lb2.style.width=`${(correctCount/4)*100}%`;
-  document.getElementById('game2Email').hidden=true; // el resultado pasa a ocupar su propia pantalla
-  document.getElementById('result2').hidden=false;
-  document.getElementById('btnReview').hidden=true;
-  sendToSheet('Juego 2 - Detecta las señales', `${correctCount}/4`);
-});
-document.getElementById('restartBtn2').addEventListener('click', ()=>{
-  document.querySelectorAll('.hotspot').forEach(el=>{
-    el.classList.remove('correct','missed','wrong','selected');
-    el.setAttribute('aria-pressed','false');
+}
+
+function revealPhishExplanation(step, opt){
+  document.getElementById('phishRevealText').textContent = opt.explain;
+  document.getElementById('phishRevealTag').textContent = `💡 Técnica: ${opt.technique}`;
+  document.getElementById('phishReveal').hidden = false;
+}
+
+function renderPhishStep(){
+  renderPhishProgress();
+  const step = PHISH_STEPS[phishStepIndex];
+  document.getElementById('phishStepLabel').textContent = `Paso ${phishStepIndex+1}/${PHISH_STEPS.length}`;
+  document.getElementById('phishCatIcon').textContent = step.emoji;
+  document.getElementById('phishCatIcon').style.background = step.bg;
+  document.getElementById('phishCatTitle').textContent = step.title;
+  document.getElementById('phishCatQ').textContent = step.q;
+
+  renderPhishChoices(step);
+
+  const reveal = document.getElementById('phishReveal');
+  const already = phishAnswers[step.key];
+  if(already){ revealPhishExplanation(step, already); } else { reveal.hidden = true; }
+
+  const ctaBtn = document.getElementById('phishCtaBtn');
+  ctaBtn.disabled = !already;
+  ctaBtn.innerHTML = (phishStepIndex === PHISH_STEPS.length - 1) ? 'Ver mi resultado →' : 'Siguiente paso →';
+}
+
+function phishTierInfo(total){
+  if(total >= 65) return { key:'alto', label:'⚠️ Nivel de engaño: ALTO', msg:'Tu correo ficticio combina varias técnicas comunes de ingeniería social — el tipo de mensaje que más fácil engaña.' };
+  if(total >= 40) return { key:'medio', label:'⚠️ Nivel de engaño: MEDIO', msg:'Tu correo ficticio mezcla señales creíbles con otras bastante obvias — convencería a algunas personas, pero no a todas.' };
+  return { key:'bajo', label:'✅ Nivel de engaño: BAJO', msg:'Tu correo ficticio usa señales bastante obvias — la mayoría de la gente dudaría de él. Aun así, usa las mismas técnicas que uno real.' };
+}
+
+// Recomendaciones generales para protegerse de un correo de este tipo,
+// sin importar qué combinación de técnicas se haya elegido.
+const PHISH_PREVENT_TIPS = [
+  'Revisa el dominio completo del remitente, no solo el nombre que se muestra — compáralo letra por letra con el oficial.',
+  'Desconfía de cualquier plazo urgente, aunque esté disfrazado de trámite o política normal.',
+  'No hagas clic en links ni llames a números que vienen dentro del correo — entra directamente a la app o al sitio oficial escribiendo tú la dirección.',
+  'Nunca compartas contraseñas, CVV o códigos de verificación por correo, llamada o mensaje.',
+  'Si algo no cuadra, verifica por un canal distinto (la app oficial, una línea conocida) antes de actuar.'
+];
+
+function finishPhishGame(){
+  const total = phishTotal();
+  const tier = phishTierInfo(total);
+
+  const tierBox = document.getElementById('phishTier');
+  tierBox.className = 'phish-tier ' + tier.key;
+  document.getElementById('phishTierText').textContent = tier.label;
+  document.getElementById('phishScore').textContent = `${total}/100 puntos`;
+  document.getElementById('phishResultMsg').textContent = tier.msg;
+
+  // Análisis visual: qué eligió la persona en cada parte del correo,
+  // con la técnica y la señal de alerta correspondiente.
+  const analysis = document.getElementById('phishAnalysisList');
+  analysis.innerHTML = '';
+  PHISH_STEPS.forEach(step=>{
+    const opt = phishAnswers[step.key];
+    const row = document.createElement('div');
+    row.className = 'phish-analysis-row';
+    row.innerHTML = `
+      <div class="par-icon">${PHISH_ICONS[opt.icon]}</div>
+      <div class="par-body">
+        <div class="par-tech">💡 ${opt.technique}</div>
+        <div class="par-choice">${opt.title}</div>
+        <div class="par-signal">🚩 ${opt.signal}</div>
+      </div>`;
+    analysis.appendChild(row);
   });
-  document.getElementById('result2').hidden=true;
-  document.getElementById('game2Email').hidden=false;
-  document.getElementById('btnReview').hidden=false;
+
+  const preventList = document.getElementById('phishPreventList');
+  preventList.innerHTML = '';
+  PHISH_PREVENT_TIPS.forEach(t=>{
+    const li = document.createElement('li');
+    li.textContent = t;
+    preventList.appendChild(li);
+  });
+
+  document.getElementById('endMsg2').textContent = 'Este es un ejemplo de qué tan real puede parecer un correo de phishing usando solo información pública. Reconocer estas señales es el primer paso para no caer en un engaño así.';
+
+  document.getElementById('phishStepWrap').hidden = true;
+  document.getElementById('phishCtaWrap').hidden = true;
+  document.getElementById('result2').hidden = false;
+  document.getElementById('game2Content').scrollTop = 0;
+
+  const detalle = Object.fromEntries(Object.entries(phishAnswers).map(([k,v])=> [k, v.title]));
+  sendToSheet('Juego 2 - Arma tu phishing', tier.key, JSON.stringify(detalle));
+}
+
+function restartPhishGame(){
+  phishAnswers = {};
+  phishStepIndex = 0;
+  shufflePhishOptions();
+  updateEmailPreview();
+  document.getElementById('result2').hidden = true;
+  document.getElementById('phishStepWrap').hidden = false;
+  document.getElementById('phishCtaWrap').hidden = false;
+  renderPhishStep();
+  document.getElementById('game2Content').scrollTop = 0;
+}
+
+document.getElementById('phishCtaBtn').addEventListener('click', ()=>{
+  if(phishStepIndex < PHISH_STEPS.length - 1){
+    phishStepIndex++;
+    renderPhishStep();
+    document.getElementById('game2Content').scrollTop = 0;
+  } else {
+    finishPhishGame();
+  }
 });
+
+document.getElementById('restartBtn2').addEventListener('click', restartPhishGame);
+
 document.getElementById('game2StartBtn').addEventListener('click', ()=>{
-  document.getElementById('game2Intro').hidden=true;
-  document.getElementById('game2Content').hidden=false;
+  document.getElementById('game2Intro').hidden = true;
+  document.getElementById('game2Content').hidden = false;
   if(!document.getElementById('result2').hidden) return; // ya había un resultado visible, no lo tocamos
-  document.getElementById('game2Email').hidden=false;
-  document.getElementById('btnReview').hidden=false;
+  if(Object.keys(phishAnswers).length===0){
+    shufflePhishOptions();
+    updateEmailPreview();
+    renderPhishStep(); // primera vez: arranca el paso 1
+  }
 });
 
 
