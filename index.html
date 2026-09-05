@@ -175,28 +175,24 @@
             <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empieza con casos sencillos y avanza hasta mensajes más difíciles de detectar.</p>
           </div>
           <div class="how-to-play">
-            <b>Cómo jugar:</b> lee el mensaje y decide: ¿sospechoso o legítimo?
+            <b>Cómo jugar:</b> lee el mensaje y decide: ¿sospechoso o legítimo? Usa las flechas ← / → del teclado, <span class="pill esc">ESC</span> / <span class="pill enter">ENTER</span>, o los botones en pantalla.
           </div>
           <div class="game-start" id="game1Start">
             <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar ▶</button>
           </div>
         </div>
         <div class="game-content" id="game1Content" hidden>
-          <div class="instructions">
-            <div class="side"><span class="pill esc">ESC</span> Sospechoso</div>
-            <div class="hint">usa el teclado ← / → o los botones · ⏱ tiempo limitado por caso</div>
-            <div class="side"><span class="pill enter">ENTER</span> Confío ↵</div>
-          </div>
+          <div class="instructions" id="instructions1" hidden></div>
           <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
           <div class="progress" id="progress1">CASO 1 / 10</div>
-          <div class="timer-bar-wrap" id="timerBarWrap"><div class="timer-bar" id="timerBar"></div></div>
+          <div class="timer-bar-wrap" id="timerBarWrap" hidden><div class="timer-bar" id="timerBar"></div></div>
           <div class="deck-wrap">
             <div class="deck" id="deck"></div>
             <div class="distraction-layer" id="distractionLayer"></div>
           </div>
           <div class="controls" id="controls1">
-            <button class="ctrl-btn esc" id="btnEsc">◀ ESC · Sospechoso</button>
-            <button class="ctrl-btn enter" id="btnEnter">Confío · ENTER ▶</button>
+            <button class="ctrl-btn esc" id="btnEsc">◀ Sospechoso</button>
+            <button class="ctrl-btn enter" id="btnEnter">Confío ▶</button>
           </div>
           <div class="inline-result retro-window" id="result1" hidden>
             <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">RESULTADO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
@@ -810,7 +806,6 @@
     <p class="fb-text" id="fbText"></p>
     <p class="fb-tip" id="fbTip"></p>
     <p class="fb-hint">Toca en cualquier parte de la pantalla para continuar</p>
-    <button class="continue-btn" id="continueBtn">Continuar <span class="k">Espacio ␣</span></button>
   </div>
 </div>
 <script>
@@ -1053,18 +1048,9 @@ function updateTimerBar(){
   if(top) top.classList.toggle('time-critical', timeLeft<2.5 && timeLeft>0);
 }
 function startTimer(){
+  // El temporizador y las distracciones automáticas están desactivados:
+  // se quitó la presión de tiempo para que se puedan leer bien las capturas.
   clearTimer();
-  const c=CASES[idx];
-  TIME_LIMIT = c ? LEVEL_TIME[c.level] : LEVEL_TIME.facil;
-  timeLeft=TIME_LIMIT;
-  updateTimerBar();
-  timerInterval=setInterval(()=>{
-    if(panels[1].hidden){ clearTimer(); return; }
-    timeLeft=Math.max(0, timeLeft-0.1);
-    updateTimerBar();
-    if(timeLeft<=0){ clearTimer(); onTimeout(); }
-  }, 100);
-  scheduleDistraction();
 }
 function scheduleDistraction(){
   if(Math.random()>0.6) return; // no todos los casos traen distracción
@@ -1193,7 +1179,6 @@ function showEnd1(){
   deckEl.style.display='none'; controls1.hidden=true; instructions1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=true;
   if(progressEl) progressEl.hidden=true;
-  const timerWrap=document.getElementById('timerBarWrap'); if(timerWrap) timerWrap.hidden=true;
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   const lb1=document.getElementById('loadbarFill1'); if(lb1) lb1.style.width=`${(score1/CASES.length)*100}%`;
@@ -1202,9 +1187,9 @@ function showEnd1(){
   if(charMid) charMid.hidden = !(score1>=6 && score1<=8);
   if(charHigh) charHigh.hidden = !(score1>=9);
   let m;
-  if(score1>=9) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más sutiles, con el tiempo encima y las distracciones apareciendo.';
-  else if(score1>=6) m='Vas bien, pero aún se te escapan señales cuando hay presión de tiempo, distracciones o un caso más sutil de lo normal. Vale la pena repasar.';
-  else m='Entre el tiempo limitado y las distracciones, caíste en "piloto automático" varias veces — justo así operan estos ataques en la vida real. Repasa los casos y vuelve a intentarlo.';
+  if(score1>=9) m='Excelente ojo crítico. Sostuviste la atención incluso en los casos más sutiles.';
+  else if(score1>=6) m='Vas bien, pero aún se te escapan señales en algún caso más sutil de lo normal. Vale la pena repasar.';
+  else m='Caíste en "piloto automático" varias veces — justo así operan estos ataques en la vida real. Repasa los casos y vuelve a intentarlo.';
   const levelNames={facil:'los casos fáciles', intermedio:'los casos intermedios', dificil:'los casos difíciles'};
   const worst=Object.keys(wrongByLevel).reduce((a,b)=> wrongByLevel[b]>wrongByLevel[a]?b:a, 'facil');
   if(wrongByLevel[worst]>0) m += ` Te costó más trabajo en ${levelNames[worst]}: ahí es donde vale la pena poner más atención la próxima vez.`;
@@ -1217,7 +1202,6 @@ function restart1(){
   deckEl.style.display=''; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=false;
   if(progressEl) progressEl.hidden=false;
-  const timerWrap=document.getElementById('timerBarWrap'); if(timerWrap) timerWrap.hidden=false;
   const charLow=document.getElementById('resultCharLow'); if(charLow) charLow.hidden=true;
   const charMid=document.getElementById('resultCharMid'); if(charMid) charMid.hidden=true;
   const charHigh=document.getElementById('resultCharHigh'); if(charHigh) charHigh.hidden=true;

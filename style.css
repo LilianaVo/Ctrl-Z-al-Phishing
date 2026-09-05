@@ -201,6 +201,8 @@ body.playing footer{ display:none; }
 .card-head .kind{ margin-left:auto; font-family:inherit; font-size:10.5px; font-weight:600; letter-spacing:.02em; border:none; padding:4px 10px; border-radius:100px; flex:none; background:#f0f0f2; color:#8e8e93; }
 .card-body{ padding:16px 16px 20px; flex:1; overflow:auto; user-select:none; -webkit-user-select:none; } .card-body .subject{ font-weight:700; font-size:15.5px; margin-bottom:8px; color:#111; } .card-body .msg{ font-size:15px; line-height:1.5; color:#3c3c43; }
 .card-body .link{ display:inline-block; margin-top:12px; font-family:inherit; font-size:13.5px; color:#0a66c2; text-decoration:underline; word-break:break-all; }
+.case-image-card{ background:var(--peach); box-shadow:none; border:none; }
+.case-image-card .case-img{ display:block; width:100%; height:auto; }
 .stamp{ position:absolute; top:22px; font-family:var(--font-mono); font-weight:800; font-size:20px; padding:7px 13px; border-radius:10px; border:3px solid; transform:rotate(-12deg); opacity:0; letter-spacing:.04em; pointer-events:none; background:var(--white); }
 .stamp.left{ left:16px; color:var(--coral-deep); border-color:var(--coral-deep); } .stamp.right{ right:16px; color:var(--teal-deep); border-color:var(--teal-deep); transform:rotate(12deg); }
 .controls{ display:flex; justify-content:center; gap:14px; }
@@ -212,7 +214,7 @@ body.playing footer{ display:none; }
 .fb-result{ font-family:var(--font-display); font-weight:800; font-size:17px; } .fb-result.ok{ color:var(--teal-deep); } .fb-result.bad{ color:var(--coral-deep); }
 .fb-tag{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; padding:5px 10px; border-radius:100px; border:2px solid var(--ink); margin-left:auto; }
 .fb-text{ color:var(--ink); font-size:14px; line-height:1.55; margin-bottom:6px; } .fb-tip{ color:var(--ink); font-size:13px; line-height:1.5; margin-bottom:16px; } .fb-tip b{ color:var(--ink); }
-.fb-hint{ text-align:center; font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft); margin:-4px 0 10px; opacity:.8; }
+.fb-hint{ text-align:center; font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--ink-soft); margin:6px 0 2px; opacity:.9; }
 .continue-btn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:var(--ink); color:var(--peach); font-weight:700; font-family:var(--font-sans); border:none; border-radius:100px; padding:14px; font-size:14px; position:sticky; bottom:0; }
 .continue-btn .k{ font-family:var(--font-mono); background:rgba(255,255,255,.15); padding:3px 8px; border-radius:6px; font-size:12px; }
 
