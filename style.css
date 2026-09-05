@@ -350,7 +350,10 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .msg-time{ font-family:inherit; font-size:10.5px; color:rgba(0,0,0,.4); }
 .msg-text{ font-size:14px; line-height:1.45; color:#111b21; background:#fff; display:inline-block; padding:7px 10px 8px; border-radius:8px 8px 8px 2px; box-shadow:0 1px 1px rgba(0,0,0,.1); max-width:100%; }
 .msg-row.me .msg-text{ background:#DCF8C6; border-radius:8px 8px 2px 8px; }
-.msg-row.me.risky .msg-text{ background:#ffd6d1; }
+/* Importante: la burbuja de "Tú" siempre es del mismo color, sin importar si la
+   respuesta elegida fue la más segura o no. Un chat real (WhatsApp, etc.) no
+   colorea tus mensajes distinto según si "acertaste"; hacerlo aquí delataría
+   cuál opción es la correcta antes de que la persona razone la situación. */
 .typing-dots{ display:inline-flex; align-items:center; gap:4px; padding:10px 14px; background:#fff; border-radius:8px 8px 8px 2px; box-shadow:0 1px 1px rgba(0,0,0,.1); }
 .typing-dots span{ width:6px; height:6px; border-radius:50%; background:#8696a0; animation:typingBounce 1.1s infinite ease-in-out; }
 .typing-dots span:nth-child(2){ animation-delay:.15s; } .typing-dots span:nth-child(3){ animation-delay:.3s; }
