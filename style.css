@@ -321,38 +321,56 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .chat-start-wrap .btn.chat-start-btn:hover{ background:#20bd5a; box-shadow:0 4px 12px rgba(37,211,102,.5); transform:translateY(-1px); }
 .chat-start-wrap .btn.chat-start-btn:active{ transform:translateY(0); }
 
-/* JUEGO 4: escaner de huella -- radar animado */
-.foot-form{ max-width:520px; margin:0 auto; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:22px; box-shadow:var(--shadow); }
-.foot-check{ display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-bottom:2px solid var(--peach-line); font-size:13.5px; cursor:pointer; line-height:1.45; }
-.foot-check:last-of-type{ border-bottom:none; }
-.foot-check input{ width:20px; height:20px; margin-top:1px; accent-color:var(--teal-deep); flex:none; }
-.scan-loading{ max-width:520px; margin:0 auto; text-align:center; font-family:var(--font-mono); font-size:13px; color:var(--ink); padding:34px 0; }
-.scan-loading .line{ margin-bottom:8px; opacity:0; animation: fadein .3s ease forwards; }
-@keyframes fadein{ to{ opacity:1; } }
+/* JUEGO 4: reconstruye el perfil */
+.g4-screen-sub{ text-align:center; font-size:13.5px; color:var(--ink-soft); max-width:480px; margin:0 auto 16px; line-height:1.5; }
+
+/* --- Pantalla A, paso 1: una publicación a la vez --- */
+.g4-post-card{ max-width:420px; margin:0 auto 16px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:18px; box-shadow:var(--shadow-sm); text-align:center; }
+.g4-post-media{ width:100%; aspect-ratio:4/3; border-radius:var(--radius-sm); background:var(--pastel-peachy); display:flex; align-items:center; justify-content:center; font-size:52px; margin-bottom:14px; }
+.g4-post-caption{ margin:0; font-weight:600; font-size:14.5px; line-height:1.5; color:var(--ink); }
+.g4-reveal-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.g4-reveal-list li{ font-size:13px; line-height:1.5; padding-left:18px; position:relative; }
+.g4-reveal-list li::before{ content:"•"; position:absolute; left:2px; color:var(--coral-deep); font-weight:700; }
+
+/* --- Pantalla A, paso 2: combinaciones --- */
+.g4-combo-list{ display:flex; flex-direction:column; gap:12px; max-width:480px; margin:0 auto 6px; }
+.g4-combo-card{ display:flex; align-items:flex-start; gap:12px; text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px 14px; box-shadow:var(--shadow-sm); cursor:pointer; }
+.g4-combo-thumbs{ display:flex; flex:none; }
+.g4-combo-thumbs span{ width:30px; height:30px; border-radius:8px; background:var(--pastel-peachy); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:15px; margin-left:-10px; }
+.g4-combo-thumbs span:first-child{ margin-left:0; }
+.g4-combo-title{ flex:1; font-weight:700; font-size:13px; line-height:1.4; color:var(--ink); }
+.g4-checkbox{ width:24px; height:24px; border-radius:7px; border:2.5px solid var(--ink); background:var(--white); flex:none; display:flex; align-items:center; justify-content:center; }
+.g4-checkbox svg{ width:13px; height:13px; display:none; }
+.g4-combo-card.checked .g4-checkbox{ background:var(--coral); }
+.g4-combo-card.checked .g4-checkbox svg{ display:block; }
+.g4-combo-feedback{ margin:0 0 4px; text-align:left; background:var(--cream); border:2.5px dashed var(--ink); border-radius:var(--radius-md); padding:10px 14px; font-size:12.5px; line-height:1.55; color:var(--ink); }
+.g4-combo-feedback.good{ background:var(--pastel-mint); border-color:var(--leaf-deep); }
+.g4-combo-feedback.neutral{ background:var(--pastel-butter); border-color:var(--sun-deep); }
+
+/* --- Pantalla B: ficha y drag&drop --- */
+.g4-field-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; max-width:480px; margin:0 auto 24px; }
+.g4-field{ display:flex; align-items:center; gap:10px; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-sm); padding:10px 12px; box-shadow:var(--shadow-sm); cursor:grab; }
+.g4-field.g4-selected{ background:var(--pastel-butter); outline:2px solid var(--sun-deep); }
+.g4-field.g4-placed{ display:none; }
+.g4-field-icon{ width:32px; height:32px; flex:none; border-radius:8px; background:var(--peach); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:15px; }
+.g4-field-text{ display:flex; flex-direction:column; min-width:0; }
+.g4-field-label{ font-family:var(--font-mono); font-size:9.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); }
+.g4-field-value{ font-weight:700; font-size:12.5px; color:var(--ink); overflow-wrap:anywhere; }
+.g4-dropzones{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:720px; margin:0 auto; }
+.g4-dropzone{ border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px; min-height:140px; box-shadow:var(--shadow-sm); }
+.g4-dropzone[data-cat="verde"]{ background:var(--pastel-mint); }
+.g4-dropzone[data-cat="amarillo"]{ background:var(--pastel-butter); }
+.g4-dropzone[data-cat="rojo"]{ background:var(--pastel-rose); }
+.g4-dropzone.g4-dragover{ outline:3px dashed var(--ink); outline-offset:2px; }
+.g4-dropzone-head{ font-family:var(--font-display); font-weight:700; font-size:12.5px; text-align:center; margin-bottom:10px; }
+.g4-dropzone-list{ display:flex; flex-direction:column; gap:6px; min-height:24px; }
+.g4-dropzone-list .g4-field{ width:100%; cursor:default; }
+@media (max-width:600px){ .g4-dropzones{ grid-template-columns:1fr; } .g4-field-grid{ grid-template-columns:1fr; } }
+
 .dash{ max-width:520px; margin:0 auto; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:28px 20px; box-shadow:var(--shadow); }
-.radar-wrap{ position:relative; width:min(280px,90%); margin:0 auto 6px; }
-.radar-svg{ width:100%; height:auto; display:block; }
-.radar-ring{ fill:none; stroke:var(--peach-line); stroke-width:1; }
-.radar-axis{ stroke:var(--peach-line); stroke-width:1.5; }
-.radar-sweep{ transform-origin:120px 120px; stroke:var(--coral); stroke-width:2.5; opacity:.85; }
-.radar-sweep.spin{ animation:radarSpin 1.1s linear infinite; }
-@keyframes radarSpin{ from{ transform:rotate(0deg);} to{ transform:rotate(360deg);} }
-.radar-poly{ fill:var(--coral); fill-opacity:.32; stroke:var(--coral-deep); stroke-width:2.5; opacity:0; transform:scale(.6); transform-origin:120px 120px; transition:opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
-.radar-poly.show{ opacity:1; transform:scale(1); }
-.radar-dot{ fill:var(--coral-deep); opacity:0; transition:opacity .3s ease .3s; }
-.radar-dot.show{ opacity:1; }
-.radar-score{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; }
-.radar-score b{ font-family:var(--font-display); font-weight:800; font-size:34px; color:var(--coral-deep); line-height:1; }
-.radar-score span{ font-family:var(--font-mono); font-size:9.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
-.radar-labels{ position:absolute; inset:0; font-family:var(--font-mono); font-size:10.5px; font-weight:700; pointer-events:none; }
-.radar-labels div{ position:absolute; text-align:center; color:var(--ink-soft); white-space:nowrap; }
-.radar-labels .rl-val{ display:block; font-family:var(--font-display); color:var(--ink); font-size:14px; }
-.radar-labels .n{ top:-8px; left:50%; transform:translateX(-50%); }
-.radar-labels .e{ top:50%; right:-58px; transform:translateY(-50%); text-align:left; }
-.radar-labels .s{ bottom:-8px; left:50%; transform:translateX(-50%); }
-.radar-labels .w{ top:50%; left:-58px; transform:translateY(-50%); text-align:right; }
-@media (max-width:480px){ .radar-labels .e, .radar-labels .w{ position:static; display:inline-block; width:48%; transform:none; text-align:center; margin-top:8px; } }
 .dash p.msg{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.55; margin:18px 0 0; text-align:center; }
+
+/* --- Cierre: expediente con barras --- */
 .dossier{ margin-top:22px; text-align:left; background:var(--ink); color:var(--peach); border-radius:var(--radius-md); padding:20px 22px; box-shadow:3px 3px 0 var(--coral); position:relative; overflow:hidden; }
 .dossier::before{ content:"CONFIDENCIAL"; position:absolute; top:10px; right:-38px; background:var(--coral); color:var(--ink); font-family:var(--font-mono); font-size:10px; font-weight:800; letter-spacing:.08em; padding:3px 42px; transform:rotate(35deg); pointer-events:none; }
 .dossier-head{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:12px; padding-right:50px; }
@@ -361,6 +379,11 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .dossier-list li::before{ content:"▸"; position:absolute; left:0; color:var(--coral); font-weight:700; }
 .dossier-list li.dossier-empty{ padding-left:0; color:#c9c1bd; font-style:italic; }
 .dossier-list li.dossier-empty::before{ content:none; }
+.g4-bars li{ padding-left:0; display:flex; align-items:center; gap:10px; }
+.g4-bars li::before{ content:none; }
+.g4-bar-label{ width:108px; flex:none; color:#f1e9e4; }
+.g4-bar-track{ flex:1; height:12px; background:rgba(255,255,255,.12); border-radius:100px; overflow:hidden; }
+.g4-bar-fill{ display:block; height:100%; width:var(--w); background:var(--coral); border-radius:100px; transition:width .6s cubic-bezier(.2,.8,.2,1); }
 
 /* MATERIALES -- lista tipo "carpeta de descargas", no tarjetas */
 .kit-list{ border:3px solid var(--ink); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--white); }

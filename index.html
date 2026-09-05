@@ -156,8 +156,8 @@
       </button>
       <button type="button" class="game-card yellow" data-game="4">
         <div class="g-num">04</div>
-        <div class="g-title">Escáner de huella digital</div>
-        <div class="g-desc">Descubre cuánto de tu información queda expuesta en redes.</div>
+        <div class="g-title">Reconstruye el perfil</div>
+        <div class="g-desc">Un dato aislado no dice mucho. Descubre qué se puede armar combinando varios.</div>
         <div class="g-go">Jugar →</div>
       </button>
     </div>
@@ -459,73 +459,115 @@
   </div>
 </div>
 
-      <!-- ===== JUEGO 4: ESCANER DE HUELLA DIGITAL (radar) ===== -->
+      <!-- ===== JUEGO 4: RECONSTRUYE EL PERFIL ===== -->
       <div class="game-panel" id="panel4" hidden>
         <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
         <div class="game-intro" id="game4Intro">
           <div class="panel-head">
-            <div class="section-label">04 · Escáner de huella digital</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Qué tanto de ti se puede deducir con lo que compartes?</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Marca lo que tienes público en tus redes. El resultado es anónimo y solo sirve como indicador educativo.</p>
+            <div class="section-label">04 · Reconstruye el perfil</div>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;">Un dato no dice mucho. Varios datos, sí.</h2>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este es el perfil de Andrea, un personaje ficticio. Descubre cuánto se puede armar combinando lo que publica.</p>
           </div>
           <div class="how-to-play">
-            <b>Cómo jugar:</b> marca lo que hoy es visible en tus redes.
+            <b>Cómo jugar:</b> revisa sus publicaciones, detecta patrones y arma su ficha.
           </div>
           <div class="game-start" id="game4Start">
             <button type="button" class="btn start-btn" id="game4StartBtn">Comenzar ▶</button>
           </div>
         </div>
         <div class="game-content" id="game4Content" hidden>
-        <div class="foot-form" id="footForm">
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":35}' data-tip="Una publicación con ubicación puede revelar dónde estuviste o ayudar a relacionar distintos lugares con tu rutina."> Comparto mi ubicación en publicaciones o stories</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":20,"contacto":10}' data-tip="Indicar dónde estudias o trabajas facilita que alguien relacione tu perfil con una institución, empresa o personas de ese entorno."> Mi perfil muestra dónde estudio o trabajo actualmente</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":25,"financiero":15}' data-tip="Una foto puede revelar información que no pretendías compartir, como una dirección, una placa o detalles del lugar donde vives."> He publicado fotos donde se ve mi dirección, placa o interior de mi casa</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":30}' data-tip="La fecha y el lugar de nacimiento pueden servir para relacionar tu identidad con otros datos disponibles públicamente."> Mi fecha y lugar de nacimiento son visibles en mi perfil</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"contacto":35}' data-tip="Un número visible puede facilitar intentos de contacto dirigidos, como mensajes o llamadas que usen información real sobre ti para parecer más creíbles."> Mi número de teléfono aparece visible en mi perfil</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15}' data-tip="Los nombres de mascotas, lugares o personas cercanas pueden convertirse en pistas para alguien que está reuniendo información sobre ti."> He publicado el nombre de mi mascota</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"ubicacion":20}' data-tip="Compartir horarios frecuentes puede permitir que alguien infiera parte de tu rutina o los lugares que visitas habitualmente."> Publico con frecuencia mi rutina o mis horarios</label>
-          <label class="foot-check"><input type="checkbox" data-w='{"identidad":15,"contacto":15}' data-tip="Mostrar nombres y relaciones familiares ayuda a construir un mapa de personas cercanas a ti y puede hacer más creíbles intentos de suplantación."> Mis publicaciones muestran los nombres de familiares cercanos</label>
-        </div>
-        <div style="text-align:center; margin-top:18px;">
-          <button class="btn coral" id="btnScan">Escanear mi huella <img src="images/icon-buscar.png" class="emoji-icon" alt="Buscar"></button>
-        </div>
-        <div class="scan-loading" id="scanLoading" hidden></div>
-        <div class="dash" id="dash" hidden style="margin-top:18px;">
-          <div class="radar-wrap">
-            <svg class="radar-svg" viewBox="0 0 240 240" id="radarSvg">
-              <circle class="radar-ring" cx="120" cy="120" r="22.5"/>
-              <circle class="radar-ring" cx="120" cy="120" r="45"/>
-              <circle class="radar-ring" cx="120" cy="120" r="67.5"/>
-              <circle class="radar-ring" cx="120" cy="120" r="90"/>
-              <line class="radar-axis" x1="120" y1="30" x2="120" y2="210"/>
-              <line class="radar-axis" x1="30" y1="120" x2="210" y2="120"/>
-              <line class="radar-sweep" id="radarSweep" x1="120" y1="120" x2="120" y2="30"/>
-              <polygon class="radar-poly" id="radarPoly" points="120,120 120,120 120,120 120,120"/>
-              <circle class="radar-dot" id="dotN" r="4"/>
-              <circle class="radar-dot" id="dotE" r="4"/>
-              <circle class="radar-dot" id="dotS" r="4"/>
-              <circle class="radar-dot" id="dotW" r="4"/>
-            </svg>
-            <div class="radar-score"><b id="expScore">0%</b><span>Indicador educativo</span></div>
-            <div class="radar-labels">
-              <div class="n">Identidad<span class="rl-val" id="valIdentidad">0%</span></div>
-              <div class="e">Ubicación<span class="rl-val" id="valUbicacion">0%</span></div>
-              <div class="s">Contacto<span class="rl-val" id="valContacto">0%</span></div>
-              <div class="w">Financiero<span class="rl-val" id="valFinanciero">0%</span></div>
+
+        <!-- ===== PANTALLA A: Detecta el patrón ===== -->
+        <div class="g4-screen" id="g4ScreenA">
+
+          <!-- Paso 1: publicaciones, una por una -->
+          <div id="g4PostStep">
+            <div class="phish-step-label" id="g4PostStepLabel">Paso 1 de 2 · Publicación 1 de 6</div>
+            <div class="phish-progress" id="g4ProgressPosts"><!-- puntos inyectados por JS --></div>
+
+            <div class="phish-cat-head">
+              <div class="phish-cat-icon" id="g4PostIcon">📸</div>
+              <div class="phish-cat-text">
+                <div class="phish-cat-title">El feed de Andrea</div>
+                <div class="phish-cat-q">Lee la publicación y qué revela por sí sola.</div>
+              </div>
+            </div>
+
+            <div class="g4-post-card">
+              <div class="g4-post-media" id="g4PostMedia">📸</div>
+              <p class="g4-post-caption" id="g4PostCaption"></p>
+            </div>
+
+            <div class="phish-reveal">
+              <div class="phish-reveal-q">¿Qué revela por sí sola?</div>
+              <ul class="g4-reveal-list" id="g4PostRevealList"></ul>
+            </div>
+
+            <div class="phish-cta-wrap">
+              <button type="button" class="btn coral phish-cta" id="g4PostNextBtn">Entendido ✓</button>
             </div>
           </div>
-          <div class="inline-result retro-window" style="margin-top:18px;">
-            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">REPORTE.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+
+          <!-- Paso 2: combinaciones -->
+          <div id="g4ComboStep" hidden>
+            <div class="phish-step-label">Paso 2 de 2 · Combina las pistas</div>
+            <div class="phish-progress" id="g4ProgressCombo"><!-- puntos inyectados por JS --></div>
+            <p class="g4-screen-sub">Marca las combinaciones que crees que revelan un patrón de ubicación + horario.</p>
+            <div class="g4-combo-list" id="g4ComboList"><!-- combos inyectados por JS --></div>
+            <div class="phish-cta-wrap">
+              <button type="button" class="btn coral phish-cta" id="g4ToScreenBBtn">Pasar a construir el perfil →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PANTALLA B: Construye el perfil ===== -->
+        <div class="g4-screen" id="g4ScreenB" hidden>
+          <div class="phish-step-label">Ficha de Andrea</div>
+          <p class="g4-screen-sub">Arrastra (o toca) cada dato y colócalo donde creas que corresponde.</p>
+
+          <div class="g4-field-grid" id="g4FieldGrid"><!-- campos inyectados por JS --></div>
+
+          <div class="g4-dropzones" id="g4Dropzones">
+            <div class="g4-dropzone" data-cat="verde">
+              <div class="g4-dropzone-head">🟢 Poco relevante</div>
+              <div class="g4-dropzone-list" data-list="verde"></div>
+            </div>
+            <div class="g4-dropzone" data-cat="amarillo">
+              <div class="g4-dropzone-head">🟡 Puede revelar contexto</div>
+              <div class="g4-dropzone-list" data-list="amarillo"></div>
+            </div>
+            <div class="g4-dropzone" data-cat="rojo">
+              <div class="g4-dropzone-head">🔴 Puede facilitar un engaño</div>
+              <div class="g4-dropzone-list" data-list="rojo"></div>
+            </div>
+          </div>
+
+          <div class="phish-cta-wrap">
+            <button type="button" class="btn coral phish-cta" id="g4ToDossierBtn" disabled>Ver expediente →</button>
+          </div>
+        </div>
+
+        <!-- ===== CIERRE: expediente ===== -->
+        <div class="dash" id="g4Dash" hidden style="margin-top:18px;">
+          <div class="phish-step-label">Resultado</div>
+          <div class="inline-result retro-window">
+            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">PERFIL_RECONSTRUIDO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
             <div class="retro-body">
               <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
-              <div class="dossier" id="dossier">
-                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Esto es lo que alguien podría armar con esto</div>
-                <ul class="dossier-list" id="dossierList"></ul>
+              <div class="dossier" id="g4Dossier">
+                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Así quedó el expediente de Andrea</div>
+                <ul class="dossier-list g4-bars" id="g4DossierBars">
+                  <li class="g4-bar"><span class="g4-bar-label">Universidad</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:88%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Rutina</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:66%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Contacto</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:55%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Relaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:44%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Datos personales</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:33%"></span></span></li>
+                </ul>
               </div>
-              <p class="msg" id="dashMsg"></p>
-              <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Este resultado es una estimación educativa basada en tus respuestas. No representa una medición real de riesgo.</p>
+              <p class="msg">No publicaste toda esta información de una vez. Se fue construyendo a partir de pequeñas pistas.</p>
+              <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Andrea es un personaje ficticio. Este ejercicio es educativo y no mide el riesgo real de ningún perfil.</p>
               <div class="next-choices">
-                <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar escaneo</button>
+                <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar</button>
                 <button class="menu-btn" data-back>Elegir otro juego →</button>
               </div>
               <div class="survey-inline-cta" hidden>
@@ -535,6 +577,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
     </div>
@@ -801,7 +844,7 @@ const JUEGOS_VALIDOS = [
   'Juego 1 - Desliza y decide',
   'Juego 2 - Arma tu phishing',
   'Juego 3 - Chat de presión',
-  'Juego 4 - Huella digital'
+  'Juego 4 - Reconstruye el perfil'
 ];
 
 // --- Código único por visita, para juntar los 4 juegos en una sola fila ---
@@ -928,65 +971,51 @@ const LEVEL_TIME = { facil:12, intermedio:16, dificil:22 };
 const SEGMENT_TAG = { edu:'🎓 Uni', work:'💼 Trabajo' };
 
 const CASES = [
-  /* ---------- FÁCIL: calentamiento, señales todavía razonablemente claras ---------- */
-  { level:'facil', segment:'general', kind:'SMS', icon:'📦', iconClass:'i-sms', name:'DHL México', meta:'+52 1 55 0198 2231', subject:null,
-    msg:'Tu paquete no pudo entregarse por datos incompletos. Actualiza tu dirección antes de 24h o será devuelto al remitente:',
-    link:'dhl-mx.entregas-tracking.com/actualizar', isPhishing:true, attack:'Smishing',
-    explain:'El enlace no es de dhl.com — "dhl-mx" es solo el nombre de un subdominio dentro de otro sitio.',
-    tip:'Entra directamente a la app o página oficial de la paquetería, nunca desde el link del SMS.' },
-  { level:'facil', segment:'edu', kind:'EMAIL', icon:'📚', iconClass:'i-email', name:'Biblioteca Central UNAM', meta:'biblioteca@dgb.unam.mx',
-    subject:'Recordatorio de vencimiento de préstamo',
-    msg:'Tu préstamo de 2 libros vence el 5 de septiembre. Puedes renovarlo desde tu cuenta en biblioteca.unam.mx o acudir al mostrador.',
-    link:'biblioteca.unam.mx', isPhishing:false, attack:'Mensaje legítimo',
-    explain:'El remitente y el enlace corresponden al dominio institucional real y no hay presión ni solicitud de datos.',
-    tip:'Aun así, es buena costumbre escribir la dirección directamente en el navegador.' },
+  /* ---------- FÁCIL ---------- */
+  { level:'facil', segment:'edu', image:'images/aviso-universitario.png',
+    isPhishing:false, attack:'Mensaje legítimo',
+    explain:'Es un aviso informativo típico de inicio de semestre: no pide contraseñas, pagos ni datos personales, solo comparte información.',
+    tip:'Aun en avisos legítimos, evita dar clic a enlaces dentro del correo; entra directamente al portal escolar.' },
+  { level:'facil', segment:'general', image:'images/pedido-dhl.png',
+    isPhishing:true, attack:'Smishing',
+    explain:'El mensaje viene de un número de teléfono normal, no de DHL, y el enlace no es dhl.com: es un dominio distinto que solo usa "dhl.com" como palabra decorativa.',
+    tip:'Verifica cualquier envío directamente en la app o el sitio oficial de la paquetería, nunca desde el enlace de un SMS.' },
 
-  /* ---------- INTERMEDIO: hay que leer con cuidado, no basta con "se ve raro" ---------- */
-  { level:'intermedio', segment:'general', kind:'EMAIL', icon:'🏦', iconClass:'i-email', name:'BBVA México', meta:'alertas@bbva.mx.verificacion-segura.com',
-    subject:'Verifica un cargo reciente en tu cuenta',
-    msg:'Detectamos un cargo no reconocido de $3,499 en tu tarjeta. Verifica el movimiento desde el siguiente enlace antes de que se procese:',
-    link:'bbva.mx.verificacion-segura.com/cargo', isPhishing:true, attack:'Suplantación de dominio',
-    explain:'"bbva.mx" aparece al inicio, pero es solo una palabra dentro del dominio real, que es verificacion-segura.com. El dominio de BBVA siempre debe terminar en ".bbva.mx".',
-    tip:'En un correo, lee el dominio de derecha a izquierda: lo que importa es lo que va justo antes de la primera barra "/".' },
-  { level:'intermedio', segment:'edu', kind:'WHATSAPP', icon:'🎓', iconClass:'i-chat', name:'Diego · Cálculo Diferencial', meta:'contacto guardado, compañero de clase', subject:null,
-    msg:'Oye, cambiaron el salón de mañana, ahora es el B-204. Lo confirmaron también en el Classroom del grupo.',
-    link:null, isPhishing:false, attack:'Mensaje legítimo',
-    explain:'No pide nada, no hay enlaces ni urgencia forzada, y el dato puede confirmarse en un canal oficial aparte.',
-    tip:'Cuando algo importante llega por un chat informal, confírmalo también en el canal oficial antes de actuar.' },
-  { level:'intermedio', segment:'general', kind:'WHATSAPP', icon:'💬', iconClass:'i-chat', name:'Sofía', meta:'contacto guardado', subject:null,
-    msg:'Oye, ¿me reenvías el código de 6 dígitos que te acaba de llegar? Me equivoqué al recuperar mi cuenta y necesito verificarla antes de que expire.',
-    link:null, isPhishing:true, attack:'Secuestro de cuenta',
-    explain:'Que el mensaje venga de un contacto guardado no hace seguro compartir un código: probablemente su cuenta ya fue comprometida y el mensaje no lo escribió ella.',
-    tip:'Nunca compartas un código de verificación con nadie, ni siquiera con alguien conocido. Llámale para confirmar.' },
-  { level:'intermedio', segment:'work', kind:'EMAIL', icon:'👥', iconClass:'i-email', name:'Recursos Humanos', meta:'rh@tuempresa.com', subject:'Confirmación de dispersión de nómina',
-    msg:'Tu pago de este quincena ya fue depositado a la cuenta que tenemos registrada. Si tienes dudas sobre tu recibo, puedes consultarlo en el portal interno.',
-    link:null, isPhishing:false, attack:'Mensaje legítimo',
-    explain:'El dominio corresponde a la empresa, no pide actualizar ningún dato ni contiene un enlace externo.',
-    tip:'Un aviso legítimo de nómina nunca te pide "verificar tu identidad" ni actualizar tu CLABE por correo.' },
+  /* ---------- INTERMEDIO ---------- */
+  { level:'intermedio', segment:'general', image:'images/factura-spotify.png',
+    isPhishing:false, attack:'Mensaje legítimo (recibo de compra)',
+    explain:'Es un recibo estándar de una suscripción que tú mismo activaste, con folio de factura y sin ningún enlace ni solicitud de datos.',
+    tip:'Si no reconoces el cargo, revisa el recibo directamente en la app o el sitio oficial, nunca en un enlace que te llegue por correo.' },
+  { level:'intermedio', segment:'general', image:'images/link-pelicula.png',
+    isPhishing:true, attack:'Enlace a sitio de streaming falso',
+    explain:'El dominio no pertenece a ningún servicio de streaming conocido, y que venga "reenviado por un familiar" no lo hace confiable: estos sitios suelen pedir datos o instalar algo apenas cargan.',
+    tip:'Antes de abrir un link de streaming reenviado, verifica que sea el dominio oficial del servicio; si pide "iniciar sesión" o "descargar algo", ciérralo.' },
+  { level:'intermedio', segment:'general', image:'images/contacto-pide-dinero.png',
+    isPhishing:true, attack:'Suplantación de identidad ("número nuevo" + dinero urgente)',
+    explain:'El mensaje combina dos señales clásicas: pide que guardes un número "nuevo" sin verificar quién es, y de inmediato pide dinero urgente que no puede confirmarse por llamada.',
+    tip:'Si un contacto te escribe desde un número distinto pidiendo dinero, llama al número que ya tenías guardado antes de transferir cualquier cosa.' },
+  { level:'intermedio', segment:'general', image:'images/venta-marketplace.png',
+    isPhishing:true, attack:'Fraude de compraventa (depósito por adelantado)',
+    explain:'La presión de "hay otras personas interesadas" y pedir un depósito antes de ver o recibir el producto son las señales clásicas de una venta que nunca se va a concretar.',
+    tip:'En compras entre particulares, evita pagar por adelantado; si es posible, paga hasta ver el producto en persona.' },
 
-  /* ---------- DIFÍCIL: mensajes creíbles, casi nada "técnico" que los delate ---------- */
-  { level:'dificil', segment:'work', kind:'EMAIL', icon:'🏢', iconClass:'i-email', name:'Dirección General', meta:'direccion.general@tuempresa.com',
-    subject:'Solicitud de transferencia',
-    msg:'Necesito que hagas una transferencia de $45,000 a un proveedor nuevo antes de las 5pm. Estoy en junta y no puedo hablar ahora. Te mando los datos por aquí.',
-    link:null, isPhishing:true, attack:'Fraude del CEO (BEC)',
-    explain:'El dominio puede ser real y no hay ningún link sospechoso: el ataque es puramente de presión y autoridad — dinero urgente, proveedor nuevo y "no puedo hablar" para evitar que confirmes.',
-    tip:'Cualquier transferencia inusual, aunque venga del jefe, se confirma por otro canal antes de hacerla.' },
-  { level:'dificil', segment:'general', kind:'SMS', icon:'🏦', iconClass:'i-sms', name:'BBVA', meta:'2273 · número corto', subject:null,
-    msg:'Tu código de un solo uso para iniciar sesión en la app es 482913. No lo compartas con nadie.',
-    link:null, isPhishing:false, attack:'Mensaje legítimo (2FA)',
-    explain:'El código corresponde a un inicio de sesión que tú realizaste hace un momento, y el mensaje mismo te recuerda no compartirlo.',
-    tip:'Si te llega un código de acceso que tú no solicitaste, no lo compartas y revisa tu cuenta de inmediato.' },
-  { level:'dificil', segment:'work', kind:'FLYER', icon:'🔲', iconClass:'i-qr', name:'Código QR', meta:'pegado en el elevador de la oficina', subject:null,
-    msg:'"Renueva tu credencial de acceso al edificio antes del viernes. Escanea el código QR y llena tus datos."',
-    link:'credenciales-acceso-corp.net/renovar', isPhishing:true, attack:'Quishing (phishing por QR)',
-    explain:'Un código QR físico salta el filtro visual de "revisar el link antes de dar clic", porque no ves la dirección hasta después de escanear — y en este caso lleva a un dominio ajeno a la empresa.',
-    tip:'Antes de escanear un QR desconocido, revisa a dónde apunta desde la vista previa del teléfono, y desconfía si pide datos personales o credenciales.' },
-  { level:'dificil', segment:'edu', kind:'EMAIL', icon:'📎', iconClass:'i-email', name:'Servicios Escolares FI', meta:'servicios.escolares@ingenieria.unam.mx',
-    subject:'Constancia de inscripción — Módulo 1.2',
-    msg:'Adjunto encontrarás tu constancia de inscripción en formato PDF. Consérvala para trámites posteriores.',
-    link:'constancia_inscripcion.pdf.exe', isPhishing:true, attack:'Archivo adjunto malicioso',
-    explain:'El remitente es real, pero el archivo no es un PDF: la extensión ".exe" al final revela que en realidad es un programa ejecutable disfrazado de documento.',
-    tip:'Antes de abrir un adjunto, revisa la extensión completa del archivo, no solo el ícono o el nombre.' }
+  /* ---------- DIFÍCIL ---------- */
+  { level:'dificil', segment:'general', image:'images/banorte-alerta.png',
+    isPhishing:false, attack:'Mensaje legítimo (2FA)',
+    explain:'Es un código que se genera cuando tú mismo intentas iniciar sesión, y el banco nunca te pide reenviarlo ni ingresarlo en ningún otro sitio.',
+    tip:'Si te llega un código que tú no solicitaste, no lo compartas y revisa tu cuenta de inmediato.' },
+  { level:'dificil', segment:'general', image:'images/multa-parabrisas.png',
+    isPhishing:true, attack:'Quishing (phishing por QR) + suplantación de autoridad',
+    explain:'El documento imita bien el formato oficial, pero un aviso real de multa no depende de escanear un QR dejado en el parabrisas — ese es justo el punto donde te llevan a un sitio falso.',
+    tip:'Ante cualquier multa o cobro con QR físico, consulta el trámite directamente en la página oficial del ayuntamiento o dependencia, sin escanear el código.' },
+  { level:'dificil', segment:'general', image:'images/post-qr.png',
+    isPhishing:true, attack:'Quishing por curiosidad ("morbo")',
+    explain:'El contenido está diseñado para generar curiosidad y urgencia por ver "las pruebas" — ese impulso es justo lo que baja la guardia antes de escanear un código de origen desconocido.',
+    tip:'La curiosidad es un gancho tan fuerte como el miedo: antes de escanear un QR "jugoso", pregúntate qué tan real es la historia y a dónde podría llevarte.' },
+  { level:'dificil', segment:'general', image:'images/nu-login.png',
+    isPhishing:false, attack:'Mensaje legítimo (alerta de seguridad)',
+    explain:'No pide que hagas clic en ningún enlace ni que ingreses datos en el correo: solo te avisa y te dirige a hacer todo dentro de la app oficial.',
+    tip:'Una alerta de seguridad real nunca te pide tu contraseña por correo; siempre actúa desde la app o el sitio oficial, no desde un link del mensaje.' }
 ];
 
 let idx=0, score1=0, awaitingContinue=false;
@@ -1095,19 +1124,18 @@ function renderDeck(){
   deckEl.innerHTML='';
   CASES.slice(idx, idx+3).forEach((c,i)=>{
     const el=document.createElement('div');
-    el.className='card'+(i===0?' top':'');
+    el.className='card case-image-card'+(i===0?' top':'');
     el.style.zIndex=10-i;
     el.style.transform=`translateY(${i*14}px) scale(${1-i*0.045})`;
     el.style.opacity=i===2?0.6:1;
     const segTag = (i===0 && SEGMENT_TAG[c.segment]) ? `<div class="case-tag${selectedContext && c.segment===selectedContext ? ' case-tag-match':''}">${SEGMENT_TAG[c.segment]}</div>` : '';
     el.innerHTML=`
       ${segTag}
-      <div class="card-head"><div class="icon ${c.iconClass}">${c.icon}</div>
-        <div class="who"><div class="name">${c.name}</div><div class="meta">${c.meta}</div></div>
-        <div class="kind">${c.kind}</div></div>
-      <div class="card-body">${c.subject?`<div class="subject">${c.subject}</div>`:''}<div class="msg">${c.msg}</div>${c.link?`<div class="link">🔗 ${c.link}</div>`:''}</div>
+      <img class="case-img" src="${c.image}" alt="Caso ${idx+i+1}">
       ${i===0?`<div class="stamp left" id="stampLeft">SOSPECHO</div><div class="stamp right" id="stampRight">CONFÍO</div>`:''}
     `;
+    const img=el.querySelector('.case-img');
+    if(i===0) img.addEventListener('load', sizeDeckToContent, {once:true});
     deckEl.appendChild(el);
   });
   progressEl.textContent=`CASO ${Math.min(idx+1,CASES.length)} / ${CASES.length}`;
@@ -1737,102 +1765,212 @@ document.getElementById('game3StartBtn').addEventListener('click', ()=>{
 
 
 /* ============================================================
-   JUEGO 4 · Escáner de huella digital (radar animado)
+   JUEGO 4 · Reconstruye el perfil
    ============================================================ */
-const footForm=document.getElementById('footForm');
-const RADAR_CENTER=120, RADAR_MAX=90, RADAR_MIN=8;
-function radarPoint(angleDeg, val){
-  const r = RADAR_MIN + (val/100)*(RADAR_MAX-RADAR_MIN);
-  const rad = (angleDeg-90) * Math.PI/180;
-  return { x: RADAR_CENTER + r*Math.cos(rad), y: RADAR_CENTER + r*Math.sin(rad) };
+const G4_POSTS = [
+  { id:'cafe', emoji:'☕', caption:'"Mi cafecito de después de clase ☕"', reveals:['Un lugar que visita seguido (una cafetería).','Un momento del día: justo después de clase.'] },
+  { id:'uni', emoji:'🎓', caption:'"Primer día en mi nueva uni 💕"', reveals:['En qué universidad estudia.','Que acaba de entrar, es nueva en ese entorno.'] },
+  { id:'horario', emoji:'🕕', caption:'"Por fin viernes, saliendo de clases a las 6"', reveals:['Un día y una hora en que suele salir de clases.','Un fragmento de su rutina semanal.'] },
+  { id:'cumple', emoji:'🎂', caption:'"Hoy cumplo 21 🎉"', reveals:['Su edad aproximada.','Que hoy es su cumpleaños (y por tanto, la fecha).'] },
+  { id:'toby', emoji:'🐶', caption:'"Toby siempre me espera en la puerta"', reveals:['El nombre de su mascota.','Un dato que a veces se usa en preguntas de seguridad.'] },
+  { id:'mama', emoji:'🥹', caption:'"Mi mamá me regaló esto por mi cumple"', reveals:['Que tiene una relación cercana con su mamá.','Nada más por sí sola — falta contexto.'] },
+];
+
+const G4_COMBOS = [
+  { id:'c1', posts:['cafe','uni','horario'], correct:true,
+    title:'Cafetería después de clase + primer día en la uni + sale a las 6',
+    why:'Sí forma un patrón: rutina en un lugar cercano, en horarios predecibles y ligada a una universidad concreta. Alguien podría anticipar dónde y cuándo encontrarla.' },
+  { id:'c2', posts:['cumple','mama'], correct:true,
+    title:'Hoy cumplo 21 + mi mamá me regaló esto',
+    why:'Sí forma un patrón: da una fecha aproximada de nacimiento junto con el nombre de una persona cercana — justo lo que se usa en preguntas de seguridad o mensajes que dicen ser "de tu mamá".' },
+  { id:'c3', posts:['toby','cumple'], correct:false,
+    title:'Toby me espera en la puerta + hoy cumplo 21',
+    why:'No arma nada nuevo: ninguno de los dos agrega ubicación, horario ni contacto al otro. Siguen siendo dos piezas sueltas.' },
+];
+
+const G4_FIELDS = [
+  { id:'universidad', emoji:'🎓', label:'Universidad', value:'Tec Norte' },
+  { id:'colonia', emoji:'📍', label:'Colonia', value:'Villa Aurora' },
+  { id:'mascota', emoji:'🐶', label:'Nombre de mascota', value:'Toby' },
+  { id:'cumpleanos', emoji:'🎂', label:'Cumpleaños', value:'21 de mayo' },
+  { id:'telefono', emoji:'📱', label:'Teléfono', value:'55 1234 5678' },
+  { id:'mama_nombre', emoji:'👩', label:'Nombre de mamá', value:'Laura' },
+  { id:'horario', emoji:'⏰', label:'Horario habitual', value:'Sale a las 6 pm' },
+  { id:'credencial', emoji:'📸', label:'Foto de credencial', value:'Adjunta' },
+];
+
+const g4State = { postIndex:0, comboChecked:new Set(), placed:{}, selectedField:null };
+
+/* ---- Pantalla A, paso 1: publicaciones una por una ---- */
+function g4RenderProgressPosts(){
+  const wrap=document.getElementById('g4ProgressPosts');
+  wrap.innerHTML='';
+  G4_POSTS.forEach((p,i)=>{
+    if(i>0){ const line=document.createElement('div'); line.className='phish-step-line'; wrap.appendChild(line); }
+    const dot=document.createElement('div');
+    dot.className='phish-step-dot' + (i<g4State.postIndex ? ' done' : (i===g4State.postIndex ? ' active' : ''));
+    dot.textContent=i+1;
+    wrap.appendChild(dot);
+  });
 }
-document.getElementById('btnScan').addEventListener('click', ()=>{
-  const cats={identidad:10, ubicacion:10, contacto:10, financiero:10};
-  let anyChecked=false;
-  const tips=[];
-  footForm.querySelectorAll('input[type=checkbox]').forEach(cb=>{
-    if(cb.checked){
-      anyChecked=true;
-      const w=JSON.parse(cb.dataset.w);
-      Object.keys(w).forEach(k=> cats[k]=Math.min(100, cats[k]+w[k]));
-      if(cb.dataset.tip) tips.push(cb.dataset.tip);
-    }
-  });
-  footForm.hidden=true;
-  document.getElementById('btnScan').hidden=true;
-  const loading=document.getElementById('scanLoading');
-  loading.hidden=false; loading.innerHTML='';
-  const sweep=document.getElementById('radarSweep');
-  const dash=document.getElementById('dash');
-  dash.hidden=false; dash.style.opacity='0';
-  document.getElementById('radarPoly').classList.remove('show');
-  ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
-  sweep.classList.add('spin');
-  const lines=['Analizando lo que compartes en tus redes...','Cruzando categorías de exposición...','Generando tu reporte...'];
-  lines.forEach((t,i)=>{
-    setTimeout(()=>{
-      const d=document.createElement('div'); d.className='line'; d.style.animationDelay=(i*0.05)+'s'; d.textContent='> '+t;
-      loading.appendChild(d);
-    }, i*450);
-  });
-  setTimeout(()=>{
-    loading.hidden=true;
-    dash.style.opacity='1';
-    sweep.classList.remove('spin');
-    const overall=Math.round((cats.identidad+cats.ubicacion+cats.contacto+cats.financiero)/4);
-    document.getElementById('expScore').textContent=overall+'%';
-    ['identidad','ubicacion','contacto','financiero'].forEach(k=>{
-      document.getElementById('val'+k.charAt(0).toUpperCase()+k.slice(1)).textContent=cats[k]+'%';
-    });
-    const pN=radarPoint(0, cats.identidad), pE=radarPoint(90, cats.ubicacion), pS=radarPoint(180, cats.contacto), pW=radarPoint(270, cats.financiero);
-    document.getElementById('radarPoly').setAttribute('points', `${pN.x},${pN.y} ${pE.x},${pE.y} ${pS.x},${pS.y} ${pW.x},${pW.y}`);
-    document.getElementById('dotN').setAttribute('cx',pN.x); document.getElementById('dotN').setAttribute('cy',pN.y);
-    document.getElementById('dotE').setAttribute('cx',pE.x); document.getElementById('dotE').setAttribute('cy',pE.y);
-    document.getElementById('dotS').setAttribute('cx',pS.x); document.getElementById('dotS').setAttribute('cy',pS.y);
-    document.getElementById('dotW').setAttribute('cx',pW.x); document.getElementById('dotW').setAttribute('cy',pW.y);
-    requestAnimationFrame(()=>{
-      document.getElementById('radarPoly').classList.add('show');
-      ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.add('show'));
-    });
-    let msg;
-    if(!anyChecked) msg='No marcaste nada. Puede significar que compartes poca información públicamente o que tienes una configuración de privacidad bastante cuidada. Aun así, vale la pena revisar de vez en cuando qué puede ver alguien que no te conoce.';
-    else if(overall<35) msg='Tu huella pública es relativamente reducida. Aun así, revisa cada cierto tiempo qué información aparece en tus perfiles y publicaciones.';
-    else if(overall<65) msg='Has compartido varias pistas que, combinadas, pueden revelar información sobre tu identidad, tus contactos o tu rutina. No hace falta dejar de publicar, pero sí conviene pensar qué puede deducirse al juntar esos datos.';
-    else msg='Has reunido bastantes pistas públicas sobre ti. Combinadas, pueden facilitar que alguien conozca tu rutina, identifique personas cercanas o prepare un intento de engaño más personalizado. Reducir algunos datos visibles puede dificultar ese perfilado.';
-    document.getElementById('dashMsg').textContent=msg;
-
-    const dossierList=document.getElementById('dossierList');
-    dossierList.innerHTML='';
-    if(tips.length===0){
-      const li=document.createElement('li');
-      li.className='dossier-empty';
-      li.textContent='No hay suficiente información pública para armar un perfil con lo que marcaste. Sigue cuidando tu privacidad así.';
-      dossierList.appendChild(li);
-    } else {
-      tips.forEach(t=>{
-        const li=document.createElement('li');
-        li.textContent=t;
-        dossierList.appendChild(li);
-      });
-    }
-
-    sendToSheet('Juego 4 - Huella digital', `${overall}%`, JSON.stringify(cats));
-  }, lines.length*450 + 350);
+function g4RenderPost(){
+  const p=G4_POSTS[g4State.postIndex];
+  document.getElementById('g4PostStepLabel').textContent=`Paso 1 de 2 · Publicación ${g4State.postIndex+1} de ${G4_POSTS.length}`;
+  document.getElementById('g4PostIcon').textContent=p.emoji;
+  document.getElementById('g4PostMedia').textContent=p.emoji;
+  document.getElementById('g4PostCaption').textContent=p.caption;
+  const list=document.getElementById('g4PostRevealList');
+  list.innerHTML='';
+  p.reveals.forEach(r=>{ const li=document.createElement('li'); li.textContent=r; list.appendChild(li); });
+  document.getElementById('g4PostNextBtn').textContent = g4State.postIndex===G4_POSTS.length-1 ? 'Ver combinaciones →' : 'Entendido ✓';
+  g4RenderProgressPosts();
+}
+document.getElementById('g4PostNextBtn').addEventListener('click', ()=>{
+  if(g4State.postIndex < G4_POSTS.length-1){
+    g4State.postIndex++;
+    g4RenderPost();
+  } else {
+    document.getElementById('g4PostStep').hidden=true;
+    document.getElementById('g4ComboStep').hidden=false;
+    document.getElementById('g4ComboStep').scrollIntoView({behavior:'smooth', block:'start'});
+  }
 });
-document.getElementById('restartBtn4').addEventListener('click', ()=>{
-  footForm.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.checked=false);
-  footForm.hidden=false;
-  document.getElementById('btnScan').hidden=false;
-  document.getElementById('dash').hidden=true;
-  document.getElementById('dossierList').innerHTML='';
-  document.getElementById('radarPoly').classList.remove('show');
-  document.getElementById('radarPoly').setAttribute('points', '120,120 120,120 120,120 120,120');
-  ['dotN','dotE','dotS','dotW'].forEach(id=> document.getElementById(id).classList.remove('show'));
+
+/* ---- Pantalla A, paso 2: combinaciones ---- */
+function g4RenderProgressCombo(){
+  const wrap=document.getElementById('g4ProgressCombo');
+  wrap.innerHTML='';
+  G4_COMBOS.forEach((c,i)=>{
+    if(i>0){ const line=document.createElement('div'); line.className='phish-step-line'; wrap.appendChild(line); }
+    const dot=document.createElement('div');
+    dot.className='phish-step-dot' + (g4State.comboChecked.has(c.id) ? ' done' : '');
+    dot.textContent=i+1;
+    wrap.appendChild(dot);
+  });
+}
+function g4PostEmoji(id){ return G4_POSTS.find(p=>p.id===id).emoji; }
+function g4RenderCombos(){
+  const listEl=document.getElementById('g4ComboList');
+  listEl.innerHTML='';
+  G4_COMBOS.forEach(c=>{
+    const card=document.createElement('div');
+    card.className='g4-combo-card';
+    card.dataset.id=c.id;
+    const thumbs=c.posts.map(pid=>`<span>${g4PostEmoji(pid)}</span>`).join('');
+    card.innerHTML=`<div class="g4-combo-thumbs">${thumbs}</div>
+      <div class="g4-combo-title">${c.title}</div>
+      <div class="g4-checkbox">${PHISH_ICONS.check}</div>`;
+    card.addEventListener('click', ()=>{
+      const nowChecked=!card.classList.contains('checked');
+      card.classList.toggle('checked', nowChecked);
+      if(nowChecked) g4State.comboChecked.add(c.id); else g4State.comboChecked.delete(c.id);
+      g4RenderProgressCombo();
+    });
+    listEl.appendChild(card);
+    const fb=document.createElement('div');
+    fb.className='g4-combo-feedback ' + (c.correct ? 'good' : 'neutral');
+    fb.textContent=c.why;
+    listEl.appendChild(fb);
+  });
+  g4RenderProgressCombo();
+}
+document.getElementById('g4ToScreenBBtn').addEventListener('click', ()=>{
+  document.getElementById('g4ScreenA').hidden=true;
+  document.getElementById('g4ScreenB').hidden=false;
+  document.getElementById('g4ScreenB').scrollIntoView({behavior:'smooth', block:'start'});
 });
+
+/* ---- Pantalla B: ficha y drag&drop ---- */
+const g4FieldGrid = document.getElementById('g4FieldGrid');
+function g4RenderFields(){
+  g4FieldGrid.innerHTML='';
+  document.querySelectorAll('.g4-dropzone-list').forEach(el=> el.innerHTML='');
+  g4State.placed={};
+  g4State.selectedField=null;
+  const dossierBtn=document.getElementById('g4ToDossierBtn');
+  dossierBtn.disabled=true;
+  G4_FIELDS.forEach(f=>{
+    const field=document.createElement('div');
+    field.className='g4-field';
+    field.draggable=true;
+    field.tabIndex=0;
+    field.setAttribute('role','button');
+    field.setAttribute('aria-pressed','false');
+    field.dataset.id=f.id;
+    field.innerHTML=`<div class="g4-field-icon">${f.emoji}</div><div class="g4-field-text"><span class="g4-field-label">${f.label}</span><span class="g4-field-value">${f.value}</span></div>`;
+    field.addEventListener('dragstart', e=>{
+      e.dataTransfer.setData('text/plain', f.id);
+      field.classList.add('g4-selected');
+    });
+    field.addEventListener('dragend', ()=> field.classList.remove('g4-selected'));
+    field.addEventListener('click', ()=> g4SelectField(f.id, field));
+    g4FieldGrid.appendChild(field);
+  });
+}
+function g4SelectField(id, el){
+  document.querySelectorAll('.g4-field').forEach(f=> f.classList.remove('g4-selected'));
+  if(g4State.selectedField===id){ g4State.selectedField=null; return; }
+  g4State.selectedField=id;
+  el.classList.add('g4-selected');
+}
+function g4PlaceField(id, cat){
+  const field=document.querySelector(`#g4FieldGrid [data-id="${id}"]`) || document.querySelector(`.g4-dropzone-list [data-id="${id}"]`);
+  if(!field) return;
+  const zoneList=document.querySelector(`.g4-dropzone-list[data-list="${cat}"]`);
+  field.classList.remove('g4-selected');
+  field.setAttribute('aria-pressed','true');
+  zoneList.appendChild(field);
+  g4State.placed[id]=cat;
+  g4State.selectedField=null;
+  if(Object.keys(g4State.placed).length===G4_FIELDS.length){
+    document.getElementById('g4ToDossierBtn').disabled=false;
+  }
+}
+document.querySelectorAll('.g4-dropzone').forEach(zone=>{
+  const cat=zone.dataset.cat;
+  zone.addEventListener('dragover', e=>{ e.preventDefault(); zone.classList.add('g4-dragover'); });
+  zone.addEventListener('dragleave', ()=> zone.classList.remove('g4-dragover'));
+  zone.addEventListener('drop', e=>{
+    e.preventDefault();
+    zone.classList.remove('g4-dragover');
+    const id=e.dataTransfer.getData('text/plain');
+    if(id) g4PlaceField(id, cat);
+  });
+  zone.addEventListener('click', ()=>{
+    if(g4State.selectedField) g4PlaceField(g4State.selectedField, cat);
+  });
+});
+document.getElementById('g4ToDossierBtn').addEventListener('click', ()=>{
+  if(document.getElementById('g4ToDossierBtn').disabled) return;
+  document.getElementById('g4ScreenB').hidden=true;
+  const dash=document.getElementById('g4Dash');
+  dash.hidden=false;
+  dash.scrollIntoView({behavior:'smooth', block:'start'});
+  sendToSheet('Juego 4 - Reconstruye el perfil', 'completado', JSON.stringify({ combos:[...g4State.comboChecked], ficha:g4State.placed }));
+});
+
+/* ---- Reinicio y arranque ---- */
+function g4ResetAll(){
+  g4State.postIndex=0;
+  g4State.comboChecked=new Set();
+  document.getElementById('g4PostStep').hidden=false;
+  document.getElementById('g4ComboStep').hidden=true;
+  g4RenderPost();
+  g4RenderCombos();
+  g4RenderFields();
+  document.getElementById('g4Dash').hidden=true;
+  document.getElementById('g4ScreenB').hidden=true;
+  document.getElementById('g4ScreenA').hidden=false;
+}
+document.getElementById('restartBtn4').addEventListener('click', g4ResetAll);
 document.getElementById('game4StartBtn').addEventListener('click', ()=>{
   document.getElementById('game4Intro').hidden=true;
   document.getElementById('game4Content').hidden=false;
+  g4ResetAll();
 });
+
+
+
 </script>
 </body>
 </html>
