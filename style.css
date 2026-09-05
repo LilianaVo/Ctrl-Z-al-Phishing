@@ -543,6 +543,37 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* CAJA "CÓMO JUGAR" -- instrucciones claras por juego */
 .how-to-play{ background:var(--cream); border:3px dashed var(--ink); border-radius:var(--radius-md); padding:14px 18px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--ink); max-width:640px; margin-left:auto; margin-right:auto; }
 .how-to-play b{ color:var(--ink); }
+
+/* ---- Tarjetas de instrucciones del Juego 1 (pantalla previa a jugar) ---- */
+.howto-card{ background:var(--white); border:3px dashed var(--coral-deep); border-radius:var(--radius-md); padding:20px 18px; margin:0 auto 16px; max-width:640px; }
+.howto-card-head{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.howto-card-icon{ width:38px; height:38px; border-radius:11px; background:var(--pastel-mint); border:2.5px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:18px; flex:none; }
+.howto-card-head h3{ margin:0; font-family:var(--font-display); font-size:17px; color:var(--ink); }
+.howto-steps{ display:flex; flex-direction:column; gap:18px; }
+.howto-step{ display:flex; gap:14px; align-items:flex-start; }
+.howto-step-icon{ width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:19px; flex:none; border:2.5px solid var(--ink); }
+.howto-step-icon.coral{ background:var(--coral); } .howto-step-icon.teal{ background:var(--teal); } .howto-step-icon.sun{ background:var(--sun); }
+.howto-step-body{ min-width:0; padding-top:2px; }
+.howto-step-title{ font-weight:700; font-size:14.5px; margin-bottom:3px; color:var(--ink); }
+.howto-step-desc{ font-size:13px; color:var(--ink-soft); line-height:1.55; }
+
+.tip-card{ background:var(--pastel-mint); border-radius:var(--radius-md); padding:18px; margin:0 auto 14px; max-width:640px; }
+.tip-card-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.tip-card-icon{ width:32px; height:32px; border-radius:9px; background:var(--white); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:15px; flex:none; }
+.tip-card-head h3{ margin:0; font-family:var(--font-display); font-size:16px; color:var(--ink); }
+.tip-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+.tip-list li{ display:flex; gap:9px; align-items:flex-start; font-size:13.5px; color:var(--ink); line-height:1.4; }
+.tip-check{ width:18px; height:18px; border-radius:50%; background:var(--teal-deep); color:#fff; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px; }
+
+.goal-card{ display:flex; gap:14px; align-items:center; background:var(--peach); border-radius:var(--radius-md); padding:18px; margin:0 auto 24px; max-width:640px; }
+.goal-card-icon{ font-size:30px; flex:none; }
+.goal-card-body h3{ margin:0 0 4px; font-family:var(--font-display); font-size:16px; color:var(--ink); }
+.goal-card-body p{ margin:0; font-size:13.5px; color:var(--ink-soft); line-height:1.5; }
+
+.start-meta{ text-align:center; font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); margin:10px 0 0; }
+.start-shortcuts{ display:flex; justify-content:center; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; }
+.shortcut-link{ background:none; border:none; font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; padding:4px; }
+.shortcut-link:hover{ color:var(--ink); }
 .game-start{ text-align:center; margin:0 0 28px; }
 .start-btn{ font-size:16px; padding:16px 34px; }
 

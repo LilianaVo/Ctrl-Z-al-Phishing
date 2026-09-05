@@ -172,13 +172,61 @@
           <div class="panel-head">
             <div class="section-label">01 · Desliza y decide</div>
             <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Confías o sospechas?</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Empieza con casos sencillos y avanza hasta mensajes más difíciles de detectar.</p>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Desliza, analiza y decide si el mensaje que recibes es confiable o una posible estafa.</p>
           </div>
-          <div class="how-to-play">
-            <b>Cómo jugar:</b> lee el mensaje y decide: ¿sospechoso o legítimo? Usa las flechas ← / → del teclado, <span class="pill esc">ESC</span> / <span class="pill enter">ENTER</span>, o los botones en pantalla.
+
+          <div class="howto-card">
+            <div class="howto-card-head"><span class="howto-card-icon">🎮</span><h3>¿Cómo jugar?</h3></div>
+            <div class="howto-steps">
+              <div class="howto-step">
+                <div class="howto-step-icon coral">👆</div>
+                <div class="howto-step-body">
+                  <div class="howto-step-title">1. Lee la tarjeta</div>
+                  <div class="howto-step-desc">Lee con calma el mensaje que aparece en pantalla, sin prisa.</div>
+                </div>
+              </div>
+              <div class="howto-step">
+                <div class="howto-step-icon teal">🛡️</div>
+                <div class="howto-step-body">
+                  <div class="howto-step-title">2. Decide</div>
+                  <div class="howto-step-desc">¿Es confiable o sospechoso? Usa las flechas ← / → del teclado, ESC / ENTER, o los botones en pantalla.</div>
+                </div>
+              </div>
+              <div class="howto-step">
+                <div class="howto-step-icon sun">⭐</div>
+                <div class="howto-step-body">
+                  <div class="howto-step-title">3. Gana puntos</div>
+                  <div class="howto-step-desc">Entre más aciertos tengas, mejor será tu resultado final.</div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div class="tip-card">
+            <div class="tip-card-head"><span class="tip-card-icon">💡</span><h3>Consejos</h3></div>
+            <ul class="tip-list">
+              <li><span class="tip-check">✓</span>Revisa bien el remitente y los enlaces.</li>
+              <li><span class="tip-check">✓</span>Desconfía de premios, urgencias o amenazas.</li>
+              <li><span class="tip-check">✓</span>Si algo parece raro, probablemente lo sea.</li>
+            </ul>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-card-icon">🎯</div>
+            <div class="goal-card-body">
+              <h3>Tu objetivo</h3>
+              <p>Identificar los 10 mensajes y lograr la mayor cantidad de aciertos posible.</p>
+            </div>
+          </div>
+
           <div class="game-start" id="game1Start">
-            <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar ▶</button>
+            <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar a jugar ▶</button>
+            <p class="start-meta">Nivel: Fácil · 10 casos</p>
+            <div class="start-shortcuts">
+              <button type="button" class="shortcut-link" data-back>← Menú</button>
+              <button type="button" class="shortcut-link" id="game1NextGameBtn">Otro juego →</button>
+              <button type="button" class="shortcut-link" onclick="irAEncuesta()">Encuesta ✎</button>
+            </div>
           </div>
         </div>
         <div class="game-content" id="game1Content" hidden>
@@ -937,6 +985,17 @@ gameMenu.querySelectorAll('.game-card').forEach(c=>{
   c.addEventListener('click', ()=> selectGame(c.dataset.game));
 });
 document.querySelectorAll('[data-back]').forEach(b=> b.addEventListener('click', backToMenu));
+
+// Atajo "Otro juego →" en la pantalla de instrucciones: salta directo al siguiente
+// juego del carrusel (1→2→3→4→1), sin tener que pasar por el menú.
+document.querySelectorAll('.shortcut-link[id$="NextGameBtn"]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const total=Object.keys(panels).length;
+    const current=Object.keys(panels).find(n=> !panels[n].hidden);
+    const next=current ? (Number(current)%total)+1 : 1;
+    selectGame(String(next));
+  });
+});
 
 /* ============================================================
    SELECTOR DE CONTEXTO -- universidad / trabajo
