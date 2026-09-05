@@ -128,13 +128,6 @@
     <div class="section-label">Elige tu simulador</div>
     <h2 class="h2">Elige un reto. Pon a prueba tu criterio.</h2>
 
-    <p class="help-grid-label" style="margin-bottom:10px;">Primero, elige tu contexto</p>
-    <div class="context-picker" id="contextPicker">
-      <button type="button" class="context-btn" data-ctx="edu"><span class="cx-icon"><img src="images/icon-universidad.png" class="emoji-icon" alt="Universidad"></span><span><span class="cx-title">Universidad</span><br><span class="cx-desc">Becas · trámites · cuentas institucionales</span></span></button>
-        <button type="button" class="context-btn" data-ctx="work"><span class="cx-icon"><img src="images/icon-trabajo.png" class="emoji-icon" alt="Trabajo"></span><span><span class="cx-title">Trabajo</span><br><span class="cx-desc">Jefes · RH · nómina · clientes</span></span></button>
-    </div>
-    <p class="context-note" id="contextNote">Selecciona un contexto para destacar los casos que podrían resultarte más familiares.</p>
-
     <div class="game-menu" id="gameMenu">
       <button type="button" class="game-card teal" data-game="1">
         <div class="g-num">01</div>
@@ -167,11 +160,15 @@
     <div id="gameStage">
       <!-- ===== JUEGO 1: DESLIZA Y DECIDE ===== -->
       <div class="game-panel" id="panel1" hidden>
-        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="start-shortcuts top-shortcuts" id="game1TopShortcuts">
+          <button type="button" class="shortcut-link" data-back>← Menú</button>
+          <button type="button" class="shortcut-link" id="game1NextGameBtn">Otro juego →</button>
+          <button type="button" class="shortcut-link" onclick="irAEncuesta()">Encuesta ✎</button>
+        </div>
         <div class="game-intro" id="game1Intro">
           <div class="panel-head">
             <div class="section-label">01 · Desliza y decide</div>
-            <h2 class="h2" style="margin-left:auto;margin-right:auto;">¿Confías o sospechas?</h2>
+            <h2 class="h2" style="margin-left:auto;margin-right:auto;"><span class="text-blue">¿Confías</span> o <span class="text-coral">sospechas?</span></h2>
             <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Desliza, analiza y decide si el mensaje que recibes es confiable o una posible estafa.</p>
           </div>
 
@@ -221,16 +218,9 @@
 
           <div class="game-start" id="game1Start">
             <button type="button" class="btn start-btn" id="game1StartBtn">Comenzar a jugar ▶</button>
-            <p class="start-meta">Nivel: Fácil · 10 casos</p>
-            <div class="start-shortcuts">
-              <button type="button" class="shortcut-link" data-back>← Menú</button>
-              <button type="button" class="shortcut-link" id="game1NextGameBtn">Otro juego →</button>
-              <button type="button" class="shortcut-link" onclick="irAEncuesta()">Encuesta ✎</button>
-            </div>
           </div>
         </div>
         <div class="game-content" id="game1Content" hidden>
-          <div class="instructions" id="instructions1" hidden></div>
           <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
           <div class="progress" id="progress1">CASO 1 / 10</div>
           <div class="timer-bar-wrap" id="timerBarWrap" hidden><div class="timer-bar" id="timerBar"></div></div>
@@ -242,25 +232,36 @@
             <button class="ctrl-btn esc" id="btnEsc">◀ Sospechoso</button>
             <button class="ctrl-btn enter" id="btnEnter">Confío ▶</button>
           </div>
-          <div class="inline-result retro-window" id="result1" hidden>
-            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">RESULTADO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
-            <div class="retro-body">
-              <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span><span class="retro-sparkle s3">✦</span>
-              <div class="score-label">Tu resultado</div>
-              <div class="score-badge" id="scoreBadge1">0/10</div>
-              <div class="retro-loadbar"><div class="fill" id="loadbarFill1"></div></div>
-              <img class="result-character-frame" id="resultCharLow" src="images/pc_a.png" alt="El Piloto Automático" hidden>
-              <img class="result-character-frame" id="resultCharMid" src="images/pc_b.png" alt="El Aprendiz Vigilante" hidden>
-              <img class="result-character-frame" id="resultCharHigh" src="images/pc_c.png" alt="El Detective Crítico" hidden>
-              <p id="endMsg1"></p>
-              <div class="next-choices">
-                <button class="redo-btn" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
-                <button class="menu-btn" data-back>Elegir otro juego →</button>
+          <div class="results-card" id="result1" hidden>
+            <span class="results-sparkle s1">✦</span><span class="results-sparkle s2">✧</span>
+            <div class="results-title">✨ ¡Juego completado! ✨</div>
+            <div class="results-sub">Tu resultado</div>
+            <div class="score-badge" id="scoreBadge1">0/10</div>
+            <p class="results-msg" id="endMsg1"></p>
+            <div class="retro-loadbar"><div class="fill" id="loadbarFill1"></div></div>
+
+            <div class="results-stats-card">
+              <div class="results-character">
+                <img class="result-character-frame" id="resultCharLow" src="images/pc_a.png" alt="El Piloto Automático" hidden>
+                <img class="result-character-frame" id="resultCharMid" src="images/pc_b.png" alt="El Aprendiz Vigilante" hidden>
+                <img class="result-character-frame" id="resultCharHigh" src="images/pc_c.png" alt="El Detective Crítico" hidden>
               </div>
-              <div class="survey-inline-cta" hidden>
-                <p class="survey-inline-text">O puedes responder la encuesta de satisfacción</p>
-                <button type="button" class="btn coral sm" onclick="irAEncuesta()">Ir a la encuesta →</button>
+              <div class="results-stats-list">
+                <div class="results-stat-row good"><span class="rs-icon">✓</span><span class="rs-label">Aciertos</span><span class="rs-value" id="statAciertos1">0</span></div>
+                <div class="results-stat-row bad"><span class="rs-icon">✕</span><span class="rs-label">Errores</span><span class="rs-value" id="statErrores1">0</span></div>
+                <div class="results-stat-row star"><span class="rs-icon">★</span><span class="rs-label">Puntuación</span><span class="rs-value" id="statPuntos1">0</span><span class="rs-unit">pts</span></div>
               </div>
+            </div>
+
+            <div class="results-tip">
+              <span class="results-tip-icon">💡</span>
+              <p>Detectar un mensaje sospechoso es el primer paso para evitar un ataque.<br>La práctica te hace más segur@.</p>
+            </div>
+
+            <div class="results-actions">
+              <button class="results-btn primary" id="restartBtn1"><span class="k2">Ctrl</span><span class="k2">Z</span> Volver a intentar</button>
+              <button class="results-btn secondary" data-back>Elegir otro juego →</button>
+              <button class="results-btn tertiary" onclick="irAEncuesta()">Responder encuesta ✎</button>
             </div>
           </div>
         </div>
@@ -853,7 +854,11 @@
     <div class="fb-top"><span class="fb-result" id="fbResult"><img src="images/icon-correcto.png" class="emoji-icon" alt="Correcto"> Correcto</span><span class="fb-tag" id="fbTag">Phishing</span></div>
     <p class="fb-text" id="fbText"></p>
     <p class="fb-tip" id="fbTip"></p>
-    <p class="fb-hint">Toca en cualquier parte de la pantalla para continuar</p>
+    <div class="fb-continue-wrap">
+      <div class="fb-continue-bar"><div class="fb-continue-fill" id="fbContinueFill"></div></div>
+      <button type="button" class="fb-continue-btn" id="fbContinueBtn" disabled>Leyendo…</button>
+      <p class="fb-hint" id="fbHint">Espera un momento para poder continuar</p>
+    </div>
   </div>
 </div>
 <script>
@@ -965,7 +970,10 @@ function selectGame(n){
     document.getElementById(gate.intro).hidden=false;
     document.getElementById(gate.content).hidden=true;
   }
-  if(n==='1' && typeof clearTimer==='function') clearTimer(); // pausa el cronómetro mientras se leen las instrucciones
+  if(n==='1'){
+    if(typeof clearTimer==='function') clearTimer(); // pausa el cronómetro mientras se leen las instrucciones
+    const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=false; // se ocultan al terminar el juego; al volver a entrar deben verse de nuevo
+  }
   if(n==='3' && typeof resetChatToPicker==='function') resetChatToPicker();
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
   // el juego pasa a ocupar toda la pantalla, como una app, tapando el resto del sitio
@@ -998,31 +1006,18 @@ document.querySelectorAll('.shortcut-link[id$="NextGameBtn"]').forEach(btn=>{
 });
 
 /* ============================================================
-   SELECTOR DE CONTEXTO -- universidad / trabajo
+   (El selector de contexto Universidad/Trabajo se quitó del menú
+   principal). selectedContext se deja fijo en null: el resto del
+   código (etiquetas de caso) lo consulta de forma seguido pero
+   nunca se activa ninguna etiqueta.
    ============================================================ */
-
-let selectedContext=null;
-const contextPicker=document.getElementById('contextPicker'), contextNote=document.getElementById('contextNote');
-contextPicker.querySelectorAll('.context-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const ctx=btn.dataset.ctx;
-    selectedContext = (selectedContext===ctx) ? null : ctx;
-    contextPicker.querySelectorAll('.context-btn').forEach(b=> 
-      b.classList.toggle('active', b.dataset.ctx===selectedContext)
-    );
-    contextNote.innerHTML = selectedContext
-      ? `Listo — los casos relacionados con ${selectedContext==='edu'?'la universidad':'el trabajo'} aparecerán marcados con <img src="images/icon-etiqueta.png" class="emoji-icon" alt="Etiqueta">.`
-      : 'Selecciona un contexto para destacar los casos que podrían resultarte más familiares.';
-    if(typeof deckEl!=='undefined' && deckEl && !panels[1].hidden) renderDeck();
-  });
-});
+const selectedContext=null;
 
 /* ============================================================
    JUEGO 1 · Desliza y decide
    ============================================================ */
 const LEVEL_LABELS = { facil:'Nivel: Fácil', intermedio:'Nivel: Intermedio', dificil:'Nivel: Difícil' };
 const LEVEL_TIME = { facil:12, intermedio:16, dificil:22 };
-const SEGMENT_TAG = { edu:'🎓 Uni', work:'💼 Trabajo' };
 
 const CASES = [
   /* ---------- FÁCIL ---------- */
@@ -1075,7 +1070,7 @@ const CASES = [
 let idx=0, score1=0, awaitingContinue=false;
 const deckEl=document.getElementById('deck'), progressEl=document.getElementById('progress1');
 const controls1=document.getElementById('controls1'), result1=document.getElementById('result1');
-const instructions1=document.querySelector('#panel1 .instructions'), feedbackEl=document.getElementById('feedback');
+const feedbackEl=document.getElementById('feedback');
 
 /* --- timer + distracciones (ciberpereza / ceguera por inatención) --- */
 let TIME_LIMIT=LEVEL_TIME.facil; // segundos por caso, varía según el nivel
@@ -1173,9 +1168,7 @@ function renderDeck(){
     el.style.zIndex=10-i;
     el.style.transform=`translateY(${i*14}px) scale(${1-i*0.045})`;
     el.style.opacity=i===2?0.6:1;
-    const segTag = (i===0 && SEGMENT_TAG[c.segment]) ? `<div class="case-tag${selectedContext && c.segment===selectedContext ? ' case-tag-match':''}">${SEGMENT_TAG[c.segment]}</div>` : '';
     el.innerHTML=`
-      ${segTag}
       <img class="case-img" src="${c.image}" alt="Caso ${idx+i+1}">
       ${i===0?`<div class="stamp left" id="stampLeft">SOSPECHO</div><div class="stamp right" id="stampRight">CONFÍO</div>`:''}
     `;
@@ -1188,6 +1181,19 @@ function renderDeck(){
   sizeDeckToContent();
   startTimer();
 }
+let continueReady=false, continueTimer=null;
+const fbContinueBtn=document.getElementById('fbContinueBtn'), fbContinueFill=document.getElementById('fbContinueFill'), fbHint=document.getElementById('fbHint');
+
+// Tiempo mínimo de lectura antes de poder pasar al siguiente caso: se calcula
+// según cuánto texto hay que leer (explicación + tip), con un piso y un techo
+// para que nunca se sienta instantáneo ni eterno. Esto evita que, si la persona
+// toca la pantalla con el mismo ritmo con que decide las tarjetas, el aviso se
+// cierre antes de que le haya dado tiempo de leerlo.
+function calcReadDelay(text){
+  const words=(text||'').trim().split(/\s+/).filter(Boolean).length;
+  return Math.min(2600, Math.max(1300, 700 + words*45));
+}
+
 function commitSwipe(saidSafe, wasTimeout){
   if(awaitingContinue||idx>=CASES.length) return;
   clearTimer();
@@ -1198,12 +1204,18 @@ function commitSwipe(saidSafe, wasTimeout){
   document.getElementById('fbResult').innerHTML=userCorrect?'<img src="images/icon-correcto.png" class="emoji-icon" alt="Correcto"> Correcto':'<img src="images/icon-cuidado.png" class="emoji-icon" alt="Cuidado"> Cuidado';
   document.getElementById('fbResult').className='fb-result '+(userCorrect?'ok':'bad');
   document.getElementById('fbTag').textContent=c.attack;
-  document.getElementById('fbText').textContent=(wasTimeout?'⏱️ Se acabó el tiempo y decidiste sin darte cuenta (así de fácil es caer "en automático"). ':'')+c.explain;
+  const explainText=(wasTimeout?'⏱️ Se acabó el tiempo y decidiste sin darte cuenta (así de fácil es caer "en automático"). ':'')+c.explain;
+  document.getElementById('fbText').textContent=explainText;
   document.getElementById('fbTip').innerHTML='<b>Tip:</b> '+c.tip;
+  const readDelay=calcReadDelay(explainText+' '+c.tip);
   // Muestra la retroalimentación de forma robusta: no depende de que la animación de la
   // tarjeta se complete (en móvil un pointercancel del sistema puede saltarse la transición).
   let shown=false;
-  const doShow=()=>{ if(shown) return; shown=true; feedbackEl.classList.add('show'); feedbackEl.scrollTop=0; armTapAnywhereToContinue(); };
+  const doShow=()=>{
+    if(shown) return; shown=true;
+    feedbackEl.classList.add('show'); feedbackEl.scrollTop=0;
+    armReadGate(readDelay);
+  };
   if(top){
     top.classList.add(userCorrect?'flash-safe':'flash-danger');
     top.style.transition='transform .4s ease';
@@ -1214,33 +1226,61 @@ function commitSwipe(saidSafe, wasTimeout){
   }
   setTimeout(doShow, 450); // red de seguridad: garantiza que el mensaje siempre aparezca
 }
-function nextCase(){
-  if(!awaitingContinue) return; // evita avanzar dos veces por el mismo toque
+// Bloquea el avance (botón, tap en pantalla y barra espaciadora) hasta que pase
+// el tiempo mínimo de lectura. La barra debajo del botón muestra ese avance para
+// que quede claro que es intencional y no que el juego se "trabó".
+function armReadGate(delay){
+  continueReady=false;
+  if(continueTimer) clearTimeout(continueTimer);
   document.removeEventListener('click', onTapAnywhereContinue);
   document.removeEventListener('touchend', onTapAnywhereContinue);
-  feedbackEl.classList.remove('show'); awaitingContinue=false; idx++;
-  if(idx>=CASES.length) showEnd1(); else renderDeck();
+  fbContinueBtn.disabled=true;
+  fbContinueBtn.textContent='Leyendo…';
+  fbHint.textContent='Espera un momento para poder continuar';
+  fbHint.classList.remove('show');
+  fbContinueFill.style.transition='none';
+  fbContinueFill.style.width='0%';
+  // Forzar reflow para que el navegador aplique el width:0% antes de animar a 100%.
+  void fbContinueFill.offsetWidth;
+  fbContinueFill.style.transition=`width ${delay}ms linear`;
+  fbContinueFill.style.width='100%';
+  continueTimer=setTimeout(()=>{
+    continueReady=true;
+    fbContinueBtn.disabled=false;
+    fbContinueBtn.textContent='Siguiente caso →';
+    fbHint.textContent='O toca en cualquier parte de la pantalla para continuar';
+    fbHint.classList.add('show');
+    document.addEventListener('click', onTapAnywhereContinue, {once:true});
+    document.addEventListener('touchend', onTapAnywhereContinue, {once:true});
+  }, delay);
 }
-// Permite tocar en cualquier parte de la pantalla (no solo el botón) para continuar,
-// pensado para que sea cómodo de usar en celular. Se activa recién cuando la tarjeta
-// de resultado ya es visible, para que el mismo toque que abrió el aviso no lo cierre.
-function armTapAnywhereToContinue(){
-  document.addEventListener('click', onTapAnywhereContinue, {once:true});
-  document.addEventListener('touchend', onTapAnywhereContinue, {once:true});
+function nextCase(){
+  if(!awaitingContinue||!continueReady) return; // evita avanzar dos veces, o antes de tiempo, por el mismo toque
+  if(continueTimer){ clearTimeout(continueTimer); continueTimer=null; }
+  document.removeEventListener('click', onTapAnywhereContinue);
+  document.removeEventListener('touchend', onTapAnywhereContinue);
+  feedbackEl.classList.remove('show'); awaitingContinue=false; continueReady=false; idx++;
+  if(idx>=CASES.length) showEnd1(); else renderDeck();
 }
 function onTapAnywhereContinue(){
   document.removeEventListener('click', onTapAnywhereContinue);
   document.removeEventListener('touchend', onTapAnywhereContinue);
   nextCase();
 }
+fbContinueBtn.addEventListener('click', nextCase);
 function showEnd1(){
   clearTimer();
-  deckEl.style.display='none'; controls1.hidden=true; instructions1.hidden=true;
+  deckEl.style.display='none'; controls1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=true;
   if(progressEl) progressEl.hidden=true;
+  const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=true;
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   const lb1=document.getElementById('loadbarFill1'); if(lb1) lb1.style.width=`${(score1/CASES.length)*100}%`;
+  const errores1=CASES.length-score1;
+  document.getElementById('statAciertos1').textContent=score1;
+  document.getElementById('statErrores1').textContent=errores1;
+  document.getElementById('statPuntos1').textContent=score1*100;
   const charLow=document.getElementById('resultCharLow'), charMid=document.getElementById('resultCharMid'), charHigh=document.getElementById('resultCharHigh');
   if(charLow) charLow.hidden = !(score1<=5);
   if(charMid) charMid.hidden = !(score1>=6 && score1<=8);
@@ -1257,10 +1297,15 @@ function showEnd1(){
 }
 function restart1(){
   clearTimer();
-  idx=0; score1=0; awaitingContinue=false; wrongByLevel={facil:0, intermedio:0, dificil:0};
-  deckEl.style.display=''; controls1.hidden=false; instructions1.hidden=false; result1.hidden=true;
+  if(continueTimer){ clearTimeout(continueTimer); continueTimer=null; }
+  document.removeEventListener('click', onTapAnywhereContinue);
+  document.removeEventListener('touchend', onTapAnywhereContinue);
+  feedbackEl.classList.remove('show');
+  idx=0; score1=0; awaitingContinue=false; continueReady=false; wrongByLevel={facil:0, intermedio:0, dificil:0};
+  deckEl.style.display=''; controls1.hidden=false; result1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=false;
   if(progressEl) progressEl.hidden=false;
+  const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=false;
   const charLow=document.getElementById('resultCharLow'); if(charLow) charLow.hidden=true;
   const charMid=document.getElementById('resultCharMid'); if(charMid) charMid.hidden=true;
   const charHigh=document.getElementById('resultCharHigh'); if(charHigh) charHigh.hidden=true;
@@ -1272,7 +1317,8 @@ document.getElementById('restartBtn1').addEventListener('click', restart1);
 document.getElementById('game1StartBtn').addEventListener('click', ()=>{
   document.getElementById('game1Intro').hidden=true;
   document.getElementById('game1Content').hidden=false;
-  if(result1.hidden) renderDeck(); // si ya había terminado, solo muestra el resultado sin reiniciar el mazo
+  if(result1.hidden){ renderDeck(); } // si ya había terminado, solo muestra el resultado sin reiniciar el mazo
+  else { const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=true; }
 });
 
 window.addEventListener('keydown', (e)=>{
@@ -1281,7 +1327,7 @@ window.addEventListener('keydown', (e)=>{
     if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='z'){ e.preventDefault(); restart1(); }
     return;
   }
-  if(awaitingContinue){ if(e.key===' '){ e.preventDefault(); nextCase(); } return; }
+  if(awaitingContinue){ if(e.key===' ' && continueReady){ e.preventDefault(); nextCase(); } return; }
   if(e.key==='Escape'||e.key==='ArrowLeft') commitSwipe(false);
   if(e.key==='Enter'||e.key==='ArrowRight') commitSwipe(true);
 });

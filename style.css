@@ -3,7 +3,7 @@
   --pastel-mint:#D2ECE2; --pastel-sky:#D3E4F3; --pastel-butter:#FBF0C6; --pastel-lilac:#E6DCF2; --pastel-rose:#F7DDE2; --pastel-peachy:#FCE4D3;
   --ink:#2A363B; --ink-soft:#5C6A6F; --teal:#81C8C0; --teal-deep:#4E9A92;
   --coral:#E89A8A; --coral-deep:#C97363;
-  --sun:#F5C34E; --sun-deep:#D9A126; --leaf:#93C77E; --leaf-deep:#5F9E4D;
+  --sun:#F5C34E; --sun-deep:#D9A126; --leaf:#93C77E; --leaf-deep:#5F9E4D; --blue-deep:#3E7CB1;
   --radius-lg:26px; --radius-md:18px; --radius-sm:12px;
   --shadow:5px 5px 0 var(--ink); --shadow-sm:3px 3px 0 var(--ink);
   --font-display:'Baloo 2', system-ui, sans-serif;
@@ -79,6 +79,7 @@ p.h2-sub{ color:var(--ink); font-size:14.5px; max-width:520px; margin:0 0 28px; 
 p.h2-sub strong{ color:var(--ink); font-weight:800; }
 .close-gif{ display:block; max-width:320px; width:100%; height:auto; margin:0 auto 22px; border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); }
 .text-coral{ color:var(--coral-deep); }
+.text-blue{ color:var(--blue-deep); }
 
 /* POR QUÉ -- notificaciones reales, apiladas como en tu pantalla de bloqueo */
 .signal-stack{ max-width:420px; margin:0 auto; display:flex; flex-direction:column; gap:0; }
@@ -120,7 +121,8 @@ p.h2-sub strong{ color:var(--ink); font-weight:800; }
   background:var(--peach);
   display:flex; flex-direction:column;
 }
-.game-panel > .back-to-menu{
+.game-panel > .back-to-menu,
+.game-panel > .top-shortcuts{
   flex:none; position:sticky; top:0; z-index:2;
   width:100%; box-sizing:border-box;
   margin:0; padding:calc(12px + env(safe-area-inset-top)) 18px 12px;
@@ -149,29 +151,15 @@ body.playing footer{ display:none; }
 .next-choices{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
 
 /* JUEGO 1: swipe */
-.instructions{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px; background:var(--white); border:3px solid var(--ink); border-radius:100px; padding:10px 18px; box-shadow:var(--shadow-sm); flex-wrap:wrap; }
-.instructions .side{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; }
 .pill{ font-family:var(--font-mono); font-weight:700; font-size:11.5px; padding:5px 10px; border-radius:100px; border:2px solid var(--ink); }
 .pill.esc{ background:var(--coral); } .pill.enter{ background:var(--teal); }
-.instructions .hint{ font-family:var(--font-mono); font-size:11px; color:var(--ink); text-align:center; flex:1; min-width:180px; }
 .level-banner{ display:flex; align-items:center; justify-content:center; gap:10px; max-width:420px; margin:0 auto 14px; padding:10px 16px; border-radius:100px; border:2.5px solid var(--ink); background:var(--cream); font-family:var(--font-mono); font-size:11.5px; font-weight:700; letter-spacing:.03em; text-align:center; transition:background .2s ease, border-color .2s ease; }
 .level-banner .lvl-dot{ width:9px; height:9px; border-radius:50%; flex:none; }
 .level-banner.lv-facil{ background:#EAF6F4; border-color:var(--teal-deep); } .level-banner.lv-facil .lvl-dot{ background:var(--teal); }
 .level-banner.lv-intermedio{ background:#FFF3E4; border-color:#c98a2e; } .level-banner.lv-intermedio .lvl-dot{ background:#f0b429; }
 .level-banner.lv-dificil{ background:#FBEAE6; border-color:var(--coral-deep); } .level-banner.lv-dificil .lvl-dot{ background:var(--coral-deep); }
 .progress{ font-family:var(--font-mono); font-size:12px; font-weight:700; text-align:center; margin-bottom:16px; letter-spacing:.05em; color:var(--ink-soft); }
-.case-tag{ position:absolute; top:14px; right:16px; font-family:var(--font-mono); font-size:10px; font-weight:700; background:rgba(255,255,255,.92); border:1px solid rgba(0,0,0,.08); border-radius:100px; padding:3px 9px; color:#5c6a6f; z-index:2; }
-.case-tag.case-tag-match{ background:var(--teal); color:var(--ink); border-color:var(--teal-deep); }
 
-/* SELECTOR DE CONTEXTO -- publico universidad / trabajo */
-.context-picker{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 26px; }
-.context-btn{ flex:1; min-width:180px; text-align:left; display:flex; align-items:center; gap:12px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:14px 16px; box-shadow:var(--shadow-sm); transition:transform .12s ease, background .12s ease; }
-.context-btn:hover{ transform:translate(-2px,-2px); }
-.context-btn.active{ background:var(--teal); }
-.context-btn .cx-icon{ font-size:22px; flex:none; }
-.context-btn .cx-title{ font-family:var(--font-display); font-weight:700; font-size:14.5px; }
-.context-btn .cx-desc{ font-size:11.5px; color:var(--ink); }
-.context-note{ font-size:12px; color:var(--ink); margin:-16px 0 26px; }
 .timer-bar-wrap{ width:100%; max-width:420px; margin:0 auto 16px; height:10px; background:var(--white); border:2.5px solid var(--ink); border-radius:100px; overflow:hidden; position:relative; }
 .timer-bar{ height:100%; width:100%; background:var(--teal); transition:width .12s linear, background .3s ease; }
 .timer-bar.warn{ background:#f0b429; }
@@ -214,7 +202,19 @@ body.playing footer{ display:none; }
 .fb-result{ font-family:var(--font-display); font-weight:800; font-size:17px; } .fb-result.ok{ color:var(--teal-deep); } .fb-result.bad{ color:var(--coral-deep); }
 .fb-tag{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; padding:5px 10px; border-radius:100px; border:2px solid var(--ink); margin-left:auto; }
 .fb-text{ color:var(--ink); font-size:14px; line-height:1.55; margin-bottom:6px; } .fb-tip{ color:var(--ink); font-size:13px; line-height:1.5; margin-bottom:16px; } .fb-tip b{ color:var(--ink); }
-.fb-hint{ text-align:center; font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--ink-soft); margin:6px 0 2px; opacity:.9; }
+.fb-hint{ text-align:center; font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--ink-soft); margin:9px 0 0; opacity:0; transition:opacity .25s ease; }
+.fb-hint.show{ opacity:.9; }
+
+/* Compuerta de lectura mínima: barra de progreso + botón, para que la persona
+   no pueda cerrar el aviso de Correcto/Incorrecto antes de haber tenido tiempo
+   de leerlo. Se ve claramente como algo intencional, no como que se "trabó". */
+.fb-continue-wrap{ margin-top:14px; }
+.fb-continue-bar{ height:5px; border-radius:100px; background:var(--peach); border:1.5px solid var(--ink); overflow:hidden; margin-bottom:10px; }
+.fb-continue-fill{ height:100%; width:0%; background:var(--ink-soft); }
+.fb-continue-btn{ display:flex; align-items:center; justify-content:center; width:100%; font-family:inherit; font-weight:700; font-size:14px; border:3px solid var(--ink); border-radius:100px; padding:13px 18px; background:var(--teal); color:var(--ink); box-shadow:var(--shadow-sm); transition:opacity .2s ease, transform .12s ease, box-shadow .12s ease, background .2s ease; }
+.fb-continue-btn:hover:not(:disabled){ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+.fb-continue-btn:active:not(:disabled){ transform:translate(0,0); box-shadow:1px 1px 0 var(--ink); }
+.fb-continue-btn:disabled{ background:var(--white); color:var(--ink-soft); opacity:.7; box-shadow:none; cursor:default; }
 .continue-btn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:var(--ink); color:var(--peach); font-weight:700; font-family:var(--font-sans); border:none; border-radius:100px; padding:14px; font-size:14px; position:sticky; bottom:0; }
 .continue-btn .k{ font-family:var(--font-mono); background:rgba(255,255,255,.15); padding:3px 8px; border-radius:6px; font-size:12px; }
 
@@ -244,6 +244,46 @@ body.playing footer{ display:none; }
 .redo-btn, .menu-btn{ display:inline-flex; align-items:center; gap:10px; background:var(--white); border:3px solid var(--ink); border-radius:100px; padding:10px 18px; box-shadow:var(--shadow-sm); font-weight:600; font-size:13px; }
 .menu-btn{ background:var(--teal); }
 .redo-btn .k2{ font-family:var(--font-mono); font-weight:700; font-size:11.5px; background:var(--peach); padding:4px 8px; border-radius:7px; border:2px solid var(--ink); }
+
+/* RESULTADOS · Juego 1 (tarjeta con stats + botones grandes al final) */
+.results-card{ position:relative; max-width:460px; margin:20px auto 0; background:var(--cream); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:28px 22px; box-shadow:var(--shadow); text-align:center; overflow:hidden; }
+.results-sparkle{ position:absolute; color:var(--coral-deep); pointer-events:none; opacity:.85; }
+.results-sparkle.s1{ top:16px; left:18px; font-size:18px; }
+.results-sparkle.s2{ top:20px; right:20px; font-size:13px; }
+.results-title{ font-family:var(--font-display); font-weight:800; font-size:19px; margin-bottom:8px; }
+.results-sub{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--ink-soft); text-transform:uppercase; margin-bottom:2px; }
+.results-msg{ font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.55; margin:10px 0 4px; }
+.results-card .retro-loadbar{ margin:14px auto 20px; }
+
+.results-stats-card{ display:flex; align-items:center; gap:16px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px; margin:0 0 18px; text-align:left; box-shadow:var(--shadow-sm); }
+.results-stats-card .result-character-frame{ margin:0; padding:0; border:none; box-shadow:none; background:transparent; max-width:90px; }
+.results-character{ flex:none; width:90px; }
+.results-stats-list{ flex:1; min-width:0; display:flex; flex-direction:column; gap:9px; }
+.results-stat-row{ display:flex; align-items:center; gap:9px; font-size:13.5px; font-weight:700; color:var(--ink); }
+.results-stat-row .rs-icon{ width:22px; height:22px; flex:none; border-radius:50%; border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--white); }
+.results-stat-row.good .rs-icon{ background:var(--teal-deep); }
+.results-stat-row.bad .rs-icon{ background:var(--coral-deep); }
+.results-stat-row.star .rs-icon{ background:var(--sun-deep); }
+.results-stat-row .rs-label{ flex:1; }
+.results-stat-row .rs-value{ font-family:var(--font-mono); font-weight:800; }
+.results-stat-row .rs-unit{ font-family:var(--font-mono); font-size:10px; font-weight:700; color:var(--ink-soft); margin-left:-4px; }
+
+.results-tip{ display:flex; align-items:flex-start; gap:10px; background:var(--pastel-mint); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:14px 16px; text-align:left; margin-bottom:22px; }
+.results-tip-icon{ font-size:18px; flex:none; line-height:1.3; }
+.results-tip p{ margin:0; font-size:12.5px; font-weight:600; line-height:1.5; color:var(--ink); }
+
+.results-actions{ display:flex; flex-direction:column; gap:10px; }
+.results-btn{ display:flex; align-items:center; justify-content:center; gap:9px; width:100%; font-family:inherit; font-weight:700; font-size:14px; border:3px solid var(--ink); border-radius:100px; padding:14px 18px; box-shadow:var(--shadow-sm); transition:transform .12s cubic-bezier(.2,.8,.2,1), box-shadow .12s cubic-bezier(.2,.8,.2,1); }
+.results-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+.results-btn:active{ transform:translate(0,0); box-shadow:1px 1px 0 var(--ink); }
+.results-btn.primary{ background:var(--coral); }
+.results-btn.secondary{ background:var(--teal); }
+.results-btn.tertiary{ background:var(--white); }
+.results-btn .k2{ font-family:var(--font-mono); font-weight:700; font-size:11px; background:rgba(255,255,255,.55); padding:3px 7px; border-radius:6px; border:2px solid var(--ink); }
+@media (max-width:380px){
+  .results-stats-card{ flex-direction:column; text-align:center; }
+  .results-stat-row{ justify-content:center; }
+}
 
 /* JUEGO 2: detecta las señales -- estilo correo de Gmail */
 .email-mock{ background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow); max-width:560px; margin:0 auto 18px; }
@@ -570,8 +610,8 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .goal-card-body h3{ margin:0 0 4px; font-family:var(--font-display); font-size:16px; color:var(--ink); }
 .goal-card-body p{ margin:0; font-size:13.5px; color:var(--ink-soft); line-height:1.5; }
 
-.start-meta{ text-align:center; font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); margin:10px 0 0; }
 .start-shortcuts{ display:flex; justify-content:center; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; }
+.start-shortcuts.top-shortcuts{ margin-top:0; }
 .shortcut-link{ background:none; border:none; font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink-soft); text-decoration:underline; text-underline-offset:3px; padding:4px; }
 .shortcut-link:hover{ color:var(--ink); }
 .game-start{ text-align:center; margin:0 0 28px; }
@@ -611,10 +651,6 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 
   .instructions .side{font-size:14px}
   .instructions .hint{font-size:12px}
-
-  .context-btn .cx-title{font-size:16px}
-  .context-btn .cx-desc{font-size:13px}
-  .context-note{font-size:13px}
 
   .gmail-subject{font-size:19px;margin:16px 16px 12px}
   .gmail-sender-row{padding:0 16px 14px;gap:10px}
