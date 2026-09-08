@@ -377,12 +377,33 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .g4-reveal-list li{ font-size:13px; line-height:1.5; padding-left:18px; position:relative; }
 .g4-reveal-list li::before{ content:"•"; position:absolute; left:2px; color:var(--coral-deep); font-weight:700; }
 
+/* ---- Juego 4 · mockup de Instagram (paso 1) ---- */
+.g4-ig-card{ max-width:420px; margin:0 auto 16px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; }
+.g4-ig-head{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-bottom:2.5px solid var(--ink); }
+.g4-ig-avatar{ width:34px; height:34px; border-radius:50%; background:var(--coral); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:13px; color:var(--ink); flex:none; }
+.g4-ig-name{ font-weight:700; font-size:13.5px; }
+.g4-ig-more{ margin-left:auto; opacity:.6; letter-spacing:1px; }
+.g4-ig-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--ink); }
+.g4-ig-thumb{ position:relative; display:block; width:100%; aspect-ratio:1; border:none; padding:0; margin:0; cursor:pointer; background:var(--ink); }
+.g4-ig-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.g4-ig-dot{ position:absolute; top:6px; right:6px; width:16px; height:16px; border-radius:50%; background:var(--coral); border:2px solid var(--white); }
+.g4-ig-thumb.seen .g4-ig-dot{ background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--white); }
+.g4-ig-thumb.seen .g4-ig-dot::after{ content:"✓"; }
+
+/* ---- Juego 4 · modal de publicación (reusa .phish-modal) ---- */
+.g4-post-modal{ text-align:center; }
+.g4-post-modal-count{ font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--ink-soft); margin-bottom:8px; }
+.g4-post-modal-img{ width:100%; max-height:320px; object-fit:cover; border:2.5px solid var(--ink); border-radius:var(--radius-sm); margin-bottom:12px; }
+.g4-post-modal .g4-post-caption{ margin-bottom:16px; }
+.g4-post-modal .phish-reveal{ text-align:left; margin-bottom:18px; }
+.g4-post-modal .phish-cta{ width:100%; }
+
 /* --- Pantalla A, paso 2: combinaciones --- */
 .g4-combo-list{ display:flex; flex-direction:column; gap:12px; max-width:480px; margin:0 auto 6px; }
 .g4-combo-card{ display:flex; align-items:flex-start; gap:12px; text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px 14px; box-shadow:var(--shadow-sm); cursor:pointer; }
 .g4-combo-thumbs{ display:flex; flex:none; }
-.g4-combo-thumbs span{ width:30px; height:30px; border-radius:8px; background:var(--pastel-peachy); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:15px; margin-left:-10px; }
-.g4-combo-thumbs span:first-child{ margin-left:0; }
+.g4-combo-thumbs span, .g4-combo-thumbs img{ width:30px; height:30px; border-radius:8px; background:var(--pastel-peachy); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:15px; margin-left:-10px; object-fit:cover; }
+.g4-combo-thumbs span:first-child, .g4-combo-thumbs img:first-child{ margin-left:0; }
 .g4-combo-title{ flex:1; font-weight:700; font-size:13px; line-height:1.4; color:var(--ink); }
 .g4-checkbox{ width:24px; height:24px; border-radius:7px; border:2.5px solid var(--ink); background:var(--white); flex:none; display:flex; align-items:center; justify-content:center; }
 .g4-checkbox svg{ width:13px; height:13px; display:none; }
@@ -755,9 +776,18 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .phish-reveal-tag{ display:inline-block; font-family:var(--font-mono); font-size:11px; font-weight:700; background:var(--white); border:2px solid var(--ink); border-radius:100px; padding:5px 12px; color:var(--ink); }
 
 /* botón fijo abajo */
-.phish-cta-wrap{ position:sticky; bottom:0; left:0; right:0; padding:14px 0 4px; margin:0 -18px -8px; background:linear-gradient(to top, var(--peach) 55%, transparent); }
+/* Antes era "position:sticky" con márgenes negativos para que el botón
+   flotara pegado abajo, pero eso lo hacía superponerse con el bloque del
+   correo que viene después (tapaba el título y el pill "en vivo"). Como el
+   tip ya hace scroll automático al elegir una opción, el botón no necesita
+   flotar: basta con que sea un bloque normal, con su propio espacio. */
+.phish-cta-wrap{ padding:14px 0 22px; }
 .phish-cta{ width:100%; justify-content:center; }
-.phish-cta[disabled]{ opacity:.45; pointer-events:none; }
+/* Antes usaba solo opacity, lo cual atenúa por separado la sombra sólida del
+   botón y el brillo del ::before, dando un efecto de "doble capa" raro.
+   En vez de eso, se apaga como un botón plano: sin sombra, fondo claro. */
+.phish-cta[disabled]{ background:var(--white); color:var(--ink-soft); border-color:var(--ink-soft); box-shadow:none; transform:translateY(var(--depth)); opacity:.85; pointer-events:none; }
+.phish-cta[disabled]::before{ display:none; }
 
 /* resultado: nivel de engaño, análisis visual y recomendaciones */
 .phish-result{ text-align:center; }
@@ -766,7 +796,36 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .phish-tier.medio{ background:var(--sun); }
 .phish-tier.bajo{ background:var(--teal); }
 .phish-score{ font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink-soft); text-align:center; margin-bottom:14px; }
-.phish-result-msg{ font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 18px; }
+.phish-result-msg{ font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 10px; }
+.phish-result-intro{ font-size:12.5px; line-height:1.55; color:var(--ink-soft); margin:0 0 18px; }
+
+/* correo final dentro del resultado: un poco más chico que en vivo */
+#phishResultEmailSlot .phish-preview-head{ justify-content:center; }
+#phishResultEmailSlot .email-mock{ max-width:460px; }
+
+/* resumen chiquito de puntos, tipo recibo */
+.phish-picks{ text-align:left; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:10px 14px; margin:0 auto 14px; max-width:460px; display:flex; flex-direction:column; gap:7px; }
+.phish-pick-row{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); border-bottom:1.5px dashed var(--peach-line); padding-bottom:6px; }
+.phish-pick-row:last-child{ border-bottom:none; padding-bottom:0; }
+.phish-pick-row .pp-label{ min-width:0; overflow-wrap:anywhere; }
+.phish-pick-row .pp-points{ flex:none; font-weight:700; color:var(--coral-deep); }
+
+/* enlace pequeño para abrir el análisis completo en un popup */
+.phish-analysis-link{ display:inline-flex; align-items:center; gap:6px; background:none; border:none; font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px; cursor:pointer; padding:4px 6px; margin:0 0 20px; }
+.phish-analysis-link:hover{ color:var(--coral-deep); }
+
+/* popup con el análisis técnico completo */
+.phish-modal-overlay{ position:fixed; inset:0; z-index:400; background:rgba(42,54,59,.55); display:flex; align-items:flex-end; justify-content:center; padding:0; }
+.phish-modal{ position:relative; background:var(--peach); width:100%; max-width:560px; max-height:88vh; max-height:88dvh; overflow-y:auto; -webkit-overflow-scrolling:touch; border:3px solid var(--ink); border-bottom:none; border-radius:var(--radius-lg) var(--radius-lg) 0 0; padding:26px 20px calc(24px + env(safe-area-inset-bottom)); box-shadow:0 -6px 0 var(--ink); animation:phishModalIn .22s ease; }
+@keyframes phishModalIn{ from{ transform:translateY(24px); opacity:.6; } to{ transform:translateY(0); opacity:1; } }
+.phish-modal-close{ position:sticky; float:right; top:0; width:32px; height:32px; border-radius:50%; background:var(--white); border:2.5px solid var(--ink); font-size:14px; font-weight:700; color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center; margin:0 0 8px 12px; }
+.phish-modal .phish-analysis{ margin:0 0 18px; }
+.phish-modal .phish-prevent{ margin:0; }
+
+@media (min-width:640px){
+  .phish-modal-overlay{ align-items:center; }
+  .phish-modal{ border-radius:var(--radius-lg); border-bottom:3px solid var(--ink); box-shadow:var(--shadow); }
+}
 
 /* análisis visual: qué se eligió en cada parte del correo y por qué es una señal de alerta */
 .phish-analysis{ text-align:left; background:var(--cream); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; margin:0 0 18px; }

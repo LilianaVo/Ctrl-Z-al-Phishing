@@ -297,64 +297,8 @@
         <div class="game-content" id="game2Content" hidden>
           <div class="phish-builder" id="phishBuilder">
 
-            <div class="phish-preview-head">
-              <div class="phish-preview-title">✉ Así va quedando</div>
-              <div class="phish-live-pill">Se actualiza en vivo</div>
-            </div>
-            <div class="email-mock gmail-mock" id="game2Email">
-              <div class="gmail-toolbar" aria-hidden="true">
-                <span class="gmail-icon-btn" title="Archivar"><svg viewBox="0 0 24 24"><path d="M20.55 5.22l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.15.55L3.46 5.22C3.17 5.57 3 6.01 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.49-.17-.93-.45-1.28zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.14l.81 1H5.12z"/></svg></span>
-                <span class="gmail-icon-btn" title="Eliminar"><svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
-                <span class="gmail-icon-btn" title="Marcar como no leído"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-                <div class="gmail-toolbar-spacer"></div>
-                <span class="gmail-icon-btn" title="Más opciones"><svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
-              </div>
-              <h1 class="gmail-subject">Confirmación de movimiento con tarjeta</h1>
-              <div class="gmail-sender-row">
-                <div class="gmail-avatar" id="pbAvatar" aria-hidden="true">?</div>
-                <div class="gmail-sender-info">
-                  <div class="gmail-sender-line">
-                    <b id="pbSenderName" class="gmail-placeholder">Elige un remitente…</b> <span class="gmail-addr" id="pbSenderAddr"></span>
-                  </div>
-                  <div class="gmail-sender-meta">para mí</div>
-                </div>
-                <div class="gmail-msg-actions" aria-hidden="true">
-                  <span class="gmail-time">10:42</span>
-                </div>
-              </div>
-              <div class="e-body gmail-body">
-                <p id="pbSaludo" class="gmail-placeholder">Elige la personalización para ver el saludo…</p>
-                <p>Recibimos una solicitud relacionada con tu cuenta. Te compartimos los detalles para que puedas revisarla.</p>
-                <b>DETALLES DE LA OPERACIÓN</b>
-                <div style="margin-bottom: 14px;">
-                  <span style="display:block; color:#777; margin-bottom:2px;">Fecha:</span>
-                  <strong style="display:block; color:#000;">11 de septiembre de 2026</strong>
-                </div>
-                <div style="margin-bottom: 14px;">
-                  <span style="display:block; color:#777; margin-bottom:2px;">Hora:</span>
-                  <strong style="display:block; color:#000;">16:24:01 hrs.</strong>
-                </div>
-                <div style="margin-bottom: 14px;">
-                  <span style="display:block; color:#777; margin-bottom:2px;">Folio:</span>
-                  <strong style="display:block; color:#000;">0813184020</strong>
-                </div>
-                <p id="pbUrgencia" class="gmail-placeholder">Elige un tono para ver el plazo…</p>
-                <p id="pbAccion" class="gmail-placeholder">Elige un llamado a la acción…</p>
-                <p>Saludos,</p>
-                <p>Equipo BBVA</p>
-                <div style="text-align:center;">
-                  <a href="#" style="color:#0079c8; text-decoration:none;">Usa la app BBVA</a>
-                  <span style="color:#9ac7e0; margin:0 10px;">|</span>
-                  <a href="#" style="color:#0079c8; text-decoration:none;">800 226 2663</a>
-                  <span style="color:#9ac7e0; margin:0 10px;">|</span>
-                  <a href="#" style="color:#0079c8; text-decoration:none;">Busca una sucursal</a></div>
-              </div>
-              <div class="gmail-reply-row" aria-hidden="true">
-                <span class="gmail-pill-btn">↩ Responder</span>
-                <span class="gmail-pill-btn">↪ Reenviar</span>
-              </div>
-            </div>
-
+            <!-- Primero la pregunta y las opciones: así no hay que scrollear
+                 pasando todo un correo para poder elegir. -->
             <div class="phish-step-wrap" id="phishStepWrap">
               <div class="phish-step-label" id="phishStepLabel">Paso 1/4</div>
               <div class="phish-progress" id="phishProgress"></div>
@@ -380,25 +324,86 @@
               <button type="button" class="btn coral phish-cta" id="phishCtaBtn" disabled>Siguiente paso →</button>
             </div>
 
+            <!-- El correo va quedando armado aquí abajo, a modo de referencia;
+                 al terminar, este mismo bloque se mueve dentro del resultado. -->
+            <div id="phishLiveEmailSlot">
+              <div id="phishEmailBlock">
+                <div class="phish-preview-head">
+                  <div class="phish-preview-title" id="phishPreviewTitle">✉ Así va quedando</div>
+                  <div class="phish-live-pill" id="phishLivePill">Se actualiza en vivo</div>
+                </div>
+                <div class="email-mock gmail-mock" id="game2Email">
+                  <div class="gmail-toolbar" aria-hidden="true">
+                    <span class="gmail-icon-btn" title="Archivar"><svg viewBox="0 0 24 24"><path d="M20.55 5.22l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.15.55L3.46 5.22C3.17 5.57 3 6.01 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.49-.17-.93-.45-1.28zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.14l.81 1H5.12z"/></svg></span>
+                    <span class="gmail-icon-btn" title="Eliminar"><svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg></span>
+                    <span class="gmail-icon-btn" title="Marcar como no leído"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                    <div class="gmail-toolbar-spacer"></div>
+                    <span class="gmail-icon-btn" title="Más opciones"><svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
+                  </div>
+                  <h1 class="gmail-subject">Confirmación de movimiento con tarjeta</h1>
+                  <div class="gmail-sender-row">
+                    <div class="gmail-avatar" id="pbAvatar" aria-hidden="true">?</div>
+                    <div class="gmail-sender-info">
+                      <div class="gmail-sender-line">
+                        <b id="pbSenderName" class="gmail-placeholder">Elige un remitente…</b> <span class="gmail-addr" id="pbSenderAddr"></span>
+                      </div>
+                      <div class="gmail-sender-meta">para mí</div>
+                    </div>
+                    <div class="gmail-msg-actions" aria-hidden="true">
+                      <span class="gmail-time">10:42</span>
+                    </div>
+                  </div>
+                  <div class="e-body gmail-body">
+                    <p id="pbSaludo" class="gmail-placeholder">Elige la personalización para ver el saludo…</p>
+                    <p>Recibimos una solicitud relacionada con tu cuenta. Te compartimos los detalles para que puedas revisarla.</p>
+                    <b>DETALLES DE LA OPERACIÓN</b>
+                    <div style="margin-bottom: 14px;">
+                      <span style="display:block; color:#777; margin-bottom:2px;">Fecha:</span>
+                      <strong style="display:block; color:#000;">11 de septiembre de 2026</strong>
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                      <span style="display:block; color:#777; margin-bottom:2px;">Hora:</span>
+                      <strong style="display:block; color:#000;">16:24:01 hrs.</strong>
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                      <span style="display:block; color:#777; margin-bottom:2px;">Folio:</span>
+                      <strong style="display:block; color:#000;">0813184020</strong>
+                    </div>
+                    <p id="pbUrgencia" class="gmail-placeholder">Elige un tono para ver el plazo…</p>
+                    <p id="pbAccion" class="gmail-placeholder">Elige un llamado a la acción…</p>
+                    <p>Saludos,</p>
+                    <p>Equipo BBVA</p>
+                    <div style="text-align:center;">
+                      <a href="#" style="color:#0079c8; text-decoration:none;">Usa la app BBVA</a>
+                      <span style="color:#9ac7e0; margin:0 10px;">|</span>
+                      <a href="#" style="color:#0079c8; text-decoration:none;">800 226 2663</a>
+                      <span style="color:#9ac7e0; margin:0 10px;">|</span>
+                      <a href="#" style="color:#0079c8; text-decoration:none;">Busca una sucursal</a></div>
+                  </div>
+                  <div class="gmail-reply-row" aria-hidden="true">
+                    <span class="gmail-pill-btn">↩ Responder</span>
+                    <span class="gmail-pill-btn">↪ Reenviar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Resultado: header corto arriba, correo terminado, resumen
+                 de puntos en chiquito, y el análisis completo se abre aparte
+                 en una ventana emergente para no llenar todo de texto. -->
             <div class="phish-result" id="result2" hidden>
               <div class="phish-tier" id="phishTier">
                 <span id="phishTierText">⚠️ Nivel de engaño: ALTO</span>
               </div>
               <div class="phish-score" id="phishScore">72/100 puntos</div>
-
               <p class="phish-result-msg" id="phishResultMsg"></p>
+              <p class="phish-result-intro" id="endMsg2"></p>
 
-              <div class="phish-analysis">
-                <div class="phish-analysis-head">🔍 Análisis del correo que armaste</div>
-                <div class="phish-analysis-list" id="phishAnalysisList"></div>
-              </div>
+              <div id="phishResultEmailSlot"></div>
 
-              <div class="phish-prevent">
-                <div class="phish-prevent-head">✅ Cómo protegerte de un correo así</div>
-                <ul id="phishPreventList"></ul>
-              </div>
+              <div class="phish-picks" id="phishPicksSummary"></div>
 
-              <p id="endMsg2"></p>
+              <button type="button" class="phish-analysis-link" id="phishAnalysisToggle">🔍 Ver análisis completo</button>
 
               <div class="next-choices">
                 <button class="redo-btn" id="restartBtn2"><span class="k2">Ctrl</span><span class="k2">Z</span> Intentar otro escenario</button>
@@ -410,6 +415,22 @@
               </div>
             </div>
 
+          </div>
+        </div>
+
+        <!-- Ventana emergente con el análisis técnico completo (se muestra
+             al tocar "Ver análisis completo" en el resultado). -->
+        <div class="phish-modal-overlay" id="phishModalOverlay" hidden>
+          <div class="phish-modal" role="dialog" aria-modal="true" aria-labelledby="phishModalTitle">
+            <button type="button" class="phish-modal-close" id="phishModalClose" aria-label="Cerrar análisis">✕</button>
+            <div class="phish-analysis">
+              <div class="phish-analysis-head" id="phishModalTitle">🔍 Análisis del correo que armaste</div>
+              <div class="phish-analysis-list" id="phishAnalysisList"></div>
+            </div>
+            <div class="phish-prevent">
+              <div class="phish-prevent-head">✅ Cómo protegerte de un correo así</div>
+              <ul id="phishPreventList"></ul>
+            </div>
           </div>
         </div>
       </div>
@@ -522,7 +543,7 @@
           <div class="panel-head">
             <div class="section-label">04 · Reconstruye el perfil</div>
             <h2 class="h2" style="margin-left:auto;margin-right:auto;">Un dato no dice mucho. Varios datos, sí.</h2>
-            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este es el perfil de Andrea, un personaje ficticio. Descubre cuánto se puede armar combinando lo que publica.</p>
+            <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este es el perfil de Frida, un personaje ficticio. Descubre cuánto se puede armar combinando lo que publica.</p>
           </div>
           <div class="how-to-play">
             <b>Cómo jugar:</b> revisa sus publicaciones, detecta patrones y arma su ficha.
@@ -536,31 +557,37 @@
         <!-- ===== PANTALLA A: Detecta el patrón ===== -->
         <div class="g4-screen" id="g4ScreenA">
 
-          <!-- Paso 1: publicaciones, una por una -->
+          <!-- Paso 1: mockup de Instagram, se toca cada foto -->
           <div id="g4PostStep">
-            <div class="phish-step-label" id="g4PostStepLabel">Paso 1 de 2 · Publicación 1 de 6</div>
-            <div class="phish-progress" id="g4ProgressPosts"><!-- puntos inyectados por JS --></div>
+            <div class="phish-step-label">Paso 1 de 2</div>
+            <p class="g4-screen-sub">Toca cada publicación para ver qué revela por sí sola.</p>
 
-            <div class="phish-cat-head">
-              <div class="phish-cat-icon" id="g4PostIcon">📸</div>
-              <div class="phish-cat-text">
-                <div class="phish-cat-title">El feed de Andrea</div>
-                <div class="phish-cat-q">Lee la publicación y qué revela por sí sola.</div>
+            <div class="g4-ig-card">
+              <div class="g4-ig-head">
+                <div class="g4-ig-avatar">FN</div>
+                <div class="g4-ig-name">frida.navarro</div>
+                <div class="g4-ig-more">•••</div>
               </div>
-            </div>
-
-            <div class="g4-post-card">
-              <div class="g4-post-media" id="g4PostMedia">📸</div>
-              <p class="g4-post-caption" id="g4PostCaption"></p>
-            </div>
-
-            <div class="phish-reveal">
-              <div class="phish-reveal-q">¿Qué revela por sí sola?</div>
-              <ul class="g4-reveal-list" id="g4PostRevealList"></ul>
+              <div class="g4-ig-grid" id="g4IgGrid"><!-- 6 miniaturas inyectadas por JS --></div>
             </div>
 
             <div class="phish-cta-wrap">
-              <button type="button" class="btn coral phish-cta" id="g4PostNextBtn">Entendido ✓</button>
+              <button type="button" class="btn coral phish-cta" id="g4PostNextBtn" disabled>Ver combinaciones →</button>
+            </div>
+          </div>
+
+          <!-- Modal: publicación abierta -->
+          <div class="phish-modal-overlay" id="g4PostModalOverlay" hidden>
+            <div class="phish-modal g4-post-modal" role="dialog" aria-modal="true" aria-labelledby="g4ModalCaption">
+              <button type="button" class="phish-modal-close" id="g4PostModalClose" aria-label="Cerrar">✕</button>
+              <div class="g4-post-modal-count" id="g4ModalCount">1/6</div>
+              <img class="g4-post-modal-img" id="g4ModalImg" src="" alt="">
+              <p class="g4-post-caption" id="g4ModalCaption"></p>
+              <div class="phish-reveal">
+                <div class="phish-reveal-q">¿Qué revela por sí sola?</div>
+                <ul class="g4-reveal-list" id="g4ModalRevealList"></ul>
+              </div>
+              <button type="button" class="btn coral phish-cta" id="g4ModalCloseBtn">Entendido ✓</button>
             </div>
           </div>
 
@@ -578,7 +605,7 @@
 
         <!-- ===== PANTALLA B: Construye el perfil ===== -->
         <div class="g4-screen" id="g4ScreenB" hidden>
-          <div class="phish-step-label">Ficha de Andrea</div>
+          <div class="phish-step-label">Ficha de Frida</div>
           <p class="g4-screen-sub">Arrastra (o toca) cada dato y colócalo donde creas que corresponde.</p>
 
           <div class="g4-field-grid" id="g4FieldGrid"><!-- campos inyectados por JS --></div>
@@ -611,17 +638,17 @@
             <div class="retro-body">
               <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
               <div class="dossier" id="g4Dossier">
-                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Así quedó el expediente de Andrea</div>
+                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Así quedó el expediente de Frida</div>
                 <ul class="dossier-list g4-bars" id="g4DossierBars">
-                  <li class="g4-bar"><span class="g4-bar-label">Universidad</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:88%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Rutina</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:66%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Contacto</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:55%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Relaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:44%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Datos personales</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:33%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Dirección y ubicaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:90%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Rutina semanal</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:70%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Trabajo</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:55%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Relaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:45%"></span></span></li>
+                  <li class="g4-bar"><span class="g4-bar-label">Fecha de nacimiento</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:35%"></span></span></li>
                 </ul>
               </div>
               <p class="msg">No publicaste toda esta información de una vez. Se fue construyendo a partir de pequeñas pistas.</p>
-              <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Andrea es un personaje ficticio. Este ejercicio es educativo y no mide el riesgo real de ningún perfil.</p>
+              <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Frida es un personaje ficticio. Este ejercicio es educativo y no mide el riesgo real de ningún perfil.</p>
               <div class="next-choices">
                 <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar</button>
                 <button class="menu-btn" data-back>Elegir otro juego →</button>
@@ -1527,7 +1554,13 @@ function renderPhishChoices(step){
 function revealPhishExplanation(step, opt){
   document.getElementById('phishRevealText').textContent = opt.explain;
   document.getElementById('phishRevealTag').textContent = `💡 Técnica: ${opt.technique}`;
-  document.getElementById('phishReveal').hidden = false;
+  const reveal = document.getElementById('phishReveal');
+  reveal.hidden = false;
+  // Al elegir, el tip y el botón de "Siguiente paso" quedan justo debajo de
+  // las opciones (ya no hay que scrollear pasando todo el correo), pero por
+  // si la pantalla es chica, de todos modos se desplaza suavemente para que
+  // ambos queden visibles sin esfuerzo extra.
+  setTimeout(()=> reveal.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
 }
 
 function renderPhishStep(){
@@ -1566,6 +1599,42 @@ const PHISH_PREVENT_TIPS = [
   'Si algo no cuadra, verifica por un canal distinto (la app oficial, una línea conocida) antes de actuar.'
 ];
 
+// El bloque del correo vive en un solo lugar del DOM y se mueve entre la
+// posición "en vivo" (mientras se juega) y el resultado (al terminar), en
+// vez de duplicar todo su HTML dos veces.
+function moveEmailBlockToResult(){
+  document.getElementById('phishResultEmailSlot').appendChild(document.getElementById('phishEmailBlock'));
+  document.getElementById('phishPreviewTitle').textContent = '✉ El correo que armaste';
+  document.getElementById('phishLivePill').hidden = true;
+}
+function moveEmailBlockToLive(){
+  document.getElementById('phishLiveEmailSlot').appendChild(document.getElementById('phishEmailBlock'));
+  document.getElementById('phishPreviewTitle').textContent = '✉ Así va quedando';
+  document.getElementById('phishLivePill').hidden = false;
+}
+
+// Resumen chiquito, tipo recibo, de qué se eligió en cada parte y cuántos
+// puntos sumó cada elección — el detalle completo vive en el popup de análisis.
+function renderPhishPicks(){
+  const wrap = document.getElementById('phishPicksSummary');
+  wrap.innerHTML = '';
+  PHISH_STEPS.forEach(step=>{
+    const opt = phishAnswers[step.key];
+    const label = (step.key === 'remitente') ? `${opt.preview.name} ${opt.preview.addr}` : opt.sub;
+    const row = document.createElement('div');
+    row.className = 'phish-pick-row';
+    row.innerHTML = `<span class="pp-label">${label}</span><span class="pp-points">+${opt.points}</span>`;
+    wrap.appendChild(row);
+  });
+}
+
+function openPhishModal(){
+  document.getElementById('phishModalOverlay').hidden = false;
+}
+function closePhishModal(){
+  document.getElementById('phishModalOverlay').hidden = true;
+}
+
 function finishPhishGame(){
   const total = phishTotal();
   const tier = phishTierInfo(total);
@@ -1575,9 +1644,13 @@ function finishPhishGame(){
   document.getElementById('phishTierText').textContent = tier.label;
   document.getElementById('phishScore').textContent = `${total}/100 puntos`;
   document.getElementById('phishResultMsg').textContent = tier.msg;
+  document.getElementById('endMsg2').textContent = 'Este es un ejemplo de qué tan real puede parecer un correo de phishing usando solo información pública. Reconocer estas señales es el primer paso para no caer en un engaño así.';
 
-  // Análisis visual: qué eligió la persona en cada parte del correo,
-  // con la técnica y la señal de alerta correspondiente.
+  moveEmailBlockToResult();
+  renderPhishPicks();
+
+  // Análisis visual completo: qué eligió la persona en cada parte del correo,
+  // con la técnica y la señal de alerta correspondiente. Vive en el popup.
   const analysis = document.getElementById('phishAnalysisList');
   analysis.innerHTML = '';
   PHISH_STEPS.forEach(step=>{
@@ -1602,8 +1675,6 @@ function finishPhishGame(){
     preventList.appendChild(li);
   });
 
-  document.getElementById('endMsg2').textContent = 'Este es un ejemplo de qué tan real puede parecer un correo de phishing usando solo información pública. Reconocer estas señales es el primer paso para no caer en un engaño así.';
-
   document.getElementById('phishStepWrap').hidden = true;
   document.getElementById('phishCtaWrap').hidden = true;
   document.getElementById('result2').hidden = false;
@@ -1617,6 +1688,8 @@ function restartPhishGame(){
   phishAnswers = {};
   phishStepIndex = 0;
   shufflePhishOptions();
+  closePhishModal();
+  moveEmailBlockToLive();
   updateEmailPreview();
   document.getElementById('result2').hidden = true;
   document.getElementById('phishStepWrap').hidden = false;
@@ -1636,6 +1709,11 @@ document.getElementById('phishCtaBtn').addEventListener('click', ()=>{
 });
 
 document.getElementById('restartBtn2').addEventListener('click', restartPhishGame);
+document.getElementById('phishAnalysisToggle').addEventListener('click', openPhishModal);
+document.getElementById('phishModalClose').addEventListener('click', closePhishModal);
+document.getElementById('phishModalOverlay').addEventListener('click', (e)=>{
+  if(e.target.id === 'phishModalOverlay') closePhishModal();
+});
 
 document.getElementById('game2StartBtn').addEventListener('click', ()=>{
   document.getElementById('game2Intro').hidden = true;
@@ -1960,72 +2038,93 @@ document.getElementById('game3StartBtn').addEventListener('click', ()=>{
    JUEGO 4 · Reconstruye el perfil
    ============================================================ */
 const G4_POSTS = [
-  { id:'cafe', emoji:'☕', caption:'"Mi cafecito de después de clase ☕"', reveals:['Un lugar que visita seguido (una cafetería).','Un momento del día: justo después de clase.'] },
-  { id:'uni', emoji:'🎓', caption:'"Primer día en mi nueva uni 💕"', reveals:['En qué universidad estudia.','Que acaba de entrar, es nueva en ese entorno.'] },
-  { id:'horario', emoji:'🕕', caption:'"Por fin viernes, saliendo de clases a las 6"', reveals:['Un día y una hora en que suele salir de clases.','Un fragmento de su rutina semanal.'] },
-  { id:'cumple', emoji:'🎂', caption:'"Hoy cumplo 21 🎉"', reveals:['Su edad aproximada.','Que hoy es su cumpleaños (y por tanto, la fecha).'] },
-  { id:'toby', emoji:'🐶', caption:'"Toby siempre me espera en la puerta"', reveals:['El nombre de su mascota.','Un dato que a veces se usa en preguntas de seguridad.'] },
-  { id:'mama', emoji:'🥹', caption:'"Mi mamá me regaló esto por mi cumple"', reveals:['Que tiene una relación cercana con su mamá.','Nada más por sí sola — falta contexto.'] },
+  { id:'escuela', file:'g4-frida-escuela.jpg',
+    caption:'"Nuevo semestre 📚😭 Este es mi horario de este semestre. Si desaparezco entre semana ya saben por qué jajaja."',
+    reveals:['Su horario de clases: qué días, en qué horario y en qué salón.','La escuela exacta donde estudia y el nombre de uno de sus profesores, visibles en la libreta.'] },
+  { id:'gimnasio', file:'g4-frida-gimnasio.jpg',
+    caption:'"Rutina de todos los viernes 💪 ya merito es fin de semana"',
+    reveals:['El gimnasio exacto al que va (se lee el nombre en el letrero).','Un patrón de horario: siempre entrena ahí los viernes en la noche.'] },
+  { id:'trabajo', file:'g4-frida-trabajo.jpg',
+    caption:'"Otro día resolviendo bugs ☕💻"',
+    reveals:['Su nombre completo y puesto, visibles en su gafete.','El proyecto y el cliente en el que trabaja, y hasta la hora de una junta interna, visibles en su pantalla.'] },
+  { id:'amazon', file:'g4-frida-amazon.jpg',
+    caption:'"Nueva vista, nueva etapa 🏙️ ya llegó mi primer pedido a la casa nueva"',
+    reveals:['Su dirección completa, legible en la factura que dejó sobre la mesa.','Una vista lo bastante distintiva del rumbo como para ubicar la zona exacta.'] },
+  { id:'vacaciones', file:'g4-frida-vacaciones.jpg',
+    caption:'"Una semana fuera de todo 🏔️✌️"',
+    reveals:['El hotel donde se hospeda (y con eso, en qué ciudad o zona está).','Que va a estar fuera varios días — es decir, cuándo su casa va a estar sola.'] },
+  { id:'cumple', file:'g4-frida-cumple.jpg',
+    caption:'"23 rodeada de mis personas favoritas 🥂🎂"',
+    reveals:['Su edad exacta (y con la fecha de la publicación, una fecha de nacimiento aproximada).','El restaurante y la zona donde estaba esa noche, y los rostros de varias personas cercanas a ella.'] },
 ];
 
 const G4_COMBOS = [
-  { id:'c1', posts:['cafe','uni','horario'], correct:true,
-    title:'Cafetería después de clase + primer día en la uni + sale a las 6',
-    why:'Sí forma un patrón: rutina en un lugar cercano, en horarios predecibles y ligada a una universidad concreta. Alguien podría anticipar dónde y cuándo encontrarla.' },
-  { id:'c2', posts:['cumple','mama'], correct:true,
-    title:'Hoy cumplo 21 + mi mamá me regaló esto',
-    why:'Sí forma un patrón: da una fecha aproximada de nacimiento junto con el nombre de una persona cercana — justo lo que se usa en preguntas de seguridad o mensajes que dicen ser "de tu mamá".' },
-  { id:'c3', posts:['toby','cumple'], correct:false,
-    title:'Toby me espera en la puerta + hoy cumplo 21',
-    why:'No arma nada nuevo: ninguno de los dos agrega ubicación, horario ni contacto al otro. Siguen siendo dos piezas sueltas.' },
+  { id:'c1', posts:['escuela','gimnasio'], correct:true,
+    title:'Su horario de clases + que va al gimnasio todos los viernes en la noche',
+    why:'Sí forma un patrón: ya se sabe dónde está de lunes a viernes en la mañana (salón A201) y qué hace los viernes en la noche (en un gimnasio específico) — suficiente para anticipar dónde va a estar casi cualquier día de la semana.' },
+  { id:'c2', posts:['amazon','vacaciones'], correct:true,
+    title:'La factura con su dirección completa + que va a estar fuera toda una semana',
+    why:'Sí forma un patrón especialmente delicado: se sabe exactamente dónde vive Y que su casa va a estar vacía varios días — justo la combinación que facilita un robo, no solo un fraude.' },
+  { id:'c3', posts:['trabajo','cumple'], correct:false,
+    title:'Su gafete del trabajo + la foto de su cumpleaños con amigos',
+    why:'No arma nada nuevo por sí sola: ninguna de las dos agrega ubicación ni horario a la otra. Siguen siendo dos piezas sueltas, aunque cada una por separado sí revela cosas (como se ve en la ficha).' },
 ];
 
 const G4_FIELDS = [
-  { id:'universidad', emoji:'🎓', label:'Universidad', value:'Tec Norte' },
-  { id:'colonia', emoji:'📍', label:'Colonia', value:'Villa Aurora' },
-  { id:'mascota', emoji:'🐶', label:'Nombre de mascota', value:'Toby' },
-  { id:'cumpleanos', emoji:'🎂', label:'Cumpleaños', value:'21 de mayo' },
-  { id:'telefono', emoji:'📱', label:'Teléfono', value:'55 1234 5678' },
-  { id:'mama_nombre', emoji:'👩', label:'Nombre de mamá', value:'Laura' },
-  { id:'horario', emoji:'⏰', label:'Horario habitual', value:'Sale a las 6 pm' },
-  { id:'credencial', emoji:'📸', label:'Foto de credencial', value:'Adjunta' },
+  { id:'universidad', emoji:'🎓', label:'Universidad', value:'Facultad de Ingeniería, UNAM' },
+  { id:'direccion', emoji:'📍', label:'Dirección', value:'Roma Norte, CDMX (calle y número visibles)' },
+  { id:'empresa', emoji:'💼', label:'Cliente en el que trabaja', value:'Nova Retail — proyecto Optimus Checkout' },
+  { id:'edad', emoji:'🎂', label:'Edad', value:'23 años (cumpleaños reciente)' },
+  { id:'gimnasio', emoji:'🏋️', label:'Gimnasio habitual', value:'Anytime Fitness, viernes por la noche' },
+  { id:'horario', emoji:'⏰', label:'Horario de clases', value:'Lunes a viernes, 8:00–10:00, salón A201' },
+  { id:'vacio', emoji:'🧳', label:'Casa sola', value:'Una semana de vacaciones, departamento vacío' },
+  { id:'amigos', emoji:'👥', label:'Rostros de amigos', value:'Identificables en la cena de cumpleaños' },
 ];
 
-const g4State = { postIndex:0, comboChecked:new Set(), placed:{}, selectedField:null };
+const g4State = { viewed:new Set(), comboChecked:new Set(), placed:{}, selectedField:null };
 
-/* ---- Pantalla A, paso 1: publicaciones una por una ---- */
-function g4RenderProgressPosts(){
-  const wrap=document.getElementById('g4ProgressPosts');
-  wrap.innerHTML='';
+/* ---- Pantalla A, paso 1: mockup de Instagram ---- */
+function g4RenderGrid(){
+  const grid=document.getElementById('g4IgGrid');
+  grid.innerHTML='';
   G4_POSTS.forEach((p,i)=>{
-    if(i>0){ const line=document.createElement('div'); line.className='phish-step-line'; wrap.appendChild(line); }
-    const dot=document.createElement('div');
-    dot.className='phish-step-dot' + (i<g4State.postIndex ? ' done' : (i===g4State.postIndex ? ' active' : ''));
-    dot.textContent=i+1;
-    wrap.appendChild(dot);
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='g4-ig-thumb' + (g4State.viewed.has(p.id) ? ' seen' : '');
+    btn.dataset.id=p.id;
+    btn.innerHTML=`<img src="images/${p.file}" alt=""><span class="g4-ig-dot"></span>`;
+    btn.addEventListener('click', ()=> g4OpenPost(i));
+    grid.appendChild(btn);
   });
+  document.getElementById('g4PostNextBtn').disabled = g4State.viewed.size < G4_POSTS.length;
 }
-function g4RenderPost(){
-  const p=G4_POSTS[g4State.postIndex];
-  document.getElementById('g4PostStepLabel').textContent=`Paso 1 de 2 · Publicación ${g4State.postIndex+1} de ${G4_POSTS.length}`;
-  document.getElementById('g4PostIcon').textContent=p.emoji;
-  document.getElementById('g4PostMedia').textContent=p.emoji;
-  document.getElementById('g4PostCaption').textContent=p.caption;
-  const list=document.getElementById('g4PostRevealList');
+function g4OpenPost(i){
+  const p=G4_POSTS[i];
+  document.getElementById('g4ModalCount').textContent=`${i+1}/${G4_POSTS.length}`;
+  document.getElementById('g4ModalImg').src=`images/${p.file}`;
+  document.getElementById('g4ModalCaption').textContent=p.caption;
+  const list=document.getElementById('g4ModalRevealList');
   list.innerHTML='';
   p.reveals.forEach(r=>{ const li=document.createElement('li'); li.textContent=r; list.appendChild(li); });
-  document.getElementById('g4PostNextBtn').textContent = g4State.postIndex===G4_POSTS.length-1 ? 'Ver combinaciones →' : 'Entendido ✓';
-  g4RenderProgressPosts();
+  document.getElementById('g4PostModalOverlay').hidden=false;
+  document.getElementById('g4PostModalOverlay').dataset.postId=p.id;
 }
+function g4ClosePost(markSeen){
+  const overlay=document.getElementById('g4PostModalOverlay');
+  if(markSeen && overlay.dataset.postId) g4State.viewed.add(overlay.dataset.postId);
+  overlay.hidden=true;
+  g4RenderGrid();
+}
+document.getElementById('g4PostModalClose').addEventListener('click', ()=> g4ClosePost(false));
+document.getElementById('g4ModalCloseBtn').addEventListener('click', ()=> g4ClosePost(true));
+document.getElementById('g4PostModalOverlay').addEventListener('click', (e)=>{
+  if(e.target.id === 'g4PostModalOverlay') g4ClosePost(false);
+});
 document.getElementById('g4PostNextBtn').addEventListener('click', ()=>{
-  if(g4State.postIndex < G4_POSTS.length-1){
-    g4State.postIndex++;
-    g4RenderPost();
-  } else {
-    document.getElementById('g4PostStep').hidden=true;
-    document.getElementById('g4ComboStep').hidden=false;
-    document.getElementById('g4ComboStep').scrollIntoView({behavior:'smooth', block:'start'});
-  }
+  if(g4State.viewed.size < G4_POSTS.length) return;
+  document.getElementById('g4PostStep').hidden=true;
+  document.getElementById('g4ComboStep').hidden=false;
+  document.getElementById('g4ComboStep').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
 /* ---- Pantalla A, paso 2: combinaciones ---- */
@@ -2040,7 +2139,7 @@ function g4RenderProgressCombo(){
     wrap.appendChild(dot);
   });
 }
-function g4PostEmoji(id){ return G4_POSTS.find(p=>p.id===id).emoji; }
+function g4PostFile(id){ return G4_POSTS.find(p=>p.id===id).file; }
 function g4RenderCombos(){
   const listEl=document.getElementById('g4ComboList');
   listEl.innerHTML='';
@@ -2048,7 +2147,7 @@ function g4RenderCombos(){
     const card=document.createElement('div');
     card.className='g4-combo-card';
     card.dataset.id=c.id;
-    const thumbs=c.posts.map(pid=>`<span>${g4PostEmoji(pid)}</span>`).join('');
+    const thumbs=c.posts.map(pid=>`<img src="images/${g4PostFile(pid)}" alt="">`).join('');
     card.innerHTML=`<div class="g4-combo-thumbs">${thumbs}</div>
       <div class="g4-combo-title">${c.title}</div>
       <div class="g4-checkbox">${PHISH_ICONS.check}</div>`;
@@ -2143,11 +2242,12 @@ document.getElementById('g4ToDossierBtn').addEventListener('click', ()=>{
 
 /* ---- Reinicio y arranque ---- */
 function g4ResetAll(){
-  g4State.postIndex=0;
+  g4State.viewed=new Set();
   g4State.comboChecked=new Set();
   document.getElementById('g4PostStep').hidden=false;
   document.getElementById('g4ComboStep').hidden=true;
-  g4RenderPost();
+  document.getElementById('g4PostModalOverlay').hidden=true;
+  g4RenderGrid();
   g4RenderCombos();
   g4RenderFields();
   document.getElementById('g4Dash').hidden=true;
