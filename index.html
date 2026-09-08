@@ -23,7 +23,7 @@
 </nav>
 
 <div id="top"></div>
-<div class="hero grid-floor">
+<div class="hero">
   <div class="hero-inner">
     <div class="eyebrow-chip"><img src="images/icon-advertencia.png" class="emoji-icon" alt="Advertencia"> ¿Sabrías reconocerlo?</div>
     <h1 class="title">Antes de dar clic,<br><span class="hl">haz una pausa.</span></h1>
@@ -31,22 +31,7 @@
     <div class="keys-row"><div class="keycap">Ctrl</div><div class="plus">+</div><div class="keycap">Z</div></div>
 
     <div class="hero-scene" aria-hidden="true">
-      <svg viewBox="0 0 300 260" width="100%" height="100%">
-        <rect x="60" y="16" width="180" height="120" rx="14" fill="#FFF8F3" stroke="#2A363B" stroke-width="4"/>
-        <rect x="60" y="16" width="180" height="30" rx="14" fill="#E89A8A" stroke="#2A363B" stroke-width="4"/>
-        <circle cx="76" cy="31" r="4" fill="#2A363B"/><circle cx="90" cy="31" r="4" fill="#2A363B"/>
-        <line x1="78" y1="66" x2="180" y2="66" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-        <line x1="78" y1="80" x2="205" y2="80" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-        <line x1="78" y1="94" x2="150" y2="94" stroke="#2A363B" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-        <rect x="142" y="106" width="76" height="20" rx="10" fill="#81C8C0" stroke="#2A363B" stroke-width="3"/>
-<text x="180" y="120" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="9" fill="#2A363B">Ver mensaje</text>
-        <g transform="translate(150,150)">
-          <path d="M48 8 V50 C48 70 34 84 14 84 C-4 84 -16 72 -16 54" fill="none" stroke="#2A363B" stroke-width="10" stroke-linecap="round"/>
-          <path d="M-16 34 L-16 54 L4 54" fill="none" stroke="#2A363B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-      <div class="float-tag ft1">🔒 Datos personales</div>
-      <div class="float-tag ft2">💳 Información bancaria</div>
+      <img src="images/hero-illustration.png" alt="" width="1289" height="926">
     </div>
 
     <div class="hero-cta-row">
@@ -545,6 +530,21 @@
             <h2 class="h2" style="margin-left:auto;margin-right:auto;">Un dato no dice mucho. Varios datos, sí.</h2>
             <p class="h2-sub" style="margin-left:auto;margin-right:auto;">Este es el perfil de Frida, un personaje ficticio. Descubre cuánto se puede armar combinando lo que publica.</p>
           </div>
+          <div class="g4-intro-preview" aria-hidden="true">
+            <div class="g4-intro-preview-head">
+              <div class="g4-intro-preview-avatar">FN</div>
+              <div class="g4-intro-preview-name">frida.navarro</div>
+            </div>
+            <div class="g4-intro-preview-grid">
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-escuela.jpg" alt=""></div>
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-gimnasio.jpg" alt=""></div>
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-trabajo.jpg" alt=""></div>
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-amazon.jpg" alt=""></div>
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-vacaciones.jpg" alt=""></div>
+              <div class="g4-intro-preview-thumb"><img src="images/g4-frida-cumple.jpg" alt=""></div>
+            </div>
+            <div class="g4-intro-preview-caption">6 publicaciones. Cada una guarda una pista.</div>
+          </div>
           <div class="how-to-play">
             <b>Cómo jugar:</b> revisa sus publicaciones, detecta patrones y arma su ficha.
           </div>
@@ -560,6 +560,11 @@
           <!-- Paso 1: mockup de Instagram, se toca cada foto -->
           <div id="g4PostStep">
             <div class="phish-step-label">Paso 1 de 2</div>
+            <div class="phish-progress">
+              <div class="phish-step-dot active">1</div>
+              <div class="phish-step-line"></div>
+              <div class="phish-step-dot">2</div>
+            </div>
             <p class="g4-screen-sub">Toca cada publicación para ver qué revela por sí sola.</p>
 
             <div class="g4-ig-card">
@@ -594,8 +599,13 @@
           <!-- Paso 2: combinaciones -->
           <div id="g4ComboStep" hidden>
             <div class="phish-step-label">Paso 2 de 2 · Combina las pistas</div>
-            <div class="phish-progress" id="g4ProgressCombo"><!-- puntos inyectados por JS --></div>
-            <p class="g4-screen-sub">Marca las combinaciones que crees que revelan un patrón de ubicación + horario.</p>
+            <div class="phish-progress">
+              <div class="phish-step-dot done">1</div>
+              <div class="phish-step-line"></div>
+              <div class="phish-step-dot active">2</div>
+            </div>
+            <p class="g4-screen-sub">Selecciona combinaciones de publicaciones y descubre qué información nueva se puede deducir al juntarlas.</p>
+            <div class="phish-progress" id="g4ProgressCombo"><!-- puntos inyectados por JS: una marca por combinación --></div>
             <div class="g4-combo-list" id="g4ComboList"><!-- combos inyectados por JS --></div>
             <div class="phish-cta-wrap">
               <button type="button" class="btn coral phish-cta" id="g4ToScreenBBtn">Pasar a construir el perfil →</button>
@@ -866,6 +876,69 @@
     </div>
 
   </div>
+
+
+  <!-- ========== SEGUROS Y PROTECCIÓN AL COMPRAR ========== -->
+
+  <div class="chat-card retro-card" style="margin-top:22px;">
+
+    <div class="chat-card-bar">
+      <span class="cc-back">←</span>
+      <span class="cc-title">Seguros_y_protección</span>
+      <span class="cc-face">🛡️</span>
+    </div>
+
+    <div class="chat-card-body">
+
+      <!-- DERECHO A RECLAMAR: SIEMPRE APLICA -->
+      <div class="chat-msg chat-left" style="--bubble:var(--pastel-mint);">
+        <div class="chat-sender">TU DERECHO ✔️✔️<span class="chat-reply-tag">sin costo</span></div>
+        <div class="chat-bubble">
+          <div class="o-when">Cargo no reconocido en tu tarjeta</div>
+          <div class="o-desc">
+            Si reportas el cargo dentro de las primeras 48 horas, el banco debe abonarte el monto de forma provisional en un máximo de 2 días hábiles, mientras investiga. Tienes hasta 90 días naturales para presentar la aclaración, y el banco cuenta con hasta 45 días para dar una resolución.
+          </div>
+          <div class="o-social">
+            <a href="https://www.gob.mx/condusef" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>gob.mx/condusef</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEGUROS OPCIONALES DE TARJETA -->
+      <div class="chat-msg chat-right" style="--bubble:var(--pastel-sky);">
+        <div class="chat-sender">SEGUROS DE TARJETA<span class="chat-reply-tag">opcionales</span></div>
+        <div class="chat-bubble">
+          <div class="o-when">Algunos bancos los venden por separado</div>
+          <div class="o-desc">
+            Por ejemplo: "Seguro de Tarjetas" de BBVA, "Compras Protegidas" de Banamex o "Blindaje Total" de Santander. Suelen cubrir compras, retiros o transferencias hechas sin tu autorización hasta cierto monto (comúnmente hasta $10,000 MXN por evento). Pregunta a tu banco si ya lo incluyes o si puedes contratarlo.
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTECCIÓN INCLUIDA EN LA TARJETA -->
+      <div class="chat-msg chat-left" style="--bubble:var(--pastel-butter);">
+        <div class="chat-sender">TARJETAS VISA / MASTERCARD / AMEX</div>
+        <div class="chat-bubble">
+          <div class="o-when">Protección de compras ya incluida (sin costo extra)</div>
+          <div class="o-desc">
+            Varias tarjetas de crédito incluyen de fábrica un "seguro de compra protegida" que reembolsa artículos robados o dañados poco después de comprarlos con esa tarjeta. La cobertura y el plazo varían según el banco y el tipo de tarjeta — revisa tu contrato o pregúntale directamente a tu banco.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chat-card-footer">
+      <span>📎</span>
+      <span class="chat-input-fake">Escribe un mensaje…</span>
+      <span>↑</span>
+    </div>
+
+  </div>
+
+  <p class="h2-sub" style="text-align:center; max-width:640px; margin:14px auto 0; font-size:12px; opacity:.8;">
+    Los montos, plazos y condiciones exactas dependen de cada banco y de tu contrato — confírmalos directamente con tu institución financiera o con CONDUSEF.
+  </p>
 
 
   <!-- ========== CIERRE ========== -->
@@ -2059,15 +2132,21 @@ const G4_POSTS = [
 ];
 
 const G4_COMBOS = [
-  { id:'c1', posts:['escuela','gimnasio'], correct:true,
-    title:'Su horario de clases + que va al gimnasio todos los viernes en la noche',
-    why:'Sí forma un patrón: ya se sabe dónde está de lunes a viernes en la mañana (salón A201) y qué hace los viernes en la noche (en un gimnasio específico) — suficiente para anticipar dónde va a estar casi cualquier día de la semana.' },
-  { id:'c2', posts:['amazon','vacaciones'], correct:true,
-    title:'La factura con su dirección completa + que va a estar fuera toda una semana',
-    why:'Sí forma un patrón especialmente delicado: se sabe exactamente dónde vive Y que su casa va a estar vacía varios días — justo la combinación que facilita un robo, no solo un fraude.' },
-  { id:'c3', posts:['trabajo','cumple'], correct:false,
+  { id:'c1', posts:['escuela','gimnasio'],
+    title:'Su horario de clases + su rutina de gimnasio de los viernes',
+    deduction:'Juntando las dos publicaciones se puede reconstruir parte de su rutina semanal: dónde está entre semana en la mañana y qué hace los viernes en la noche.' },
+  { id:'c2', posts:['amazon','vacaciones'],
+    title:'La dirección visible en su factura + que va a estar de viaje toda una semana',
+    deduction:'Juntando las dos publicaciones se puede inferir en qué fechas su vivienda podría quedar sola, además de dónde está ubicada.' },
+  { id:'c3', posts:['trabajo','cumple'],
     title:'Su gafete del trabajo + la foto de su cumpleaños con amigos',
-    why:'No arma nada nuevo por sí sola: ninguna de las dos agrega ubicación ni horario a la otra. Siguen siendo dos piezas sueltas, aunque cada una por separado sí revela cosas (como se ve en la ficha).' },
+    deduction:'Estas dos publicaciones no se conectan entre sí: ninguna agrega ubicación ni horario a la otra, más allá de lo que cada una ya muestra por separado.' },
+  { id:'c4', posts:['trabajo','amazon'],
+    title:'Su gafete del trabajo + la factura con su dirección',
+    deduction:'Juntando las dos publicaciones quedan en un mismo lugar su nombre completo, la empresa donde trabaja y su dirección exacta: suficiente para identificarla con precisión.' },
+  { id:'c5', posts:['vacaciones','cumple'],
+    title:'La foto de sus vacaciones + la foto de su cumpleaños',
+    deduction:'Comparando las fechas en que publicó ambas fotos se puede acercar más su fecha de nacimiento aproximada.' },
 ];
 
 const G4_FIELDS = [
@@ -2151,16 +2230,18 @@ function g4RenderCombos(){
     card.innerHTML=`<div class="g4-combo-thumbs">${thumbs}</div>
       <div class="g4-combo-title">${c.title}</div>
       <div class="g4-checkbox">${PHISH_ICONS.check}</div>`;
+    const fb=document.createElement('div');
+    fb.className='g4-combo-feedback';
+    fb.hidden=true;
+    fb.innerHTML=`<span class="g4-combo-feedback-label">¿Qué se puede deducir?</span>${c.deduction}`;
     card.addEventListener('click', ()=>{
       const nowChecked=!card.classList.contains('checked');
       card.classList.toggle('checked', nowChecked);
+      fb.hidden=!nowChecked;
       if(nowChecked) g4State.comboChecked.add(c.id); else g4State.comboChecked.delete(c.id);
       g4RenderProgressCombo();
     });
     listEl.appendChild(card);
-    const fb=document.createElement('div');
-    fb.className='g4-combo-feedback ' + (c.correct ? 'good' : 'neutral');
-    fb.textContent=c.why;
     listEl.appendChild(fb);
   });
   g4RenderProgressCombo();

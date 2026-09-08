@@ -46,19 +46,51 @@ h1.title .hl{ color:var(--coral-deep); }
 .keys-row{ display:flex; gap:8px; margin:6px 0 30px; justify-content:center; }
 .keycap{ font-family:var(--font-mono); font-weight:700; font-size:14px; background:var(--cream); border:2.5px solid var(--ink); border-radius:8px; padding:8px 12px; box-shadow:3px 3px 0 var(--ink); }
 .keys-row .plus{ border:none; box-shadow:none; background:none; padding:8px 2px; color:var(--ink-soft); }
-.hero-scene{ position:relative; width:min(300px,74vw); margin:6px auto 34px; }
-.hero-scene svg{ width:100%; height:auto; display:block; }
-.hero-scene .float-tag{ position:absolute; font-family:var(--font-mono); font-size:10.5px; font-weight:700; background:var(--white); border:2px solid var(--ink); border-radius:100px; padding:4px 10px; box-shadow:var(--shadow-sm); animation:bob 3.6s ease-in-out infinite; }
-.hero-scene .ft1{ top:2%; left:-8%; animation-delay:.1s; } .hero-scene .ft2{ bottom:8%; right:-12%; animation-delay:.9s; }
+.hero-scene{ position:relative; width:min(520px,92vw); margin:6px auto 34px; }
+.hero-scene img{ width:100%; height:auto; display:block; }
 /* Botón "tecla": se presiona de verdad, como una keycap física -- coherente con el Ctrl+Z del logo */
-.btn{ --depth:6px; position:relative; display:inline-flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; font-family:inherit; border:3px solid var(--ink); border-radius:11px; padding:14px 24px; background:var(--teal); color:var(--ink); box-shadow:0 var(--depth) 0 var(--ink); transform:translateY(0); transition:transform .12s cubic-bezier(.2,.8,.2,1), box-shadow .12s cubic-bezier(.2,.8,.2,1); }
-.btn::before{ content:""; position:absolute; left:9px; right:9px; top:5px; height:5px; border-radius:6px; background:rgba(255,255,255,.35); pointer-events:none; }
-.btn:hover{ transform:translateY(-2px); box-shadow:0 calc(var(--depth) + 2px) 0 var(--ink); }
-.btn:active{ transform:translateY(var(--depth)); box-shadow:0 0 0 var(--ink); }
-.btn.coral{ background:var(--coral); } .btn.ghost{ background:var(--white); } .btn.dark{ background:var(--ink); color:var(--peach); }
-.btn.dark::before{ background:rgba(255,255,255,.12); }
-.btn.sm{ padding:10px 18px; font-size:13px; --depth:4px; border-radius:9px; }
-.btn .kbd-edge{ font-family:var(--font-mono); font-size:10.5px; opacity:.55; border:1.5px solid currentColor; border-radius:4px; padding:1px 5px; margin-right:2px; }
+/* Botón con textura de "repisa": capa superior + repisa de color debajo y sombra suave, sin bordes negros duros */
+.btn{
+  --depth:10px;
+  --btn-bg:var(--pastel-mint);
+  --btn-border:var(--teal-deep);
+  --btn-shelf:var(--teal);
+  position:relative;
+  display:inline-flex; align-items:center; gap:9px;
+  font-weight:800; font-size:14.5px; font-family:inherit;
+  text-transform:uppercase; letter-spacing:.02em;
+  border:3px solid var(--btn-border);
+  border-radius:18px;
+  padding:15px 26px;
+  background:var(--btn-bg);
+  color:var(--ink);
+  isolation:isolate;
+  transform:translateY(0);
+  transition:transform .15s cubic-bezier(.2,.8,.2,1);
+}
+.btn::after{
+  content:"";
+  position:absolute;
+  left:7px; right:7px;
+  bottom:calc(-1 * var(--depth) - 3px);
+  height:var(--depth);
+  background:var(--btn-shelf);
+  border:3px solid var(--btn-border);
+  border-top:none;
+  border-radius:0 0 15px 15px;
+  z-index:-1;
+  box-shadow:0 7px 12px rgba(0,0,0,.12);
+  transition:bottom .15s cubic-bezier(.2,.8,.2,1);
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(var(--depth)); }
+.btn:active::after{ bottom:-3px; box-shadow:none; }
+.btn.coral{ --btn-bg:var(--peach); --btn-border:var(--coral-deep); --btn-shelf:var(--coral); }
+.btn.dark{ --btn-bg:var(--ink); --btn-border:var(--ink); --btn-shelf:#141d21; color:var(--peach); }
+.btn.ghost{ --btn-bg:var(--white); --btn-border:var(--peach-line); --btn-shelf:var(--peach); }
+.btn.sm{ --depth:8px; padding:11px 20px; font-size:13px; border-radius:14px; }
+.btn.sm::after{ border-radius:0 0 11px 11px; }
+.btn .kbd-edge{ font-family:var(--font-mono); font-size:10.5px; opacity:.6; border:1.5px solid currentColor; border-radius:4px; padding:1px 5px; margin-right:2px; text-transform:none; letter-spacing:0; }
 .hero-cta-row{ display:flex; flex-direction:column; align-items:center; gap:18px; margin-top:6px; }
 .stat-row{ display:flex; gap:28px; flex-wrap:wrap; justify-content:center; }
 .stat{ font-family:var(--font-mono); text-align:center; } .stat b{ display:block; font-family:var(--font-display); font-size:22px; } .stat span{ font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; }
@@ -362,7 +394,8 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .qr-btn{ text-align:left; background:#fff; border:1px solid #d1d7db; color:#075E54; border-radius:20px; padding:10px 16px; font-size:13px; font-weight:600; box-shadow:none; transition:background .12s ease, border-color .12s ease; }
 .qr-btn:hover{ transform:none; background:#e9f7ef; border-color:#25D366; }
 .chat-start-wrap{ padding:14px 14px 16px; text-align:center; background:#f0f2f5; border-top:1px solid #e9edef; }
-.chat-start-wrap .btn.chat-start-btn{ background:#25D366; color:#fff; border:none; box-shadow:0 2px 8px rgba(37,211,102,.4); }
+.chat-start-wrap .btn.chat-start-btn{ background:#25D366; color:#fff; border:none; box-shadow:0 2px 8px rgba(37,211,102,.4); text-transform:none; letter-spacing:normal; }
+.chat-start-wrap .btn.chat-start-btn::after{ display:none; }
 .chat-start-wrap .btn.chat-start-btn:hover{ background:#20bd5a; box-shadow:0 4px 12px rgba(37,211,102,.5); transform:translateY(-1px); }
 .chat-start-wrap .btn.chat-start-btn:active{ transform:translateY(0); }
 
@@ -378,17 +411,28 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .g4-reveal-list li::before{ content:"•"; position:absolute; left:2px; color:var(--coral-deep); font-weight:700; }
 
 /* ---- Juego 4 · mockup de Instagram (paso 1) ---- */
-.g4-ig-card{ max-width:420px; margin:0 auto 16px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; }
+.g4-ig-card{ max-width:480px; margin:0 auto 16px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; }
 .g4-ig-head{ display:flex; align-items:center; gap:10px; padding:12px 14px; border-bottom:2.5px solid var(--ink); }
 .g4-ig-avatar{ width:34px; height:34px; border-radius:50%; background:var(--coral); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:13px; color:var(--ink); flex:none; }
 .g4-ig-name{ font-weight:700; font-size:13.5px; }
 .g4-ig-more{ margin-left:auto; opacity:.6; letter-spacing:1px; }
-.g4-ig-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--ink); }
-.g4-ig-thumb{ position:relative; display:block; width:100%; aspect-ratio:1; border:none; padding:0; margin:0; cursor:pointer; background:var(--ink); }
+.g4-ig-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:3px; background:var(--ink); }
+.g4-ig-thumb{ position:relative; display:block; width:100%; aspect-ratio:3/4; border:none; padding:0; margin:0; cursor:pointer; background:var(--ink); }
 .g4-ig-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .g4-ig-dot{ position:absolute; top:6px; right:6px; width:16px; height:16px; border-radius:50%; background:var(--coral); border:2px solid var(--white); }
 .g4-ig-thumb.seen .g4-ig-dot{ background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--white); }
 .g4-ig-thumb.seen .g4-ig-dot::after{ content:"✓"; }
+
+/* ---- Juego 4 · vista previa del perfil en la pantalla de instrucciones ---- */
+.g4-intro-preview{ max-width:300px; margin:0 auto 18px; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; }
+.g4-intro-preview-head{ display:flex; align-items:center; gap:8px; padding:9px 12px; border-bottom:2.5px solid var(--ink); }
+.g4-intro-preview-avatar{ width:24px; height:24px; border-radius:50%; background:var(--coral); border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:10px; color:var(--ink); flex:none; }
+.g4-intro-preview-name{ font-weight:700; font-size:11.5px; }
+.g4-intro-preview-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--ink); }
+.g4-intro-preview-thumb{ position:relative; aspect-ratio:1; overflow:hidden; }
+.g4-intro-preview-thumb img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(.15) brightness(.62); }
+.g4-intro-preview-thumb::after{ content:"🔒"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
+.g4-intro-preview-caption{ text-align:center; font-size:11px; font-weight:600; color:var(--ink-soft); padding:8px 10px 10px; }
 
 /* ---- Juego 4 · modal de publicación (reusa .phish-modal) ---- */
 .g4-post-modal{ text-align:center; }
@@ -410,8 +454,7 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .g4-combo-card.checked .g4-checkbox{ background:var(--coral); }
 .g4-combo-card.checked .g4-checkbox svg{ display:block; }
 .g4-combo-feedback{ margin:0 0 4px; text-align:left; background:var(--cream); border:2.5px dashed var(--ink); border-radius:var(--radius-md); padding:10px 14px; font-size:12.5px; line-height:1.55; color:var(--ink); }
-.g4-combo-feedback.good{ background:var(--pastel-mint); border-color:var(--leaf-deep); }
-.g4-combo-feedback.neutral{ background:var(--pastel-butter); border-color:var(--sun-deep); }
+.g4-combo-feedback-label{ display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:4px; }
 
 /* --- Pantalla B: ficha y drag&drop --- */
 .g4-field-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; max-width:480px; margin:0 auto 24px; }
@@ -497,10 +540,10 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .form-placeholder{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; width:100%; min-height:190px; border:2px dashed var(--ink-soft); border-radius:12px; background:rgba(255,255,255,.55); color:var(--ink); padding:24px; }
 .form-placeholder .fp-icon{ font-size:28px; }
 .form-placeholder p{ margin:0; font-weight:600; max-width:340px; }
-.btn.form-cta-btn{ position:relative; z-index:1; display:flex; justify-content:center; width:100%; font-size:17px; padding:18px 28px; --depth:7px; background:var(--sun); animation:formPulse 2.4s ease-in-out infinite; }
+.btn.form-cta-btn{ position:relative; z-index:1; display:flex; justify-content:center; width:100%; font-size:17px; padding:19px 28px; --depth:11px; --btn-bg:var(--pastel-butter); --btn-border:var(--sun-deep); --btn-shelf:var(--sun); animation:formPulse 2.4s ease-in-out infinite; }
 .form-cta-btn:hover{ animation-play-state:paused; }
 .form-cta-note{ position:relative; z-index:1; }
-@keyframes formPulse{ 0%,100%{ box-shadow:0 var(--depth) 0 var(--ink); } 50%{ box-shadow:0 var(--depth) 0 var(--ink), 0 0 0 6px rgba(245,195,78,.35); } }
+@keyframes formPulse{ 0%,100%{ box-shadow:none; } 50%{ box-shadow:0 0 0 6px rgba(245,195,78,.35); } }
 .form-cta-note{ text-align:center; margin:14px 0 0; font-size:13px; font-weight:600; color:var(--coral-deep); }
 .survey-inline-cta{ margin-top:16px; padding-top:16px; border-top:2px dashed var(--peach-line); text-align:center; }
 .survey-inline-text{ margin:0 0 10px; font-size:12.5px; font-weight:600; color:var(--ink); }
@@ -786,8 +829,8 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* Antes usaba solo opacity, lo cual atenúa por separado la sombra sólida del
    botón y el brillo del ::before, dando un efecto de "doble capa" raro.
    En vez de eso, se apaga como un botón plano: sin sombra, fondo claro. */
-.phish-cta[disabled]{ background:var(--white); color:var(--ink-soft); border-color:var(--ink-soft); box-shadow:none; transform:translateY(var(--depth)); opacity:.85; pointer-events:none; }
-.phish-cta[disabled]::before{ display:none; }
+.phish-cta[disabled]{ background:var(--white); color:var(--ink-soft); border-color:var(--ink-soft); box-shadow:none; transform:translateY(0); opacity:.85; pointer-events:none; }
+.phish-cta[disabled]::after{ display:none; }
 
 /* resultado: nivel de engaño, análisis visual y recomendaciones */
 .phish-result{ text-align:center; }
