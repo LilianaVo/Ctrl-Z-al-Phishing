@@ -157,10 +157,11 @@
     <div id="gameStage">
       <!-- ===== JUEGO 1: DESLIZA Y DECIDE ===== -->
       <div class="game-panel" id="panel1" hidden>
-        <div class="start-shortcuts top-shortcuts" id="game1TopShortcuts">
-          <button type="button" class="shortcut-link" data-back>← Menú</button>
-          <button type="button" class="shortcut-link" id="game1NextGameBtn">Otro juego →</button>
-          <button type="button" class="shortcut-link" onclick="irAEncuesta()">Encuesta ✎</button>
+        <div class="game-header">
+          <button type="button" class="gh-icon-btn gh-back" data-back aria-label="Volver al menú">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button type="button" class="gh-icon-btn gh-help" id="game1HelpBtn" aria-label="Ver instrucciones">?</button>
         </div>
         <div class="game-intro" id="game1Intro">
           <div class="panel-head">
@@ -217,6 +218,10 @@
           </div>
         </div>
         <div class="game-content" id="game1Content" hidden>
+          <div class="game-step-progress" id="game1StepProgress">
+            <div class="gsp-label" id="game1StepLabel"></div>
+            <div class="gsp-track" id="game1StepTrack"></div>
+          </div>
           <div class="level-banner" id="levelBanner"><span class="lvl-dot"></span><span id="levelBannerText">Nivel: Fácil</span></div>
           <div class="progress" id="progress1">CASO 1 / 10</div>
           <div class="timer-bar-wrap" id="timerBarWrap" hidden><div class="timer-bar" id="timerBar"></div></div>
@@ -265,7 +270,12 @@
 
       <!-- ===== JUEGO 2: ARMA TU PHISHING ===== -->
       <div class="game-panel" id="panel2" hidden>
-        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="game-header">
+          <button type="button" class="gh-icon-btn gh-back" data-back aria-label="Volver al menú">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button type="button" class="gh-icon-btn gh-help" id="game2HelpBtn" aria-label="Ver instrucciones">?</button>
+        </div>
         <div class="game-intro" id="game2Intro">
           <div class="panel-head">
             <div class="section-label">02 · Arma tu phishing</div>
@@ -422,9 +432,12 @@
 
       <!-- ===== JUEGO 3: CHAT DE PRESIÓN (estilo Teams/Slack) ===== -->
 <div class="game-panel" id="panel3" hidden>
-  <button type="button" class="back-to-menu" data-back>
-    ← Elegir otro juego
-  </button>
+  <div class="game-header">
+    <button type="button" class="gh-icon-btn gh-back" data-back aria-label="Volver al menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button type="button" class="gh-icon-btn gh-help" id="game3HelpBtn" aria-label="Ver instrucciones">?</button>
+  </div>
 
   <div class="game-intro" id="game3Intro">
     <div class="panel-head">
@@ -523,7 +536,12 @@
 
       <!-- ===== JUEGO 4: RECONSTRUYE EL PERFIL ===== -->
       <div class="game-panel" id="panel4" hidden>
-        <button type="button" class="back-to-menu" data-back>← Elegir otro juego</button>
+        <div class="game-header">
+          <button type="button" class="gh-icon-btn gh-back" data-back aria-label="Volver al menú">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button type="button" class="gh-icon-btn gh-help" id="game4HelpBtn" aria-label="Ver instrucciones">?</button>
+        </div>
         <div class="game-intro" id="game4Intro">
           <div class="panel-head">
             <div class="section-label">04 · Reconstruye el perfil</div>
@@ -554,17 +572,16 @@
         </div>
         <div class="game-content" id="game4Content" hidden>
 
+        <div class="game-step-progress" id="game4StepProgress">
+          <div class="gsp-label" id="game4StepLabel"></div>
+          <div class="gsp-track" id="game4StepTrack"></div>
+        </div>
+
         <!-- ===== PANTALLA A: Detecta el patrón ===== -->
         <div class="g4-screen" id="g4ScreenA">
 
           <!-- Paso 1: mockup de Instagram, se toca cada foto -->
           <div id="g4PostStep">
-            <div class="phish-step-label">Paso 1 de 2</div>
-            <div class="phish-progress">
-              <div class="phish-step-dot active">1</div>
-              <div class="phish-step-line"></div>
-              <div class="phish-step-dot">2</div>
-            </div>
             <p class="g4-screen-sub">Toca cada publicación para ver qué revela por sí sola.</p>
 
             <div class="g4-ig-card">
@@ -598,12 +615,6 @@
 
           <!-- Paso 2: combinaciones -->
           <div id="g4ComboStep" hidden>
-            <div class="phish-step-label">Paso 2 de 2 · Combina las pistas</div>
-            <div class="phish-progress">
-              <div class="phish-step-dot done">1</div>
-              <div class="phish-step-line"></div>
-              <div class="phish-step-dot active">2</div>
-            </div>
             <p class="g4-screen-sub">Selecciona combinaciones de publicaciones y descubre qué información nueva se puede deducir al juntarlas.</p>
             <div class="phish-progress" id="g4ProgressCombo"><!-- puntos inyectados por JS: una marca por combinación --></div>
             <div class="g4-combo-list" id="g4ComboList"><!-- combos inyectados por JS --></div>
@@ -615,7 +626,6 @@
 
         <!-- ===== PANTALLA B: Construye el perfil ===== -->
         <div class="g4-screen" id="g4ScreenB" hidden>
-          <div class="phish-step-label">Ficha de Frida</div>
           <p class="g4-screen-sub">Arrastra (o toca) cada dato y colócalo donde creas que corresponde.</p>
 
           <div class="g4-field-grid" id="g4FieldGrid"><!-- campos inyectados por JS --></div>
@@ -747,50 +757,37 @@
 
   <!-- ========== QUÉ HACER ========== -->
 
-  <div class="help-steps">
+  <div class="notebook">
+    <div class="notebook-rings"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="notebook-title">📓 PASO_A_PASO.txt</div>
 
-    <div class="help-step retro-card" style="--bar:var(--pastel-mint);">
-      <div class="retro-card-bar">
-        <span class="rc-dots"><span></span><span></span><span></span></span>
-        <span class="rc-title">PASO_1.txt</span>
-        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+    <div class="notebook-entry">
+      <div class="ne-head">
+        <span class="ne-icon"><img src="images/icon-candado.png" class="emoji-icon" alt="Candado"></span>
+        <div class="ne-title"><span class="ne-num">1.</span> Protege tus cuentas</div>
       </div>
-      <div class="retro-card-body">
-        <span class="hs-icon"><img src="images/icon-candado.png" class="emoji-icon hs-icon-img" alt="Candado"></span>
-        <div class="hs-title"><span class="hs-num">1.</span> Protege tus cuentas</div>
-        <div class="hs-desc">
-          Cambia las contraseñas afectadas y cierra cualquier sesión que no reconozcas.
-        </div>
+      <div class="ne-desc">
+        Cambia las contraseñas afectadas y cierra cualquier sesión que no reconozcas.
       </div>
     </div>
 
-    <div class="help-step retro-card" style="--bar:var(--pastel-lilac);">
-      <div class="retro-card-bar">
-        <span class="rc-dots"><span></span><span></span><span></span></span>
-        <span class="rc-title">PASO_2.txt</span>
-        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+    <div class="notebook-entry">
+      <div class="ne-head">
+        <span class="ne-icon"><img src="images/icon-tarjeta.png" class="emoji-icon" alt="Tarjeta"></span>
+        <div class="ne-title"><span class="ne-num">2.</span> Protege tu dinero</div>
       </div>
-      <div class="retro-card-body">
-        <span class="hs-icon"><img src="images/icon-tarjeta.png" class="emoji-icon hs-icon-img" alt="Tarjeta"></span>
-        <div class="hs-title"><span class="hs-num">2.</span> Protege tu dinero</div>
-        <div class="hs-desc">
-          Si compartiste datos bancarios o hiciste una transferencia, contacta a tu banco de inmediato.
-        </div>
+      <div class="ne-desc">
+        Si compartiste datos bancarios o hiciste una transferencia, contacta a tu banco de inmediato.
       </div>
     </div>
 
-    <div class="help-step retro-card" style="--bar:var(--pastel-peachy);">
-      <div class="retro-card-bar">
-        <span class="rc-dots"><span></span><span></span><span></span></span>
-        <span class="rc-title">PASO_3.txt</span>
-        <span class="rc-controls"><span>–</span><span>▢</span><span>×</span></span>
+    <div class="notebook-entry">
+      <div class="ne-head">
+        <span class="ne-icon"><img src="images/icon-clip.png" class="emoji-icon" alt="Clip"></span>
+        <div class="ne-title"><span class="ne-num">3.</span> Guarda evidencia</div>
       </div>
-      <div class="retro-card-body">
-        <span class="hs-icon"><img src="images/icon-clip.png" class="emoji-icon hs-icon-img" alt="Clip"></span>
-        <div class="hs-title"><span class="hs-num">3.</span> Guarda evidencia</div>
-        <div class="hs-desc">
-          Conserva capturas, mensajes, números y enlaces. Te servirán para realizar el reporte.
-        </div>
+      <div class="ne-desc">
+        Conserva capturas, mensajes, números y enlaces. Te servirán para realizar el reporte.
       </div>
     </div>
 
@@ -799,6 +796,7 @@
 
   <!-- ========== CANALES OFICIALES ========== -->
 
+  <div class="section-label" style="margin-top:36px;">A quién contactar</div>
 
   <div class="chat-card retro-card">
 
@@ -880,70 +878,51 @@
 
   <!-- ========== SEGUROS Y PROTECCIÓN AL COMPRAR ========== -->
 
-  <div class="chat-card retro-card" style="margin-top:22px;">
+  <div class="section-label" style="margin-top:36px;">Seguros_y_protección</div>
 
-    <div class="chat-card-bar">
-      <span class="cc-back">←</span>
-      <span class="cc-title">Seguros_y_protección</span>
-      <span class="cc-face">🛡️</span>
+  <div class="folder-grid">
+
+    <!-- DERECHO A RECLAMAR: SIEMPRE APLICA -->
+    <div class="folder-card" style="--folder:var(--pastel-mint);">
+      <div class="folder-tab">🛡️ Tu derecho</div>
+      <div class="folder-body">
+        <div class="fc-when">Cargo no reconocido en tu tarjeta</div>
+        <div class="fc-desc">
+          Si reportas el cargo dentro de las primeras 48 horas, el banco debe abonarte el monto de forma provisional en un máximo de 2 días hábiles, mientras investiga. Tienes hasta 90 días naturales para presentar la aclaración, y el banco cuenta con hasta 45 días para dar una resolución.
+        </div>
+        <div class="fc-social">
+          <a href="https://www.gob.mx/condusef" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>gob.mx/condusef</a>
+        </div>
+      </div>
     </div>
 
-    <div class="chat-card-body">
-
-      <!-- DERECHO A RECLAMAR: SIEMPRE APLICA -->
-      <div class="chat-msg chat-left" style="--bubble:var(--pastel-mint);">
-        <div class="chat-sender">TU DERECHO ✔️✔️<span class="chat-reply-tag">sin costo</span></div>
-        <div class="chat-bubble">
-          <div class="o-when">Cargo no reconocido en tu tarjeta</div>
-          <div class="o-desc">
-            Si reportas el cargo dentro de las primeras 48 horas, el banco debe abonarte el monto de forma provisional en un máximo de 2 días hábiles, mientras investiga. Tienes hasta 90 días naturales para presentar la aclaración, y el banco cuenta con hasta 45 días para dar una resolución.
-          </div>
-          <div class="o-social">
-            <a href="https://www.gob.mx/condusef" target="_blank" rel="noopener"><span class="soc-ic">🌐</span>gob.mx/condusef</a>
-          </div>
+    <!-- SEGUROS OPCIONALES DE TARJETA -->
+    <div class="folder-card" style="--folder:var(--pastel-sky);">
+      <div class="folder-tab">💳 Seguros opcionales</div>
+      <div class="folder-body">
+        <div class="fc-when">Algunos bancos los venden por separado</div>
+        <div class="fc-desc">
+          Por ejemplo: "Seguro de Tarjetas" de BBVA, "Compras Protegidas" de Banamex o "Blindaje Total" de Santander. Suelen cubrir compras, retiros o transferencias hechas sin tu autorización hasta cierto monto (comúnmente hasta $10,000 MXN por evento). Pregunta a tu banco si ya lo incluyes o si puedes contratarlo.
         </div>
       </div>
-
-      <!-- SEGUROS OPCIONALES DE TARJETA -->
-      <div class="chat-msg chat-right" style="--bubble:var(--pastel-sky);">
-        <div class="chat-sender">SEGUROS DE TARJETA<span class="chat-reply-tag">opcionales</span></div>
-        <div class="chat-bubble">
-          <div class="o-when">Algunos bancos los venden por separado</div>
-          <div class="o-desc">
-            Por ejemplo: "Seguro de Tarjetas" de BBVA, "Compras Protegidas" de Banamex o "Blindaje Total" de Santander. Suelen cubrir compras, retiros o transferencias hechas sin tu autorización hasta cierto monto (comúnmente hasta $10,000 MXN por evento). Pregunta a tu banco si ya lo incluyes o si puedes contratarlo.
-          </div>
-        </div>
-      </div>
-
-      <!-- PROTECCIÓN INCLUIDA EN LA TARJETA -->
-      <div class="chat-msg chat-left" style="--bubble:var(--pastel-butter);">
-        <div class="chat-sender">TARJETAS VISA / MASTERCARD / AMEX</div>
-        <div class="chat-bubble">
-          <div class="o-when">Protección de compras ya incluida (sin costo extra)</div>
-          <div class="o-desc">
-            Varias tarjetas de crédito incluyen de fábrica un "seguro de compra protegida" que reembolsa artículos robados o dañados poco después de comprarlos con esa tarjeta. La cobertura y el plazo varían según el banco y el tipo de tarjeta — revisa tu contrato o pregúntale directamente a tu banco.
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="chat-card-footer">
-      <span>📎</span>
-      <span class="chat-input-fake">Escribe un mensaje…</span>
-      <span>↑</span>
+    <!-- PROTECCIÓN INCLUIDA EN LA TARJETA -->
+    <div class="folder-card" style="--folder:var(--pastel-butter);">
+      <div class="folder-tab">🏷️ Protección incluida</div>
+      <div class="folder-body">
+        <div class="fc-when">Ya incluida en tu tarjeta, sin costo extra</div>
+        <div class="fc-desc">
+          Varias tarjetas de crédito (Visa, Mastercard, Amex) incluyen de fábrica un "seguro de compra protegida" que reembolsa artículos robados o dañados poco después de comprarlos con esa tarjeta. La cobertura y el plazo varían según el banco y el tipo de tarjeta — revisa tu contrato o pregúntale directamente a tu banco.
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <p class="h2-sub" style="text-align:center; max-width:640px; margin:14px auto 0; font-size:12px; opacity:.8;">
-    Los montos, plazos y condiciones exactas dependen de cada banco y de tu contrato — confírmalos directamente con tu institución financiera o con CONDUSEF.
-  </p>
-
-
   <!-- ========== CIERRE ========== -->
 
-  <div class="help-close" style="text-align:center;">
+  <div class="help-close" style="text-align:center; margin-top:28px;">
     <img src="images/Gifcampaña.gif" alt="Campaña Ctrl+Z al Phishing" class="close-gif">
     <strong>Detente. <span class="text-coral">Verifica.</span> Decide.</strong>
 
@@ -1083,7 +1062,6 @@ function selectGame(n){
   }
   if(n==='1'){
     if(typeof clearTimer==='function') clearTimer(); // pausa el cronómetro mientras se leen las instrucciones
-    const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=false; // se ocultan al terminar el juego; al volver a entrar deben verse de nuevo
   }
   if(n==='3' && typeof resetChatToPicker==='function') resetChatToPicker();
   gameMenu.querySelectorAll('.game-card').forEach(c=> c.classList.toggle('active', c.dataset.game===String(n)));
@@ -1105,15 +1083,68 @@ gameMenu.querySelectorAll('.game-card').forEach(c=>{
 });
 document.querySelectorAll('[data-back]').forEach(b=> b.addEventListener('click', backToMenu));
 
-// Atajo "Otro juego →" en la pantalla de instrucciones: salta directo al siguiente
-// juego del carrusel (1→2→3→4→1), sin tener que pasar por el menú.
-document.querySelectorAll('.shortcut-link[id$="NextGameBtn"]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const total=Object.keys(panels).length;
-    const current=Object.keys(panels).find(n=> !panels[n].hidden);
-    const next=current ? (Number(current)%total)+1 : 1;
-    selectGame(String(next));
-  });
+/* ============================================================
+   BARRA DE PROGRESO VISUAL (reutilizable en los 4 juegos)
+   ============================================================
+   Dibuja una fila de segmentos tipo "historias": los pasos ya
+   completados quedan llenos (verde), el paso actual se ve resaltado
+   (coral) y los que faltan quedan vacíos. currentIndex es 0-based. */
+function renderStepProgress(prefix, total, currentIndex, opts){
+  opts = opts || {};
+  const trackEl=document.getElementById(prefix+'StepTrack');
+  const labelEl=document.getElementById(prefix+'StepLabel');
+  if(!trackEl) return;
+  trackEl.innerHTML='';
+  for(let i=0;i<total;i++){
+    const seg=document.createElement('div');
+    seg.className='gsp-seg'+(i<currentIndex?' done':(i===currentIndex?' active':''));
+    seg.innerHTML='<div class="gsp-seg-fill"></div>';
+    trackEl.appendChild(seg);
+  }
+  if(labelEl){
+    if(opts.hideLabel){ labelEl.hidden=true; }
+    else{
+      labelEl.hidden=false;
+      const base=`Paso ${Math.min(currentIndex+1,total)} de ${total}`;
+      labelEl.textContent = opts.title ? `${base} · ${opts.title}` : base;
+    }
+  }
+}
+function hideStepProgress(prefix){
+  const wrap=document.getElementById(prefix+'StepProgress');
+  if(wrap) wrap.hidden=true;
+}
+function showStepProgress(prefix){
+  const wrap=document.getElementById(prefix+'StepProgress');
+  if(wrap) wrap.hidden=false;
+}
+
+/* ============================================================
+   BOTÓN "?" DEL ENCABEZADO: reabre las instrucciones sin perder el
+   progreso del juego. Simplemente oculta el contenido y muestra de
+   nuevo la pantalla de instrucciones; al tocar otra vez "Comenzar"
+   (que mientras tanto dice "Continuar jugando") se vuelve a mostrar
+   el contenido tal como estaba, sin reiniciar nada.
+   ============================================================ */
+const helpOpenState={1:false,2:false,3:false,4:false};
+function openGameInstructions(n){
+  const gate=GAME_GATES[n];
+  const contentEl=document.getElementById(gate.content);
+  const introEl=document.getElementById(gate.intro);
+  if(contentEl.hidden) return; // ya estamos viendo las instrucciones, no hay nada que hacer
+  helpOpenState[n]=true;
+  const startBtn=document.getElementById('game'+n+'StartBtn');
+  if(startBtn){
+    if(!startBtn.dataset.defaultLabel) startBtn.dataset.defaultLabel=startBtn.innerHTML;
+    startBtn.innerHTML='Continuar jugando ▶';
+  }
+  contentEl.hidden=true;
+  introEl.hidden=false;
+  introEl.scrollTop=0;
+}
+[1,2,3,4].forEach(n=>{
+  const btn=document.getElementById('game'+n+'HelpBtn');
+  if(btn) btn.addEventListener('click', ()=> openGameInstructions(n));
 });
 
 /* ============================================================
@@ -1288,6 +1319,7 @@ function renderDeck(){
     deckEl.appendChild(el);
   });
   progressEl.textContent=`CASO ${Math.min(idx+1,CASES.length)} / ${CASES.length}`;
+  renderStepProgress('game1', CASES.length, idx, {hideLabel:true});
   if(CASES[idx]) updateLevelBanner(CASES[idx].level);
   sizeDeckToContent();
   startTimer();
@@ -1384,7 +1416,7 @@ function showEnd1(){
   deckEl.style.display='none'; controls1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=true;
   if(progressEl) progressEl.hidden=true;
-  const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=true;
+  hideStepProgress('game1');
   result1.hidden=false;
   document.getElementById('scoreBadge1').textContent=`${score1}/${CASES.length}`;
   const lb1=document.getElementById('loadbarFill1'); if(lb1) lb1.style.width=`${(score1/CASES.length)*100}%`;
@@ -1416,7 +1448,7 @@ function restart1(){
   deckEl.style.display=''; controls1.hidden=false; result1.hidden=true;
   const lvlBanner=document.getElementById('levelBanner'); if(lvlBanner) lvlBanner.hidden=false;
   if(progressEl) progressEl.hidden=false;
-  const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=false;
+  showStepProgress('game1');
   const charLow=document.getElementById('resultCharLow'); if(charLow) charLow.hidden=true;
   const charMid=document.getElementById('resultCharMid'); if(charMid) charMid.hidden=true;
   const charHigh=document.getElementById('resultCharHigh'); if(charHigh) charHigh.hidden=true;
@@ -1428,8 +1460,8 @@ document.getElementById('restartBtn1').addEventListener('click', restart1);
 document.getElementById('game1StartBtn').addEventListener('click', ()=>{
   document.getElementById('game1Intro').hidden=true;
   document.getElementById('game1Content').hidden=false;
+  if(helpOpenState[1]){ helpOpenState[1]=false; const b=document.getElementById('game1StartBtn'); if(b&&b.dataset.defaultLabel) b.innerHTML=b.dataset.defaultLabel; return; } // volvía solo a leer las instrucciones: no reinicia nada
   if(result1.hidden){ renderDeck(); } // si ya había terminado, solo muestra el resultado sin reiniciar el mazo
-  else { const topShortcuts1=document.getElementById('game1TopShortcuts'); if(topShortcuts1) topShortcuts1.hidden=true; }
 });
 
 window.addEventListener('keydown', (e)=>{
@@ -1791,6 +1823,7 @@ document.getElementById('phishModalOverlay').addEventListener('click', (e)=>{
 document.getElementById('game2StartBtn').addEventListener('click', ()=>{
   document.getElementById('game2Intro').hidden = true;
   document.getElementById('game2Content').hidden = false;
+  if(helpOpenState[2]){ helpOpenState[2]=false; const b=document.getElementById('game2StartBtn'); if(b&&b.dataset.defaultLabel) b.innerHTML=b.dataset.defaultLabel; return; } // volvía solo a leer las instrucciones: no reinicia nada
   if(!document.getElementById('result2').hidden) return; // ya había un resultado visible, no lo tocamos
   if(Object.keys(phishAnswers).length===0){
     shufflePhishOptions();
@@ -2102,6 +2135,7 @@ buildScenarioPicker();
 document.getElementById('game3StartBtn').addEventListener('click', ()=>{
   document.getElementById('game3Intro').hidden=true;
   document.getElementById('game3Content').hidden=false;
+  if(helpOpenState[3]){ helpOpenState[3]=false; const b=document.getElementById('game3StartBtn'); if(b&&b.dataset.defaultLabel) b.innerHTML=b.dataset.defaultLabel; }
 });
 
 
@@ -2203,6 +2237,7 @@ document.getElementById('g4PostNextBtn').addEventListener('click', ()=>{
   if(g4State.viewed.size < G4_POSTS.length) return;
   document.getElementById('g4PostStep').hidden=true;
   document.getElementById('g4ComboStep').hidden=false;
+  renderStepProgress('game4', 3, 1, {title:'Combina las pistas'});
   document.getElementById('g4ComboStep').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
@@ -2249,6 +2284,7 @@ function g4RenderCombos(){
 document.getElementById('g4ToScreenBBtn').addEventListener('click', ()=>{
   document.getElementById('g4ScreenA').hidden=true;
   document.getElementById('g4ScreenB').hidden=false;
+  renderStepProgress('game4', 3, 2, {title:'Ficha de Frida'});
   document.getElementById('g4ScreenB').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
@@ -2315,6 +2351,7 @@ document.querySelectorAll('.g4-dropzone').forEach(zone=>{
 document.getElementById('g4ToDossierBtn').addEventListener('click', ()=>{
   if(document.getElementById('g4ToDossierBtn').disabled) return;
   document.getElementById('g4ScreenB').hidden=true;
+  hideStepProgress('game4');
   const dash=document.getElementById('g4Dash');
   dash.hidden=false;
   dash.scrollIntoView({behavior:'smooth', block:'start'});
@@ -2334,11 +2371,14 @@ function g4ResetAll(){
   document.getElementById('g4Dash').hidden=true;
   document.getElementById('g4ScreenB').hidden=true;
   document.getElementById('g4ScreenA').hidden=false;
+  showStepProgress('game4');
+  renderStepProgress('game4', 3, 0, {title:'Revisa las publicaciones'});
 }
 document.getElementById('restartBtn4').addEventListener('click', g4ResetAll);
 document.getElementById('game4StartBtn').addEventListener('click', ()=>{
   document.getElementById('game4Intro').hidden=true;
   document.getElementById('game4Content').hidden=false;
+  if(helpOpenState[4]){ helpOpenState[4]=false; const b=document.getElementById('game4StartBtn'); if(b&&b.dataset.defaultLabel) b.innerHTML=b.dataset.defaultLabel; return; } // volvía solo a leer las instrucciones: no reinicia nada
   g4ResetAll();
 });
 
