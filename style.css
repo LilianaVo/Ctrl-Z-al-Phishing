@@ -101,36 +101,41 @@ h1.title .hl{ color:var(--coral-deep); }
 @keyframes chevBob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(4px);} }
 @media (prefers-reduced-motion: reduce){ .scroll-next .chev{ animation:none; } }
 
-/* HERO COMPACTO EN MÓVIL: sin nav (queda oculto arriba) y con todo el
+/* HERO GRANDE EN MÓVIL: sin nav (queda oculto arriba) y con todo el
    contenido —chip, título, tagline, teclas, ilustración, botón, cifras y
-   el link de "descubre cómo funciona"— reducido para que quepa completo
-   en una sola pantalla, sin tener que hacer scroll dentro del hero. */
+   el link de "descubre cómo funciona"— ocupando prácticamente toda la
+   pantalla, sin tener que hacer scroll dentro del hero. */
 @media (max-width:760px){
   .hero{
     min-height:100vh; min-height:100svh; min-height:100dvh;
     display:flex; align-items:center; justify-content:center;
-    padding:16px 0;
+    padding:14px 0;
+    scroll-margin-top:0;
   }
-  .hero-inner{ padding:0 20px; }
-  .eyebrow-chip{ margin-bottom:10px; font-size:11.5px; padding:5px 12px; gap:6px; }
-  .eyebrow-chip .emoji-icon{ width:17px; height:17px; vertical-align:-4px; }
-  h1.title{ font-size:clamp(24px,8vw,32px); line-height:1.08; margin:0 0 8px; }
-  .tagline{ font-size:13.5px; line-height:1.4; margin:0 auto 4px; }
-  .keys-row{ margin:6px 0 14px; gap:8px; }
-  .keycap{ font-size:13px; padding:7px 12px; }
-  .hero-scene{ width:min(200px,50vw); margin:0 auto 14px; }
-  .hero-cta-row{ gap:14px; margin-top:0; }
-  .hero .btn{ --depth:7px; padding:12px 20px; font-size:13px; }
-  .stat-row{ gap:16px; }
-  .stat b{ font-size:18px; }
-  .stat span{ font-size:9.5px; }
-  .scroll-next{ margin-top:10px; font-size:9.5px; }
-  .scroll-next .chev{ width:21px; height:21px; font-size:11px; }
+  .hero-inner{ padding:0 22px; width:100%; }
+  .eyebrow-chip{ margin-bottom:12px; font-size:12.5px; padding:6px 13px; gap:7px; }
+  .eyebrow-chip .emoji-icon{ width:18px; height:18px; vertical-align:-4px; }
+  h1.title{ font-size:clamp(27px,9vw,36px); line-height:1.08; margin:0 0 10px; }
+  .tagline{ font-size:14px; line-height:1.4; margin:0 auto 6px; max-width:310px; }
+  .keys-row{ margin:8px 0 16px; gap:8px; }
+  .keycap{ font-size:14px; padding:8px 14px; }
+  .hero-scene{ width:min(225px,55vw); margin:0 auto 16px; }
+  .hero-cta-row{ gap:16px; margin-top:0; }
+  .hero .btn{ --depth:8px; padding:13px 22px; font-size:14px; }
+  .stat-row{ gap:18px; }
+  .stat b{ font-size:19px; }
+  .stat span{ font-size:10px; }
+  .scroll-next{ margin-top:12px; font-size:10px; }
+  .scroll-next .chev{ width:22px; height:22px; font-size:12px; }
 }
 
 /* SECTIONS */
 .page-hero{ padding:40px 0 10px; }
 section{ padding:44px 0; scroll-margin-top:62px; }
+/* En móvil el nav está oculto (ver más abajo), así que ya no hay nada fijo
+   arriba que tape las secciones: el ancla debe llegar exacto al borde
+   superior de cada sección, sin dejar ver texto de la anterior. */
+@media (max-width:760px){ section{ scroll-margin-top:0; } }
 .section-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--coral-deep); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
 .section-label::after{ content:""; flex:1; height:2px; background:var(--peach-line); }
 h2.h2{ font-family:var(--font-display); font-size:clamp(21px,3.2vw,28px); margin:0 0 10px; max-width:560px; }
@@ -170,6 +175,7 @@ p.h2-sub strong{ color:var(--ink); font-weight:800; }
 .game-card .g-go{ font-family:var(--font-mono); font-size:12px; font-weight:700; }
 
 #gameStage{ margin-top:44px; scroll-margin-top:78px; }
+@media (max-width:760px){ #gameStage{ scroll-margin-top:0; } }
 .game-panel[hidden]{ display:none !important; }
 
 /* MODO PANTALLA COMPLETA: cada juego ocupa toda la pantalla como una app,
