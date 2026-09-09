@@ -702,6 +702,8 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .ne-title{ font-family:var(--font-display); font-weight:700; font-size:15.5px; color:var(--ink); }
 .ne-num{ color:var(--coral-deep); font-weight:800; margin-right:2px; }
 .ne-desc{ font-size:13px; line-height:1.55; color:var(--ink); margin:0 0 0 52px; }
+.arco-list{ margin:8px 0 8px; padding-left:18px; }
+.arco-list li{ margin-bottom:6px; }
 @media (max-width:560px){ .notebook{ padding:24px 18px 20px 40px; } .notebook::after{ left:28px; } .notebook-rings{ display:none; } }
 
 /* ---- Seguros_y_protección: cartas tipo carpeta/folder (sin modo chat) ---- */
@@ -729,10 +731,6 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .help-grid-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin:0 0 14px; }
 .help-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:26px; }
 @media (max-width:640px){ .help-grid{ grid-template-columns:1fr; } }
-.org-card{ background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:20px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; transition:transform .12s ease, box-shadow .12s ease; }
-.org-card:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
-.org-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--accent, var(--teal)); }
-.org-card.retro-card::before{ content:none; }
 .retro-card{ padding:0; overflow:hidden; }
 .retro-card-bar{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 11px; background:var(--bar, var(--peach)); border-bottom:3px solid var(--ink); }
 .retro-card-bar .rc-dots{ display:flex; gap:5px; flex:none; }
@@ -773,19 +771,6 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .chat-card-footer{ display:flex; align-items:center; gap:10px; padding:10px 16px; background:var(--white); border-top:3px solid var(--ink); }
 .chat-input-fake{ flex:1; background:var(--cream); border:2px solid var(--peach-line); border-radius:100px; padding:7px 14px; font-size:11.5px; color:var(--ink-soft); font-family:var(--font-mono); }
 @media (max-width:520px){ .chat-msg{ max-width:100%; } }
-.org-card.acc-teal{ --accent:var(--teal); } .org-card.acc-coral{ --accent:var(--coral); } .org-card.acc-cream{ --accent:#e7b34c; } .org-card.acc-dark{ --accent:var(--ink); }
-.org-card .o-icon{ font-size:24px; margin-bottom:8px; }
-.org-card .o-title{ font-family:var(--font-display); font-weight:700; font-size:15.5px; margin-bottom:4px; }
-.org-card .o-when{ display:inline-block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:var(--coral-deep); background:var(--peach); border-radius:100px; padding:3px 10px; margin-bottom:10px; }
-.org-card .o-desc{ font-size:12.5px; color:var(--ink); line-height:1.5; margin-bottom:12px; }
-.org-card .o-contact{ display:flex; flex-direction:column; gap:6px; }
-.org-card .o-contact a, .org-card .o-contact span{ font-family:var(--font-mono); font-size:12px; font-weight:700; background:var(--cream); border:2px solid var(--ink); border-radius:8px; padding:6px 10px; display:inline-block; width:fit-content; }
-.org-card .o-contact a:hover{ background:var(--teal); }
-.org-card .o-social{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; padding-top:12px; border-top:2px dashed var(--peach-line); }
-.org-card .o-social a{ font-family:var(--font-mono); font-size:11px; font-weight:700; border:2px solid var(--ink); border-radius:100px; padding:4px 10px 4px 8px; display:inline-flex; align-items:center; gap:5px; background:var(--white); }
-.org-card .o-social a:hover{ background:var(--ink); color:var(--peach); }
-.org-card .o-social .soc-ic{ width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; flex:none; background:var(--ink); color:var(--white); }
-
 .arco-box{ background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:6px; box-shadow:var(--shadow-sm); }
 .arco-head{ display:flex; align-items:center; gap:10px; padding:16px 18px; }
 .arco-head .ah-icon{ font-size:22px; }
@@ -989,10 +974,6 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
   .help-step .hs-desc{font-size:14px}
 
   .help-grid-label{font-size:12px}
-  .org-card .o-title{font-size:17px}
-  .org-card .o-desc{font-size:14px}
-  .org-card .o-contact a,
-  .org-card .o-contact span{font-size:12.5px}
 
   .arco-head p{font-size:15px}
   .arco-item .ai-title{font-size:15px}

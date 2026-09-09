@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ctrl+Z al Phishing</title>
-<meta name="description" content="Cuatro simuladores interactivos de phishing, smishing, vishing y exposicion de datos para la comunidad universitaria.">
+<meta name="description" content="Cuatro simuladores interactivos de phishing, smishing, vishing y exposición de datos para la comunidad universitaria.">
 
 <!-- Ícono de la pestaña del navegador -->
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lilianavo.github.io/Ctrl-Z-al-Phishing/">
 <meta property="og:title" content="Ctrl+Z al Phishing">
-<meta property="og:description" content="Antes de dar clic, haz una pausa. Cuatro simuladores interactivos para aprender a detectar phishing, smishing, vishing y exposicion de datos.">
+<meta property="og:description" content="Antes de dar clic, haz una pausa. Cuatro simuladores interactivos para aprender a detectar phishing, smishing, vishing y exposición de datos.">
 <meta property="og:image" content="https://lilianavo.github.io/Ctrl-Z-al-Phishing/images/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -909,7 +909,7 @@
         <div class="ne-title"><span class="ne-num">2.</span> Protege tu dinero</div>
       </div>
       <div class="ne-desc">
-        Si compartiste datos bancarios o hiciste una transferencia sospechosa, contacta a tu banco de inmediato. <b>No compartas códigos de verificación.</b></b>
+        Si compartiste datos bancarios o hiciste una transferencia sospechosa, contacta a tu banco de inmediato. <b>No compartas códigos de verificación.</b>
       </div>
     </div>
 
@@ -930,11 +930,12 @@
       </div>
       <div class="ne-desc">
         <b>Acceso · Rectificación · Cancelación · Oposición</b>
-        <br><br>
+        <ul class="arco-list">
           <li>El <b>Acceso</b> te permite saber qué datos tiene una empresa sobre ti y cómo los utiliza.</li>
           <li>La <b>Rectificación</b> permite corregir datos incorrectos o desactualizados.</li>
           <li>La <b>Cancelación</b> permite solicitar que sean eliminados cuando corresponda.</li>
-          <li>La <b>Oposición</b> permite negarte a determinados usos.</li><br>
+          <li>La <b>Oposición</b> permite negarte a determinados usos.</li>
+        </ul>
         Para ejercerlos, presenta tu solicitud ante la empresa y guarda una copia.
       </div>
     </div>
@@ -1159,7 +1160,6 @@ function sendToSheet(juego, resultado, detalle, marcarTerminado){
     body: JSON.stringify({
       token: CAMPAIGN_TOKEN,
       code: SESSION_CODE,
-      contexto: (typeof selectedContext!=='undefined' ? selectedContext : '') || '',
       juego: juego || '',
       resultado: resultado || '',
       detalle: detalle || '',
@@ -2666,7 +2666,11 @@ document.getElementById('g4ToDossierBtn').addEventListener('click', ()=>{
   const dash=document.getElementById('g4Dash');
   dash.hidden=false;
   dash.scrollIntoView({behavior:'smooth', block:'start'});
-  sendToSheet('Juego 4 - Reconstruye el perfil', 'completado', JSON.stringify({ combos:[...g4State.comboChecked], ficha:g4State.placed }));
+  const g4Totals=g4ComputeExposure();
+  const g4Vals=Object.values(g4Totals);
+  const g4Score=Math.round(g4Vals.reduce((a,b)=>a+b,0)/g4Vals.length);
+  const g4Level=g4LevelFor(g4Score);
+  sendToSheet('Juego 4 - Reconstruye el perfil', `${g4Level.risk} (${g4Score}/100)`);
 });
 
 /* ---- Reinicio y arranque ---- */
