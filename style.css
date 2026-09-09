@@ -1,7 +1,7 @@
 :root{
   --peach:#FFE3DE; --peach-line:#F6C9C0; --cream:#FFF8F3; --white:#FFFFFF;
   --pastel-mint:#D2ECE2; --pastel-sky:#D3E4F3; --pastel-butter:#FBF0C6; --pastel-lilac:#E6DCF2; --pastel-rose:#F7DDE2; --pastel-peachy:#FCE4D3;
-  --ink:#2A363B; --ink-soft:#5C6A6F; --teal:#81C8C0; --teal-deep:#4E9A92;
+  --ink:#000000; --ink-soft:#000000; --teal:#81C8C0; --teal-deep:#4E9A92;
   --coral:#E89A8A; --coral-deep:#C97363;
   --sun:#F5C34E; --sun-deep:#D9A126; --leaf:#93C77E; --leaf-deep:#5F9E4D; --blue-deep:#3E7CB1;
   --radius-lg:26px; --radius-md:18px; --radius-sm:12px;
@@ -31,7 +31,7 @@ nav{ position:sticky; top:0; z-index:30; background:var(--peach); border-bottom:
 .brand{ font-family:var(--font-display); font-weight:800; font-size:17px; display:flex; align-items:center; gap:8px; flex:none; }
 .brand .dot{ width:10px; height:10px; background:var(--coral); border-radius:50%; border:2px solid var(--ink); }
 .nav-links{ display:flex; gap:16px; font-weight:600; font-size:12.5px; overflow-x:auto; }
-.nav-links a{ opacity:.75; white-space:nowrap; } .nav-links a.active{ opacity:1; border-bottom:3px solid var(--ink); }
+.nav-links a{ opacity:.85; white-space:nowrap; } .nav-links a.active{ opacity:1; border-bottom:3px solid var(--ink); }
 .nav-links a:hover{ opacity:1; }
 .nav-cta{ background:var(--teal); border:3px solid var(--ink); border-radius:100px; padding:8px 14px; font-weight:700; font-size:12.5px; box-shadow:var(--shadow-sm); flex:none; }
 @media (max-width:760px){ nav{ display:none; } }
@@ -136,7 +136,7 @@ section{ padding:44px 0; scroll-margin-top:62px; }
    arriba que tape las secciones: el ancla debe llegar exacto al borde
    superior de cada sección, sin dejar ver texto de la anterior. */
 @media (max-width:760px){ section{ scroll-margin-top:0; } }
-.section-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--coral-deep); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+.section-label{ font-family:var(--font-mono); font-size:13.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--coral-deep); margin-bottom:10px; display:flex; align-items:center; gap:10px; }
 .section-label::after{ content:""; flex:1; height:2px; background:var(--peach-line); }
 h2.h2{ font-family:var(--font-display); font-size:clamp(21px,3.2vw,28px); margin:0 0 10px; max-width:560px; }
 p.h2-sub{ color:var(--ink); font-size:14.5px; max-width:520px; margin:0 0 28px; line-height:1.55; }
@@ -151,8 +151,8 @@ p.h2-sub strong{ color:var(--ink); font-weight:800; }
 .signal-item + .signal-item{ margin-top:22px; }
 .signal-item::before{ content:""; position:absolute; left:32px; bottom:-22px; width:2px; height:22px; background:var(--peach-line); }
 .signal-item:last-child::before{ display:none; }
-.signal-icon{ width:38px; height:38px; border-radius:50%; border:2.5px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:16px; flex:none; }
-.signal-icon.teal{ background:var(--teal); } .signal-icon.coral{ background:var(--coral); } .signal-icon.cream{ background:#f0b429; }
+.signal-icon{ width:38px; height:38px; display:flex; align-items:center; justify-content:center; font-size:16px; flex:none; }
+.signal-icon .emoji-icon{ width:34px; height:34px; }
 .signal-body{ min-width:0; flex:1; }
 .signal-body .s-app{ font-family:var(--font-mono); font-size:10px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; }
 .signal-body .s-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin:2px 0 3px; }
@@ -334,8 +334,9 @@ body.playing footer{ display:none; }
 .inline-result .score-badge{ font-family:var(--font-display); font-weight:800; font-size:44px; color:var(--coral-deep); margin:4px 0 0; }
 .inline-result .score-label{ color:var(--ink-soft); font-size:11.5px; font-family:var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
 .inline-result p{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.55; margin:12px 0 16px; }
-.redo-btn, .menu-btn{ display:inline-flex; align-items:center; gap:10px; background:var(--white); border:3px solid var(--ink); border-radius:100px; padding:10px 18px; box-shadow:var(--shadow-sm); font-weight:600; font-size:13px; }
-.menu-btn{ background:var(--teal); }
+.redo-btn, .menu-btn{ display:inline-flex; align-items:center; gap:10px; background:var(--white); background-image:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0)); border:3px solid var(--ink); border-radius:100px; padding:10px 18px; box-shadow:var(--shadow-sm); font-weight:600; font-size:13px; }
+.menu-btn{ background-color:var(--teal); }
+.survey-inline-cta .btn{ background-image:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0)); }
 .redo-btn .k2{ font-family:var(--font-mono); font-weight:700; font-size:11.5px; background:var(--peach); padding:4px 8px; border-radius:7px; border:2px solid var(--ink); }
 
 /* RESULTADOS · Juego 1 (tarjeta con stats + botones grandes al final) */
@@ -363,16 +364,9 @@ body.playing footer{ display:none; }
 
 .results-tip{ display:flex; align-items:flex-start; gap:10px; background:var(--pastel-mint); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:14px 16px; text-align:left; margin-bottom:22px; }
 .results-tip-icon{ font-size:18px; flex:none; line-height:1.3; }
+.results-tip-icon .emoji-icon{ width:20px; height:20px; vertical-align:-4px; }
 .results-tip p{ margin:0; font-size:12.5px; font-weight:600; line-height:1.5; color:var(--ink); }
 
-.results-actions{ display:flex; flex-direction:column; gap:10px; }
-.results-btn{ display:flex; align-items:center; justify-content:center; gap:9px; width:100%; font-family:inherit; font-weight:700; font-size:14px; border:3px solid var(--ink); border-radius:100px; padding:14px 18px; box-shadow:var(--shadow-sm); transition:transform .12s cubic-bezier(.2,.8,.2,1), box-shadow .12s cubic-bezier(.2,.8,.2,1); }
-.results-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
-.results-btn:active{ transform:translate(0,0); box-shadow:1px 1px 0 var(--ink); }
-.results-btn.primary{ background:var(--coral); }
-.results-btn.secondary{ background:var(--teal); }
-.results-btn.tertiary{ background:var(--white); }
-.results-btn .k2{ font-family:var(--font-mono); font-weight:700; font-size:11px; background:rgba(255,255,255,.55); padding:3px 7px; border-radius:6px; border:2px solid var(--ink); }
 @media (max-width:380px){
   .results-stats-card{ flex-direction:column; text-align:center; }
   .results-stat-row{ justify-content:center; }
@@ -538,6 +532,12 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 @media (max-width:600px){ .g4-dropzones{ grid-template-columns:1fr; } .g4-field-grid{ grid-template-columns:1fr; } }
 
 .dash{ max-width:520px; margin:0 auto; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:28px 20px; box-shadow:var(--shadow); }
+/* El expediente del juego 4 ya trae su propia "ventana" (retro-window) con
+   titlebar; si además se le da el fondo/borde/sombra de .dash, quedan dos
+   ventanas encimadas. Aquí se le quita el envoltorio a .dash y se deja solo
+   la ventana del expediente como única "caja" visible. */
+#g4Dash.dash{ max-width:460px; background:none; border:none; border-radius:0; padding:0; box-shadow:none; }
+#g4Dash .inline-result.retro-window{ margin-top:14px; }
 .dash p.msg{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.55; margin:18px 0 0; text-align:center; }
 
 /* --- Cierre: expediente con barras --- */
@@ -650,16 +650,16 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 }
 .notebook-rings{ position:absolute; left:-9px; top:16px; bottom:16px; width:22px; display:flex; flex-direction:column; justify-content:space-between; z-index:2; }
 .notebook-rings span{ display:block; width:18px; height:18px; border-radius:50%; border:2.5px solid var(--ink); background:var(--cream); box-shadow:inset 0 0 0 4px var(--pastel-butter); }
-.notebook-title{ position:relative; z-index:1; display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--coral-deep); margin:0 0 14px; }
+.notebook-title{ position:relative; z-index:1; display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-weight:800; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--coral-deep); margin:0 0 14px; }
 .notebook-entry{ position:relative; z-index:1; padding:14px 0; }
 .notebook-entry:first-of-type{ padding-top:2px; }
 .notebook-entry + .notebook-entry{ border-top:2px dashed rgba(42,54,59,.28); }
 .ne-head{ display:flex; align-items:center; gap:12px; margin-bottom:6px; }
-.ne-icon{ width:36px; height:36px; flex:none; border-radius:10px; border:2.5px solid var(--ink); background:var(--white); display:flex; align-items:center; justify-content:center; }
-.ne-icon img{ width:19px; height:19px; }
+.ne-icon{ width:40px; height:40px; flex:none; display:flex; align-items:center; justify-content:center; }
+.ne-icon img{ width:38px; height:38px; }
 .ne-title{ font-family:var(--font-display); font-weight:700; font-size:15.5px; color:var(--ink); }
 .ne-num{ color:var(--coral-deep); font-weight:800; margin-right:2px; }
-.ne-desc{ font-size:13px; line-height:1.55; color:var(--ink); margin:0 0 0 48px; }
+.ne-desc{ font-size:13px; line-height:1.55; color:var(--ink); margin:0 0 0 52px; }
 @media (max-width:560px){ .notebook{ padding:24px 18px 20px 40px; } .notebook::after{ left:28px; } .notebook-rings{ display:none; } }
 
 /* ---- Seguros_y_protección: cartas tipo carpeta/folder (sin modo chat) ---- */
@@ -669,7 +669,7 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
   position:relative; z-index:2; display:inline-flex; align-items:center; gap:6px; max-width:82%;
   background:var(--folder,var(--pastel-mint)); border:3px solid var(--ink); border-bottom:none;
   border-radius:10px 10px 0 0; padding:6px 14px 10px;
-  font-family:var(--font-mono); font-weight:700; font-size:10px; letter-spacing:.04em; text-transform:uppercase;
+  font-family:var(--font-mono); font-weight:800; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase;
   color:var(--ink); transform:translateY(3px);
 }
 .folder-body{
@@ -706,7 +706,7 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .chat-card{ max-width:620px; margin:0 auto 26px; border:3px solid var(--ink); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--cream); }
 .chat-card-bar{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 16px; background:linear-gradient(90deg, var(--pastel-sky), var(--pastel-mint)); border-bottom:3px solid var(--ink); }
 .chat-card-bar .cc-back{ font-size:16px; font-weight:700; flex:none; }
-.chat-card-bar .cc-title{ font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.04em; color:var(--ink); text-transform:uppercase; }
+.chat-card-bar .cc-title{ font-family:var(--font-mono); font-weight:800; font-size:12.5px; letter-spacing:.04em; color:var(--ink); text-transform:uppercase; }
 .chat-card-bar .cc-face{ font-size:16px; flex:none; }
 .chat-card-body{ padding:22px 18px; display:flex; flex-direction:column; gap:20px; }
 .chat-msg{ display:flex; flex-direction:column; max-width:92%; }
@@ -766,6 +766,8 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* CAJA "CÓMO JUGAR" -- instrucciones claras por juego */
 .how-to-play{ background:var(--cream); border:3px dashed var(--ink); border-radius:var(--radius-md); padding:14px 18px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--ink); max-width:640px; margin-left:auto; margin-right:auto; }
 .how-to-play b{ color:var(--ink); }
+.how-to-play-icon{ display:flex; align-items:flex-start; gap:12px; text-align:left; }
+.how-to-play-icon-img{ width:30px; height:30px; object-fit:contain; flex:none; margin-top:1px; }
 
 /* ---- Tarjetas de instrucciones del Juego 1 (pantalla previa a jugar) ---- */
 .howto-card{ background:var(--white); border:3px dashed var(--coral-deep); border-radius:var(--radius-md); padding:20px 18px; margin:0 auto 16px; max-width:640px; }
@@ -802,11 +804,11 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .instr-chip{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; background:var(--white); color:var(--coral-deep); border:2.5px solid var(--ink); border-radius:100px; padding:6px 14px; margin-bottom:12px; box-shadow:var(--shadow-sm); }
 
 .instr-hero{ max-width:230px; margin:4px auto 22px; }
-.instr-hero img{ width:100%; height:auto; display:block; }
+.instr-hero img, .instr-hero video{ width:100%; height:auto; display:block; }
 
 .instr-divider{ display:flex; align-items:center; gap:10px; margin:0 0 18px; }
 .instr-divider::before, .instr-divider::after{ content:""; flex:1; height:2.5px; background:var(--peach-line); border-radius:2px; }
-.instr-divider span{ flex:none; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); background:var(--pastel-mint); border:2.5px solid var(--ink); border-radius:100px; padding:6px 15px; }
+.instr-divider span{ display:inline-flex; align-items:center; gap:7px; flex:none; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); background:var(--pastel-mint); border:2.5px solid var(--ink); border-radius:100px; padding:6px 15px; }
 
 .instr-steps{ display:flex; flex-direction:column; gap:18px; margin-bottom:24px; }
 .instr-step{ display:flex; align-items:flex-start; gap:10px; }
@@ -817,14 +819,19 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .instr-step-title{ font-family:var(--font-display); font-weight:700; font-size:15px; color:var(--ink); margin-bottom:2px; }
 .instr-step-desc{ font-size:12.5px; color:var(--ink-soft); line-height:1.5; }
 
-.instr-tips{ list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:10px; }
+.instr-tips-row{ display:flex; align-items:flex-start; gap:12px; margin:0 0 26px; }
+.instr-tips-icon{ flex:none; width:58px; height:58px; object-fit:contain; margin-top:0; }
+.instr-divider-warn span{ background:var(--coral); border-color:var(--coral-deep); color:var(--ink); }
+.instr-tips{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; flex:1; min-width:0; }
 .instr-tips li{ display:flex; gap:9px; align-items:flex-start; font-size:13.5px; color:var(--ink); line-height:1.4; }
 
-.instr-warning{ display:flex; align-items:center; gap:12px; background:#FBEAE6; border:2.5px solid var(--coral-deep); border-radius:var(--radius-md); padding:14px 16px; margin:0 0 24px; }
-.instr-warning-icon{ width:28px; height:28px; object-fit:contain; flex:none; }
-.instr-warning p{ margin:0; font-family:var(--font-display); font-weight:700; font-size:14px; color:var(--coral-deep); line-height:1.3; }
-
 .instr-cta{ text-transform:uppercase; letter-spacing:.03em; }
+
+.instr-hero-lg{ max-width:320px; }
+.instr-divider span .emoji-icon{ width:16px; height:16px; vertical-align:-3px; margin-right:1px; }
+
+.instr-step-icon-plain{ background:none; border:none; box-shadow:none; width:36px; height:36px; }
+.instr-step-icon-plain img{ width:100%; height:100%; object-fit:contain; display:block; }
 
 .start-shortcuts{ display:flex; justify-content:center; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; }
 .start-shortcuts.top-shortcuts{ margin-top:0; }
@@ -834,20 +841,73 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .start-btn{ font-size:16px; padding:16px 34px; }
 
 /* SELECTOR DE ESCENARIOS -- juego 3 */
-.scenario-picker{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:560px; margin:0 auto 26px; }
-@media (max-width:560px){ .scenario-picker{ grid-template-columns:1fr; } }
-.scenario-btn{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; box-shadow:var(--shadow-sm); transition:transform .12s ease, background .12s ease; }
-.scenario-btn:hover{ transform:translate(-2px,-2px); background:var(--teal); }
-.scenario-btn .sc-icon{ font-size:22px; margin-bottom:8px; }
-.scenario-btn .sc-title{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:4px; }
-.scenario-btn .sc-desc{ font-size:12px; color:var(--ink); line-height:1.5; }
+.scenario-picker{ max-width:600px; margin:0 auto 26px; }
+.scenario-intro{ text-align:center; margin:0 0 20px; }
+.scenario-intro-sub{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); max-width:460px; margin:0 auto; }
+
+/* Juegos 1, 2 y 4: texto en negro puro para mayor legibilidad (en vez del gris/ink suave) */
+#panel1, #panel2, #panel3, #panel4{ --ink:#000000; --ink-soft:#000000; }
+
+/* Juego 4: pantalla de instrucciones rediseñada (personaje + burbuja) */
+.g4-intro-character{ display:flex; justify-content:center; max-width:150px; margin:4px auto 4px; }
+.g4-character-img{ width:100%; height:auto; display:block; }
+
+/* La caja de instrucciones ahora es una burbuja de diálogo real que "sale"
+   de Frida: overflow visible + una colita triangular (borde + relleno,
+   dos triángulos superpuestos) apuntando hacia ella. */
+.g4-howto-box.g4-bubble{ position:relative; overflow:visible; }
+.g4-bubble::before{ content:""; position:absolute; top:-15px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:15px solid var(--ink); }
+.g4-bubble::after{ content:""; position:absolute; top:-11.5px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-bottom:12px solid var(--white); }
+
+.g4-howto-tag{ display:flex; align-items:center; justify-content:center; gap:7px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); background:var(--pastel-mint); border-bottom:2.5px solid var(--ink); padding:9px 14px; }
+.g4-howto-tag .emoji-icon{ width:16px; height:16px; vertical-align:-3px; }
+
+.g4-howto-box{ border:2.5px solid var(--ink); border-radius:var(--radius-md); background:var(--white); max-width:460px; margin:0 auto 22px; overflow:hidden; box-shadow:var(--shadow-sm); }
+.g4-howto-row{ display:flex; align-items:center; gap:12px; padding:14px 16px; }
+.g4-howto-icon{ flex:none; width:34px; height:34px; display:flex; align-items:center; justify-content:center; }
+.g4-howto-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
+.g4-howto-text{ font-size:13px; line-height:1.5; color:var(--ink); }
+.g4-howto-divider{ height:1.5px; background:var(--peach-line); margin:0 16px; }
+
+.scenario-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+@media (max-width:560px){ .scenario-grid{ grid-template-columns:1fr; } }
+
+.scenario-btn{ position:relative; display:flex; flex-direction:column; text-align:left; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:0 0 56px; box-shadow:var(--shadow-sm); overflow:hidden; transition:transform .12s ease, box-shadow .12s ease; }
+.scenario-btn:hover{ transform:translate(-3px,-3px); box-shadow:6px 6px 0 var(--ink); }
+
+.sc-media{ position:relative; display:flex; align-items:center; justify-content:center; padding:20px 14px 8px; min-height:118px; }
+.sc-media img{ width:100%; max-width:148px; height:auto; object-fit:contain; position:relative; z-index:1; }
+.sc-sparkle{ position:absolute; color:var(--coral-deep); opacity:.7; pointer-events:none; }
+.sc-sparkle.sp1{ top:12px; left:16px; font-size:15px; }
+.sc-sparkle.sp2{ bottom:14px; right:18px; font-size:11px; }
+
+.sc-body{ padding:12px 16px 0; }
+.sc-badge{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--ink); border-radius:100px; padding:6px 14px 6px 6px; margin-bottom:10px; }
+.sc-badge-icon{ width:24px; height:24px; border-radius:50%; background:var(--white); display:flex; align-items:center; justify-content:center; flex:none; color:var(--ink); }
+.sc-badge-icon svg{ width:14px; height:14px; }
+.sc-desc{ font-size:12.5px; color:var(--ink); line-height:1.5; margin:0; }
+
+.sc-arrow{ position:absolute; right:14px; bottom:14px; width:34px; height:34px; border-radius:50%; border:2.5px solid var(--ink); display:flex; align-items:center; justify-content:center; color:var(--ink); }
+.sc-arrow svg{ width:16px; height:16px; }
+
+.sc-card-trabajo .sc-media{ background:#FDEDE9; }
+.sc-card-trabajo .sc-badge, .sc-card-trabajo .sc-arrow{ background:var(--pastel-rose); }
+
+.sc-card-familia .sc-media{ background:#F8F3EF; }
+.sc-card-familia .sc-badge, .sc-card-familia .sc-arrow{ background:var(--pastel-sky); }
+
+.sc-card-banco .sc-media{ background:#FDF1E4; }
+.sc-card-banco .sc-badge, .sc-card-banco .sc-arrow{ background:var(--pastel-butter); }
+
+.sc-card-compra .sc-media{ background:#FBEFF3; }
+.sc-card-compra .sc-badge, .sc-card-compra .sc-arrow{ background:var(--pastel-lilac); }
 
 /* AJUSTE DE LEGIBILIDAD EN MÓVIL */
 @media (max-width:640px){
   .wrap{padding-left:18px;padding-right:18px}
   section{padding:38px 0}
 
-  .section-label{font-size:12px}
+  .section-label{font-size:13px}
   h2.h2{font-size:clamp(24px,7vw,30px);line-height:1.12}
   p.h2-sub{font-size:16px;line-height:1.6}
 
@@ -941,17 +1001,18 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 
 /* encabezado de categoría */
 .phish-cat-head{ display:flex; align-items:center; gap:12px; margin-bottom:16px; text-align:left; }
-.phish-cat-icon{ width:50px; height:50px; flex:none; border-radius:50%; border:3px solid var(--ink); display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1; }
+.phish-cat-icon{ width:50px; height:50px; flex:none; display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1; }
+.phish-cat-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
 .phish-cat-title{ font-family:var(--font-display); font-weight:800; font-size:17px; color:var(--ink); }
 .phish-cat-q{ font-size:13px; color:var(--ink-soft); margin-top:2px; }
 
 /* tarjetas de opción */
 .phish-choices{ display:flex; flex-direction:column; gap:10px; margin-bottom:6px; }
-.phish-card{ position:relative; text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px 14px; display:flex; align-items:center; gap:12px; font-family:inherit; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s cubic-bezier(.2,.8,.2,1), background .12s ease; }
-.phish-card:hover{ transform:translateY(-2px); background:var(--peach); }
+.phish-card{ position:relative; text-align:left; background:var(--card-bg, var(--white)); border:3px solid var(--ink); border-radius:var(--radius-md); padding:12px 14px; display:flex; align-items:center; gap:12px; font-family:inherit; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s cubic-bezier(.2,.8,.2,1), filter .12s ease; }
+.phish-card:hover{ transform:translateY(-2px); filter:brightness(.97); }
 .phish-card:active{ transform:translateY(1px); }
-.phish-card.selected{ background:var(--pastel-rose); }
-.phish-card .pc-icon{ width:38px; height:38px; flex:none; border-radius:10px; border:2px solid var(--ink); background:var(--peach); display:flex; align-items:center; justify-content:center; }
+.phish-card.selected{ background:var(--pastel-rose); filter:none; }
+.phish-card .pc-icon{ width:38px; height:38px; flex:none; border-radius:10px; border:2px solid var(--ink); background:var(--white); display:flex; align-items:center; justify-content:center; }
 .phish-card .pc-icon svg{ width:20px; height:20px; display:block; }
 .phish-card .pc-body{ min-width:0; flex:1; display:flex; flex-direction:column; }
 .phish-card .pc-title{ font-weight:700; font-size:13.5px; line-height:1.3; color:var(--ink); }
@@ -988,23 +1049,44 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 .phish-tier.medio{ background:var(--sun); }
 .phish-tier.bajo{ background:var(--teal); }
 .phish-score{ font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink-soft); text-align:center; margin-bottom:14px; }
-.phish-result-msg{ font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 10px; }
-.phish-result-intro{ font-size:12.5px; line-height:1.55; color:var(--ink-soft); margin:0 0 18px; }
+.phish-result-msg{ font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 18px; }
+
+.phish-email-tab{ display:flex; align-items:stretch; width:100%; max-width:460px; margin:0 auto 18px; background:var(--white); border:3px solid var(--ink); border-radius:100px; overflow:hidden; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s ease; padding:0; }
+.phish-email-tab:hover{ transform:translateY(-1px); }
+.phish-email-tab:active{ transform:translateY(1px); }
+.phish-email-tab .pet-icon{ flex:none; width:46px; display:flex; align-items:center; justify-content:center; font-size:16px; background:linear-gradient(180deg, #CFF1E4, var(--teal)); border-right:3px solid var(--ink); }
+.phish-email-tab .pet-text{ flex:1; display:flex; align-items:center; text-align:left; padding:0 14px; font-family:var(--font-display); font-weight:700; font-size:13.5px; color:var(--ink); background:linear-gradient(180deg, #FFFFFF, var(--cream)); }
+.phish-email-tab .pet-chevron{ flex:none; width:40px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, #FFFFFF, var(--peach)); border-left:3px solid var(--ink); transition:transform .18s ease; }
+.phish-email-tab.open .pet-chevron{ transform:rotate(180deg); }
+.phish-email-drawer{ max-width:460px; margin:-6px auto 20px; animation:phishDrawerIn .18s ease; }
+@keyframes phishDrawerIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:translateY(0); } }
+
+.phish-section-title{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--ink); text-align:left; max-width:460px; margin:0 auto 10px; }
 
 /* correo final dentro del resultado: un poco más chico que en vivo */
 #phishResultEmailSlot .phish-preview-head{ justify-content:center; }
 #phishResultEmailSlot .email-mock{ max-width:460px; }
 
 /* resumen chiquito de puntos, tipo recibo */
-.phish-picks{ text-align:left; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:10px 14px; margin:0 auto 14px; max-width:460px; display:flex; flex-direction:column; gap:7px; }
-.phish-pick-row{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); border-bottom:1.5px dashed var(--peach-line); padding-bottom:6px; }
-.phish-pick-row:last-child{ border-bottom:none; padding-bottom:0; }
-.phish-pick-row .pp-label{ min-width:0; overflow-wrap:anywhere; }
-.phish-pick-row .pp-points{ flex:none; font-weight:700; color:var(--coral-deep); }
+.phish-picks{ text-align:left; background:var(--white); border:2.5px solid var(--ink); border-radius:var(--radius-md); padding:2px 14px; margin:0 auto 16px; max-width:460px; display:flex; flex-direction:column; }
+.phish-pick-row{ display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1.5px dashed var(--peach-line); }
+.phish-pick-row:last-child{ border-bottom:none; }
+.ppr-icon{ width:30px; height:30px; flex:none; }
+.ppr-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
+.ppr-body{ min-width:0; flex:1; display:flex; flex-direction:column; }
+.ppr-title{ font-weight:700; font-size:12.5px; color:var(--ink); }
+.ppr-choice{ font-size:11.5px; color:var(--ink-soft); overflow-wrap:anywhere; margin-top:1px; }
+.ppr-points{ flex:none; font-family:var(--font-mono); font-weight:800; font-size:11px; padding:4px 10px; border-radius:100px; border:2px solid var(--ink); background-image:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,0)); }
+.ppr-points.high{ background-color:var(--coral); }
+.ppr-points.mid{ background-color:var(--sun); }
+.ppr-points.low{ background-color:var(--teal); }
 
 /* enlace pequeño para abrir el análisis completo en un popup */
-.phish-analysis-link{ display:inline-flex; align-items:center; gap:6px; background:none; border:none; font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px; cursor:pointer; padding:4px 6px; margin:0 0 20px; }
-.phish-analysis-link:hover{ color:var(--coral-deep); }
+.phish-search-btn{ display:flex; align-items:stretch; width:100%; max-width:460px; margin:0 auto 22px; background:var(--white); border:3px solid var(--ink); border-radius:100px; overflow:hidden; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .12s ease; padding:0; font-family:inherit; }
+.phish-search-btn:hover{ transform:translateY(-1px); }
+.phish-search-btn:active{ transform:translateY(1px); }
+.phish-search-btn .psb-icon{ flex:none; width:46px; display:flex; align-items:center; justify-content:center; font-size:15px; background:linear-gradient(180deg, #EAD9F5, var(--pastel-lilac)); border-right:3px solid var(--ink); }
+.phish-search-btn .psb-text{ flex:1; display:flex; align-items:center; text-align:left; padding:0 14px; font-weight:700; font-size:13px; color:var(--ink); background:linear-gradient(180deg, #FFFFFF, var(--cream)); }
 
 /* popup con el análisis técnico completo */
 .phish-modal-overlay{ position:fixed; inset:0; z-index:400; background:rgba(42,54,59,.55); display:flex; align-items:flex-end; justify-content:center; padding:0; }
@@ -1034,6 +1116,7 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* recomendaciones concretas para prevenir el engaño */
 .phish-prevent{ text-align:left; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-md); padding:16px 18px; margin:0 0 18px; }
 .phish-prevent-head{ font-family:var(--font-mono); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:10px; }
+.phish-prevent-head .emoji-icon{ width:14px; height:14px; vertical-align:-2px; margin-right:1px; }
 .phish-prevent ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
 .phish-prevent li{ font-size:13px; line-height:1.5; color:var(--ink); display:flex; gap:8px; }
 .phish-prevent li::before{ content:"☑"; flex:none; color:var(--teal-deep); font-weight:700; }
