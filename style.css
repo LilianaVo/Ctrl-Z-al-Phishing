@@ -43,9 +43,11 @@ nav{ position:sticky; top:0; z-index:30; background:var(--peach); border-bottom:
 h1.title{ font-family:var(--font-display); font-weight:800; font-size:clamp(32px,7vw,52px); line-height:1.06; margin:0 0 14px; }
 h1.title .hl{ color:var(--coral-deep); }
 .tagline{ font-size:16px; color:var(--ink); max-width:440px; line-height:1.6; margin:0 auto 8px; }
-.keys-row{ display:flex; gap:8px; margin:6px 0 30px; justify-content:center; }
+.keys-row{ display:flex; gap:8px; margin:6px 0 30px; justify-content:center; align-items:center; flex-wrap:wrap; }
 .keycap{ font-family:var(--font-mono); font-weight:700; font-size:14px; background:var(--cream); border:2.5px solid var(--ink); border-radius:8px; padding:8px 12px; box-shadow:3px 3px 0 var(--ink); }
 .keys-row .plus{ border:none; box-shadow:none; background:none; padding:8px 2px; color:var(--ink-soft); }
+.keys-row-label{ font-family:var(--font-display); font-weight:700; font-size:22px; margin-left:6px; }
+.keys-row-label .text-coral{ font-weight:800; }
 .hero-scene{ position:relative; width:min(520px,92vw); margin:6px auto 34px; }
 .hero-scene img{ width:100%; height:auto; display:block; }
 /* Botón "tecla": se presiona de verdad, como una keycap física -- coherente con el Ctrl+Z del logo */
@@ -119,6 +121,7 @@ h1.title .hl{ color:var(--coral-deep); }
   .tagline{ font-size:14px; line-height:1.4; margin:0 auto 6px; max-width:310px; }
   .keys-row{ margin:8px 0 16px; gap:8px; }
   .keycap{ font-size:14px; padding:8px 14px; }
+  .keys-row-label{ font-size:18px; }
   .hero-scene{ width:min(225px,55vw); margin:0 auto 16px; }
   .hero-cta-row{ gap:16px; margin-top:0; }
   .hero .btn{ --depth:8px; padding:13px 22px; font-size:14px; }
