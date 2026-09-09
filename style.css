@@ -535,28 +535,55 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 @media (max-width:600px){ .g4-dropzones{ grid-template-columns:1fr; } .g4-field-grid{ grid-template-columns:1fr; } }
 
 .dash{ max-width:520px; margin:0 auto; background:var(--white); border:3px solid var(--ink); border-radius:var(--radius-lg); padding:28px 20px; box-shadow:var(--shadow); }
-/* El expediente del juego 4 ya trae su propia "ventana" (retro-window) con
+/* El resultado del juego 4 ya trae su propia "ventana" (retro-window) con
    titlebar; si además se le da el fondo/borde/sombra de .dash, quedan dos
    ventanas encimadas. Aquí se le quita el envoltorio a .dash y se deja solo
-   la ventana del expediente como única "caja" visible. */
+   la ventana del resultado como única "caja" visible. */
 #g4Dash.dash{ max-width:460px; background:none; border:none; border-radius:0; padding:0; box-shadow:none; }
 #g4Dash .inline-result.retro-window{ margin-top:14px; }
 .dash p.msg{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.55; margin:18px 0 0; text-align:center; }
 
-/* --- Cierre: expediente con barras --- */
-.dossier{ margin-top:22px; text-align:left; background:var(--ink); color:var(--peach); border-radius:var(--radius-md); padding:20px 22px; box-shadow:3px 3px 0 var(--coral); position:relative; overflow:hidden; }
-.dossier::before{ content:"CONFIDENCIAL"; position:absolute; top:10px; right:-38px; background:var(--coral); color:var(--ink); font-family:var(--font-mono); font-size:10px; font-weight:800; letter-spacing:.08em; padding:3px 42px; transform:rotate(35deg); pointer-events:none; }
-.dossier-head{ font-family:var(--font-display); font-weight:700; font-size:15px; margin-bottom:12px; padding-right:50px; }
-.dossier-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
-.dossier-list li{ font-family:var(--font-mono); font-size:12.5px; line-height:1.6; padding-left:22px; position:relative; color:#f1e9e4; }
-.dossier-list li::before{ content:"▸"; position:absolute; left:0; color:var(--coral); font-weight:700; }
-.dossier-list li.dossier-empty{ padding-left:0; color:#c9c1bd; font-style:italic; }
-.dossier-list li.dossier-empty::before{ content:none; }
-.g4-bars li{ padding-left:0; display:flex; align-items:center; gap:10px; }
-.g4-bars li::before{ content:none; }
-.g4-bar-label{ width:108px; flex:none; color:#f1e9e4; }
-.g4-bar-track{ flex:1; height:12px; background:rgba(255,255,255,.12); border-radius:100px; overflow:hidden; }
-.g4-bar-fill{ display:block; height:100%; width:var(--w); background:var(--coral); border-radius:100px; transition:width .6s cubic-bezier(.2,.8,.2,1); }
+/* --- Cierre: violentómetro de exposición --- */
+.v-panel{ margin-top:22px; text-align:left; background:var(--cream); border:3px solid var(--ink); border-radius:var(--radius-md); padding:22px 20px; box-shadow:3px 3px 0 var(--coral); }
+
+.v-head{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.v-head-icon{ width:44px; height:44px; object-fit:contain; flex:none; }
+.v-head-sub{ font-size:12.5px; color:var(--ink); }
+
+/* Medidor tipo "violentómetro": aguja sobre arco de color según el resultado */
+.v-gauge{ display:flex; flex-direction:column; align-items:center; margin-bottom:18px; }
+.v-gauge-arc{ position:relative; width:216px; height:110px; overflow:hidden; }
+.v-gauge-fill{ position:absolute; top:0; left:-2px; width:216px; height:216px; border-radius:50%; box-sizing:border-box; border:4px solid var(--ink);
+  background:conic-gradient(from -90deg, #8FCB7C 0deg 36deg, #F5D75B 36deg 72deg, #F2A65A 72deg 108deg, #E2604F 108deg 144deg, #7A3B69 144deg 180deg, transparent 180deg 360deg); }
+.v-gauge-needle{ position:absolute; left:50%; bottom:0; width:4px; height:88px; background:var(--ink); border-radius:3px 3px 0 0; transform-origin:bottom center; z-index:2; transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+.v-gauge-center{ position:absolute; left:50%; bottom:-8px; width:16px; height:16px; background:var(--ink); border:3px solid var(--cream); border-radius:50%; transform:translateX(-50%); z-index:3; }
+.v-gauge-badge{ margin-top:8px; display:flex; flex-direction:column; align-items:center; gap:2px; border:3px solid var(--ink); border-radius:100px; padding:8px 24px; background:var(--white); box-shadow:var(--shadow-sm); }
+.v-gauge-score{ font-family:var(--font-display); font-weight:800; font-size:26px; color:var(--ink); line-height:1; }
+.v-gauge-score small{ font-size:13px; font-weight:700; color:var(--ink); margin-left:2px; }
+.v-gauge-risk{ font-family:var(--font-mono); font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+
+/* Aviso dinámico según el nivel alcanzado */
+.v-callout{ display:flex; gap:12px; align-items:flex-start; border:3px solid var(--ink); border-radius:var(--radius-md); padding:14px 16px; margin-bottom:18px; box-shadow:var(--shadow-sm); background:var(--white); }
+.v-callout-icon{ font-size:22px; line-height:1; flex:none; }
+.v-callout-title{ font-family:var(--font-display); font-weight:700; font-size:14.5px; margin-bottom:4px; color:var(--ink); }
+.v-callout-desc{ font-size:12.5px; line-height:1.5; color:var(--ink); margin:0; }
+
+/* Barras por categoría, coloreadas de forma individual */
+.v-cats-title{ font-family:var(--font-mono); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--coral-deep); margin-bottom:6px; }
+.v-cats-sub{ font-size:11.5px; line-height:1.5; color:var(--ink); margin:0 0 12px; }
+.v-bars{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.v-bar{ display:flex; align-items:center; gap:10px; }
+.v-bar-label{ width:104px; flex:none; font-size:12px; font-weight:600; color:var(--ink); }
+.v-bar-track{ flex:1; height:11px; background:var(--peach); border:2px solid var(--ink); border-radius:100px; overflow:hidden; }
+.v-bar-fill{ display:block; height:100%; width:var(--w); border-radius:100px; transition:width .6s cubic-bezier(.2,.8,.2,1); }
+.v-bar-pct{ font-family:var(--font-mono); font-size:10.5px; font-weight:700; width:32px; text-align:right; flex:none; color:var(--ink); }
+
+@media (max-width:380px){
+  .v-gauge-arc{ width:190px; height:97px; }
+  .v-gauge-fill{ width:190px; height:190px; }
+  .v-gauge-needle{ height:76px; }
+  .v-bar-label{ width:86px; font-size:11px; }
+}
 
 /* MATERIALES -- lista tipo "carpeta de descargas", no tarjetas */
 .kit-list{ border:3px solid var(--ink); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--white); }
@@ -851,26 +878,9 @@ footer{ text-align:center; color:var(--ink-soft); font-size:12px; font-family:va
 /* Juegos 1, 2 y 4: texto en negro puro para mayor legibilidad (en vez del gris/ink suave) */
 #panel1, #panel2, #panel3, #panel4{ --ink:#000000; --ink-soft:#000000; }
 
-/* Juego 4: pantalla de instrucciones rediseñada (personaje + burbuja) */
+/* Juego 4: pantalla de instrucciones (personaje + lista de pasos) */
 .g4-intro-character{ display:flex; justify-content:center; max-width:150px; margin:4px auto 4px; }
 .g4-character-img{ width:100%; height:auto; display:block; }
-
-/* La caja de instrucciones ahora es una burbuja de diálogo real que "sale"
-   de Frida: overflow visible + una colita triangular (borde + relleno,
-   dos triángulos superpuestos) apuntando hacia ella. */
-.g4-howto-box.g4-bubble{ position:relative; overflow:visible; }
-.g4-bubble::before{ content:""; position:absolute; top:-15px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:15px solid transparent; border-right:15px solid transparent; border-bottom:15px solid var(--ink); }
-.g4-bubble::after{ content:""; position:absolute; top:-11.5px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-bottom:12px solid var(--white); }
-
-.g4-howto-tag{ display:flex; align-items:center; justify-content:center; gap:7px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--ink); background:var(--pastel-mint); border-bottom:2.5px solid var(--ink); padding:9px 14px; }
-.g4-howto-tag .emoji-icon{ width:16px; height:16px; vertical-align:-3px; }
-
-.g4-howto-box{ border:2.5px solid var(--ink); border-radius:var(--radius-md); background:var(--white); max-width:460px; margin:0 auto 22px; overflow:hidden; box-shadow:var(--shadow-sm); }
-.g4-howto-row{ display:flex; align-items:center; gap:12px; padding:14px 16px; }
-.g4-howto-icon{ flex:none; width:34px; height:34px; display:flex; align-items:center; justify-content:center; }
-.g4-howto-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
-.g4-howto-text{ font-size:13px; line-height:1.5; color:var(--ink); }
-.g4-howto-divider{ height:1.5px; background:var(--peach-line); margin:0 16px; }
 
 .scenario-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
 @media (max-width:560px){ .scenario-grid{ grid-template-columns:1fr; } }

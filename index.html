@@ -535,7 +535,7 @@
       </p>
     </div>
 
-    <div class="instr-hero">
+    <div class="instr-hero instr-hero-lg">
       <video src="images/hero-chat-presion.mp4" width="370" height="256" autoplay muted loop playsinline aria-label="Animación de una ventana de chat con mensajes entrantes y salientes"></video>
     </div>
 
@@ -543,7 +543,7 @@
 
     <div class="how-to-play how-to-play-icon">
       <img src="images/icon-chatrespuesta.png" alt="" class="how-to-play-icon-img">
-      <div>Lee cada mensaje y elige la respuesta que tomarías en esa situación.</div>
+      <div>Es un chat estilo WhatsApp: te van llegando mensajes de distintas personas. Lee cada uno y elige la respuesta que tomarías en esa situación.</div>
     </div>
 
     <div class="game-start" id="game3Start">
@@ -594,7 +594,7 @@
     </div>
 
     <div class="inline-result retro-window" id="result3" hidden>
-      <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">CHAT_RESULTADO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+      <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">CHAT RESULTADO</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
       <div class="retro-body">
         <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span><span class="retro-sparkle s3">✦</span>
         <div class="score-label">Tu resultado</div>
@@ -649,16 +649,38 @@
             <img src="images/g4-character-frida.png" alt="Frida, personaje ficticio del juego" class="g4-character-img">
           </div>
 
-          <div class="g4-howto-box g4-bubble">
-            <div class="g4-howto-tag"><img src="images/icon-bombilla.png" class="emoji-icon" alt="">¿Cómo jugar?</div>
-            <div class="g4-howto-row">
-              <div class="g4-howto-icon"><img src="images/icon-lupita.png" alt=""></div>
-              <div class="g4-howto-text">Analiza las publicaciones de Frida y detecta patrones.</div>
+          <div class="instr-divider"><span><img src="images/icon-bombilla.png" class="emoji-icon" alt="">¿Cómo jugar?</span></div>
+
+          <div class="instr-steps">
+            <div class="instr-step">
+              <div class="instr-step-num">1</div>
+              <div class="instr-step-icon instr-step-icon-plain">
+                <img src="images/icon-lupita.png" alt="">
+              </div>
+              <div class="instr-step-body">
+                <div class="instr-step-title">Analiza cada publicación.</div>
+                <div class="instr-step-desc">Revisa las publicaciones de Frida y descubre qué revela cada una por sí sola.</div>
+              </div>
             </div>
-            <div class="g4-howto-divider"></div>
-            <div class="g4-howto-row">
-              <div class="g4-howto-icon"><img src="images/icon-mini-calendario.png" alt=""></div>
-              <div class="g4-howto-text">Luego, organiza los datos según qué tan sensibles pueden ser.</div>
+            <div class="instr-step">
+              <div class="instr-step-num">2</div>
+              <div class="instr-step-icon instr-step-icon-plain">
+                <img src="images/icon-mini-calendario.png" alt="">
+              </div>
+              <div class="instr-step-body">
+                <div class="instr-step-title">Cruza combinaciones.</div>
+                <div class="instr-step-desc">Elige combinaciones de publicaciones y descubre qué información nueva —y qué riesgos— se pueden deducir al juntarlas.</div>
+              </div>
+            </div>
+            <div class="instr-step">
+              <div class="instr-step-num">3</div>
+              <div class="instr-step-icon instr-step-icon-plain">
+                <img src="images/icon-paso-riesgo.png" alt="">
+              </div>
+              <div class="instr-step-body">
+                <div class="instr-step-title">Clasifica el riesgo.</div>
+                <div class="instr-step-desc">Arrastra cada dato al nivel de riesgo que creas que le corresponde.</div>
+              </div>
             </div>
           </div>
 
@@ -742,28 +764,35 @@
           </div>
 
           <div class="phish-cta-wrap">
-            <button type="button" class="btn coral phish-cta" id="g4ToDossierBtn" disabled>Ver expediente →</button>
+            <button type="button" class="btn coral phish-cta" id="g4ToDossierBtn" disabled>Ver resultado →</button>
           </div>
         </div>
 
-        <!-- ===== CIERRE: expediente ===== -->
+        <!-- ===== CIERRE: violentómetro de exposición ===== -->
         <div class="dash" id="g4Dash" hidden style="margin-top:18px;">
-          <div class="phish-step-label">Resultado</div>
           <div class="inline-result retro-window">
-            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">PERFIL_RECONSTRUIDO.exe</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
+            <div class="retro-titlebar"><span class="rt-dots"><span></span><span></span><span></span></span><span class="rt-title">Radar de Riesgo</span><span class="rt-controls"><span>–</span><span>▢</span><span>×</span></span></div>
             <div class="retro-body">
               <span class="retro-sparkle s1">✦</span><span class="retro-sparkle s2">✧</span>
-              <div class="dossier" id="g4Dossier">
-                <div class="dossier-head"><img src="images/icon-detective.png" class="emoji-icon" alt="Detective"> Así quedó el expediente de Frida</div>
-                <ul class="dossier-list g4-bars" id="g4DossierBars">
-                  <li class="g4-bar"><span class="g4-bar-label">Dirección y ubicaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:90%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Rutina semanal</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:70%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Trabajo</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:55%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Relaciones</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:45%"></span></span></li>
-                  <li class="g4-bar"><span class="g4-bar-label">Fecha de nacimiento</span><span class="g4-bar-track"><span class="g4-bar-fill" style="--w:35%"></span></span></li>
-                </ul>
+              <div class="v-panel" id="g4Dossier">
+                <div class="v-head">
+                  <img src="images/icon-paso-observa.png" class="v-head-icon" alt="">
+                  <div class="v-head-sub">Así de cerca estuvo de que la ubicaran</div>
+                </div>
+
+                <div class="v-gauge" id="g4Meter"></div>
+
+                <div class="v-callout" id="g4Callout"></div>
+
+                <div class="v-cats">
+                  <div class="v-cats-title">Su exposición por categoría</div>
+                  <p class="v-cats-sub">Sube según las combinaciones que cruzaste y qué tan riesgoso clasificaste cada dato al arrastrarlo, no por solo haber visto las publicaciones.</p>
+                  <ul class="v-bars" id="g4DossierBars"></ul>
+                </div>
               </div>
-              <p class="msg">No publicaste toda esta información de una vez. Se fue construyendo a partir de pequeñas pistas.</p>
+
+              <p class="msg">En la vida real nadie publica todo de golpe: son datos sueltos y "sin importancia" los que, al cruzarse, arman el perfil completo de una persona.</p>
+
               <p class="msg" style="font-size:11.5px; opacity:.75; margin-top:6px;">Frida es un personaje ficticio. Este ejercicio es educativo y no mide el riesgo real de ningún perfil.</p>
               <div class="next-choices">
                 <button class="redo-btn" id="restartBtn4"><span class="k2">Ctrl</span><span class="k2">Z</span> Reiniciar</button>
@@ -862,7 +891,7 @@
         <div class="ne-title"><span class="ne-num">1.</span> Protege tus cuentas</div>
       </div>
       <div class="ne-desc">
-        Cambia las contraseñas afectadas y cierra sesiones desconocidas. Activa la verificación en dos pasos para mayor seguridad.
+        Cambia las contraseñas afectadas y cierra sesiones desconocidas. <b>Activa la verificación en dos pasos para mayor seguridad.</b>
       </div>
     </div>
 
@@ -872,7 +901,7 @@
         <div class="ne-title"><span class="ne-num">2.</span> Protege tu dinero</div>
       </div>
       <div class="ne-desc">
-        Si compartiste datos bancarios o hiciste una transferencia sospechosa, contacta a tu banco de inmediato. No compartas códigos de verificación.
+        Si compartiste datos bancarios o hiciste una transferencia sospechosa, contacta a tu banco de inmediato. <b>No compartas códigos de verificación.</b></b>
       </div>
     </div>
 
@@ -882,7 +911,7 @@
         <div class="ne-title"><span class="ne-num">3.</span> Guarda evidencia</div>
       </div>
       <div class="ne-desc">
-        Conserva capturas, mensajes, números y enlaces. No borres la conversación hasta tener la evidencia necesaria para reportar el incidente.
+        <b>Conserva capturas, mensajes, números y enlaces.</b> No borres la conversación hasta tener la evidencia necesaria para reportar el incidente.
       </div>
     </div>
 
@@ -897,7 +926,7 @@
           <li>El <b>Acceso</b> te permite saber qué datos tiene una empresa sobre ti y cómo los utiliza.</li>
           <li>La <b>Rectificación</b> permite corregir datos incorrectos o desactualizados.</li>
           <li>La <b>Cancelación</b> permite solicitar que sean eliminados cuando corresponda.</li>
-          <li>La <b>Oposición</b> permite negarte a determinados usos.</li>
+          <li>La <b>Oposición</b> permite negarte a determinados usos.</li><br>
         Para ejercerlos, presenta tu solicitud ante la empresa y guarda una copia.
       </div>
     </div>
@@ -2347,6 +2376,96 @@ const G4_FIELDS = [
 
 const g4State = { viewed:new Set(), comboChecked:new Set(), placed:{}, selectedField:null };
 
+/* ---- Motor del resultado dinámico ("violentómetro" de exposición) ----
+   Ver una publicación por sí sola NO suma nada: lo que sube el puntaje es
+   lo que la persona hizo activamente — qué combinaciones de pistas cruzó
+   y qué tan riesgoso clasificó cada dato al arrastrarlo. */
+const G4_CATS = [
+  { id:'direccion',  label:'Dirección y ubicaciones' },
+  { id:'rutina',     label:'Rutina semanal' },
+  { id:'trabajo',    label:'Trabajo' },
+  { id:'relaciones', label:'Relaciones' },
+  { id:'fecha',      label:'Fecha de nacimiento' },
+];
+const G4_COMBO_CONTRIB = {
+  c1: { rutina:35 },            // escuela + gimnasio -> rutina semanal completa
+  c2: { direccion:30 },         // dirección + "casa sola" -> ubicación más precisa
+  c3: {},                       // trabajo + cumpleaños -> a propósito no suman nada
+  c4: { trabajo:35, direccion:30 }, // identificación casi total
+  c5: { fecha:40 },             // fecha de nacimiento aproximada
+};
+/* A qué categoría pertenece cada dato de la ficha, y cuánto suma según
+   dónde lo arrastró la persona: mientras más riesgoso lo clasificó, más
+   sube esa categoría. "Poco relevante" no suma nada. */
+const G4_FIELD_CAT = { universidad:'rutina', direccion:'direccion', empresa:'trabajo', edad:'fecha', gimnasio:'rutina', horario:'rutina', vacio:'direccion', amigos:'relaciones' };
+const G4_PLACEMENT_WEIGHT = { rojo:30, amarillo:15, verde:0 };
+const G4_LEVELS = [
+  { max:20,  color:'#8FCB7C', emoji:'🟢', risk:'Riesgo mínimo', label:'Perfil casi invisible',
+    desc:'Con lo que cruzaste, a Frida todavía le costaría trabajo que la ubicaran o le predijeran la rutina.' },
+  { max:40,  color:'#F5D75B', emoji:'🟡', risk:'Riesgo bajo', label:'Deja algunas pistas sueltas',
+    desc:'Ya hay datos identificables, pero siguen dispersos entre varias publicaciones.' },
+  { max:60,  color:'#F2A65A', emoji:'🟠', risk:'Riesgo moderado', label:'Empieza a ser ubicable',
+    desc:'Cruzando un par de publicaciones ya se puede predecir dónde o cuándo encontrarla.' },
+  { max:80,  color:'#E2604F', emoji:'🔴', risk:'Riesgo alto', label:'Fácil de encontrar y predecir',
+    desc:'Con esto alguien podría ubicarla, anticipar su rutina o hacerse pasar por alguien de confianza.' },
+  { max:100, color:'#7A3B69', emoji:'🟣', risk:'Riesgo crítico', label:'Perfil totalmente reconstruido',
+    desc:'Dirección, rutina, trabajo y entorno cercano quedaron expuestos solo con unir publicaciones "normales".' },
+];
+const G4_CAT_COLORS = { direccion:'#C97363', rutina:'#D9A126', trabajo:'#4E9A92', relaciones:'#5F9E4D', fecha:'#7A3B69' };
+function g4ComputeExposure(){
+  const totals={}; G4_CATS.forEach(c=> totals[c.id]=0);
+  G4_COMBOS.forEach(c=>{
+    if(!g4State.comboChecked.has(c.id)) return;
+    const contrib=G4_COMBO_CONTRIB[c.id]||{};
+    Object.keys(contrib).forEach(k=> totals[k]+=contrib[k]);
+  });
+  Object.keys(g4State.placed).forEach(id=>{
+    const cat=G4_FIELD_CAT[id]; if(!cat) return;
+    totals[cat] += G4_PLACEMENT_WEIGHT[g4State.placed[id]] || 0;
+  });
+  G4_CATS.forEach(c=> totals[c.id]=Math.min(100, totals[c.id]));
+  return totals;
+}
+function g4LevelFor(score){ return G4_LEVELS.find(l=> score<=l.max) || G4_LEVELS[G4_LEVELS.length-1]; }
+function g4RenderResults(){
+  const totals=g4ComputeExposure();
+  const vals=Object.values(totals);
+  const score=Math.round(vals.reduce((a,b)=>a+b,0)/vals.length);
+  const level=g4LevelFor(score);
+  const needleDeg = -90 + (Math.min(100,Math.max(0,score))/100)*180;
+
+  const meter=document.getElementById('g4Meter');
+  if(meter){
+    meter.innerHTML = `
+      <div class="v-gauge-arc">
+        <div class="v-gauge-fill"></div>
+        <div class="v-gauge-needle" style="transform:translateX(-50%) rotate(${needleDeg}deg)"></div>
+        <div class="v-gauge-center"></div>
+      </div>
+      <div class="v-gauge-badge" style="border-color:${level.color}">
+        <span class="v-gauge-score">${score}<small>/100</small></span>
+        <span class="v-gauge-risk" style="color:${level.color}">${level.risk}</span>
+      </div>`;
+  }
+
+  const callout=document.getElementById('g4Callout');
+  if(callout){
+    callout.style.borderColor=level.color;
+    callout.innerHTML = `
+      <div class="v-callout-icon">${level.emoji}</div>
+      <div>
+        <div class="v-callout-title">${level.label}</div>
+        <p class="v-callout-desc">${level.desc}</p>
+      </div>`;
+  }
+
+  const bars=document.getElementById('g4DossierBars');
+  if(bars){
+    bars.innerHTML = G4_CATS.map(c=>`
+      <li class="v-bar"><span class="v-bar-label">${c.label}</span><span class="v-bar-track"><span class="v-bar-fill" style="--w:${totals[c.id]}%; background:${G4_CAT_COLORS[c.id]}"></span></span><span class="v-bar-pct">${totals[c.id]}%</span></li>`).join('');
+  }
+}
+
 /* ---- Pantalla A, paso 1: mockup de Instagram ---- */
 function g4RenderGrid(){
   const grid=document.getElementById('g4IgGrid');
@@ -2503,6 +2622,7 @@ document.getElementById('g4ToDossierBtn').addEventListener('click', ()=>{
   if(document.getElementById('g4ToDossierBtn').disabled) return;
   document.getElementById('g4ScreenB').hidden=true;
   hideStepProgress('game4');
+  g4RenderResults();
   const dash=document.getElementById('g4Dash');
   dash.hidden=false;
   dash.scrollIntoView({behavior:'smooth', block:'start'});
@@ -2520,6 +2640,8 @@ function g4ResetAll(){
   g4RenderCombos();
   g4RenderFields();
   document.getElementById('g4Dash').hidden=true;
+  const meterEl=document.getElementById('g4Meter'); if(meterEl) meterEl.innerHTML='';
+  const calloutEl=document.getElementById('g4Callout'); if(calloutEl) calloutEl.innerHTML='';
   document.getElementById('g4ScreenB').hidden=true;
   document.getElementById('g4ScreenA').hidden=false;
   showStepProgress('game4');
