@@ -147,24 +147,28 @@
 
     <div class="game-menu" id="gameMenu">
       <button type="button" class="game-card teal" data-game="1">
+        <div class="g-diff g-diff-facil">🟢 Fácil</div>
         <div class="g-num">01</div>
         <div class="g-title">Desliza y decide</div>
         <div class="g-desc">Mensajes cotidianos. ¿Confías o sospechas?</div>
         <div class="g-go">Jugar →</div>
       </button>
       <button type="button" class="game-card coral" data-game="2">
+        <div class="g-diff g-diff-medio">🟡 Intermedio</div>
         <div class="g-num">02</div>
         <div class="g-title">¿Correo real o engaño?: Arma tu phishing</div>
         <div class="g-desc">Construye un correo y descubre qué tan convincente puede parecer.</div>
         <div class="g-go">Jugar →</div>
       </button>
       <button type="button" class="game-card green" data-game="3">
+        <div class="g-diff g-diff-medio">🟡 Intermedio</div>
         <div class="g-num">03</div>
         <div class="g-title">Chat de presión</div>
         <div class="g-desc">Situaciones cotidianas en WhatsApp. ¿Qué harías?</div>
         <div class="g-go">Jugar →</div>
       </button>
       <button type="button" class="game-card yellow" data-game="4">
+        <div class="g-diff g-diff-dificil">🔴 Difícil</div>
         <div class="g-num">04</div>
         <div class="g-title">Reconstruye el perfil</div>
         <div class="g-desc">Descubre qué información puede revelar la combinación de varios datos.</div>
@@ -543,7 +547,7 @@
 
     <div class="how-to-play how-to-play-icon">
       <img src="images/icon-chatrespuesta.png" alt="" class="how-to-play-icon-img">
-      <div>Es un chat estilo WhatsApp: te van llegando mensajes de distintas personas. Lee cada uno y elige la respuesta que tomarías en esa situación.</div>
+      <div>Vas a chatear con una persona a la vez (puede ser una llamada, un mensaje de texto o un chat de venta, según el escenario). <b>Lee lo que te dice y elige la respuesta que tomarías.</b></div>
     </div>
 
     <div class="game-start" id="game3Start">
@@ -733,7 +737,7 @@
 
           <!-- Paso 2: combinaciones -->
           <div id="g4ComboStep" hidden>
-            <p class="g4-screen-sub">Selecciona combinaciones de publicaciones y descubre qué información nueva se puede deducir al juntarlas.</p>
+            <p class="g4-screen-sub"><strong>Combina publicaciones.</strong> Selecciona dos o más y descubre qué se puede deducir al juntarlas.</p>
             <div class="phish-progress" id="g4ProgressCombo"><!-- puntos inyectados por JS: una marca por combinación --></div>
             <div class="g4-combo-list" id="g4ComboList"><!-- combos inyectados por JS --></div>
             <div class="phish-cta-wrap">
@@ -744,26 +748,27 @@
 
         <!-- ===== PANTALLA B: Construye el perfil ===== -->
         <div class="g4-screen" id="g4ScreenB" hidden>
-          <p class="g4-screen-sub">Arrastra (o toca) cada dato y colócalo donde creas que corresponde.</p>
+          <p class="g4-screen-sub"><strong>Clasifica el riesgo.</strong> Arrastra cada dato a 🟢 Bajo, 🟡 Medio o 🔴 Alto. Mientras más alto lo clasifiques, más sube el resultado.</p>
 
           <div class="g4-field-grid" id="g4FieldGrid"><!-- campos inyectados por JS --></div>
 
           <div class="g4-dropzones" id="g4Dropzones">
             <div class="g4-dropzone" data-cat="verde">
-              <div class="g4-dropzone-head">🟢 Poco relevante</div>
+              <div class="g4-dropzone-head">🟢 Bajo</div>
               <div class="g4-dropzone-list" data-list="verde"></div>
             </div>
             <div class="g4-dropzone" data-cat="amarillo">
-              <div class="g4-dropzone-head">🟡 Puede revelar contexto</div>
+              <div class="g4-dropzone-head">🟡 Medio</div>
               <div class="g4-dropzone-list" data-list="amarillo"></div>
             </div>
             <div class="g4-dropzone" data-cat="rojo">
-              <div class="g4-dropzone-head">🔴 Puede facilitar un engaño</div>
+              <div class="g4-dropzone-head">🔴 Alto</div>
               <div class="g4-dropzone-list" data-list="rojo"></div>
             </div>
           </div>
 
           <div class="phish-cta-wrap">
+            <button type="button" class="btn ghost phish-cta" id="g4BackToComboBtn">← Elegir otras combinaciones</button>
             <button type="button" class="btn coral phish-cta" id="g4ToDossierBtn" disabled>Ver resultado →</button>
           </div>
         </div>
@@ -784,9 +789,12 @@
 
                 <div class="v-callout" id="g4Callout"></div>
 
+                <div class="v-legend" id="g4Legend"></div>
+                <p class="v-cats-sub" style="margin:-6px 0 18px;">Escala del resultado final — distinta al 🟢🟡🔴 de cada dato.</p>
+
                 <div class="v-cats">
                   <div class="v-cats-title">Su exposición por categoría</div>
-                  <p class="v-cats-sub">Sube según las combinaciones que cruzaste y qué tan riesgoso clasificaste cada dato al arrastrarlo, no por solo haber visto las publicaciones.</p>
+                  <p class="v-cats-sub">Sube según lo que combinaste y el riesgo que le diste a cada dato.</p>
                   <ul class="v-bars" id="g4DossierBars"></ul>
                 </div>
               </div>
@@ -2008,32 +2016,32 @@ const CHAT_SCENARIOS = {
     cardClass:'sc-card-trabajo', image:'images/scenario-trabajo.png',
     icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="17" height="11" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3.5 12.5h17"/><path d="M10.5 12.5h3v1.6h-3z"/></svg>', title:'Escenario de trabajo', desc:'Tu director te escribe mientras está en una junta.',
     avatarInit:'DC', name:'David Contreras', role:'Dirección General',
-    intro:'Hola, disculpa que te escriba por acá, ya no traigo mi otro cel a la mano. ¿Andas cerca de la compu?',
+    intro:'Hola, disculpa que te escriba por aquí, no traigo mi otro celular a la mano. ¿Tienes la computadora cerca?',
     steps:[
       { boss:'Necesito que me ayudes con algo del banco antes de que cierre la sucursal, ¿tienes un momento?',
-        options:[ {text:'Sí, dime qué necesitas.', zeroTrust:false}, {text:'Sí, pero mejor te marco tantito para no batallar por mensaje, ¿te contesta este número?', zeroTrust:true} ] },
+        options:[ {text:'Sí, dime qué necesitas.', zeroTrust:false}, {text:'Sí, pero mejor te llamo para no complicarnos por mensaje, ¿te contesta este número?', zeroTrust:true} ] },
       { boss:{
-          risky:'Perfecto. Es una transferencia de $45,000 a un proveedor, urgente porque si no la hacemos hoy nos cobran penalización. Ahorita te paso los datos.',
-          safe:'Ando por entrar a una llamada y no voy a poder contestar, mejor sigamos por aquí. Es una transferencia de $45,000 urgente, si no la hacemos hoy hay penalización.'
+          risky:'Perfecto. Es una transferencia de $45,000 a un proveedor, urgente porque si no la hacemos hoy nos cobran una penalización. Ahora te paso los datos.',
+          safe:'Estoy a punto de entrar a una llamada y no voy a poder contestar, mejor sigamos por aquí. Es una transferencia de $45,000 urgente; si no la hacemos hoy hay penalización.'
         },
-        options:[ {text:'Ok, mándame los datos y la hago de una vez.', zeroTrust:false}, {text:'Va, pero para ese monto primero lo checo con Contabilidad, es el protocolo que tenemos.', zeroTrust:true} ] },
+        options:[ {text:'Está bien, mándame los datos y la hago de una vez.', zeroTrust:false}, {text:'De acuerdo, pero para ese monto primero lo reviso con Contabilidad, es el protocolo que tenemos.', zeroTrust:true} ] },
       { boss:{
-          risky:'Te mando los datos, es una cuenta nueva porque el proveedor cambió de banco esta semana. Avísame en cuanto esté.',
-          safe:'Nel, no da tiempo de meter a Contabilidad ahorita, la sucursal cierra en un rato. Es una cuenta nueva porque el proveedor cambió de banco esta semana.'
+          risky:'Te mando los datos, es una cuenta nueva porque el proveedor cambió de banco esta semana. Avísame en cuanto esté lista.',
+          safe:'No da tiempo de meter a Contabilidad ahorita, la sucursal cierra pronto. Es una cuenta nueva porque el proveedor cambió de banco esta semana.'
         },
-        options:[ {text:'Va, con eso me basta, ahí te aviso cuando esté.', zeroTrust:false}, {text:'Si cambió de cuenta, mejor le confirmo directo al proveedor antes de mandar nada.', zeroTrust:true} ] },
+        options:[ {text:'De acuerdo, con eso me basta, te aviso cuando esté lista.', zeroTrust:false}, {text:'Si cambió de cuenta, mejor le confirmo directo al proveedor antes de mandar nada.', zeroTrust:true} ] },
       { boss:{
-          risky:'Va, nomás hace falta un código que te va a llegar de la app del banco para autorizar, pásamelo en cuanto te llegue.',
-          safe:'Ok, tú checa lo del proveedor. Mientras te va a llegar un código de la app del banco por si hace falta autorizar, no se lo compartas a nadie más que a mí obvio jaja.'
+          risky:'De acuerdo, solo hace falta un código que te va a llegar de la app del banco para autorizar la transferencia. Pásamelo en cuanto te llegue.',
+          safe:'Está bien, tú revisa lo del proveedor. Mientras tanto te va a llegar un código de la app del banco por si hace falta autorizar; no se lo compartas a nadie más que a mí, claro.'
         },
-        options:[ {text:'Va, en cuanto me llegue te lo paso.', zeroTrust:false}, {text:'Esos códigos no los comparto ni contigo, si hace falta autorizo yo mismo desde la app.', zeroTrust:true} ] },
+        options:[ {text:'De acuerdo, en cuanto me llegue te lo paso.', zeroTrust:false}, {text:'Esos códigos no los comparto ni contigo, si hace falta autorizo yo mismo desde la app.', zeroTrust:true} ] },
       { boss:{
-          risky:'Oye ya se me hace tarde, ¿ya se procesó? Apúrale porfa que ya merito cierran.',
-          safe:'Ok tú checa con Contabilidad, yo mientras veo si hay otra forma de resolverlo. Gracias por la disposición de todos modos.'
+          risky:'Oye, ya se me hace tarde, ¿ya se procesó? Apúrale por favor que ya están por cerrar.',
+          safe:'Está bien, tú revisa con Contabilidad, mientras yo veo si hay otra forma de resolverlo. Gracias por la disposición de todos modos.'
         },
         options:{
           risky:[ {text:'Ya casi, dame un minuto y te confirmo.', zeroTrust:false}, {text:'Espera, antes de mandarla quiero confirmar esto contigo por videollamada, dos minutos.', zeroTrust:true} ],
-          safe:[ {text:'Va, en cuanto Contabilidad me confirme lo hacemos.', zeroTrust:true}, {text:'Mejor ya no los distraigo, te la hago de una vez para no atrasarte más.', zeroTrust:false} ]
+          safe:[ {text:'De acuerdo, en cuanto Contabilidad me confirme lo hacemos.', zeroTrust:true}, {text:'Mejor ya no los distraigo, te la hago de una vez para no atrasarte más.', zeroTrust:false} ]
         } }
     ],
     endMsgs:{
@@ -2046,32 +2054,32 @@ const CHAT_SCENARIOS = {
     cardClass:'sc-card-familia', image:'images/scenario-familia.png',
     icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="2.6"/><path d="M4 19c0-3 2.2-5 5-5s5 2 5 5"/><circle cx="17" cy="9" r="2.1"/><path d="M14.7 19c.2-2.4 1.6-4 3.3-4 1.9 0 3.4 1.7 3.6 4"/></svg>', title:'Escenario familiar', desc:'Tu hermana te escribe desde un número que no tienes guardado.',
     avatarInit:'MR', name:'Mariana (tu hermana)', role:'Número nuevo · hoy',
-    intro:'Hola, soy yo, cambié de número porque se me perdió el cel. ¿Ocupada?',
+    intro:'Hola, soy yo, cambié de número porque perdí el celular. ¿Estás ocupada?',
     steps:[
       { boss:'Necesito que me ayudes con algo del seguro del coche, si no pago hoy me lo dan de baja.',
-        options:[ {text:'Uy sí dime, ¿de cuánto es?', zeroTrust:false}, {text:'Sí, nada más dame un toque, te marco a tu número de siempre.', zeroTrust:true} ] },
+        options:[ {text:'Sí, dime, ¿de cuánto es?', zeroTrust:false}, {text:'Sí, nada más dame un momento, te llamo a tu número de siempre.', zeroTrust:true} ] },
       { boss:{
-          risky:'Son $3,800. Te paso el número de cuenta, es de un conocido porque la mía la tengo bloqueada por lo del cel.',
-          safe:'Es que se me quedó el otro cel en el Uber, ya no tengo forma de contestar ahí. Son $3,800, te paso una cuenta de un conocido porque la mía está bloqueada por lo del cel.'
+          risky:'Son $3,800. Te paso el número de cuenta, es de un conocido porque la mía está bloqueada por lo del celular.',
+          safe:'Es que se me quedó el otro celular en el Uber, ya no tengo forma de contestar ahí. Son $3,800, te paso una cuenta de un conocido porque la mía está bloqueada por lo del celular.'
         },
-        options:[ {text:'Va, pásamela y te transfiero.', zeroTrust:false}, {text:'Mejor dame chance de confirmar contigo por otro lado, aunque sea un mensaje de voz.', zeroTrust:true} ] },
+        options:[ {text:'De acuerdo, pásamela y te transfiero.', zeroTrust:false}, {text:'Mejor dame oportunidad de confirmar contigo por otro lado, aunque sea un mensaje de voz.', zeroTrust:true} ] },
       { boss:{
-          risky:'Te mando los datos ahorita. Es a nombre de mi vecino, él me está echando la mano mientras arreglo lo del banco.',
-          safe:'Uy es que ahorita no puedo grabar nada, ando en la calle. Es a nombre de mi vecino, me está echando la mano mientras arreglo lo del banco.'
+          risky:'Te mando los datos ahora. Es a nombre de mi vecino, él me está ayudando mientras arreglo lo del banco.',
+          safe:'Es que ahorita no puedo grabar nada, estoy en la calle. Es a nombre de mi vecino, me está ayudando mientras arreglo lo del banco.'
         },
         options:[ {text:'Está bien, si es de confianza se la mando.', zeroTrust:false}, {text:'Una cuenta de alguien que no conozco no me da confianza, mejor espero a hablar contigo.', zeroTrust:true} ] },
       { boss:{
           risky:'Gracias en serio, luego te la regreso. Solo que se me hace tarde, ¿la puedes hacer ya?',
-          safe:'Ntc, entiendo. Es que de verdad si no pago hoy me quitan el seguro y ya nadie me presta en la familia.'
+          safe:'No te preocupes, entiendo. Es que de verdad si no pago hoy me quitan el seguro y ya nadie me presta en la familia.'
         },
-        options:[ {text:'Va, te la hago ahorita mismo.', zeroTrust:false}, {text:'Aunque sea urgente, prefiero esperar a poder confirmar que sí eres tú.', zeroTrust:true} ] },
+        options:[ {text:'De acuerdo, te la hago ahorita mismo.', zeroTrust:false}, {text:'Aunque sea urgente, prefiero esperar a poder confirmar que sí eres tú.', zeroTrust:true} ] },
       { boss:{
           risky:'Gracias de verdad, me salvaste. Al rato te marco de este mismo número para platicar con calma.',
-          safe:'Ok, entonces espero a que puedas confirmar. Ojalá se resuelva rápido porque sí ando batallando.'
+          safe:'Está bien, entonces espero a que puedas confirmar. Ojalá se resuelva rápido porque de verdad la estoy pasando difícil.'
         },
         options:{
-          risky:[ {text:'No hay bronca, cualquier cosa me avisas.', zeroTrust:false}, {text:'Antes de cualquier otra cosa, sí quiero que hablemos por videollamada para confirmar que de verdad eres tú.', zeroTrust:true} ],
-          safe:[ {text:'Yo creo que sí eres tú, mejor ya te la mando para que no batalles más.', zeroTrust:false}, {text:'Voy a esperar a confirmarlo, aunque sea un poco incómodo.', zeroTrust:true} ]
+          risky:[ {text:'No hay problema, cualquier cosa me avisas.', zeroTrust:false}, {text:'Antes de cualquier otra cosa, sí quiero que hablemos por videollamada para confirmar que de verdad eres tú.', zeroTrust:true} ],
+          safe:[ {text:'Creo que sí eres tú, mejor ya te la mando para que no tengas más problemas.', zeroTrust:false}, {text:'Voy a esperar a confirmarlo, aunque sea un poco incómodo.', zeroTrust:true} ]
         } }
     ],
     endMsgs:{
@@ -2102,14 +2110,14 @@ const CHAT_SCENARIOS = {
           risky:'Le va a llegar un código a su celular, es solo para confirmar que es el titular antes de cancelar el cargo. Démelo cuando le llegue.',
           safe:'Como guste. De todos modos si ve algo raro en la app hay un botón para reportarlo directamente, ese sí es seguro usarlo.'
         },
-        options:[ {text:'Ok, en cuanto me llegue se lo doy.', zeroTrust:false}, {text:'Ese código no se lo voy a compartir a nadie, ni al banco. Si hace falta lo uso yo mismo en la app.', zeroTrust:true} ] },
+        options:[ {text:'Está bien, en cuanto me llegue se lo doy.', zeroTrust:false}, {text:'Ese código no se lo voy a compartir a nadie, ni al banco. Si hace falta lo uso yo mismo en la app.', zeroTrust:true} ] },
       { boss:{
           risky:'Perfecto, con eso quedaría cancelado el cargo y protegida su cuenta. Gracias por su paciencia.',
           safe:'Entiendo su precaución. Si prefiere, cuelgue y llame al número que tiene en el reverso de su tarjeta para dar seguimiento.'
         },
         options:{
-          risky:[ {text:'Va, gracias a ustedes por avisarme rápido.', zeroTrust:false}, {text:'De todos modos voy a colgar y confirmar todo esto marcando yo al número que tengo guardado del banco.', zeroTrust:true} ],
-          safe:[ {text:'Va a ser lo mejor, gracias por la información.', zeroTrust:true}, {text:'No, mejor ya termino esto con usted para no batallar después.', zeroTrust:false} ]
+          risky:[ {text:'Está bien, gracias a ustedes por avisarme rápido.', zeroTrust:false}, {text:'De todos modos voy a colgar y confirmar todo esto marcando yo al número que tengo guardado del banco.', zeroTrust:true} ],
+          safe:[ {text:'Va a ser lo mejor, gracias por la información.', zeroTrust:true}, {text:'No, mejor ya termino esto con usted para no complicarme después.', zeroTrust:false} ]
         } }
     ],
     endMsgs:{
@@ -2122,32 +2130,32 @@ const CHAT_SCENARIOS = {
     cardClass:'sc-card-compra', image:'images/scenario-compraventa.png',
     icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 4h2l1.6 10.2a2 2 0 0 0 2 1.7h7.3a2 2 0 0 0 2-1.6L19.8 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="16.5" cy="19.5" r="1.3"/></svg>', title:'Escenario de compra-venta', desc:'Un comprador quiere cerrar la compra rápidamente.',
     avatarInit:'CP', name:'Comprador interesado', role:'Chat de Marketplace',
-    intro:'Hola, ¿sigue disponible? Me late, si me lo apartas ahorita te pago de una vez.',
+    intro:'Hola, ¿sigue disponible? Me interesa, si me lo apartas ahora te pago de una vez.',
     steps:[
-      { boss:'Ya casi hago el pago por la plataforma, nomás confírmame el correo o teléfono con el que tienes tu cuenta para mandártelo bien.',
-        options:[ {text:'Va, es este correo, mándalo ahí.', zeroTrust:false}, {text:'Mejor mándalo directo desde tu cuenta al anuncio, ahí me debe llegar la notificación.', zeroTrust:true} ] },
+      { boss:'Ya voy a hacer el pago por la plataforma, solo confírmame el correo o teléfono con el que tienes tu cuenta para mandarlo bien.',
+        options:[ {text:'Claro, es este correo, mándalo ahí.', zeroTrust:false}, {text:'Mejor mándalo directo desde tu cuenta al anuncio, ahí me debe llegar la notificación.', zeroTrust:true} ] },
       { boss:{
           risky:'Ya lo mandé. La plataforma a veces tarda en reflejarlo, te paso el comprobante para que veas que sí es real.',
-          safe:'Ah ok, entonces ya lo mandé por ahí. A veces tarda en reflejarse, cualquier cosa te aviso.'
+          safe:'Ah, entiendo, entonces ya lo mandé por ahí. A veces tarda en reflejarse, cualquier cosa te aviso.'
         },
-        options:[ {text:'Va, mándame el comprobante para confirmar.', zeroTrust:false}, {text:'Prefiero esperar a que aparezca en mi cuenta antes de mover nada.', zeroTrust:true} ] },
+        options:[ {text:'Claro, mándame el comprobante para confirmar.', zeroTrust:false}, {text:'Prefiero esperar a que aparezca en mi cuenta antes de mover nada.', zeroTrust:true} ] },
       { boss:{
-          risky:'Aquí está. También te debe llegar un link para que confirmes que ya puedes preparar el envío, es de la misma plataforma.',
-          safe:'Va, no hay problema, nomás sí me urge un poco porque ya quedé con alguien de recogerlo hoy en la tarde.'
+          risky:'Aquí está. También te debe llegar un enlace para que confirmes que ya puedes preparar el envío, es de la misma plataforma.',
+          safe:'De acuerdo, no hay problema, solo que sí me urge un poco porque ya quedé con alguien de recogerlo hoy en la tarde.'
         },
-        options:[ {text:'Ok, abro el link para confirmar.', zeroTrust:false}, {text:'No voy a abrir ningún link, si el pago es real me va a aparecer directamente en mi cuenta.', zeroTrust:true} ] },
+        options:[ {text:'Está bien, abro el enlace para confirmar.', zeroTrust:false}, {text:'No voy a abrir ningún enlace, si el pago es real me va a aparecer directamente en mi cuenta.', zeroTrust:true} ] },
       { boss:{
-          risky:'Nomás falta que confirmes con un código para liberar el pago, si no, el sistema lo cancela solo.',
-          safe:'Va, entonces espero a que te aparezca. Ojalá se refleje pronto porque ya quedé de verlo hoy.'
+          risky:'Solo falta que confirmes con un código para liberar el pago; si no, el sistema lo cancela automáticamente.',
+          safe:'De acuerdo, entonces espero a que te aparezca. Ojalá se refleje pronto porque ya quedé de verlo hoy.'
         },
-        options:[ {text:'Va, dime cómo le hago para confirmarlo.', zeroTrust:false}, {text:'No voy a dar ningún código. Si el pago no aparece, mejor cancelamos la venta.', zeroTrust:true} ] },
+        options:[ {text:'Está bien, dime cómo le hago para confirmarlo.', zeroTrust:false}, {text:'No voy a dar ningún código. Si el pago no aparece, mejor cancelamos la venta.', zeroTrust:true} ] },
       { boss:{
-          risky:'Ya casi, nomás esa confirmación y quedamos. Es la única forma de que se libere el dinero.',
-          safe:'Ok, entonces espero. Ojalá se pueda resolver hoy porque de verdad me urge.'
+          risky:'Ya casi, solo falta esa confirmación y quedamos. Es la única forma de que se libere el dinero.',
+          safe:'Está bien, entonces espero. Ojalá se pueda resolver hoy porque de verdad me urge.'
         },
         options:{
-          risky:[ {text:'Va, ahí te la mando para acabar con esto.', zeroTrust:false}, {text:'No, hasta aquí. Prefiero perder la venta antes que compartir un código.', zeroTrust:true} ],
-          safe:[ {text:'Yo creo que ya no tarda, mejor lo hago manual para no perder la venta.', zeroTrust:false}, {text:'Sin problema, si no se refleja, simplemente no hay trato.', zeroTrust:true} ]
+          risky:[ {text:'De acuerdo, ahí te la mando para acabar con esto.', zeroTrust:false}, {text:'No, hasta aquí. Prefiero perder la venta antes que compartir un código.', zeroTrust:true} ],
+          safe:[ {text:'Creo que ya no tarda, mejor lo hago manual para no perder la venta.', zeroTrust:false}, {text:'Sin problema, si no se refleja, simplemente no hay trato.', zeroTrust:true} ]
         } }
     ],
     endMsgs:{
@@ -2398,17 +2406,32 @@ const G4_COMBO_CONTRIB = {
    dónde lo arrastró la persona: mientras más riesgoso lo clasificó, más
    sube esa categoría. "Poco relevante" no suma nada. */
 const G4_FIELD_CAT = { universidad:'rutina', direccion:'direccion', empresa:'trabajo', edad:'fecha', gimnasio:'rutina', horario:'rutina', vacio:'direccion', amigos:'relaciones' };
-const G4_PLACEMENT_WEIGHT = { rojo:30, amarillo:15, verde:0 };
+/* Peso por dato según en qué zona lo soltaron. Antes era un peso único (30/15/0)
+   para todos los datos, lo que hacía que categorías con un solo dato (trabajo,
+   relaciones, fecha) nunca pudieran llegar a 100 aunque el usuario marcara todas
+   las combinaciones y arrastrara todo a rojo. Ahora cada dato tiene su propio
+   peso, calculado para que "todas las combinaciones + todo en rojo" sume
+   exactamente 100 en cada una de las 5 categorías. */
+const G4_FIELD_WEIGHT = {
+  universidad: { rojo:22, amarillo:11, verde:0 },
+  gimnasio:    { rojo:22, amarillo:11, verde:0 },
+  horario:     { rojo:21, amarillo:10, verde:0 },
+  direccion:   { rojo:20, amarillo:10, verde:0 },
+  vacio:       { rojo:20, amarillo:10, verde:0 },
+  empresa:     { rojo:65, amarillo:32, verde:0 },
+  edad:        { rojo:60, amarillo:30, verde:0 },
+  amigos:      { rojo:100, amarillo:50, verde:0 },
+};
 const G4_LEVELS = [
-  { max:20,  color:'#8FCB7C', emoji:'🟢', risk:'Riesgo mínimo', label:'Perfil casi invisible',
+  { min:0,  max:20,  color:'#8FCB7C', emoji:'🟢', risk:'Riesgo mínimo', label:'Perfil casi invisible',
     desc:'Con lo que cruzaste, a Frida todavía le costaría trabajo que la ubicaran o le predijeran la rutina.' },
-  { max:40,  color:'#F5D75B', emoji:'🟡', risk:'Riesgo bajo', label:'Deja algunas pistas sueltas',
+  { min:21, max:40,  color:'#F5D75B', emoji:'🟡', risk:'Riesgo bajo', label:'Deja algunas pistas sueltas',
     desc:'Ya hay datos identificables, pero siguen dispersos entre varias publicaciones.' },
-  { max:60,  color:'#F2A65A', emoji:'🟠', risk:'Riesgo moderado', label:'Empieza a ser ubicable',
+  { min:41, max:60,  color:'#F2A65A', emoji:'🟠', risk:'Riesgo moderado', label:'Empieza a ser ubicable',
     desc:'Cruzando un par de publicaciones ya se puede predecir dónde o cuándo encontrarla.' },
-  { max:80,  color:'#E2604F', emoji:'🔴', risk:'Riesgo alto', label:'Fácil de encontrar y predecir',
+  { min:61, max:80,  color:'#E2604F', emoji:'🔴', risk:'Riesgo alto', label:'Fácil de encontrar y predecir',
     desc:'Con esto alguien podría ubicarla, anticipar su rutina o hacerse pasar por alguien de confianza.' },
-  { max:100, color:'#7A3B69', emoji:'🟣', risk:'Riesgo crítico', label:'Perfil totalmente reconstruido',
+  { min:81, max:100, color:'#7A3B69', emoji:'🟣', risk:'Riesgo crítico', label:'Perfil totalmente reconstruido',
     desc:'Dirección, rutina, trabajo y entorno cercano quedaron expuestos solo con unir publicaciones "normales".' },
 ];
 const G4_CAT_COLORS = { direccion:'#C97363', rutina:'#D9A126', trabajo:'#4E9A92', relaciones:'#5F9E4D', fecha:'#7A3B69' };
@@ -2421,7 +2444,8 @@ function g4ComputeExposure(){
   });
   Object.keys(g4State.placed).forEach(id=>{
     const cat=G4_FIELD_CAT[id]; if(!cat) return;
-    totals[cat] += G4_PLACEMENT_WEIGHT[g4State.placed[id]] || 0;
+    const w=G4_FIELD_WEIGHT[id]; if(!w) return;
+    totals[cat] += w[g4State.placed[id]] || 0;
   });
   G4_CATS.forEach(c=> totals[c.id]=Math.min(100, totals[c.id]));
   return totals;
@@ -2457,6 +2481,16 @@ function g4RenderResults(){
         <div class="v-callout-title">${level.label}</div>
         <p class="v-callout-desc">${level.desc}</p>
       </div>`;
+  }
+
+  const legend=document.getElementById('g4Legend');
+  if(legend){
+    legend.innerHTML = G4_LEVELS.map(l=>`
+      <div class="v-legend-row${l===level?' active':''}">
+        <span class="v-legend-emoji">${l.emoji}</span>
+        <span class="v-legend-range">${l.min}–${l.max}</span>
+        <span class="v-legend-name">${l.risk}</span>
+      </div>`).join('');
   }
 
   const bars=document.getElementById('g4DossierBars');
@@ -2554,8 +2588,14 @@ function g4RenderCombos(){
 document.getElementById('g4ToScreenBBtn').addEventListener('click', ()=>{
   document.getElementById('g4ScreenA').hidden=true;
   document.getElementById('g4ScreenB').hidden=false;
-  renderStepProgress('game4', 3, 2, {title:'Ficha de Frida'});
+  renderStepProgress('game4', 3, 2, {title:'Clasifica el riesgo'});
   document.getElementById('g4ScreenB').scrollIntoView({behavior:'smooth', block:'start'});
+});
+document.getElementById('g4BackToComboBtn').addEventListener('click', ()=>{
+  document.getElementById('g4ScreenB').hidden=true;
+  document.getElementById('g4ScreenA').hidden=false;
+  renderStepProgress('game4', 3, 1, {title:'Combina las pistas'});
+  document.getElementById('g4ScreenA').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
 /* ---- Pantalla B: ficha y drag&drop ---- */
@@ -2642,6 +2682,7 @@ function g4ResetAll(){
   document.getElementById('g4Dash').hidden=true;
   const meterEl=document.getElementById('g4Meter'); if(meterEl) meterEl.innerHTML='';
   const calloutEl=document.getElementById('g4Callout'); if(calloutEl) calloutEl.innerHTML='';
+  const legendEl=document.getElementById('g4Legend'); if(legendEl) legendEl.innerHTML='';
   document.getElementById('g4ScreenB').hidden=true;
   document.getElementById('g4ScreenA').hidden=false;
   showStepProgress('game4');
