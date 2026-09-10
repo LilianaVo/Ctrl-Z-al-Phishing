@@ -602,6 +602,7 @@ span.gmail-icon-btn:hover, .gmail-icon-btn:hover{ background:var(--gm-line); cur
 .kit-row{ display:flex; align-items:center; gap:16px; padding:16px 18px; }
 .kit-row + .kit-row{ border-top:3px dashed var(--peach-line); }
 .kit-ext{ flex:none; width:46px; height:46px; border-radius:10px; border:2.5px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10.5px; font-weight:800; text-transform:uppercase; }
+.kit-icon{ flex:none; width:54px; height:54px; object-fit:contain; display:block; }
 .kit-ext.teal{ background:var(--teal); } .kit-ext.coral{ background:var(--coral); } .kit-ext.cream{ background:#f0b429; }
 .kit-body{ min-width:0; flex:1; }
 .kit-body .k-title{ font-family:var(--font-display); font-weight:700; font-size:15.5px; }
